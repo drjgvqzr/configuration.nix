@@ -182,7 +182,7 @@
             BROWSER = "xdg-open";
             EDITOR = "nvim";
             GIT_PAGER = "less -R";
-            DOTREMINDRS = "$HOME/dx/Backups/remind/remind.rem";
+            DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             LEDGER_FILE = "$HOME/dx/Backups/finance/2025.journal";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
