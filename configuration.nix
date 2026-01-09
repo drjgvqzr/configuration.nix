@@ -11,19 +11,15 @@
                 url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
             }
         }/nixos"
-        #<nixpkgs/nixos/modules/profiles/hardened.nix>
         ./librewolf.nix
         ./sway.nix
-        ./misc/secrets.nix
         ./misc/thunderbird.nix
-        ./misc/vimium.nix
-        ./misc/uBlock.nix
-        ./misc/redirector.nix
         #./misc/printing.nix
     ];
     environment.systemPackages = with pkgs; [
         #CLI
         alejandra
+        android-tools
         any-nix-shell
         backgroundremover
         bat
@@ -52,6 +48,7 @@
         groff
         gtrash
         handlr-regex
+        heimdall
         hledger
         hyperfine
         iftop
@@ -84,6 +81,7 @@
         pulsemixer
         qrrs
         rclone
+        remind
         ripgrep
         ripgrep-all
         rsync
@@ -117,7 +115,7 @@
         hunspellDicts.hu_HU
         hyprpicker
         i3-swallow
-        perl540Packages.Apppapersway
+        perl5Packages.Apppapersway
         slurp
         swaybg
         swayidle
@@ -148,7 +146,7 @@
         #starsector # TEITW-HP9ON-A7HMK-WA6YA
         tor-browser
         ungoogled-chromium
-        webcord
+        #webcord
         zotero
     ];
     boot = {
@@ -191,13 +189,11 @@
             XDG_CONFIG_HOME = "$HOME/.config";
             XDG_DATA_HOME = "$HOME/.local/share";
             XDG_STATE_HOME = "$HOME/.local/state";
-            XDG_DESKTOP_DIR = "$HOME/dn";
+            XDG_DESKTOP_DIR = "$HOME/ar";
             XDG_DOCUMENTS_DIR = "$HOME/dx";
             XDG_DOWNLOAD_DIR = "$HOME/dn";
             XDG_MUSIC_DIR = "$HOME/mu";
             XDG_PICTURES_DIR = "$HOME/px";
-            XDG_PUBLICSHARE_DIR = "$HOME/dn";
-            XDG_TEMPLATES_DIR = "$HOME/dn";
             XDG_VIDEOS_DIR = "$HOME/vs";
         };
     };
@@ -272,7 +268,6 @@
             ];
     };
     programs = {
-        adb.enable = true;
         bash.shellInit = "export HISTFILE=/tmp/bash_history";
         command-not-found.enable = true;
         dconf.enable = true;
@@ -371,7 +366,7 @@
             loadModels = ["deepseek-r1:1.5b"];
         };
         pipewire = {
-            enable = true;
+            enable = false;
             alsa.enable = true;
             alsa.support32Bit = true;
             pulse.enable = true;
@@ -396,7 +391,7 @@
                 devices = {
                     "W520".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/W520_st-id);
                     "Mini".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Mini_st-id);
-                    "I3113".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/I3113_st-id);
+                    "Phone".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/phone_st-id);
                 };
                 folders = {
                     "ar" = {
@@ -429,7 +424,7 @@
                         devices = [
                             "Mini"
                             "W520"
-                            "I3113"
+                            "Phone"
                         ];
                         versioning = {
                             type = "trashcan";
@@ -442,7 +437,7 @@
                         devices = [
                             "Mini"
                             "W520"
-                            "I3113"
+                            "Phone"
                         ];
                         versioning = {
                             type = "trashcan";
@@ -455,7 +450,7 @@
                         devices = [
                             "Mini"
                             "W520"
-                            "I3113"
+                            "Phone"
                         ];
                         versioning = {
                             type = "trashcan";
@@ -515,6 +510,22 @@
         backupFileExtension = "backup";
     };
     home-manager.users.soma = {
+        accounts.email.accounts = {
+            mailbox = {
+                enable = true;
+                thunderbird.enable = true;
+                primary = true;
+                address = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/email);
+                realName = "John Smith";
+                userName = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/email);
+                imap.authentication = "plain";
+                imap.host = "imap.mailbox.org";
+                imap.port = 993;
+                smtp.authentication = "plain";
+                smtp.host = "smtp.mailbox.org";
+                smtp.port = 465;
+            };
+        };
         programs.aichat = {
             enable = true;
             settings = {
@@ -760,6 +771,7 @@
                 pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
                 nr = "doas systemctl restart iwd.service wg-quick-wg0.service";
                 y = "pipe-viewer";
+                wq = "wl-paste | xargs -I {} qrrs {}";
                 color = "pastel color";
                 tempmail = "mailsy";
                 yd = "yt-dlp";
@@ -799,7 +811,7 @@
                 p = "mpv *";
                 cdn = "cd ~/dn";
                 cdx = "cd ~/dx";
-                cdc = "cd ~/dx/nixos";
+                cdc = "cd ~/dx/nixos/misc";
                 b = "btop";
                 wgu = "doas systemctl start wg-quick-wg0.service";
                 wgd = "doas systemctl stop wg-quick-wg0.service";
@@ -940,7 +952,7 @@
                     scrollback-home = "Control+Home";
                     scrollback-end = "Control+End";
                     show-urls-copy = "Control+y";
-                    search-start = "Control+Shift+r";
+                    search-start = "Control+r";
                 };
             };
         };
@@ -1025,7 +1037,8 @@
             enable = true;
             config = {
                 data.location = "/home/soma/dx/Backups/task";
-                verbose = "blank,header,footnote,label,new-id,affected,edit,special,project,sync,override,recur";
+                #verbose = "blank,header,footnote,label,new-id,affected,edit,special,project,sync,override,recur";
+                verbose = "nothing";
             };
         };
         programs.mpv = {
@@ -1040,7 +1053,7 @@
                 #audio-display = "no";
                 msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no";
                 term-osd-bar = "yes";
-                really-quiet = "yes";
+                #really-quiet = "yes";
                 slang = "en,de";
                 #ytdl-raw-options = "sub-langs=\"en,en-orig,de,hu\"";
                 sid = "no";
@@ -1093,6 +1106,8 @@
                 ">" = "ignore";
                 "<" = "ignore";
                 "h" = "ignore";
+                "k" = "ignore";
+                "TAB" = "ignore";
                 "1" = "ignore";
                 "2" = "ignore";
                 "3" = "ignore";
@@ -1309,6 +1324,7 @@
                 desktop = "/home/soma/ar";
                 documents = "/home/soma/dx";
                 download = "/home/soma/dn";
+                music = "/home/soma/mu";
                 pictures = "/home/soma/px";
                 videos = "/home/soma/vs";
             };
@@ -1387,6 +1403,7 @@
                 show_swap = true;
                 swap_disk = false;
                 net_sync = false;
+                check_temp = false;
             };
         };
         programs.yt-dlp = {
@@ -1505,38 +1522,11 @@
                     target = ".config/pulse/client.conf";
                     text = "cookie-file = ~/.config/pulse/cookie";
                 };
-                violentmonkey = {
-                    enable = false;
-                    force = true;
-                    target = ".librewolf/default/browser-extension-data/{aecec67f-0d10-4fa7-b7c7-609a2db280cf}/storage.js";
-                    source = "/home/soma/dx/nixos/misc/violentmonkey";
-                };
                 links = {
                     enable = true;
                     force = true;
                     target = ".links";
                     source = "/home/soma/dx/nixos/misc/.links";
-                };
-                kitty_open = {
-                    enable = true;
-                    force = true;
-                    target = ".config/kitty/open-actions.conf";
-                    text = ''
-                        # Change directory in shell
-                        protocol file
-                        mime inode/directory
-                        action launch --cwd=$FILE_PATH --type=overlay
-
-                        #zathura swallow only from kitty
-                        protocol file
-                        mime application/pdf
-                        action launch --type=overlay swallow zathura %u
-
-                        #xdg-open
-                        protocol file
-                        *
-                        action launch --type=overlay xdg-open
-                    '';
                 };
             };
         };
