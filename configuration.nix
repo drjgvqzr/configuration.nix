@@ -103,7 +103,6 @@
         tree
         unoconv
         wget
-        when
         woeusb
         xdg-utils
         zbar
