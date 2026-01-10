@@ -390,8 +390,8 @@
             key = "/home/soma/dx/nixos/misc/secrets/${config.networking.hostName}_key.pem";
             settings = {
                 devices = {
-                    "W520".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/W520_st-id);
-                    "Mini".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Mini_st-id);
+                    "Backup".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/W520_st-id);
+                    "Laptop".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Mini_st-id);
                     "Phone".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/phone_st-id);
                 };
                 folders = {
@@ -399,8 +399,8 @@
                         path = "~/ar";
                         id = "ciwug-fwawa";
                         devices = [
-                            "Mini"
-                            "W520"
+                            "Laptop"
+                            "Backup"
                         ];
                         versioning = {
                             type = "trashcan";
@@ -411,8 +411,8 @@
                         path = "~/dn";
                         id = "eztfs-xg2pf";
                         devices = [
-                            "Mini"
-                            "W520"
+                            "Laptop"
+                            "Backup"
                             "Phone"
                         ];
                         versioning = {
@@ -424,8 +424,8 @@
                         path = "~/dx";
                         id = "oh2oz-9t565";
                         devices = [
-                            "Mini"
-                            "W520"
+                            "Laptop"
+                            "Backup"
                             "Phone"
                         ];
                         versioning = {
@@ -437,8 +437,8 @@
                         path = "~/mu";
                         id = "sytcm-5kzcc";
                         devices = [
-                            "Mini"
-                            "W520"
+                            "Laptop"
+                            "Backup"
                             "Phone"
                         ];
                         versioning = {
@@ -450,8 +450,8 @@
                         path = "~/ph";
                         id = "domno-sd3ps";
                         devices = [
-                            "Mini"
-                            "W520"
+                            "Laptop"
+                            "Backup"
                             "Phone"
                         ];
                         versioning = {
@@ -463,8 +463,8 @@
                         path = "~/px";
                         id = "d0ind-uzt2e";
                         devices = [
-                            "Mini"
-                            "W520"
+                            "Laptop"
+                            "Backup"
                             "Phone"
                         ];
                         versioning = {
@@ -476,8 +476,8 @@
                         path = "~/vs";
                         id = "7sr22-b5ui1";
                         devices = [
-                            "Mini"
-                            "W520"
+                            "Laptop"
+                            "Backup"
                         ];
                         versioning = {
                             type = "trashcan";
