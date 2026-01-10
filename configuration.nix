@@ -413,6 +413,7 @@
                         devices = [
                             "Mini"
                             "W520"
+                            "Phone"
                         ];
                         versioning = {
                             type = "trashcan";
@@ -464,6 +465,7 @@
                         devices = [
                             "Mini"
                             "W520"
+                            "Phone"
                         ];
                         versioning = {
                             type = "trashcan";
