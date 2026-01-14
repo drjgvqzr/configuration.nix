@@ -101,7 +101,7 @@
                         hideSlop = {
                             enabled = true;
                             badTitleRegex = "^.*#short.*$";
-                            minDuration = "00:03:00";
+                            minDuration = "00:02:00";
                         };
                         deArrow = {
                             enabled = true;

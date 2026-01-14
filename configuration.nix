@@ -222,7 +222,7 @@
     };
     i18n.defaultLocale = "en_US.UTF-8";
     networking = {
-        enableIPv6 = false;
+        enableIPv6 = true;
         extraHosts = "0.0.0.0 boards.4chan.org
         #0.0.0.0 inv.nadeko.net";
         dhcpcd.enable = false;
@@ -242,7 +242,7 @@
                     EnableNetworkConfiguration = true;
                     AddressRandomization = "network";
                 };
-                Network.EnableIPv6 = false;
+                Network.EnableIPv6 = true;
             };
         };
     };
