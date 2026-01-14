@@ -547,7 +547,7 @@
                                 };
                             }
                             {
-                                name = "qwen/qwen3-embedding-8b";
+                                name = "thenlper/gte-base";
                                 type = "embedding";
                             }
                         ];
@@ -569,7 +569,7 @@
                 wrap = "auto";
                 wrap_code = true;
                 keybindings = "vi";
-                rag_embedding_model = "openrouter:qwen/qwen3-embedding-8b";
+                #rag_embedding_model = "openrouter:qwen/qwen3-embedding-8b";
                 rag_chunk_size = 1000;
                 rag_chunk_overlap = 50;
                 document_loaders = {
