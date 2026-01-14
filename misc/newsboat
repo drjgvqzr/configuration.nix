@@ -1,18 +1,18 @@
-#"--- News ---"
-#" "
-#https://www.youtube.com/feeds/videos.xml?channel_id=UCSMqateX8OA2s1wsOR2EgJA #TLDR News
-#https://www.youtube.com/feeds/videos.xml?channel_id=UC-eegKVWEgBCa4OzjnK_PtA #TLDR News EU
-#https://www.youtube.com/feeds/videos.xml?channel_id=UC-uhvujip5deVcEtLxnW8qg #TLDR News Global
-#https://www.youtube.com/feeds/videos.xml?channel_id=UC8KFs307LrTkQCu-P1Fl6dw #EU Made Simple
-#https://feeds.libsyn.com/576240/rss #System Update with Glenn Greenwald
-#" "
-#" --- Magyarország ---"
-#" "
-#https://www.youtube.com/feeds/videos.xml?channel_id=UCEFpEvuosfPGlV1VyUF6QOA #Partizán
-#https://www.youtube.com/feeds/videos.xml?channel_id=UCGoLa-QhHmTxLEdjv_8dxrg #444.hu
-#https://www.youtube.com/feeds/videos.xml?channel_id=UCM-1sd-cXSuCsfWp8QMY_OQ #Telex․hu
-#https://www.youtube.com/feeds/videos.xml?channel_id=UC_fAjvoGnqySaNM6DRfFiCA #Pottyondy Edina
-#https://www.youtube.com/feeds/videos.xml?channel_id=UCXdzhpzafn01fPhbmfk9b8A #Különös történések a Szondi utcában
+"--- News ---"
+" "
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSMqateX8OA2s1wsOR2EgJA #TLDR News
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-eegKVWEgBCa4OzjnK_PtA #TLDR News EU
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-uhvujip5deVcEtLxnW8qg #TLDR News Global
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8KFs307LrTkQCu-P1Fl6dw #EU Made Simple
+https://feeds.libsyn.com/576240/rss #System Update with Glenn Greenwald
+" "
+" --- Magyarország ---"
+" "
+https://www.youtube.com/feeds/videos.xml?channel_id=UCEFpEvuosfPGlV1VyUF6QOA #Partizán
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGoLa-QhHmTxLEdjv_8dxrg #444.hu
+https://www.youtube.com/feeds/videos.xml?channel_id=UCM-1sd-cXSuCsfWp8QMY_OQ #Telex․hu
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_fAjvoGnqySaNM6DRfFiCA #Pottyondy Edina
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXdzhpzafn01fPhbmfk9b8A #Különös történések a Szondi utcában
 " "
 "--- Egyetem ---"
 " "
@@ -40,7 +40,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCkK9UDm_ZNrq_rIXCz3xCGA #Th
 " "
 "--- Blogs ---"
 " "
-https://annas-archive.org/blog/rss.xml #Anna's Blog
+https://annas-archive.li/blog/rss.xml #Anna's Blog
 https://cooklang.org/blog/index.xml #Cooklang
 https://drewdevault.com/blog/index.xml #Drew DeVault's blog
 https://grapheneos.social/@GrapheneOS.rss #GrapheneOS

@@ -383,7 +383,7 @@
                         r: https://www.reddit.com/search?q=%s Reddit
                         sr: https://www.reddit.com/r/%s/top?t=all Subreddit
                         fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
-                        lib: https://annas-archive.org/search?q=%s
+                        lib: https://annas-archive.li/search?q=%s
                         wl: https://search.wikileaks.org/?q=%s
                         elib: https://opac.elte.hu/Search/Results?lookfor=%s&type=AllFields
                         aw: https://wiki.archlinux.org/title/%s
@@ -512,7 +512,7 @@
                     };
                     library = {
                         name = "Library";
-                        urls = [{template = "https://annas-archive.org/search?q={searchTerms}";}];
+                        urls = [{template = "https://annas-archive.li/search?q={searchTerms}";}];
                         definedAliases = ["lib"];
                     };
                     wikileaks = {
