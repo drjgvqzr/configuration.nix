@@ -267,9 +267,9 @@
                         #    appliesTo = ["main_frame"];
                         #}
                         {
-                            includePattern = "https://en.wikipedia.org/wiki/*";
+                            includePattern = "https://*.wikipedia.org/wiki/*";
                             excludePattern = "*?useskin=minerva|*#*";
-                            redirectUrl = "https://en.wikipedia.org/wiki/$1?useskin=minerva#bodyContent";
+                            redirectUrl = "https://$1.wikipedia.org/wiki/$2?useskin=minerva#bodyContent";
                             appliesTo = ["main_frame"];
                         }
                         {
