@@ -146,7 +146,7 @@
         #starsector # TEITW-HP9ON-A7HMK-WA6YA
         tor-browser
         ungoogled-chromium
-        #webcord
+        vesktop
         zotero
     ];
     boot = {
