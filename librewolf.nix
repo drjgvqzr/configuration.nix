@@ -69,6 +69,7 @@
                 "browser.download.autohideButton" = true;
                 "browser.urlbar.suggest.engines" = false;
                 "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
+                "browser.translations.neverTranslateLanguages" = "hu";
                 "librewolf.hidePasswdmgr" = true;
                 "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                 "ui.systemUsesDarkTheme" = 1;
