@@ -242,7 +242,7 @@
                         }
                         {
                             includePattern = "https://*reddit.com/*";
-                            excludePattern = "*old.reddit.com*|*preview.redd.it*|*reddit.com/media*";
+                            excludePattern = "*old.reddit.com*|*preview.redd.it*|*reddit.com/media*|*reddit.com/gallery*";
                             redirectUrl = "https://old.reddit.com/$2";
                             appliesTo = ["main_frame"];
                         }
