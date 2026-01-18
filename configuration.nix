@@ -375,10 +375,10 @@
         resolved = {
             enable = true;
             settings.Resolve = {
+                DNS = config.networking.nameservers;
                 DNSOverTLS = "true";
                 DNSSEC = "true";
                 Domains = ["~."];
-                FallbackDNS = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
             };
         };
         syncthing = {
