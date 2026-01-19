@@ -6,7 +6,6 @@
 }: {
     home-manager.users.soma.programs.librewolf = {
         enable = true;
-        #package = pkgs.librewolf-bin;
         policies.ExtensionSettings = {
             "redirector@einaregilsson.com" = {
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/redirector/latest.xpi";
@@ -28,10 +27,6 @@
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/smartreader/latest.xpi";
                 installation_mode = "force_installed";
             };
-            #"{aecec67f-0d10-4fa7-b7c7-609a2db280cf}" = {
-            #    install_url = "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi";
-            #    installation_mode = "force_installed";
-            #};
             "sponsorBlocker@ajay.app" = {
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
                 installation_mode = "force_installed";
@@ -256,17 +251,6 @@
                             redirectUrl = "https://inv.nadeko.net/search";
                             appliesTo = ["main_frame"];
                         }
-                        #{
-                        #    includePattern = "https://*.fandom.com/wiki/*";
-                        #    redirectUrl = "https://breezewiki.com/$1/wiki/$2";
-                        #    appliesTo = ["main_frame"];
-                        #}
-                        #{
-                        #    includePattern = "https://github.com/*/*";
-                        #    excludePattern = "*/issues*|*/raw*|*/wiki*|*/releases*|*/discussions*|*/pull*|*/topics*";
-                        #    redirectUrl = "https://gothub.lunar.icu/$1/$2";
-                        #    appliesTo = ["main_frame"];
-                        #}
                         {
                             includePattern = "https://*.wikipedia.org/wiki/*";
                             excludePattern = "*?useskin=minerva|*#*";

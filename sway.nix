@@ -7,7 +7,6 @@
     home-manager.users.soma.wayland.windowManager.sway = {
         enable = true;
         extraConfig = ''
-            #exec autotiling-rs
             exec librewolf
             exec thunderbird
             exec fluffychat
@@ -50,7 +49,6 @@
                 commands = [
                     {
                         command = "opacity 0.75";
-                        #command = "opacity 1.00";
                         criteria.class = ".*";
                     }
                     {
@@ -84,8 +82,6 @@
             };
             keybindings = {
                 "mod1+Return" = "exec foot";
-                #"mod1+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-                #"mod1+Return" = "exec ${pkgs.kitty}/bin/kitty";
                 "mod1+c" = "kill";
                 "mod1+b" = "exec notify-send -e \"$(cat /sys/class/power_supply/BAT0/capacity)%\"";
                 "mod1+Shift+t" = "exec notify-send -e \"$(date \"+%H:%M\")\"";
@@ -104,19 +100,11 @@
                 "mod1+f" = "fullscreen";
                 "mod1+Shift+f" = "exec papersway-msg width toggle";
 
-                #"mod1+m" = "focus left";
-                #"mod1+n" = "focus down";
-                #"mod1+e" = "focus up";
-                #"mod1+i" = "focus right";
                 "mod1+m" = "exec papersway-msg focus left";
                 "mod1+n" = "focus down";
                 "mod1+e" = "focus up";
                 "mod1+i" = "exec papersway-msg focus right";
 
-                #"mod1+Shift+m" = "move left";
-                #"mod1+Shift+n" = "move down";
-                #"mod1+Shift+e" = "move up";
-                #"mod1+Shift+i" = "move right";
                 "mod1+Shift+m" = "exec papersway-msg move left";
                 "mod1+Shift+n" = "exec papersway-msg absorb-expel left";
                 "mod1+Shift+e" = "exec papersway-msg absorb-expel right";
@@ -128,25 +116,11 @@
                 "mod1+Ctrl+i" = "resize grow width";
 
                 "mod1+1" = "workspace number 1";
-                #"mod1+2" = "workspace number 2";
-                #"mod1+3" = "workspace number 3";
-                #"mod1+4" = "workspace number 4";
-                #"mod1+5" = "workspace number 5";
-                #"mod1+6" = "workspace number 6";
-                #"mod1+Left" = "workspace prev";
-                #"mod1+Right" = "workspace next";
                 "mod1+Tab" = "workspace back_and_forth";
 
                 "mod1+Shift+space" = "floating toggle";
                 "mod1+space" = "focus mode_toggle";
 
-                #"mod1+Shift+1" = "move container to workspace number 1";
-                #"mod1+Shift+2" = "move container to workspace number 2";
-                #"mod1+Shift+3" = "move container to workspace number 3";
-                #"mod1+Shift+4" = "move container to workspace number 4";
-                #"mod1+Shift+5" = "move container to workspace number 5";
-                #"mod1+Shift+6" = "move container to workspace number 6";
-                #"mod1+Shift+q" = "exit";
                 "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d \'\\n\' | wl-copy ; wl-paste\"";
 
                 "mod1+f1" = "exec doas ${pkgs.kbd}/bin/chvt 1";
