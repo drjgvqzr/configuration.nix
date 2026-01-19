@@ -199,8 +199,7 @@
     };
     fonts = {
         fontDir.enable = true;
-        #packages = with pkgs; [roboto-mono noto-fonts-color-emoji unifont];
-        packages = with pkgs; [roboto-mono unifont];
+        packages = with pkgs; [roboto-mono noto-fonts-color-emoji unifont];
         fontconfig = {
             enable = true;
             defaultFonts = {
