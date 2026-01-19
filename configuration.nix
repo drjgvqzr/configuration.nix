@@ -301,20 +301,9 @@
     ];
     system = {
         autoUpgrade.enable = true;
-        copySystemConfiguration = true;
         stateVersion = "24.11";
     };
-    systemd = {
-        network = {
-            enable = true;
-            wait-online.enable = false;
-            networks."10-lan" = {
-                matchConfig.Name = "enp0s25";
-                networkConfig.DHCP = "ipv4";
-            };
-        };
-        sleep.extraConfig = "HibernateDelaySec=1h";
-    };
+    systemd.sleep.extraConfig = "HibernateDelaySec=1h";
     services = {
         auto-cpufreq = {
             enable = true;
