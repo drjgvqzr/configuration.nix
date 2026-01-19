@@ -149,10 +149,7 @@
         zotero
     ];
     boot = {
-        kernelParams =
-            if config.networking.hostName == "Mini"
-            then ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"]
-            else [];
+        kernelParams = ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"];
         initrd = {
             checkJournalingFS = true;
             luks.devices."luks".allowDiscards = true;
@@ -160,13 +157,7 @@
         };
         kernelPackages = pkgs.linuxPackages_latest;
         loader = {
-            systemd-boot = {
-                enable = true;
-                configurationLimit =
-                    if config.networking.hostName == "Mini"
-                    then 500
-                    else 1;
-            };
+            systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
             timeout = 0;
         };
@@ -224,15 +215,12 @@
         extraHosts = "0.0.0.0 boards.4chan.org
         0.0.0.0 inv.nadeko.net";
         dhcpcd.enable = false;
-        hostName =
-            if builtins.pathExists /sys/kernel/btf/thinkpad_acpi
-            then "W520"
-            else "Mini";
+        hostName = "Laptop";
         nameservers = ["1.1.1.1"];
         networkmanager.enable = false;
         nftables.enable = true;
         useDHCP = false;
-        wg-quick.interfaces.wg0.configFile = "/home/soma/dx/nixos/misc/secrets/${config.networking.hostName}_wg.conf";
+        wg-quick.interfaces.wg0.configFile = "/home/soma/dx/nixos/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
             settings = {
@@ -386,13 +374,13 @@
             group = "users";
             openDefaultPorts = true;
             user = "soma";
-            cert = "/home/soma/dx/nixos/misc/secrets/${config.networking.hostName}_cert.pem";
-            key = "/home/soma/dx/nixos/misc/secrets/${config.networking.hostName}_key.pem";
+            cert = "/home/soma/dx/nixos/misc/secrets/cert.pem";
+            key = "/home/soma/dx/nixos/misc/secrets/key.pem";
             settings = {
                 devices = {
-                    "Backup".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/W520_st-id);
-                    "Laptop".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Mini_st-id);
-                    "Phone".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/phone_st-id);
+                    "Backup".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Backup_st-id);
+                    "Laptop".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Laptop_st-id);
+                    "Phone".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Phone_st-id);
                 };
                 folders = {
                     "ar" = {
