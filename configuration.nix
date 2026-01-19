@@ -606,7 +606,6 @@
             enable = true;
             config = {
                 data.location = "/home/soma/dx/Backups/task";
-                #verbose = "blank,header,footnote,label,new-id,affected,edit,special,project,sync,override,recur";
                 verbose = "nothing";
             };
         };
@@ -619,12 +618,10 @@
                 gapless-audio = "yes";
                 gpu-context = "wayland";
                 image-display-duration = "inf";
-                #audio-display = "no";
+                audio-display = "no";
                 msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no";
                 term-osd-bar = "yes";
-                #really-quiet = "yes";
                 slang = "en,de";
-                #ytdl-raw-options = "sub-langs=\"en,en-orig,de,hu\"";
                 sid = "no";
                 volume-max = "100";
                 osd-font = "Roboto Mono";
@@ -704,7 +701,6 @@
             defaultEditor = true;
             viAlias = true;
             vimdiffAlias = true;
-            #plugins = with pkgs.vimPlugins; [vim-wayland-clipboard nvimpager vim-manpager vim-plugin-AnsiEsc lightline-vim];
             plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors vim-plug];
             extraLuaConfig = ''
                 vim.o.shada = ""
@@ -934,10 +930,6 @@
                 "R" = "rotate";
             };
             options = {
-                #guioptions = "vh";
-                #adjust-open = "best-fit";
-                #inputbar-bg = "#000000";
-                #inputbar-fg = "#FFFFFF";
                 recolor = "true";
                 selection-clipboard = "clipboard";
             };
@@ -984,13 +976,11 @@
                 fragment-retries = "infinite";
                 extractor-retries = "infinite";
                 concurrent-fragments = 4;
-                #quiet = true;
                 progress = true;
                 embed-subs = true;
                 no-warnings = true;
                 audio-quality = 0;
-                #write-auto-subs = true;
-                #sub-langs = "en,en-orig,de";
+                write-auto-subs = true;
                 sub-langs = "en";
                 embed-chapters = true;
                 embed-thumbnail = true;
