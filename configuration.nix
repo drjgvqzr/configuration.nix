@@ -223,13 +223,13 @@
     networking = {
         enableIPv6 = true;
         extraHosts = "0.0.0.0 boards.4chan.org
-        #0.0.0.0 inv.nadeko.net";
+        0.0.0.0 inv.nadeko.net";
         dhcpcd.enable = false;
         hostName =
             if builtins.pathExists /sys/kernel/btf/thinkpad_acpi
             then "W520"
             else "Mini";
-        nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+        nameservers = ["1.1.1.1"];
         networkmanager.enable = false;
         nftables.enable = true;
         useDHCP = false;
