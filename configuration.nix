@@ -296,7 +296,7 @@
     swapDevices = [
         {
             device = "/var/lib/swapfile";
-            size = 16 * 1000;
+            size = 16000;
         }
     ];
     system = {
