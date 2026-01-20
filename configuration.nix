@@ -646,8 +646,10 @@
                 "c" = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
                 "]" = "script-binding stats/display-stats";
                 "\\" = "show-progress";
-                "=" = "add volume +5";
-                "-" = "add volume -5";
+                #"=" = "addnvolume +5";
+                #"-" = "add volume -5";
+                "=" = "ignore";
+                "-" = "ignore";
                 "0" = "cycle sub-visibility";
                 "9" = "add sub-delay +0.1";
                 "8" = "add sub-delay -0.1";
