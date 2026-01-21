@@ -244,6 +244,8 @@
     nixpkgs.config = {
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
+            "librewolf-bin-146.0.1-1"
+            "librewolf-bin-unwrapped-146.0.1-1"
         ];
         allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) [
@@ -819,7 +821,7 @@
                 enable = true;
                 latitude = 47.5;
                 longitude = 19;
-                temperature.night = 3000;
+                temperature.night = 2700;
             };
         };
         xdg = {
