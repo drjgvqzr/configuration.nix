@@ -131,7 +131,7 @@
         firefox
         fluffychat
         gimp
-        googleearth-pro
+        #googleearth-pro
         kdePackages.kdenlive
         kdePackages.kolourpaint
         kdiskmark
@@ -276,7 +276,7 @@
         };
         localsend.enable = true;
         nano.enable = false;
-        steam.enable = true;
+        steam.enable = false;
     };
     security = {
         doas = {
