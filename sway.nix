@@ -9,6 +9,7 @@
         extraConfig = ''
             exec librewolf
             exec thunderbird
+            exec logseq
             exec fluffychat
             exec mako
             exec papersway
