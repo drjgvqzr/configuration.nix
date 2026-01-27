@@ -79,6 +79,7 @@
         pipe-viewer
         poppler-utils
         presenterm
+        prismlauncher
         pulsemixer
         qrrs
         rclone
