@@ -86,14 +86,7 @@
                 "mod1+c" = "kill";
                 "mod1+b" = "exec notify-send -e \"$(cat /sys/class/power_supply/BAT0/capacity)%\"";
                 "mod1+Shift+t" = "exec notify-send -e \"$(date \"+%H:%M\")\"";
-                "mod1+Shift+s" = "exec iwctl station wlan0 scan";
                 "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
-                "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace number 7'";
-                "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace number 8'";
-                "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace number 9'";
-                "mod1+t" = "exec swaymsg '[app_id=\"thunderbird\"] focus' || exec thunderbird ; exec swaymsg 'workspace number 10'";
-                "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace number 11'";
-                "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace number 12'";
                 "mod1+r" = ''exec sh -c 'nixos_dir=~/dx/nixos ; git -C $nixos_dir diff --quiet "*.nix" && notify-send -e -t 5000 "No changes detected, exiting" && exit ; alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir ; notify-send -e -t 5000 "NixOS Rebuilding..." ; doas nice -n 19 nixos-rebuild switch &> $nixos_dir/misc/nixos-switch.log && generation=$(git -C $nixos_dir diff -U20 HEAD | aichat summarizewhat changed in my nixos config in one short sentence | sed 's/.$//' ) && git -C $nixos_dir commit -q -am "$generation" && git -C $nixos_dir push -q -u origin main && notify-send -e -t 5000 "Rebuild successful" || notify-send -e -t 5000 "Rebuild Failed" && exit '  '';
                 "mod1+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; [[ -n "$entry" ]] && nohup librewolf --new-tab $( echo -e "$password\n" | keepassxc-cli show -q -a URL dx/Backups/Keepass/keepass.kdbx "$entry" ) &> /dev/null & echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch "echo TOTP copied" ; wl-copy -c' '';
                 "mod1+Shift+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch "echo TOTP copied" ; wl-copy -c' '';
@@ -116,23 +109,21 @@
                 "mod1+Ctrl+i" = "resize grow width";
 
                 "mod1+1" = "workspace number 1";
+                "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace number 7'";
+                "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace number 8'";
+                "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace number 9'";
+                "mod1+t" = "exec swaymsg '[app_id=\"thunderbird\"] focus' || exec thunderbird ; exec swaymsg 'workspace number 10'";
+                "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace number 11'";
+                "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace number 12'";
                 "mod1+Tab" = "workspace back_and_forth";
 
                 "mod1+Shift+space" = "floating toggle";
                 "mod1+space" = "focus mode_toggle";
 
-                "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d \'\\n\' | wl-copy ; wl-paste\"";
-
-                "mod1+f1" = "exec doas ${pkgs.kbd}/bin/chvt 1";
-                "mod1+f2" = "exec doas ${pkgs.kbd}/bin/chvt 2";
-                "mod1+f3" = "exec doas ${pkgs.kbd}/bin/chvt 3";
-                "mod1+f4" = "exec doas ${pkgs.kbd}/bin/chvt 4";
-                "mod1+f5" = "exec doas ${pkgs.kbd}/bin/chvt 5";
-                "mod1+f6" = "exec doas ${pkgs.kbd}/bin/chvt 6";
+                #"Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d \'\\n\' | wl-copy ; wl-paste\"";
             };
         };
     };
-    home-manager.users.soma.services.swayosd.enable = true;
     home-manager.users.soma.services.avizo = {
         enable = true;
         settings = {
