@@ -12,7 +12,6 @@
             exec logseq
             exec fluffychat
             exec mako
-            exec papersway
             exec swaybg -m fill -i /home/soma/dx/nixos/misc/wallpaper.jpg
             bindsym XF86AudioMute exec volumectl toggle-mute
             bindsym XF86AudioRaiseVolume exec volumectl -u up
@@ -99,17 +98,16 @@
                 "mod1+Shift+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch "echo TOTP copied" ; wl-copy -c' '';
                 "Print" = "exec grim -g \"$(slurp)\"";
                 "mod1+f" = "fullscreen";
-                "mod1+Shift+f" = "exec papersway-msg width toggle";
 
-                "mod1+m" = "exec papersway-msg focus left";
+                "mod1+m" = "focus left";
                 "mod1+n" = "focus down";
                 "mod1+e" = "focus up";
-                "mod1+i" = "exec papersway-msg focus right";
+                "mod1+i" = "focus right";
 
-                "mod1+Shift+m" = "exec papersway-msg move left";
-                "mod1+Shift+n" = "exec papersway-msg absorb-expel left";
-                "mod1+Shift+e" = "exec papersway-msg absorb-expel right";
-                "mod1+Shift+i" = "exec papersway-msg move right";
+                "mod1+Shift+m" = "move left";
+                "mod1+Shift+n" = "move down";
+                "mod1+Shift+e" = "move up";
+                "mod1+Shift+i" = "move right";
 
                 "mod1+Ctrl+m" = "resize shrink width";
                 "mod1+Ctrl+n" = "resize shrink height";

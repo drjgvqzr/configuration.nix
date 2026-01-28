@@ -22,6 +22,7 @@
         alejandra
         android-tools
         any-nix-shell
+        autotiling-rs
         backgroundremover
         bat
         catdocx
@@ -116,7 +117,6 @@
         hunspellDicts.hu_HU
         hyprpicker
         i3-swallow
-        perl5Packages.Apppapersway
         slurp
         swaybg
         swayidle
@@ -244,8 +244,8 @@
     nixpkgs.config = {
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
-            "librewolf-bin-146.0.1-1"
-            "librewolf-bin-unwrapped-146.0.1-1"
+            "librewolf-bin-147.0.1-3"
+            "librewolf-bin-unwrapped-147.0.1-3"
         ];
         allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) [
