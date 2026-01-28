@@ -13,6 +13,7 @@
             exec fluffychat
             exec mako
             exec swaybg -m fill -i /home/soma/dx/nixos/misc/wallpaper.jpg
+            exec autotiling-rs
             bindsym XF86AudioMute exec volumectl toggle-mute
             bindsym XF86AudioRaiseVolume exec volumectl -u up
             bindsym XF86AudioLowerVolume exec volumectl -u down
