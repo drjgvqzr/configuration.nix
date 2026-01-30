@@ -135,6 +135,7 @@
         #googleearth-pro
         kdePackages.kolourpaint
         kdiskmark
+        libreoffice
         logseq
         lutris
         mullvad-browser
