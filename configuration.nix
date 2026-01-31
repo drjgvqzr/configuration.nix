@@ -277,7 +277,7 @@
         };
         localsend.enable = true;
         nano.enable = false;
-        steam.enable = false;
+        steam.enable = true;
     };
     security = {
         doas = {
