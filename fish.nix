@@ -194,7 +194,7 @@
             nt = "ping google.com";
             cdcook = "cd ~/dx/Backups/cook";
             pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
-            nr = "doas systemctl restart iwd.service wg-quick-wg0.service";
+            nr = "doas systemctl restart iwd.service wg-quick-wg0.service ; ping google.com";
             y = "pipe-viewer";
             wq = "wl-paste | xargs -I {} qrrs {}";
             color = "pastel color";
