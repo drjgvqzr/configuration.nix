@@ -245,8 +245,8 @@
     nixpkgs.config = {
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
-            "librewolf-bin-147.0.1-3"
-            "librewolf-bin-unwrapped-147.0.1-3"
+            "librewolf-bin-147.0.2-1"
+            "librewolf-bin-unwrapped-147.0.2-1"
         ];
         allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) [
