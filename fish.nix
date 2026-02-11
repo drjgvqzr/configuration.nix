@@ -182,6 +182,8 @@
             q = "qalc";
             o = "handlr open";
             remv = "vi ~/dx/Backups/remind/remind.rem";
+            reml = "rem -n | grep -v szülinap";
+            remc = "rem -cm";
             f = "yazi";
             qr = "qrrs";
             cr = "cook r (fd cook ~/dx/Backups/cook | fzf )";
