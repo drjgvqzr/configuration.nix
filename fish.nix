@@ -182,7 +182,7 @@
             q = "qalc";
             o = "handlr open";
             remv = "vi ~/dx/Backups/remind/remind.rem";
-            reml = "date \"+%Y/%m/%d %a\" | lolcat -i ; rem -n | grep -v szülinap | sort | sed 3q";
+            reml = "date \"+%Y/%m/%d %a\" | lolcat -i ; rem -n -b1 | grep -v szülinap | sort | sed 3q";
             remc = "rem -cm";
             f = "yazi";
             qr = "qrrs";
