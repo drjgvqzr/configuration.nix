@@ -638,6 +638,8 @@
                 mpris
             ];
             bindings = {
+                "Shift+RIGHT" = "seek 1";
+                "Shift+LEFT" = "seek -1";
                 "a" = "add video-pan-x  +0.1";
                 "s" = "add video-pan-x  -0.1";
                 "w" = "add video-pan-y  +0.1";
