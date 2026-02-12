@@ -61,6 +61,7 @@
         libnotify
         libqalculate
         links2
+        lolcat
         mailsy
         mapscii
         ncdu
