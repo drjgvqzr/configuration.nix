@@ -213,7 +213,6 @@
     i18n.defaultLocale = "en_US.UTF-8";
     networking = {
         enableIPv6 = true;
-        extraHosts = "0.0.0.0 boards.4chan.org";
         dhcpcd.enable = false;
         hostName = "Laptop";
         nameservers = ["1.1.1.1"];
