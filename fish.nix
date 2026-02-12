@@ -180,6 +180,7 @@
             "9" = "cd ..";
             d = "doas";
             q = "qalc";
+            untar = "tar xvf";
             o = "handlr open";
             remv = "vi ~/dx/Backups/remind/remind.rem";
             f = "yazi";
