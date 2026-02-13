@@ -182,7 +182,7 @@
             q = "qalc";
             untar = "tar xvf";
             o = "handlr open";
-            remv = "vi ~/dx/Backups/remind/remind.rem";
+            rv = "vi ~/dx/Backups/remind/remind.rem";
             f = "yazi";
             qr = "qrrs";
             cr = "cook r (fd cook ~/dx/Backups/cook | fzf )";
