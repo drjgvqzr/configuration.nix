@@ -75,7 +75,6 @@
         pastel
         pciutils
         pdftk
-        pinentry-all
         pipe-rename
         piper-tts
         pipe-viewer
@@ -229,7 +228,6 @@
                     EnableNetworkConfiguration = true;
                     AddressRandomization = "network";
                 };
-                Network.EnableIPv6 = true;
             };
         };
     };
@@ -628,6 +626,7 @@
                 volume-max = "100";
                 osd-font = "Roboto Mono";
                 sub-font = "Roboto Mono";
+                input-default-bindings = "true";
             };
             scriptOpts = {
                 stats.key_page_0 = "2";
@@ -815,7 +814,7 @@
                 enable = true;
                 settings = {
                     default-timeout = 5000;
-                    background-color = "#0000007F";
+                    background-color = "#000000BF";
                     border-color = "#AAAAAABF";
                 };
             };

@@ -88,28 +88,6 @@
                     doas rm -r /mnt/lost+found
                     doas chown -R "$USER":users /mnt/;
                     cd /mnt;'';
-            wformat = ''
-                [ "$(pwd)" = "/mnt" ] && cd ~
-                    ls /mnt 2>/dev/null || doas mkdir -p /mnt
-                    doas umount /mnt 2>/dev/null;
-                    doas parted -s /dev/mmcblk0 mklabel msdos;
-                    doas parted -s /dev/mmcblk0 mkpart primary 0% 100%;
-                    doas mkfs.ext4 -q /dev/mmcblk0p1 &>/dev/null;
-                    doas mount /dev/mmcblk0p1 /mnt/;
-                    doas rm -r /mnt/lost+found
-                    doas chown -R "$USER":users /mnt/;
-                    cd /mnt;'';
-            wmnt = ''
-                [ "$(pwd)" = "/mnt" ] && cd ~
-                    ls /mnt 2>/dev/null || doas mkdir -p /mnt
-                    doas umount /mnt 2>/dev/null;
-                    doas mount /dev/mmcblk0p1 /mnt/;
-                    doas chown -R "$USER":users /mnt/;
-                    cd /mnt;'';
-            wumnt = ''
-                [ "$(pwd)" = "/mnt" ] && cd ~
-                    ls /mnt 2>/dev/null || doas mkdir -p /mnt
-                    doas umount /mnt/;'';
             formatcomp = ''
                 [ "$(pwd)" = "/mnt" ] && cd ~
                     ls /mnt 2>/dev/null || doas mkdir -p /mnt
@@ -171,8 +149,6 @@
                     notify-send -e -t 5000 "Rebuild Failed"
                     return 1
                 }'';
-            pdfr = ''
-                pdftk $argv[1] cat 1-end"$argv[2]" output $(echo "$argv[1]" | sed 's/\.[^.]*$//')-"$argv[2]".pdf'';
             cb = ''curl -F "reqtype=fileupload" -F "time=72h" -F "fileToUpload=@$argv" https://litterbox.catbox.moe/resources/internals/api.php | wl-copy ; notify-send "File uploaded"'';
         };
         shellAbbrs = {
@@ -196,6 +172,7 @@
             nt = "ping google.com";
             cdcook = "cd ~/dx/Backups/cook";
             pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
+            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output $(echo "$argv[1]" | sed 's/\.[^.]*$//')-"$argv[2]".pdf'';
             nr = "doas systemctl restart iwd.service wg-quick-wg0.service ; ping google.com";
             y = "pipe-viewer";
             wq = "wl-paste | xargs -I {} qrrs {}";
@@ -262,7 +239,7 @@
             cdmnt = ''cd /mnt/'';
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
-            rl = "rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; date \"+%Y/%m/%d %R %A Now\" | lolcat";
+            rl = "rem -n -b1 | sort -r | tail -n 3 ; date \"+%Y/%m/%d %R %A Now\" | lolcat";
             rc = "rem -cm";
             rw = "rem -c+m";
             fastfetch = "fastfetch --logo nixos_old";

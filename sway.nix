@@ -120,7 +120,7 @@
                 "mod1+Shift+space" = "floating toggle";
                 "mod1+space" = "focus mode_toggle";
 
-                "Ctrl+Shift+c" = "exec sh -c \"wl-paste | tr -d \'\\n\' | wl-copy\"";
+                "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d \'\\n\' | wl-copy\"";
             };
         };
     };
