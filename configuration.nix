@@ -60,6 +60,7 @@
         jq
         libnotify
         libqalculate
+        libreoffice
         links2
         lolcat
         mailsy
