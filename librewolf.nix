@@ -190,6 +190,8 @@
                         www.google.com * 3p-script noop
                         www.hasznaltauto.hu * 3p-frame noop
                         www.hasznaltauto.hu * 3p-script noop
+                        messenger.com * 3p-frame noop
+                        messenger.com * 3p-script noop
                         imgur.com * 3p-script noop
                         www.jofogas.hu * 3p-script noop
                         login.live.com * 3p-script noop
