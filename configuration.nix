@@ -561,8 +561,8 @@
         programs.dircolors = {
             enable = true;
             settings = {
-                ".pdf" = "33";
-                ".pptx" = "01;33";
+                ".pdf" = "01;33";
+                ".pptx" = "01;93";
             };
         };
         programs.foot = {
