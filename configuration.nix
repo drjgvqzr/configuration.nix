@@ -561,8 +561,13 @@
         programs.dircolors = {
             enable = true;
             settings = {
-                ".pdf" = "01;33";
-                ".pptx" = "01;93";
+                ".pdf" = "01;93";
+                ".epub" = "01;93";
+                ".pptx" = "01;33";
+                ".docx" = "01;33";
+                ".odt" = "01;33";
+                ".xlsx" = "01;33";
+                ".rtf" = "01;33";
             };
         };
         programs.foot = {
