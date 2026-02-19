@@ -558,7 +558,13 @@
                 };
             };
         };
-        programs.dircolors.enable = true;
+        programs.dircolors = {
+            enable = true;
+            settings = {
+                ".pdf" = "33";
+                ".pptx" = "01;33";
+            };
+        };
         programs.foot = {
             enable = true;
             settings = {
