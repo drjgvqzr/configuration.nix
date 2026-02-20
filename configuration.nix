@@ -65,6 +65,7 @@
         lolcat
         mailsy
         mapscii
+        nautilus
         ncdu
         nixos-anywhere
         nix-search-tv
