@@ -157,6 +157,7 @@
             d = "doas";
             q = "qalc";
             untar = "tar xvf";
+            downscale = "mogrify -resize 50%";
             o = "handlr open";
             rv = "vi ~/dx/Backups/remind/remind.rem";
             f = "yazi";
