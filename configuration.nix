@@ -96,6 +96,7 @@
         stc-cli
         stress
         sunwait
+        thunar
         ticker
         tickrs
         timer
