@@ -96,7 +96,6 @@
         stc-cli
         stress
         sunwait
-        thunar
         ticker
         tickrs
         timer
@@ -505,6 +504,83 @@
                 smtp.authentication = "plain";
                 smtp.host = "smtp.mailbox.org";
                 smtp.port = 465;
+            };
+        };
+        programs.yazi = {
+            enable = true;
+            settings = {
+                mgr = {
+                    sort_by = "natural";
+                    sort_sensitive = false;
+                    sort_dir_first = true;
+                    sort_translit = true;
+                    show_symlink = true;
+                };
+            };
+            initLua = ''
+                require("full-border"):setup()
+                require("no-status"):setup()'';
+            keymap = {
+                confirm.prepend_keymap = [
+                    {
+                        on = ["i"];
+                        run = "close --submit";
+                    }
+                    {
+                        on = ["m"];
+                        run = "close";
+                    }
+                ];
+                mgr.prepend_keymap = [
+                    {
+                        on = ["m"];
+                        run = "leave";
+                    }
+                    {
+                        on = ["n"];
+                        run = "arrow 1";
+                    }
+                    {
+                        on = ["e"];
+                        run = "arrow -1";
+                    }
+                    {
+                        on = ["i"];
+                        run = "plugin smart-enter";
+                    }
+                    {
+                        on = ["N"];
+                        run = "find_arrow";
+                    }
+                    {
+                        on = ["E"];
+                        run = "find_arrow --previous";
+                    }
+                    {
+                        on = ["k"];
+                        run = "seek 5";
+                    }
+                    {
+                        on = ["j"];
+                        run = "seek -5";
+                    }
+                    {
+                        on = ["C-["];
+                        run = "escape";
+                    }
+                    {
+                        on = ["q"];
+                        run = "quit";
+                    }
+                    {
+                        on = ["C-c"];
+                        run = "close";
+                    }
+                    {
+                        on = ["C-z"];
+                        run = "suspend";
+                    }
+                ];
             };
         };
         programs.aichat = {
