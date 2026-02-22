@@ -757,6 +757,7 @@
                 ENTER = "playlist-next";
                 "ctrl+c" = "quit-watch-later";
                 SPACE = "cycle pause";
+                b = "script-binding sponsorblock/toggle";
             };
         };
         programs.neovim = {
