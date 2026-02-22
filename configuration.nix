@@ -732,6 +732,8 @@
                 "Shift+LEFT" = "seek -1";
                 RIGHT = "seek 5";
                 LEFT = "seek -5";
+                UP = "seek 60";
+                DOWN = "seek -60";
                 a = "add video-pan-x  +0.1";
                 s = "add video-pan-x  -0.1";
                 w = "add video-pan-y  +0.1";
