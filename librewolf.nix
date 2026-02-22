@@ -88,7 +88,6 @@
                 detectDarkTheme = false;
                 changeBrowserTheme = true;
                 enableForProtectedPages = true;
-                disabledFor = ["boards.4chan.org"];
             };
             extensions.settings = {
                 "extraneous@sysrqmagician.github.io".settings = {
