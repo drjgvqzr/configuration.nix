@@ -1090,7 +1090,7 @@
                 size = 24;
                 sway.enable = true;
             };
-            stateVersion = "24.11";
+            stateVersion = "26.05";
             preferXdgDirectories = true;
             file = {
                 mime_handlers = {
