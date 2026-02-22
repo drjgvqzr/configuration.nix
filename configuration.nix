@@ -991,8 +991,8 @@
                 "r" = "scroll down";
                 "s" = "scroll right";
                 "m" = "scroll left";
-                "n" = "scroll down";
-                "e" = "scroll up";
+                "n" = "scroll smooth-down";
+                "e" = "scroll smooth-up";
                 "i" = "scroll right";
                 "t" = "zoom in";
                 "d" = "zoom out";
