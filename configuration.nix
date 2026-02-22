@@ -746,17 +746,17 @@
                 "9" = "add sub-delay +0.1";
                 "8" = "add sub-delay -0.1";
                 "+" = "cycle video";
-                "_" = "cycle audio";
+                _ = "cycle audio";
                 ")" = "cycle sub";
-                "S" = "playlist-shuffle";
-                "q" = "quit-watch-later";
-                "o" = "multiply speed 1/1.1";
+                S = "playlist-shuffle";
+                q = "quit-watch-later";
+                o = "multiply speed 1/1.1";
                 "'" = "multiply speed 1.1";
-                "i" = "set speed 1.0";
-                "BS" = "playlist-prev";
-                "ENTER" = "playlist-next";
+                i = "set speed 1.0";
+                BS = "playlist-prev";
+                ENTER = "playlist-next";
                 "ctrl+c" = "quit-watch-later";
-                "SPACE" = "cycle pause";
+                SPACE = "cycle pause";
             };
         };
         programs.neovim = {
