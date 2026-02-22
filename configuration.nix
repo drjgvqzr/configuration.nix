@@ -755,6 +755,9 @@
                 o = "multiply speed 1/1.1";
                 "'" = "multiply speed 1.1";
                 i = "set speed 1.0";
+                HOME = "seek 0 absolute";
+                PGUP = "add chapter 1";
+                PGDWN = "add chapter -1";
                 BS = "playlist-prev";
                 ENTER = "playlist-next";
                 "ctrl+c" = "quit-watch-later";
