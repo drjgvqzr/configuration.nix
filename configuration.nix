@@ -302,7 +302,7 @@
     ];
     system = {
         autoUpgrade.enable = true;
-        stateVersion = "24.11";
+        #stateVersion = "24.11";
     };
     systemd.sleep.extraConfig = "HibernateDelaySec=1h";
     services = {
