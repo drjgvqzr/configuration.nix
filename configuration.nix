@@ -715,7 +715,7 @@
                 volume-max = "100";
                 osd-font = "Roboto Mono";
                 sub-font = "Roboto Mono";
-                input-default-bindings = true;
+                input-default-bindings = "yes";
             };
             scriptOpts = {
                 stats.key_page_0 = "2";
@@ -740,6 +740,8 @@
                 "c" = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
                 "]" = "script-binding stats/display-stats";
                 "\\" = "show-progress";
+                #"=" = "addnvolume +5";
+                #"-" = "add volume -5";
                 "=" = "ignore";
                 "-" = "ignore";
                 "0" = "cycle sub-visibility";
@@ -756,6 +758,36 @@
                 "BS" = "playlist-prev";
                 "ENTER" = "playlist-next";
                 "ctrl+c" = "quit-watch-later";
+                "[" = "ignore";
+                "y" = "ignore";
+                "{" = "ignore";
+                "}" = "ignore";
+                "p" = "ignore";
+                ">" = "ignore";
+                "<" = "ignore";
+                "h" = "ignore";
+                "k" = "ignore";
+                "TAB" = "ignore";
+                "1" = "ignore";
+                "2" = "ignore";
+                "3" = "ignore";
+                "4" = "ignore";
+                "5" = "ignore";
+                "6" = "ignore";
+                "7" = "ignore";
+                "Alt+0" = "ignore";
+                "Alt+1" = "ignore";
+                "Alt+2" = "ignore";
+                "Ctrl+s" = "ignore";
+                "Alt+s" = "ignore";
+                "v" = "ignore";
+                "W" = "ignore";
+                "j" = "ignore";
+                "z" = "ignore";
+                "x" = "ignore";
+                "e" = "ignore";
+                "/" = "ignore";
+                "`" = "ignore";
             };
         };
         programs.neovim = {
