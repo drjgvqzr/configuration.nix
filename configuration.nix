@@ -759,7 +759,7 @@
                 SPACE = "cycle pause";
                 l = "ab-loop";
                 L = "cycle-values loop-file \"inf\" \"no\"";
-                b = "script-binding sponsorblock";
+                b = "script-binding sponsorblock_minimal/sponsorblock";
             };
         };
         programs.neovim = {
