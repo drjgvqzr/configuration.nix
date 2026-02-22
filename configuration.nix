@@ -760,6 +760,8 @@
                 PGDWN = "add chapter -1";
                 BS = "playlist-prev";
                 ENTER = "playlist-next";
+                "." = "frame-step";
+                "," = "frame-back-step";
                 "ctrl+c" = "quit-watch-later";
                 SPACE = "cycle pause";
                 l = "ab-loop";
