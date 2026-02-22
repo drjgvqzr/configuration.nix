@@ -507,6 +507,10 @@
                 smtp.port = 465;
             };
         };
+        programs.thunderbird = {
+            enable = true;
+            profiles.default.isDefault = true;
+        };
         programs.yazi = {
             enable = true;
             settings = {
