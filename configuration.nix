@@ -908,7 +908,7 @@
                 };
                 zathura = {
                     name = "Zathura";
-                    exec = "zathura";
+                    exec = "zathura-sandbox";
                 };
                 transmission = {
                     name = "Transmission";

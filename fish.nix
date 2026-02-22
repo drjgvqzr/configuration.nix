@@ -238,6 +238,7 @@
             cdmnt = ''cd /mnt/'';
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
+            zathura = "zathura-sandbox";
             rl = "rem -n -b1 | sort -r | tail -n 3 ; date \"+%Y/%m/%d %R %A Now\" | lolcat";
             rc = "rem -cm";
             rw = "rem -c+m";

@@ -210,6 +210,7 @@
                         www.gsmarena.com * 3p-script noop
                         www.jofogas.hu * 3p-frame noop
                         www.jofogas.hu * 3p-script noop
+                        teams.microsoft.com * 3p-script noop
                         www.patreon.com cloudflare.com * noop
                         www.pinterest.com * 3p-script noop
                         www.pornhub.com * 3p-script noop
