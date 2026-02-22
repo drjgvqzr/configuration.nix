@@ -715,7 +715,7 @@
                 volume-max = "100";
                 osd-font = "Roboto Mono";
                 sub-font = "Roboto Mono";
-                input-default-bindings = "yes";
+                input-default-bindings = false;
             };
             scriptOpts = {
                 stats.key_page_0 = "2";
