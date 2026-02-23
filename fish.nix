@@ -158,6 +158,7 @@
             downscale = "mogrify -resize 50%";
             o = "handlr open";
             rv = "vi ~/dx/Backups/remind/remind.rem";
+            rvp = "vi ~/dx/Backups/remind/past.rem";
             f = "yazi";
             qr = "qrrs";
             cr = "cook r (fd cook ~/dx/Backups/cook | fzf )";
