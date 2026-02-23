@@ -214,7 +214,6 @@
     };
     i18n.defaultLocale = "en_US.UTF-8";
     networking = {
-        enableIPv6 = true;
         dhcpcd.enable = false;
         hostName = "Laptop";
         nameservers = ["1.1.1.1"];
@@ -345,7 +344,7 @@
         pipewire = {
             enable = true;
             alsa.enable = true;
-            alsa.support32Bit = true;
+            #alsa.support32Bit = true;
             pulse.enable = true;
         };
         playerctld.enable = true;
