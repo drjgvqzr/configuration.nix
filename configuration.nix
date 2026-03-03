@@ -172,6 +172,7 @@
         pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
         shells = with pkgs; [fish];
         sessionVariables = {
+            NIX_AUTO_RUN_INTERACTIVE = "1";
             BROWSER = "xdg-open";
             EDITOR = "nvim";
             GIT_PAGER = "less -R";
@@ -192,10 +193,8 @@
         };
     };
     fonts = {
-        fontDir.enable = true;
         packages = with pkgs; [roboto-mono noto-fonts-color-emoji unifont];
         fontconfig = {
-            enable = true;
             defaultFonts = {
                 monospace = ["Roboto Mono"];
                 serif = ["Roboto Mono"];
@@ -212,11 +211,10 @@
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
     };
-    i18n.defaultLocale = "en_US.UTF-8";
     networking = {
         dhcpcd.enable = false;
-        hostName = "Laptop";
-        nameservers = ["1.1.1.1"];
+        hostName = "laptop";
+        nameservers = ["9.9.9.9#dns.quad9.net"];
         networkmanager.enable = false;
         nftables.enable = true;
         useDHCP = false;
@@ -344,17 +342,15 @@
         pipewire = {
             enable = true;
             alsa.enable = true;
-            #alsa.support32Bit = true;
             pulse.enable = true;
         };
         playerctld.enable = true;
         resolved = {
             enable = true;
             settings.Resolve = {
-                DNS = config.networking.nameservers;
                 DNSOverTLS = "true";
                 DNSSEC = "true";
-                Domains = ["~."];
+                #Domains = ["~."];
             };
         };
         syncthing = {
@@ -470,7 +466,6 @@
             xkb.layout = "us";
             xkb.variant = "colemak_dh";
             xkb.options = "caps:backspace";
-            exportConfiguration = true;
         };
     };
     time.timeZone = "Europe/Budapest";
@@ -691,6 +686,8 @@
                     scrollback-end = "Control+End";
                     show-urls-copy = "Control+y";
                     search-start = "Control+Shift+r";
+                    scrollback-up-line = "Control+e";
+                    scrollback-down-line = "Control+n";
                 };
             };
         };
@@ -708,7 +705,6 @@
                 volume = "100";
                 term-osd-bar-chars = "[/|\\]";
                 gapless-audio = "yes";
-                gpu-context = "wayland";
                 image-display-duration = "inf";
                 audio-display = "no";
                 msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no";
@@ -879,7 +875,7 @@
         services = {
             batsignal = {
                 enable = true;
-                extraArgs = ["-D systemctl suspend-then-hibernate" "-e"];
+                extraArgs = ["-D notify-send \"Shutdown Imminent!\" ; sleep 60 ; grep -q \"Discharging\" /sys/class/power_supply/BAT0/status && systemctl suspend-then-hibernate" "-e"];
             };
             mako = {
                 enable = true;
