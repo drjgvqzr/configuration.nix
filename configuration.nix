@@ -875,7 +875,7 @@
         services = {
             batsignal = {
                 enable = true;
-                extraArgs = ["-D notify-send \"Shutdown Imminent!\" ; sleep 60 ; grep -q \"Discharging\" /sys/class/power_supply/BAT0/status && systemctl suspend-then-hibernate" "-e"];
+                extraArgs = ["-D systemctl suspend-then-hibernate" "-e"];
             };
             mako = {
                 enable = true;

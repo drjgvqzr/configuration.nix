@@ -51,7 +51,6 @@
                 "sidebar.verticalTabs" = true;
                 "sidebar.expandOnHoverMessage.dismissed" = true;
                 "sidebar.backupState" = "{\"command\":\"\",\"launcherWidth\":55,\"launcherExpanded\":false,\"launcherVisible\":true}";
-                "sidebar.main.tools" = "aichat";
                 "privacy.resistFingerprinting.letterboxing" = true;
                 "privacy.clearOnShutdown.history" = false;
                 "browser.download.useDownloadDir" = false;
@@ -225,6 +224,7 @@
                         www.rt.com * 3p-script noop
                         booru.soyjak.st * 3p-frame noop
                         booru.soyjak.st * 3p-script noop
+                        office.net * 3p-script noop
                         vocaroo.com * 3p-script noop
                         x.com * 3p-script noop
                         xhamster.com * 3p-script noop'';
