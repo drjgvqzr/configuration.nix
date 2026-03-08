@@ -733,6 +733,9 @@
                 LEFT = "seek -5";
                 UP = "seek 60";
                 DOWN = "seek -60";
+                MBTN_LEFT_DBL = "cycle fullscreen";
+                f = "cycle fullscreen";
+                "Ctrl+MBTN_LEFT" = "script-binding positioning/drag-to-pan";
                 a = "add video-pan-x  +0.1";
                 s = "add video-pan-x  -0.1";
                 w = "add video-pan-y  +0.1";
