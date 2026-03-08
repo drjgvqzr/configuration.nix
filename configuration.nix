@@ -350,7 +350,7 @@
             settings.Resolve = {
                 DNSOverTLS = "true";
                 DNSSEC = "true";
-                #Domains = ["~."];
+                Domains = ["~."];
             };
         };
         syncthing = {
