@@ -301,7 +301,7 @@
         autoUpgrade.enable = true;
         stateVersion = "26.05";
     };
-    systemd.sleep.extraConfig = "HibernateDelaySec=1h";
+    systemd.sleep.settings.Sleep.HibernateDelaySec = "1h";
     services = {
         auto-cpufreq = {
             enable = true;

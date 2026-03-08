@@ -389,7 +389,8 @@
                         et: https://www.etsy.com/search?q=%s
                         ya: https://yandex.com/search?text=%s&lr=10466
                         ali: https://www.aliexpress.com/w/wholesale-%s.html
-                        phil: https://plato.stanford.edu/search/searcher.py?query=%s'';
+                        phil: https://plato.stanford.edu/search/searcher.py?query=%s
+                        trends: https://trends.google.com/trends/explore?date=all&q=%s&hl=en-US'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -587,6 +588,11 @@
                         name = "Stanford Encyclopedia of Philosophy";
                         urls = [{template = "https://plato.stanford.edu/search/searcher.py?query={searchTerms}";}];
                         definedAliases = ["phil"];
+                    };
+                    trends = {
+                        name = "Google Trends";
+                        urls = [{template = "https://trends.google.com/trends/explore?date=all&q={searchTerms}&hl=en-US";}];
+                        definedAliases = ["trends"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
