@@ -699,7 +699,7 @@
                 gapless-audio = "yes";
                 image-display-duration = "inf";
                 audio-display = "no";
-                msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no";
+                msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,input=no";
                 term-osd-bar = "yes";
                 slang = "en,de";
                 sid = "no";
