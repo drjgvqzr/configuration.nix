@@ -693,20 +693,21 @@
         programs.mpv = {
             enable = true;
             config = {
-                fullscreen = "yes";
-                volume = "100";
+                fullscreen = true;
+                #volume = "100";
                 term-osd-bar-chars = "[/|\\]";
-                gapless-audio = "yes";
+                gapless-audio = true;
                 image-display-duration = "inf";
-                audio-display = "no";
+                audio-display = false;
                 msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,input=no";
-                term-osd-bar = "yes";
+                term-osd-bar = true;
                 slang = "en,de";
-                sid = "no";
+                sid = false;
                 volume-max = "100";
                 osd-font = "Roboto Mono";
                 sub-font = "Roboto Mono";
                 input-default-bindings = false;
+                osc = false;
             };
             scriptOpts = {
                 stats.key_page_0 = "2";
@@ -717,6 +718,7 @@
                 webtorrent-mpv-hook
                 sponsorblock-minimal
                 mpris
+                thumbnail
             ];
             bindings = {
                 "Shift+RIGHT" = "seek 1";
