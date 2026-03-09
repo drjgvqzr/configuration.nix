@@ -194,13 +194,11 @@
     };
     fonts = {
         packages = with pkgs; [roboto-mono noto-fonts-color-emoji unifont];
-        fontconfig = {
-            defaultFonts = {
-                monospace = ["Roboto Mono"];
-                serif = ["Roboto Mono"];
-                sansSerif = ["Roboto Mono"];
-                emoji = ["Noto Color Emoji"];
-            };
+        fontconfig.defaultFonts = {
+            monospace = ["Roboto Mono"];
+            serif = ["Roboto Mono"];
+            sansSerif = ["Roboto Mono"];
+            emoji = ["Noto Color Emoji"];
         };
     };
     hardware = {
@@ -221,11 +219,9 @@
         wg-quick.interfaces.wg0.configFile = "/home/soma/dx/nixos/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
-            settings = {
-                General = {
-                    EnableNetworkConfiguration = true;
-                    AddressRandomization = "network";
-                };
+            settings.General = {
+                EnableNetworkConfiguration = true;
+                AddressRandomization = "network";
             };
         };
     };
@@ -507,14 +503,12 @@
         };
         programs.yazi = {
             enable = true;
-            settings = {
-                mgr = {
-                    sort_by = "natural";
-                    sort_sensitive = false;
-                    sort_dir_first = true;
-                    sort_translit = true;
-                    show_symlink = true;
-                };
+            settings.mgr = {
+                sort_by = "natural";
+                sort_sensitive = false;
+                sort_dir_first = true;
+                sort_translit = true;
+                show_symlink = true;
             };
             initLua = ''
                 require("full-border"):setup()
