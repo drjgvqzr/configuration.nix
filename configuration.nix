@@ -708,7 +708,7 @@
                 osd-font = "Roboto Mono";
                 sub-font = "Roboto Mono";
                 input-default-bindings = false;
-                #osc = false;
+                osc = false;
             };
             scriptOpts = {
                 stats.key_page_0 = "2";
