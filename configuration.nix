@@ -604,7 +604,9 @@
                         models = [
                             {
                                 name = "deepseek-r1:1.5b";
-                                system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
+                                reasoning = {
+                                    exclude = true;
+                                };
                             }
                         ];
                     }
@@ -694,7 +696,6 @@
             enable = true;
             config = {
                 fullscreen = true;
-                #volume = "100";
                 term-osd-bar-chars = "[/|\\]";
                 gapless-audio = true;
                 image-display-duration = "inf";
@@ -719,6 +720,7 @@
                 sponsorblock-minimal
                 mpris
                 thumbnail
+                mpv-gallery-view
             ];
             bindings = {
                 "Shift+RIGHT" = "seek 1";
@@ -738,6 +740,7 @@
                 t = "add video-zoom   +0.1";
                 d = "add video-zoom   -0.1";
                 c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
+                m = "cycle mute";
                 "]" = "script-binding stats/display-stats";
                 "\\" = "show-progress";
                 "0" = "cycle sub-visibility";
