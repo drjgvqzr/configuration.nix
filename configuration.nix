@@ -719,10 +719,10 @@
                 webtorrent-mpv-hook
                 sponsorblock-minimal
                 mpris
-                thumbnail
-                #thumbfast
+                #thumbnail
+                thumbfast
                 mpv-gallery-view
-                #uosc
+                uosc
             ];
             bindings = {
                 "Shift+RIGHT" = "seek 1";
