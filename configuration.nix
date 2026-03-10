@@ -739,7 +739,7 @@
                 R = "cycle_values video-rotate 90 180 270 0";
                 t = "add video-zoom   +0.1";
                 d = "add video-zoom   -0.1";
-                c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
+                #c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
                 m = "cycle mute";
                 "]" = "script-binding stats/display-stats";
                 "\\" = "show-progress";
