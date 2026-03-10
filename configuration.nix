@@ -714,6 +714,7 @@
                 stats.key_page_0 = "2";
                 webtorrent.path = "/home/soma/tr/";
                 sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
+                thumbfast.network = "yes";
             };
             scripts = with pkgs.mpvScripts; [
                 webtorrent-mpv-hook
@@ -1051,13 +1052,12 @@
                 extractor-retries = "infinite";
                 concurrent-fragments = 4;
                 progress = true;
-                embed-subs = true;
                 no-warnings = true;
-                #write-auto-subs = true;
                 sub-langs = "en";
                 embed-chapters = true;
                 embed-thumbnail = true;
                 embed-metadata = true;
+                embed-subs = true;
                 sponsorblock-remove = "all";
             };
         };
