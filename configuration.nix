@@ -766,7 +766,7 @@
                 l = "ab-loop";
                 L = "cycle-values loop-file \"inf\" \"no\"";
                 b = "script-binding sponsorblock_minimal/sponsorblock";
-                g = "script-message contact-sheet-toggle";
+                g = "script-message playlist-view-toggle";
             };
         };
         programs.neovim = {
