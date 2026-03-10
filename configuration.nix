@@ -722,7 +722,7 @@
                 #thumbnail
                 thumbfast
                 mpv-gallery-view
-                mpv-osc-modern
+                uosc
             ];
             bindings = {
                 "Shift+RIGHT" = "seek 1";
