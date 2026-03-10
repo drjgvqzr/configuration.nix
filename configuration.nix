@@ -719,7 +719,8 @@
                 webtorrent-mpv-hook
                 sponsorblock-minimal
                 mpris
-                thumbnail
+                #thumbnail
+                thumbfast
                 mpv-gallery-view
             ];
             bindings = {

@@ -173,7 +173,7 @@
             cdcook = "cd ~/dx/Backups/cook";
             pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
             pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output $(echo "$argv[1]" | sed 's/\.[^.]*$//')-"$argv[2]".pdf'';
-            nr = "doas systemctl restart iwd.service wg-quick-wg0.service ; ping google.com";
+            nr = "doas systemctl restart iwd.service";
             y = "pipe-viewer";
             wq = "wl-paste | xargs -I {} qrrs {}";
             color = "pastel color";
