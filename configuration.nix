@@ -707,7 +707,7 @@
                 volume-max = "100";
                 osd-font = "Roboto Mono";
                 sub-font = "Roboto Mono";
-                input-default-bindings = false;
+                #input-default-bindings = false;
                 osc = false;
             };
             scriptOpts = {
@@ -766,7 +766,6 @@
                 l = "ab-loop";
                 L = "cycle-values loop-file \"inf\" \"no\"";
                 b = "script-binding sponsorblock_minimal/sponsorblock";
-                x = "script-message contact-sheet-toggle";
             };
         };
         programs.neovim = {
