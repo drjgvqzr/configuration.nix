@@ -714,16 +714,14 @@
                 stats.key_page_0 = "2";
                 webtorrent.path = "/home/soma/tr/";
                 sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
-                mpv_thumbnail_script.prefer_mpv = "no";
             };
             scripts = with pkgs.mpvScripts; [
                 webtorrent-mpv-hook
                 sponsorblock-minimal
                 mpris
-                #thumbfast
-                thumbnail
+                thumbfast
                 mpv-gallery-view
-                #uosc
+                uosc
             ];
             bindings = {
                 "Shift+RIGHT" = "seek 1";
