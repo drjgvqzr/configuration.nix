@@ -1053,8 +1053,7 @@
                 progress = true;
                 embed-subs = true;
                 no-warnings = true;
-                audio-quality = 0;
-                write-auto-subs = true;
+                #write-auto-subs = true;
                 sub-langs = "en";
                 embed-chapters = true;
                 embed-thumbnail = true;
