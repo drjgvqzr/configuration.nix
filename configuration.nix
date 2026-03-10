@@ -708,7 +708,7 @@
                 osd-font = "Roboto Mono";
                 sub-font = "Roboto Mono";
                 input-default-bindings = false;
-                osc = false;
+                #osc = false;
             };
             scriptOpts = {
                 stats.key_page_0 = "2";
@@ -719,10 +719,10 @@
                 webtorrent-mpv-hook
                 sponsorblock-minimal
                 mpris
-                #thumbnail
-                thumbfast
+                thumbnail
+                #thumbfast
                 mpv-gallery-view
-                uosc
+                #uosc
             ];
             bindings = {
                 "Shift+RIGHT" = "seek 1";
