@@ -370,6 +370,7 @@
                         we: https://en.wiktionary.org/wiki/%s#English Wiktionary
                         r: https://www.reddit.com/search?q=%s Reddit
                         sr: https://www.reddit.com/r/%s/top?t=all Subreddit
+                        pin: https://de.pinterest.com/search/pins/?q=%s
                         fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
                         lib: https://annas-archive.li/search?q=%s
                         wl: https://search.wikileaks.org/?q=%s
@@ -466,8 +467,8 @@
                     };
                     pinterest = {
                         name = "Pinterest";
-                        urls = [{template = "https://bn.bloat.cat/search.php?q={searchTerms}";}];
-                        definedAliases = ["p"];
+                        urls = [{template = "https://de.pinterest.com/search/pins/?q={searchTerms}";}];
+                        definedAliases = ["pin"];
                     };
                     maps = {
                         name = "Google Maps";
