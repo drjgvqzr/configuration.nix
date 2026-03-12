@@ -652,7 +652,7 @@
                 scrollback.lines = 100000;
                 cursor.underline-thickness = "2px";
                 mouse.hide-when-typing = true;
-                colors = {
+                colors-dark = {
                     background = "000000";
                     foreground = "ffffff";
                     regular0 = "000000";
