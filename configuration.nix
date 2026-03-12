@@ -236,17 +236,17 @@
         };
     };
     nixpkgs.config = {
-        permittedInsecurePackages = [
-            "googleearth-pro-7.3.6.10201"
-            "librewolf-bin-147.0.2-1"
-            "librewolf-bin-unwrapped-147.0.2-1"
-        ];
         allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) [
                 "googleearth-pro"
                 "steam"
                 "steam-unwrapped"
             ];
+        permittedInsecurePackages = [
+            "googleearth-pro-7.3.6.10201"
+            "librewolf-bin-147.0.2-1"
+            "librewolf-bin-unwrapped-147.0.2-1"
+        ];
     };
     programs = {
         bash.shellInit = "export HISTFILE=/tmp/bash_history";
@@ -458,10 +458,10 @@
         };
         thermald.enable = true;
         vnstat.enable = true;
-        xserver = {
-            xkb.layout = "us";
-            xkb.variant = "colemak_dh";
-            xkb.options = "caps:backspace";
+        xserver.xkb = {
+            layout = "us";
+            variant = "colemak_dh";
+            options = "caps:backspace";
         };
     };
     time.timeZone = "Europe/Budapest";
@@ -495,383 +495,385 @@
             smtp.host = "smtp.mailbox.org";
             smtp.port = 465;
         };
-        programs.thunderbird = {
-            enable = true;
-            profiles.default.isDefault = true;
-        };
-        programs.yazi = {
-            enable = true;
-            settings.mgr = {
-                sort_by = "natural";
-                sort_sensitive = false;
-                sort_dir_first = true;
-                sort_translit = true;
-                show_symlink = true;
+        programs = {
+            thunderbird = {
+                enable = true;
+                profiles.default.isDefault = true;
             };
-            initLua = ''
-                require("full-border"):setup()
-                require("no-status"):setup()'';
-            keymap = {
-                confirm.prepend_keymap = [
-                    {
-                        on = ["i"];
-                        run = "close --submit";
-                    }
-                    {
-                        on = ["m"];
-                        run = "close";
-                    }
+            yazi = {
+                enable = true;
+                settings.mgr = {
+                    sort_by = "natural";
+                    sort_sensitive = false;
+                    sort_dir_first = true;
+                    sort_translit = true;
+                    show_symlink = true;
+                };
+                initLua = ''
+                    require("full-border"):setup()
+                    require("no-status"):setup()'';
+                keymap = {
+                    confirm.prepend_keymap = [
+                        {
+                            on = ["i"];
+                            run = "close --submit";
+                        }
+                        {
+                            on = ["m"];
+                            run = "close";
+                        }
+                    ];
+                    mgr.prepend_keymap = [
+                        {
+                            on = ["m"];
+                            run = "leave";
+                        }
+                        {
+                            on = ["n"];
+                            run = "arrow 1";
+                        }
+                        {
+                            on = ["e"];
+                            run = "arrow -1";
+                        }
+                        {
+                            on = ["i"];
+                            run = "plugin smart-enter";
+                        }
+                        {
+                            on = ["N"];
+                            run = "find_arrow";
+                        }
+                        {
+                            on = ["E"];
+                            run = "find_arrow --previous";
+                        }
+                        {
+                            on = ["k"];
+                            run = "seek 5";
+                        }
+                        {
+                            on = ["j"];
+                            run = "seek -5";
+                        }
+                        {
+                            on = ["C-["];
+                            run = "escape";
+                        }
+                        {
+                            on = ["q"];
+                            run = "quit";
+                        }
+                        {
+                            on = ["C-c"];
+                            run = "close";
+                        }
+                        {
+                            on = ["C-z"];
+                            run = "suspend";
+                        }
+                    ];
+                };
+            };
+            aichat = {
+                enable = true;
+                settings = {
+                    clients = [
+                        {
+                            type = "openai-compatible";
+                            name = "openrouter";
+                            api_base = "https://openrouter.ai/api/v1";
+                            api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
+                            models = [
+                                {
+                                    name = "deepseek/deepseek-v3.2";
+                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
+                                    reasoning = {
+                                        exclude = true;
+                                    };
+                                }
+                                {
+                                    name = "thenlper/gte-base";
+                                    type = "embedding";
+                                }
+                            ];
+                        }
+                        {
+                            type = "openai-compatible";
+                            name = "ollama";
+                            api_base = "http://localhost:11434/v1";
+                            models = [
+                                {
+                                    name = "deepseek-r1:1.5b";
+                                    reasoning = {
+                                        exclude = true;
+                                    };
+                                }
+                            ];
+                        }
+                    ];
+                    save = true;
+                    save_session = false;
+                    wrap = "auto";
+                    wrap_code = true;
+                    keybindings = "vi";
+                    rag_embedding_model = "openrouter:thenlper/gte-base";
+                    rag_chunk_size = 1000;
+                    rag_chunk_overlap = 50;
+                    document_loaders = {
+                        pdf = "pdftotext $1 -";
+                        epub = "pandoc --to plain $1";
+                        docx = "pandoc --to plain $1";
+                        odt = "pandoc --to plain $1";
+                        pptx = "sh -c \"unoconv -d presentation -f pdf --stdout $1 |pdftotext - -\"";
+                    };
+                };
+            };
+            dircolors = {
+                enable = true;
+                settings = {
+                    ".pdf" = "01;93";
+                    ".epub" = "01;93";
+                    ".pptx" = "01;33";
+                    ".docx" = "01;33";
+                    ".odt" = "01;33";
+                    ".xlsx" = "01;33";
+                    ".rtf" = "01;33";
+                };
+            };
+            foot = {
+                enable = true;
+                settings = {
+                    main = {
+                        font = "Roboto Mono:size=14";
+                        selection-target = "clipboard";
+                        pad = "5x0";
+                    };
+                    bell.system = false;
+                    scrollback.lines = 100000;
+                    cursor.underline-thickness = "2px";
+                    mouse.hide-when-typing = true;
+                    colors-dark = {
+                        background = "000000";
+                        foreground = "ffffff";
+                        regular0 = "000000";
+                        regular1 = "aa0000";
+                        regular2 = "00aa00";
+                        regular3 = "aa5500";
+                        regular4 = "3333ff";
+                        regular5 = "aa00aa";
+                        regular6 = "00aaaa";
+                        regular7 = "aaaaaa";
+                        bright0 = "555555";
+                        bright1 = "ff5555";
+                        bright2 = "55ff55";
+                        bright3 = "ffff55";
+                        bright4 = "5555ff";
+                        bright5 = "ff55ff";
+                        bright6 = "55ffff";
+                        bright7 = "ffffff";
+                    };
+                    key-bindings = {
+                        clipboard-paste = "Control+v";
+                        scrollback-up-page = "Control+Page_Up";
+                        scrollback-down-page = "Control+Page_Down";
+                        scrollback-home = "Control+Home";
+                        scrollback-end = "Control+End";
+                        show-urls-copy = "Control+y";
+                        search-start = "Control+Shift+r";
+                        scrollback-up-line = "Control+e";
+                        scrollback-down-line = "Control+n";
+                    };
+                };
+            };
+            taskwarrior = {
+                enable = true;
+                config = {
+                    data.location = "/home/soma/dx/Backups/task";
+                    verbose = "nothing";
+                };
+            };
+            mpv = {
+                enable = true;
+                config = {
+                    fullscreen = true;
+                    term-osd-bar-chars = "[/|\\]";
+                    gapless-audio = true;
+                    image-display-duration = "inf";
+                    audio-display = false;
+                    msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,input=no";
+                    term-osd-bar = true;
+                    slang = "en,de";
+                    sid = false;
+                    volume-max = "100";
+                    osd-font = "Roboto Mono";
+                    sub-font = "Roboto Mono";
+                    input-default-bindings = false;
+                    osc = false;
+                };
+                scriptOpts = {
+                    stats.key_page_0 = "2";
+                    webtorrent.path = "/home/soma/tr/";
+                    sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
+                    thumbfast.network = "yes";
+                };
+                scripts = with pkgs.mpvScripts; [
+                    webtorrent-mpv-hook
+                    sponsorblock-minimal
+                    mpris
+                    thumbfast
+                    mpv-gallery-view
+                    uosc
                 ];
-                mgr.prepend_keymap = [
-                    {
-                        on = ["m"];
-                        run = "leave";
-                    }
-                    {
-                        on = ["n"];
-                        run = "arrow 1";
-                    }
-                    {
-                        on = ["e"];
-                        run = "arrow -1";
-                    }
-                    {
-                        on = ["i"];
-                        run = "plugin smart-enter";
-                    }
-                    {
-                        on = ["N"];
-                        run = "find_arrow";
-                    }
-                    {
-                        on = ["E"];
-                        run = "find_arrow --previous";
-                    }
-                    {
-                        on = ["k"];
-                        run = "seek 5";
-                    }
-                    {
-                        on = ["j"];
-                        run = "seek -5";
-                    }
-                    {
-                        on = ["C-["];
-                        run = "escape";
-                    }
-                    {
-                        on = ["q"];
-                        run = "quit";
-                    }
-                    {
-                        on = ["C-c"];
-                        run = "close";
-                    }
-                    {
-                        on = ["C-z"];
-                        run = "suspend";
-                    }
-                ];
-            };
-        };
-        programs.aichat = {
-            enable = true;
-            settings = {
-                clients = [
-                    {
-                        type = "openai-compatible";
-                        name = "openrouter";
-                        api_base = "https://openrouter.ai/api/v1";
-                        api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
-                        models = [
-                            {
-                                name = "deepseek/deepseek-v3.2";
-                                system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
-                                reasoning = {
-                                    exclude = true;
-                                };
-                            }
-                            {
-                                name = "thenlper/gte-base";
-                                type = "embedding";
-                            }
-                        ];
-                    }
-                    {
-                        type = "openai-compatible";
-                        name = "ollama";
-                        api_base = "http://localhost:11434/v1";
-                        models = [
-                            {
-                                name = "deepseek-r1:1.5b";
-                                reasoning = {
-                                    exclude = true;
-                                };
-                            }
-                        ];
-                    }
-                ];
-                save = true;
-                save_session = false;
-                wrap = "auto";
-                wrap_code = true;
-                keybindings = "vi";
-                rag_embedding_model = "openrouter:thenlper/gte-base";
-                rag_chunk_size = 1000;
-                rag_chunk_overlap = 50;
-                document_loaders = {
-                    pdf = "pdftotext $1 -";
-                    epub = "pandoc --to plain $1";
-                    docx = "pandoc --to plain $1";
-                    odt = "pandoc --to plain $1";
-                    pptx = "sh -c \"unoconv -d presentation -f pdf --stdout $1 |pdftotext - -\"";
+                bindings = {
+                    "Shift+RIGHT" = "seek 1";
+                    "Shift+LEFT" = "seek -1";
+                    RIGHT = "seek 5";
+                    LEFT = "seek -5";
+                    UP = "seek 60";
+                    DOWN = "seek -60";
+                    MBTN_LEFT_DBL = "cycle fullscreen";
+                    f = "cycle fullscreen";
+                    "Ctrl+MBTN_LEFT" = "script-binding positioning/drag-to-pan";
+                    a = "add video-pan-x  +0.1";
+                    s = "add video-pan-x  -0.1";
+                    w = "add video-pan-y  +0.1";
+                    r = "add video-pan-y  -0.1";
+                    R = "cycle_values video-rotate 90 180 270 0";
+                    t = "add video-zoom   +0.1";
+                    d = "add video-zoom   -0.1";
+                    c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
+                    m = "cycle mute";
+                    "]" = "script-binding stats/display-stats";
+                    "\\" = "show-progress";
+                    "0" = "cycle sub-visibility";
+                    "9" = "add sub-delay +0.1";
+                    "8" = "add sub-delay -0.1";
+                    "+" = "cycle video";
+                    _ = "cycle audio";
+                    ")" = "cycle sub";
+                    S = "playlist-shuffle";
+                    q = "quit-watch-later";
+                    o = "multiply speed 1/1.1";
+                    "'" = "multiply speed 1.1";
+                    i = "set speed 1.0";
+                    HOME = "seek 0 absolute";
+                    PGUP = "add chapter 1";
+                    PGDWN = "add chapter -1";
+                    BS = "playlist-prev";
+                    ENTER = "playlist-next";
+                    "." = "frame-step";
+                    "," = "frame-back-step";
+                    "ctrl+c" = "quit-watch-later";
+                    SPACE = "cycle pause";
+                    l = "ab-loop";
+                    L = "cycle-values loop-file \"inf\" \"no\"";
+                    b = "script-binding sponsorblock_minimal/sponsorblock";
+                    g = "script-message playlist-view-toggle";
                 };
             };
-        };
-        programs.dircolors = {
-            enable = true;
-            settings = {
-                ".pdf" = "01;93";
-                ".epub" = "01;93";
-                ".pptx" = "01;33";
-                ".docx" = "01;33";
-                ".odt" = "01;33";
-                ".xlsx" = "01;33";
-                ".rtf" = "01;33";
+            neovim = {
+                enable = true;
+                defaultEditor = true;
+                viAlias = true;
+                vimdiffAlias = true;
+                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors vim-plug];
+                initLua = ''
+                    vim.o.shada = ""
+                    require('nvim-highlight-colors').setup({})'';
+                extraConfig = ''
+                    autocmd VimLeave * set guicursor=a:hor1-blinkwait500-blinkon250-blinkoff250
+                    set ignorecase
+                    set shortmess=I
+                    set linebreak
+                    set noerrorbells
+                    set hls is
+                    set wildmode=longest,list,full
+                    set incsearch
+                    set mouse=a
+                    set splitright
+                    set encoding=utf-8
+                    set smartcase
+                    set nocompatible
+                    set expandtab
+                    set tabstop=4
+                    set softtabstop=4
+                    set shiftwidth=4
+                    "set autoindent
+                    set noshowmode
+                    set clipboard=unnamedplus
+                    set nobackup
+                    set noswapfile
+                    set shm=csCFSW
+                    set cmdheight=0
+                    let g:lightline = {
+                    \ 'active': {
+                    \   'right': [ [ 'lineinfo' ],
+                    \              [ 'percent' ]]},}
+                    "Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
+                    cabbrev wq silent wq
+                    cabbrev w silent w
+                    syntax on
+                    colorscheme vim
+                    filetype plugin on
+                    filetype indent on
+                    autocmd InsertEnter * norm zz
+                    autocmd BufWritePre * %s/\s\+$//e
+                    autocmd WinNew * wincmd L
+                    nnoremap S :%s///g<Left><Left><Left>
+                    inoremap <Esc> <Nop>
+                    map <F1> <Nop>
+                    imap <F1> <Nop>
+                    map <F9> :q!<CR>
+                    imap <F9> mn:q!<CR>
+                    map <F10> :q<CR>
+                    imap <F10> mn:q<CR>
+                    map <F11> :update<CR>
+                    imap <F11> mn:update<CR>
+                    map <F12> :x<CR>
+                    imap <F12> mn:x<CR>
+                    noremap m h
+                    noremap n j
+                    noremap e k
+                    noremap i l
+                    noremap l e
+                    noremap N n
+                    noremap E N
+                    noremap ' i
+                    noremap " I
+                    inoremap ne <Esc>
+                    inoremap en <Esc>
+                    nmap <A-F1> <Nop>
+                    let g:netrw_dirhistmax = 0
+                    autocmd VimEnter * :MatchDisable
+                    noremap <Up> <Nop>
+                    noremap <Down> <Nop>
+                    noremap <Left> <Nop>
+                    noremap <Right> <Nop>
+                    inoremap <Up> <Nop>
+                    inoremap <Down> <Nop>
+                    inoremap <Left> <Nop>
+                    inoremap <Right> <Nop>
+                    noremap <PageDown> <Nop>
+                    noremap <PageUp> <Nop>
+                    noremap <Home> <Nop>
+                    noremap <End> <Nop>'';
             };
-        };
-        programs.foot = {
-            enable = true;
-            settings = {
-                main = {
-                    font = "Roboto Mono:size=14";
-                    selection-target = "clipboard";
-                    pad = "5x0";
-                };
-                bell.system = false;
-                scrollback.lines = 100000;
-                cursor.underline-thickness = "2px";
-                mouse.hide-when-typing = true;
-                colors-dark = {
-                    background = "000000";
-                    foreground = "ffffff";
-                    regular0 = "000000";
-                    regular1 = "aa0000";
-                    regular2 = "00aa00";
-                    regular3 = "aa5500";
-                    regular4 = "3333ff";
-                    regular5 = "aa00aa";
-                    regular6 = "00aaaa";
-                    regular7 = "aaaaaa";
-                    bright0 = "555555";
-                    bright1 = "ff5555";
-                    bright2 = "55ff55";
-                    bright3 = "ffff55";
-                    bright4 = "5555ff";
-                    bright5 = "ff55ff";
-                    bright6 = "55ffff";
-                    bright7 = "ffffff";
-                };
-                key-bindings = {
-                    clipboard-paste = "Control+v";
-                    scrollback-up-page = "Control+Page_Up";
-                    scrollback-down-page = "Control+Page_Down";
-                    scrollback-home = "Control+Home";
-                    scrollback-end = "Control+End";
-                    show-urls-copy = "Control+y";
-                    search-start = "Control+Shift+r";
-                    scrollback-up-line = "Control+e";
-                    scrollback-down-line = "Control+n";
-                };
-            };
-        };
-        programs.taskwarrior = {
-            enable = true;
-            config = {
-                data.location = "/home/soma/dx/Backups/task";
-                verbose = "nothing";
-            };
-        };
-        programs.mpv = {
-            enable = true;
-            config = {
-                fullscreen = true;
-                term-osd-bar-chars = "[/|\\]";
-                gapless-audio = true;
-                image-display-duration = "inf";
-                audio-display = false;
-                msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,input=no";
-                term-osd-bar = true;
-                slang = "en,de";
-                sid = false;
-                volume-max = "100";
-                osd-font = "Roboto Mono";
-                sub-font = "Roboto Mono";
-                input-default-bindings = false;
-                osc = false;
-            };
-            scriptOpts = {
-                stats.key_page_0 = "2";
-                webtorrent.path = "/home/soma/tr/";
-                sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
-                thumbfast.network = "yes";
-            };
-            scripts = with pkgs.mpvScripts; [
-                webtorrent-mpv-hook
-                sponsorblock-minimal
-                mpris
-                thumbfast
-                mpv-gallery-view
-                uosc
-            ];
-            bindings = {
-                "Shift+RIGHT" = "seek 1";
-                "Shift+LEFT" = "seek -1";
-                RIGHT = "seek 5";
-                LEFT = "seek -5";
-                UP = "seek 60";
-                DOWN = "seek -60";
-                MBTN_LEFT_DBL = "cycle fullscreen";
-                f = "cycle fullscreen";
-                "Ctrl+MBTN_LEFT" = "script-binding positioning/drag-to-pan";
-                a = "add video-pan-x  +0.1";
-                s = "add video-pan-x  -0.1";
-                w = "add video-pan-y  +0.1";
-                r = "add video-pan-y  -0.1";
-                R = "cycle_values video-rotate 90 180 270 0";
-                t = "add video-zoom   +0.1";
-                d = "add video-zoom   -0.1";
-                c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
-                m = "cycle mute";
-                "]" = "script-binding stats/display-stats";
-                "\\" = "show-progress";
-                "0" = "cycle sub-visibility";
-                "9" = "add sub-delay +0.1";
-                "8" = "add sub-delay -0.1";
-                "+" = "cycle video";
-                _ = "cycle audio";
-                ")" = "cycle sub";
-                S = "playlist-shuffle";
-                q = "quit-watch-later";
-                o = "multiply speed 1/1.1";
-                "'" = "multiply speed 1.1";
-                i = "set speed 1.0";
-                HOME = "seek 0 absolute";
-                PGUP = "add chapter 1";
-                PGDWN = "add chapter -1";
-                BS = "playlist-prev";
-                ENTER = "playlist-next";
-                "." = "frame-step";
-                "," = "frame-back-step";
-                "ctrl+c" = "quit-watch-later";
-                SPACE = "cycle pause";
-                l = "ab-loop";
-                L = "cycle-values loop-file \"inf\" \"no\"";
-                b = "script-binding sponsorblock_minimal/sponsorblock";
-                g = "script-message playlist-view-toggle";
-            };
-        };
-        programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-            viAlias = true;
-            vimdiffAlias = true;
-            plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors vim-plug];
-            initLua = ''
-                vim.o.shada = ""
-                require('nvim-highlight-colors').setup({})'';
-            extraConfig = ''
-                autocmd VimLeave * set guicursor=a:hor1-blinkwait500-blinkon250-blinkoff250
-                set ignorecase
-                set shortmess=I
-                set linebreak
-                set noerrorbells
-                set hls is
-                set wildmode=longest,list,full
-                set incsearch
-                set mouse=a
-                set splitright
-                set encoding=utf-8
-                set smartcase
-                set nocompatible
-                set expandtab
-                set tabstop=4
-                set softtabstop=4
-                set shiftwidth=4
-                "set autoindent
-                set noshowmode
-                set clipboard=unnamedplus
-                set nobackup
-                set noswapfile
-                set shm=csCFSW
-                set cmdheight=0
-                let g:lightline = {
-                \ 'active': {
-                \   'right': [ [ 'lineinfo' ],
-                \              [ 'percent' ]]},}
-                "Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
-                cabbrev wq silent wq
-                cabbrev w silent w
-                syntax on
-                colorscheme vim
-                filetype plugin on
-                filetype indent on
-                autocmd InsertEnter * norm zz
-                autocmd BufWritePre * %s/\s\+$//e
-                autocmd WinNew * wincmd L
-                nnoremap S :%s///g<Left><Left><Left>
-                inoremap <Esc> <Nop>
-                map <F1> <Nop>
-                imap <F1> <Nop>
-                map <F9> :q!<CR>
-                imap <F9> mn:q!<CR>
-                map <F10> :q<CR>
-                imap <F10> mn:q<CR>
-                map <F11> :update<CR>
-                imap <F11> mn:update<CR>
-                map <F12> :x<CR>
-                imap <F12> mn:x<CR>
-                noremap m h
-                noremap n j
-                noremap e k
-                noremap i l
-                noremap l e
-                noremap N n
-                noremap E N
-                noremap ' i
-                noremap " I
-                inoremap ne <Esc>
-                inoremap en <Esc>
-                nmap <A-F1> <Nop>
-                let g:netrw_dirhistmax = 0
-                autocmd VimEnter * :MatchDisable
-                noremap <Up> <Nop>
-                noremap <Down> <Nop>
-                noremap <Left> <Nop>
-                noremap <Right> <Nop>
-                inoremap <Up> <Nop>
-                inoremap <Down> <Nop>
-                inoremap <Left> <Nop>
-                inoremap <Right> <Nop>
-                noremap <PageDown> <Nop>
-                noremap <PageUp> <Nop>
-                noremap <Home> <Nop>
-                noremap <End> <Nop>'';
-        };
-        programs.keepassxc = {
-            enable = true;
-            settings = {
-                GUI = {
-                    ApplicationTheme = "dark";
-                    HideGroupPanel = true;
-                };
-                Security = {
-                    ClearClipboardTimeout = 15;
-                    IconDownloadFallback = true;
-                    LockDatabaseIdle = true;
-                    LockDatabaseIdleSeconds = 600;
-                    PasswordsHidden = false;
-                    HidePasswordPreviewPanel = false;
+            keepassxc = {
+                enable = true;
+                settings = {
+                    GUI = {
+                        ApplicationTheme = "dark";
+                        HideGroupPanel = true;
+                    };
+                    Security = {
+                        ClearClipboardTimeout = 15;
+                        IconDownloadFallback = true;
+                        LockDatabaseIdle = true;
+                        LockDatabaseIdleSeconds = 600;
+                        PasswordsHidden = false;
+                        HidePasswordPreviewPanel = false;
+                    };
                 };
             };
         };
