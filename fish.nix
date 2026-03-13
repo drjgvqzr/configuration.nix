@@ -284,6 +284,7 @@
         };
         shellInit = ''
             rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; date "+%Y/%m/%d %R %A Now" | lolcat
+            rm -r /home/soma/Thunderbird
             set fish_color_command green
             set fish_greeting
             set -g fish_key_bindings fish_vi_key_bindings

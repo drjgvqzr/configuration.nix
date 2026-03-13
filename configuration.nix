@@ -91,6 +91,7 @@
         ripgrep-all
         rsync
         smartmontools
+        solitaire-tui
         sox
         speedread
         speedtest-go
