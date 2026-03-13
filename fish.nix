@@ -171,6 +171,7 @@
             nsp = "nix-shell -p";
             nt = "ping google.com";
             cdcook = "cd ~/dx/Backups/cook";
+            fo = "fzf | xargs -I {} handlr open {}";
             pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
             pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output $(echo "$argv[1]" | sed 's/\.[^.]*$//')-"$argv[2]".pdf'';
             nr = "doas systemctl restart iwd.service";
