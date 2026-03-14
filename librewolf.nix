@@ -205,6 +205,7 @@
                         www.etsy.com * 3p-frame noop
                         www.etsy.com * 3p-script noop
                         genius.com * 3p-script noop
+                        www.tiktok.com * 3p-script noop
                         github.com githubassets.com * noop
                         www.google.com * 3p-script noop
                         www.hasznaltauto.hu * 3p-frame noop
