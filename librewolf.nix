@@ -629,7 +629,7 @@
                     ikea = {
                         name = "IKEA";
                         urls = [{template = "https://www.ikea.com/hu/hu/search/?q={searchTerms}";}];
-                        definedAliases = ["wordfreq"];
+                        definedAliases = ["ikea"];
                     };
                     soundcloud = {
                         name = "SoundCloud";
@@ -638,7 +638,7 @@
                     };
                     tiktok = {
                         name = "TikTok";
-                        urls = [{template = "tiktok: https://www.tiktok.com/search?q={searchTerms}";}];
+                        urls = [{template = "https://www.tiktok.com/search?q={searchTerms}";}];
                         definedAliases = ["tiktok"];
                     };
                     bing.metaData.hidden = true;
