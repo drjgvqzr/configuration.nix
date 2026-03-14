@@ -418,7 +418,9 @@
                         wordfreq: https://books.google.com/ngrams/graph?content=%s&year_start=1800&year_end=2022&corpus=en&smoothing=3
                         ikea: https://www.ikea.com/hu/hu/search/?q=%s
                         sc: https://soundcloud.com/search?q=%s
-                        tiktok: https://www.tiktok.com/search?q=%s'';
+                        tiktok: https://www.tiktok.com/search?q=%s
+                        steam: https://store.steampowered.com/search?term=%s
+                        poly: https://polymarket.com/search?_q=%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -641,6 +643,16 @@
                         name = "TikTok";
                         urls = [{template = "https://www.tiktok.com/search?q={searchTerms}";}];
                         definedAliases = ["tiktok"];
+                    };
+                    steam = {
+                        name = "Steam";
+                        urls = [{template = "https://store.steampowered.com/search?term={searchTerms}";}];
+                        definedAliases = ["steam"];
+                    };
+                    polymarket = {
+                        name = "Polymarket";
+                        urls = [{template = "https://polymarket.com/search?_q={searchTerms}";}];
+                        definedAliases = ["poly"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
