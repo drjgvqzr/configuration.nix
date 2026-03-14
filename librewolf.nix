@@ -108,9 +108,19 @@
                 "uBlock0@raymondhill.net".settings = {
                     advancedUserEnabled = true;
                     contextMenuEnabled = false;
-                    externalLists = "https://divested.dev/blocklists/Fingerprinting.ubl";
+                    externalLists = ''
+                        https://divested.dev/blocklists/Fingerprinting.ubl
+                        https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt
+                        https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt
+                        https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt
+                        https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt
+                        https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt
+                        https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt
+                        https://secure.fanboy.co.nz/fanboy-agegate.txt'';
                     popupPanelSections = 31;
-                    user-filters = "! Mar 14, 2026 https://de.pinterest.com\nde.pinterest.com##.n62I2n.mJ2PyB.bnBtRO.aHn_t7.NYgy1O.Fm_EPH.ADXRXN";
+                    user-filters = ''
+                        ! Mar 14, 2026 https://de.pinterest.com
+                        de.pinterest.com##.n62I2n.mJ2PyB.bnBtRO.aHn_t7.NYgy1O.Fm_EPH.ADXRXN'';
                     selectedFilterLists = [
                         "user-filters"
                         "ublock-filters"
@@ -148,6 +158,13 @@
                         "adguard-widgets"
                         "ublock-annoyances"
                         "HUN-0"
+                        "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt"
+                        "https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt"
+                        "https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt"
+                        "https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt"
+                        "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt"
+                        "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt"
+                        "https://secure.fanboy.co.nz/fanboy-agegate.txt"
                         "https://divested.dev/blocklists/Fingerprinting.ubl"
                     ];
                     dynamicFilteringString = ''
