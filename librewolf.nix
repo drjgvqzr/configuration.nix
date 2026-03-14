@@ -420,7 +420,8 @@
                         sc: https://soundcloud.com/search?q=%s
                         tiktok: https://www.tiktok.com/search?q=%s
                         steam: https://store.steampowered.com/search?term=%s
-                        poly: https://polymarket.com/search?_q=%s'';
+                        poly: https://polymarket.com/search?_q=%s
+                        ticker: https://www.tradingview.com/chart/?symbol=%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -653,6 +654,11 @@
                         name = "Polymarket";
                         urls = [{template = "https://polymarket.com/search?_q={searchTerms}";}];
                         definedAliases = ["poly"];
+                    };
+                    ticker = {
+                        name = "Ticker";
+                        urls = [{template = "https://www.tradingview.com/chart/?symbol={searchTerms}";}];
+                        definedAliases = ["ticker"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
