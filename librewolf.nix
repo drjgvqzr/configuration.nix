@@ -118,9 +118,9 @@
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt
                         https://secure.fanboy.co.nz/fanboy-agegate.txt'';
                     popupPanelSections = 31;
-                    user-filters = ''
-                        ! Mar 14, 2026 https://de.pinterest.com
-                        de.pinterest.com##.n62I2n.mJ2PyB.bnBtRO.aHn_t7.NYgy1O.Fm_EPH.ADXRXN'';
+                    #                    user-filters = ''
+                    #                        ! Mar 14, 2026 https://de.pinterest.com
+                    #                        de.pinterest.com##.n62I2n.mJ2PyB.bnBtRO.aHn_t7.NYgy1O.Fm_EPH.ADXRXN'';
                     selectedFilterLists = [
                         "user-filters"
                         "ublock-filters"
