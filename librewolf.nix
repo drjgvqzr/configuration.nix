@@ -413,7 +413,9 @@
                         ya: https://yandex.com/search?text=%s&lr=10466
                         ali: https://www.aliexpress.com/w/wholesale-%s.html
                         phil: https://plato.stanford.edu/search/searcher.py?query=%s
-                        trends: https://trends.google.com/trends/explore?date=all&q=%s&hl=en-US'';
+                        trends: https://trends.google.com/trends/explore?date=all&q=%s&hl=en-US
+                        wordfreq: https://books.google.com/ngrams/graph?content=%s&year_start=1800&year_end=2022&corpus=en&smoothing=3
+                        ikea: https://www.ikea.com/hu/hu/search/?q=%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -616,6 +618,16 @@
                         name = "Google Trends";
                         urls = [{template = "https://trends.google.com/trends/explore?date=all&q={searchTerms}&hl=en-US";}];
                         definedAliases = ["trends"];
+                    };
+                    wordfreq = {
+                        name = "Google Ngram";
+                        urls = [{template = "https://books.google.com/ngrams/graph?content={searchTerms}&year_start=1800&year_end=2022&corpus=en&smoothing=3";}];
+                        definedAliases = ["wordfreq"];
+                    };
+                    ikea = {
+                        name = "IKEA";
+                        urls = [{template = "https://www.ikea.com/hu/hu/search/?q={searchTerms}";}];
+                        definedAliases = ["wordfreq"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
