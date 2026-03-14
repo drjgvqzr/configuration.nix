@@ -394,7 +394,7 @@
                         sr: https://www.reddit.com/r/%s/top?t=all Subreddit
                         pin: https://de.pinterest.com/search/pins/?q=%s
                         fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
-                        lib: https://annas-archive.li/search?q=%s
+                        lib: https://annas-archive.gd/search?q=%s
                         wl: https://search.wikileaks.org/?q=%s
                         elib: https://opac.elte.hu/Search/Results?lookfor=%s&type=AllFields
                         aw: https://wiki.archlinux.org/title/%s
@@ -415,7 +415,9 @@
                         phil: https://plato.stanford.edu/search/searcher.py?query=%s
                         trends: https://trends.google.com/trends/explore?date=all&q=%s&hl=en-US
                         wordfreq: https://books.google.com/ngrams/graph?content=%s&year_start=1800&year_end=2022&corpus=en&smoothing=3
-                        ikea: https://www.ikea.com/hu/hu/search/?q=%s'';
+                        ikea: https://www.ikea.com/hu/hu/search/?q=%s
+                        sc: https://soundcloud.com/search?q=%s
+                        tiktok: https://www.tiktok.com/search?q=%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -526,7 +528,7 @@
                     };
                     library = {
                         name = "Library";
-                        urls = [{template = "https://annas-archive.li/search?q={searchTerms}";}];
+                        urls = [{template = "https://annas-archive.gd/search?q={searchTerms}";}];
                         definedAliases = ["lib"];
                     };
                     wikileaks = {
@@ -628,6 +630,16 @@
                         name = "IKEA";
                         urls = [{template = "https://www.ikea.com/hu/hu/search/?q={searchTerms}";}];
                         definedAliases = ["wordfreq"];
+                    };
+                    soundcloud = {
+                        name = "SoundCloud";
+                        urls = [{template = "https://soundcloud.com/search?q={searchTerms}";}];
+                        definedAliases = ["sc"];
+                    };
+                    tiktok = {
+                        name = "TikTok";
+                        urls = [{template = "tiktok: https://www.tiktok.com/search?q={searchTerms}";}];
+                        definedAliases = ["tiktok"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
