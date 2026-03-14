@@ -108,7 +108,7 @@
                 "uBlock0@raymondhill.net".settings = {
                     advancedUserEnabled = true;
                     contextMenuEnabled = false;
-                    #externalLists = "https://divested.dev/blocklists/Fingerprinting.ubl";
+                    externalLists = "https://divested.dev/blocklists/Fingerprinting.ubl";
                     popupPanelSections = 31;
                     user-filters = "! Mar 14, 2026 https://de.pinterest.com\nde.pinterest.com##.n62I2n.mJ2PyB.bnBtRO.aHn_t7.NYgy1O.Fm_EPH.ADXRXN";
                     selectedFilterLists = [
