@@ -110,6 +110,7 @@
                     contextMenuEnabled = false;
                     externalLists = "https://divested.dev/blocklists/Fingerprinting.ubl";
                     popupPanelSections = 31;
+                    user-filters = "! Mar 14, 2026 https://de.pinterest.com\nde.pinterest.com##.n62I2n.mJ2PyB.bnBtRO.aHn_t7.NYgy1O.Fm_EPH.ADXRXN";
                     selectedFilterLists = [
                         "user-filters"
                         "ublock-filters"
@@ -136,6 +137,7 @@
                         "fanboy-social"
                         "adguard-social"
                         "fanboy-thirdparty_social"
+                        "fanboy-ai-suggestions"
                         "easylist-chat"
                         "easylist-newsletters"
                         "easylist-notifications"
@@ -216,6 +218,7 @@
                         www.reddit.com * 3p-script noop
                         www.reddit.com reddit.map.fastly.net * noop
                         www.reddit.com redditstatic.com * noop
+                        pinterest.com * 3p-script noop
                         rsf.org * 3p-frame noop
                         rsf.org * 3p-script noop
                         openrouter.ai * 3p-frame noop
