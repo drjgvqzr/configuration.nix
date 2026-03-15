@@ -200,12 +200,13 @@
                         elte.dkodaj.net * * noop
                         elte.dkodaj.net * 3p-frame noop
                         elte.dkodaj.net * 3p-script noop
+                        www.aliexpress.com * 3p-script noop
+                        aliexpress.com * 3p-script noop
                         www.dropbox.com * 3p-frame noop
                         www.dropbox.com * 3p-script noop
                         www.etsy.com * 3p-frame noop
                         www.etsy.com * 3p-script noop
                         genius.com * 3p-script noop
-                        www.aliexpress.com * 3p-script noop
                         www.tiktok.com * 3p-script noop
                         github.com githubassets.com * noop
                         www.google.com * 3p-script noop
