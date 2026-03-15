@@ -182,6 +182,7 @@
                         bandcamp.com * 3p-script noop
                         soundcloud.com sndcdn.com * noop
                         soundcloud.com cloudfront.net * noop
+                        soundcloud.com * 3p-script noop
                         behind-the-scene * * noop
                         behind-the-scene * 1p-script noop
                         behind-the-scene * 3p noop
