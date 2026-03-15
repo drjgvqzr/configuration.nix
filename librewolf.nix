@@ -108,7 +108,6 @@
                 "uBlock0@raymondhill.net".settings = {
                     advancedUserEnabled = true;
                     contextMenuEnabled = false;
-                    suspendUntilListsAreLoaded = false;
                     externalLists = ''
                         https://divested.dev/blocklists/Fingerprinting.ubl
                         https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt
