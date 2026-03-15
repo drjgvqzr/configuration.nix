@@ -235,6 +235,7 @@
                         www.patreon.com cloudflare.com * noop
                         www.pinterest.com * 3p-script noop
                         www.pornhub.com * 3p-script noop
+                        www.instagram.com * 3p-script noop
                         www.reddit.com * 3p-script noop
                         www.reddit.com reddit.map.fastly.net * noop
                         www.reddit.com redditstatic.com * noop
