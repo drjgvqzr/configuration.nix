@@ -114,7 +114,6 @@
                         https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt
                         https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt
                         https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt
-                        https://github.com/liamengland1/miscfilters/raw/refs/heads/master/antipaywall.txt
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt
                         https://secure.fanboy.co.nz/fanboy-agegate.txt'';
