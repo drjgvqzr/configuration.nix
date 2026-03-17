@@ -424,7 +424,8 @@
                         tiktok: https://www.tiktok.com/search?q=%s
                         steam: https://store.steampowered.com/search?term=%s
                         poly: https://polymarket.com/search?_q=%s
-                        ticker: https://www.tradingview.com/chart/?symbol=%s'';
+                        ticker: https://www.tradingview.com/chart/?symbol=%s
+                        steamkeys: https://cdkeyprices.com/item/$s{-}-cd-key-all'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
