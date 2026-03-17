@@ -247,7 +247,7 @@
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             qalc = "qalc -c -s 'upxrates 1'";
-            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output $(echo "$argv[1]" | sed 's/\.[^.]*$//')-"$argv[2]".pdf'';
+            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf'';
 
             ls = "ls -hpNF --color";
             mv = "mv -vu";
