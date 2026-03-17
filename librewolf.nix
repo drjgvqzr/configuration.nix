@@ -664,6 +664,11 @@
                         urls = [{template = "https://www.tradingview.com/chart/?symbol={searchTerms}";}];
                         definedAliases = ["ticker"];
                     };
+                    steamkeys = {
+                        name = "Steam Keys";
+                        urls = [{template = "https://cdkeyprices.com/item/{searchTerms}-cd-key-all";}];
+                        definedAliases = ["steamkeys"];
+                    };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
                     wikipedia.metaData.hidden = true;
