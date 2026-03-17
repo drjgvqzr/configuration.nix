@@ -148,6 +148,7 @@
                     return 1
                 }'';
             cb = ''curl -F "reqtype=fileupload" -F "time=72h" -F "fileToUpload=@$argv" https://litterbox.catbox.moe/resources/internals/api.php | wl-copy ; notify-send "File uploaded"'';
+            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf'';
         };
         shellAbbrs = {
             "8" = "cd -";
@@ -247,7 +248,6 @@
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             qalc = "qalc -c -s 'upxrates 1'";
-            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf'';
 
             ls = "ls -hpNF --color";
             mv = "mv -vu";
