@@ -98,7 +98,6 @@
         stc-cli
         stress
         sunwait
-        texlivePackages.pdfjam
         ticker
         tickrs
         timer
