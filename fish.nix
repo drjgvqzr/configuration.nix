@@ -173,7 +173,6 @@
             cdcook = "cd ~/dx/Backups/cook";
             fo = "fzf | xargs -I {} handlr open {}";
             pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
-            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output $(echo "$argv[1]" | sed 's/\.[^.]*$//')-"$argv[2]".pdf'';
             nr = "doas systemctl restart iwd.service";
             y = "pipe-viewer";
             wq = "wl-paste | xargs -I {} qrrs {}";
@@ -248,6 +247,8 @@
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             qalc = "qalc -c -s 'upxrates 1'";
+            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output $(echo "$argv[1]" | sed 's/\.[^.]*$//')-"$argv[2]".pdf'';
+
             ls = "ls -hpNF --color";
             mv = "mv -vu";
             rm = "gtrash put";
