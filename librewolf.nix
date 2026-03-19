@@ -425,7 +425,7 @@
                         steam: https://store.steampowered.com/search?term=%s
                         poly: https://polymarket.com/search?_q=%s
                         ticker: https://www.tradingview.com/chart/?symbol=%s
-                        steamkeys: https://cdkeyprices.com/item/$s{-}-cd-key-all'';
+                        steamkeys: https://gg.deals/game/$s{-}/'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -666,7 +666,7 @@
                     };
                     steamkeys = {
                         name = "Steam Keys";
-                        urls = [{template = "https://cdkeyprices.com/item/{searchTerms}-cd-key-all";}];
+                        urls = [{template = "https://gg.deals/game/{searchTerms}";}];
                         definedAliases = ["steamkeys"];
                     };
                     bing.metaData.hidden = true;

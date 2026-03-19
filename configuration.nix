@@ -226,16 +226,6 @@
             };
         };
     };
-    nix = {
-        gc = {
-            automatic = true;
-            dates = "weekly";
-        };
-        optimise = {
-            automatic = true;
-            dates = "monthly";
-        };
-    };
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) [
