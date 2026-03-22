@@ -412,7 +412,7 @@
                         4pol: https://archive.4plebs.org/pol/search/type/op/text/%s
                         4g: https://desuarchive.org/g/search/type/op/text/%s/
                         r34: https://rule34.xxx/index.php?page=post&s=list&tags=%s
-                        gs: https://scholar.google.com/scholar?q=%s&hl=en
+                        schol: https://scholar.google.com/scholar?q=%s&hl=en
                         et: https://www.etsy.com/search?q=%s
                         ya: https://yandex.com/search?text=%s&lr=10466
                         ali: https://www.aliexpress.com/w/wholesale-%s.html
@@ -602,7 +602,7 @@
                     scholar = {
                         name = "Google Scholar";
                         urls = [{template = "https://scholar.google.com/scholar?q={searchTerms}&hl=en";}];
-                        definedAliases = ["gs"];
+                        definedAliases = ["scholar"];
                     };
                     etsy = {
                         name = "Etsy";
