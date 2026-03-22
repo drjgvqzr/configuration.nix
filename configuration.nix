@@ -1030,7 +1030,7 @@
                 base_10_sizes = true;
                 mem_graphs = false;
                 show_swap = true;
-                swap_disk = false;
+                swap_disk = true;
                 net_sync = false;
                 check_temp = false;
             };
@@ -1039,11 +1039,6 @@
             enable = true;
             settings = {
                 format-sort = "res:720";
-                retries = "infinite";
-                file-access-retries = "infinite";
-                fragment-retries = "infinite";
-                extractor-retries = "infinite";
-                concurrent-fragments = 4;
                 progress = true;
                 no-warnings = true;
                 sub-langs = "en";
