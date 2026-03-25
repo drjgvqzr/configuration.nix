@@ -56,6 +56,7 @@
         iftop
         imagemagick
         inxi
+        iwqr
         jmtpfs
         jq
         libnotify

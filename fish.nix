@@ -55,7 +55,7 @@
             bcnf = ''bluetoothctl devices Paired | grep Device | sort | fzf | cut -d' ' -f2 | xargs -I {} bluetoothctl remove {}'';
             sn = ''iwctl station wlan0 scan;iwctl station wlan0 get-networks'';
             cn = ''
-                watch -c -n 1 "iwctl station wlan0 scan ; iwctl station wlan0 get-networks"
+                watch -c -n 2 "iwctl station wlan0 scan ; iwctl station wlan0 get-networks"
                 set ssid $(iwctl station wlan0 get-networks | fzf --ansi |sed -e 's/ \{10,\}.*//' -e 's/^[[:space:]]*//')
                 read -P "Password: " password
                 iwctl --passphrase="$password" station wlan0 connect "$ssid"'';
