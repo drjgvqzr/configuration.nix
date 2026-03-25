@@ -42,6 +42,7 @@
         fishPlugins.puffer
         fzf
         gallery-dl
+        gcc
         gh
         ghc
         glow
