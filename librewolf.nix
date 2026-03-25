@@ -87,6 +87,7 @@
                 detectDarkTheme = false;
                 changeBrowserTheme = true;
                 enableForProtectedPages = true;
+                disabledFor = ["teams.microsoft.com"];
             };
             extensions.settings = {
                 "extraneous@sysrqmagician.github.io".settings = {
