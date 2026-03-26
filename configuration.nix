@@ -108,7 +108,6 @@
         translate-shell
         transmission_4-gtk
         tree
-        undollar
         unoconv
         wget
         woeusb
