@@ -203,6 +203,8 @@
                         elte.dkodaj.net * 3p-script noop
                         www.aliexpress.com * 3p-script noop
                         aliexpress.com * 3p-script noop
+                        www.aliexpress.com * 3p-frame noop
+                        aliexpress.com * 3p-frame noop
                         www.dropbox.com * 3p-frame noop
                         www.dropbox.com * 3p-script noop
                         www.etsy.com * 3p-frame noop
