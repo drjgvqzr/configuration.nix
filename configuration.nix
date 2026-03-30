@@ -174,7 +174,6 @@
         pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
         shells = with pkgs; [fish];
         sessionVariables = {
-            NIX_AUTO_RUN_INTERACTIVE = "1";
             BROWSER = "xdg-open";
             EDITOR = "nvim";
             GIT_PAGER = "less -R";
@@ -225,6 +224,16 @@
                 EnableNetworkConfiguration = true;
                 AddressRandomization = "network";
             };
+        };
+    };
+    nix = {
+        gc = {
+            automatic = true;
+            dates = "weekly";
+        };
+        optimise = {
+            automatic = true;
+            dates = "monthly";
         };
     };
     nixpkgs.config = {
