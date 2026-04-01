@@ -589,9 +589,7 @@
                                 {
                                     name = "deepseek/deepseek-v3.2";
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
-                                    reasoning = {
-                                        exclude = true;
-                                    };
+                                    reasoning.enabled = false;
                                 }
                                 {
                                     name = "thenlper/gte-base";
@@ -606,9 +604,7 @@
                             models = [
                                 {
                                     name = "deepseek-r1:1.5b";
-                                    reasoning = {
-                                        exclude = true;
-                                    };
+                                    reasoning.exclude = true;
                                 }
                             ];
                         }

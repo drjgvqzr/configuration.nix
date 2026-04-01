@@ -236,6 +236,7 @@
                         www.gsmarena.com * 3p-script noop
                         www.jofogas.hu * 3p-frame noop
                         www.jofogas.hu * 3p-script noop
+                        www.tradingview.com * 3p-script noop
                         teams.microsoft.com * 3p-script noop
                         www.patreon.com cloudflare.com * noop
                         www.pinterest.com * 3p-script noop
@@ -428,7 +429,7 @@
                         steam: https://store.steampowered.com/search?term=%s
                         poly: https://polymarket.com/search?_q=%s
                         ticker: https://www.tradingview.com/chart/?symbol=%s
-                        steamkeys: https://gg.deals/game/$s{-}/'';
+                        keys: https://gg.deals/game/$s{-}/'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -670,7 +671,7 @@
                     steamkeys = {
                         name = "Steam Keys";
                         urls = [{template = "https://gg.deals/game/{searchTerms}";}];
-                        definedAliases = ["steamkeys"];
+                        definedAliases = ["keys"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
