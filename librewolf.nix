@@ -429,7 +429,8 @@
                         steam: https://store.steampowered.com/search?term=%s
                         poly: https://polymarket.com/search?_q=%s
                         ticker: https://www.tradingview.com/chart/?symbol=%s
-                        keys: https://gg.deals/game/$s{-}/'';
+                        keys: https://gg.deals/game/$s{-}/
+                        ai: https://openrouter.ai/models?q=%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -672,6 +673,11 @@
                         name = "Steam Keys";
                         urls = [{template = "https://gg.deals/game/{searchTerms}";}];
                         definedAliases = ["keys"];
+                    };
+                    openrouter = {
+                        name = "OpenRouter";
+                        urls = [{template = "https://openrouter.ai/models?q={searchTerms}";}];
+                        definedAliases = ["ai"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
