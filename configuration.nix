@@ -587,8 +587,7 @@
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
                             models = [
                                 {
-                                    #name = "deepseek/deepseek-v3.2";
-                                    name = "x-ai/grok-4.1-fast";
+                                    name = "deepseek/deepseek-v3.2";
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                     reasoning.enabled = false;
                                 }
