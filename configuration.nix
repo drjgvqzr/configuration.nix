@@ -254,6 +254,7 @@
         command-not-found.enable = true;
         dconf.enable = true;
         fish.enable = true;
+        gamemode.enable = true;
         git = {
             enable = true;
             config = [
@@ -587,7 +588,6 @@
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
                             models = [
                                 {
-                                    #name = "deepseek/deepseek-v3.2";
                                     name = "google/gemma-4-31b-it";
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                     reasoning.enabled = false;
