@@ -160,6 +160,7 @@
             o = "handlr open";
             rv = "vi ~/dx/Backups/remind/remind.rem";
             rvp = "vi ~/dx/Backups/remind/past.rem";
+            hv = "vi ~/dx/Backups/finance/2025.journal";
             f = "yazi";
             qr = "qrrs";
             cr = "cook r (fd cook ~/dx/Backups/cook | fzf )";
