@@ -404,19 +404,6 @@
                             params.cleanoutDays = "30";
                         };
                     };
-                    "mu" = {
-                        path = "~/mu";
-                        id = "sytcm-5kzcc";
-                        devices = [
-                            "Laptop"
-                            "Backup"
-                            "Phone"
-                        ];
-                        versioning = {
-                            type = "trashcan";
-                            params.cleanoutDays = "30";
-                        };
-                    };
                     "ph" = {
                         path = "~/ph";
                         id = "domno-sd3ps";
