@@ -211,7 +211,6 @@
         graphics.enable = true;
     };
     networking = {
-        extraHosts = "0.0.0.0 boards.4chan.org";
         dhcpcd.enable = false;
         hostName = "laptop";
         nameservers = ["9.9.9.9#dns.quad9.net"];
