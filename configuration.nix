@@ -575,14 +575,9 @@
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
                             models = [
                                 {
-                                    name = "google/gemma-4-31b-it";
-                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
-                                    reasoning.enabled = false;
-                                }
-                                {
                                     name = "deepseek/deepseek-v3.2";
-                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                     reasoning.enabled = false;
+                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {
                                     name = "thenlper/gte-base";
