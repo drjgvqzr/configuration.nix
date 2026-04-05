@@ -31,6 +31,7 @@
         dash
         doxx
         exfatprogs
+        exiftool
         f3
         fastfetch
         fbcat
