@@ -411,7 +411,7 @@
                         ak: https://www.arukereso.hu/CategorySearch.php?st=%s
                         eb: https://www.ebay.de/sch/i.html?_nkw=%s
                         ph: https://www.pornhub.com/video/search?search=%s
-                        4: https://boards.4chan.org/%s/
+                        4: https://boards.4chan.org/%s/catalog
                         sh: javascript:location='https://sci-hub.st/https://'%20+%20escape(location.hostname%20+%20location.pathname)%20+%20'%20%S'%20;%20void%200
                         4pol: https://archive.4plebs.org/pol/search/type/op/text/%s
                         4g: https://desuarchive.org/g/search/type/op/text/%s/
@@ -586,7 +586,7 @@
                     };
                     fourchan = {
                         name = "4chan.org";
-                        urls = [{template = "https://boards.4chan.org/{searchTerms}";}];
+                        urls = [{template = "https://boards.4chan.org/{searchTerms}/catalog";}];
                         definedAliases = ["4"];
                     };
                     polarchive = {
