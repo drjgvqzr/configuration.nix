@@ -351,7 +351,11 @@
                         map gU goToRoot
 
                         map ]] goNext
+                        map >> goNext
+                        map .. goNext
                         map [[ goPrevious
+                        map << goPrevious
+                        map ,, goPrevious
 
                         map ' enterInsertMode
 
