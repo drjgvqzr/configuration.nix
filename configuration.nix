@@ -272,7 +272,6 @@
             pinentryPackage = pkgs.wayprompt;
         };
         localsend.enable = true;
-        nano.enable = false;
         steam.enable = true;
     };
     security = {
