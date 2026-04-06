@@ -36,6 +36,10 @@
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/extraneous/latest.xpi";
                 installation_mode = "force_installed";
             };
+            "{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/latest/search_by_image/latest.xpi";
+                installation_mode = "force_installed";
+            };
         };
         profiles.default = {
             settings = {
