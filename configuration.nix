@@ -1047,8 +1047,7 @@
             pointerCursor = {
                 enable = true;
                 package = pkgs.vanilla-dmz;
-                #name = "Vanilla-DMZ-AA";
-                name = "Vanilla-DMZ";
+                name = "Vanilla-DMZ-AA";
                 size = 24;
                 sway.enable = true;
             };
