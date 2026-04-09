@@ -438,7 +438,8 @@
                         poly: https://polymarket.com/search?_q=%s
                         ticker: https://www.tradingview.com/chart/?symbol=%s
                         keys: https://gg.deals/game/$s{-}/
-                        ai: https://openrouter.ai/models?q=%s'';
+                        ai: https://openrouter.ai/models?q=%s
+                        etf: https://www.justetf.com/en/search.html?query=%s&search=ALL'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -686,6 +687,11 @@
                         name = "OpenRouter";
                         urls = [{template = "https://openrouter.ai/models?q={searchTerms}";}];
                         definedAliases = ["ai"];
+                    };
+                    justetf = {
+                        name = "justETF.com";
+                        urls = [{template = "https://www.justetf.com/en/search.html?query={searchTerms}&search=ALL";}];
+                        definedAliases = ["etf"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
