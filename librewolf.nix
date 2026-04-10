@@ -439,7 +439,8 @@
                         ticker: https://www.tradingview.com/chart/?symbol=%s
                         keys: https://gg.deals/game/$s{-}/
                         ai: https://openrouter.ai/models?q=%s
-                        etf: https://www.justetf.com/en/search.html?query=%s&search=ALL'';
+                        etf: https://www.justetf.com/en/search.html?query=%s&search=ALL
+                        ollama: https://ollama.com/search?q=%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -692,6 +693,11 @@
                         name = "justETF.com";
                         urls = [{template = "https://www.justetf.com/en/search.html?query={searchTerms}&search=ALL";}];
                         definedAliases = ["etf"];
+                    };
+                    ollama = {
+                        name = "Ollama";
+                        urls = [{template = "https://ollama.com/search?q={searchTerms}";}];
+                        definedAliases = ["ollama"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
