@@ -592,7 +592,7 @@
                             models = [
                                 {
                                     name = "gemma4:e2b";
-                                    reasoning.exclude = true;
+                                    num_predict = -2;
                                     temperature = 1.0;
                                     top_p = 0.95;
                                     top_k = 64;
