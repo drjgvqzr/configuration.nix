@@ -335,7 +335,7 @@
         };
         ollama = {
             enable = true;
-            loadModels = ["deepseek-r1:1.5b"];
+            loadModels = ["gemma4:e2b"];
         };
         pipewire = {
             enable = true;
@@ -591,8 +591,11 @@
                             api_base = "http://localhost:11434/v1";
                             models = [
                                 {
-                                    name = "deepseek-r1:1.5b";
+                                    name = "gemma4:e2b";
                                     reasoning.exclude = true;
+                                    temperature = 1.0;
+                                    top_p = 0.95;
+                                    top_k = 64;
                                 }
                             ];
                         }
