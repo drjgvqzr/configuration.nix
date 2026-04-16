@@ -121,7 +121,8 @@
                         https://github.com/liamengland1/miscfilters/raw/refs/heads/master/antipaywall.txt
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt
-                        https://secure.fanboy.co.nz/fanboy-agegate.txt'';
+                        https://secure.fanboy.co.nz/fanboy-agegate.txt
+                        https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt'';
                     popupPanelSections = 31;
                     #                    user-filters = ''
                     #                        ! Mar 14, 2026 https://de.pinterest.com
@@ -172,6 +173,7 @@
                         "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt"
                         "https://secure.fanboy.co.nz/fanboy-agegate.txt"
                         "https://divested.dev/blocklists/Fingerprinting.ubl"
+                        "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
                     ];
                     dynamicFilteringString = ''
                         no-csp-reports: * true
