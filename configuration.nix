@@ -697,6 +697,8 @@
                     sub-font = "Roboto Mono";
                     input-default-bindings = false;
                     osc = false;
+                    cache = true;
+                    demuxer-max-bytes = "2G";
                 };
                 scriptOpts = {
                     stats.key_page_0 = "2";
