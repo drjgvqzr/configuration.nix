@@ -65,6 +65,7 @@
         libqalculate
         libreoffice
         links2
+        lm_sensors
         lolcat
         mailsy
         mapscii
