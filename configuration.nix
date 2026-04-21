@@ -699,6 +699,7 @@
                     input-default-bindings = false;
                     osc = false;
                     cache = true;
+                    ytdl-format = "bestvideo[height<=?720]+bestaudio/best";
                 };
                 scriptOpts = {
                     stats.key_page_0 = "2";
