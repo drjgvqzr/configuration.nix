@@ -870,7 +870,7 @@
         services = {
             batsignal = {
                 enable = true;
-                extraArgs = ["-D swaylock -fFK -s fill-i /home/soma/dx/nixos/misc/wallpaper.jpg ; systemctl suspend-then-hibernate" "-e"];
+                extraArgs = ["-D systemctl suspend-then-hibernate" "-e"];
             };
             mako = {
                 enable = true;
