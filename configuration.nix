@@ -577,17 +577,12 @@
                             patch.chat_completions.".*".body.reasoning = {
                                 exclude = true;
                                 effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                #enabled = false;
-                                #max_tokens = "2000";
                             };
 
                             models = [
                                 {
                                     name = "deepseek/deepseek-v4-flash";
-                                    reasoning = {
-                                        enabled = false;
-                                    };
-                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
+                                    #system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {
                                     name = "thenlper/gte-base";
