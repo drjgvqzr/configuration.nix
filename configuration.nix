@@ -579,7 +579,7 @@
                                     ".*" = {
                                         body = {
                                             reasoning = {
-                                                enabled = false;
+                                                exclude = true;
                                             };
                                         };
                                     };
