@@ -580,6 +580,7 @@
                                         body = {
                                             reasoning = {
                                                 exclude = true;
+                                                effort = "none";
                                             };
                                         };
                                     };
