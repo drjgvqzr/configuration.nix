@@ -582,7 +582,7 @@
                             models = [
                                 {
                                     name = "deepseek/deepseek-v4-flash";
-                                    #system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
+                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {
                                     name = "thenlper/gte-base";
