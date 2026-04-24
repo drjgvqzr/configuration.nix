@@ -574,17 +574,11 @@
                             name = "openrouter";
                             api_base = "https://openrouter.ai/api/v1";
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
-                            patch = {
-                                chat_completions = {
-                                    ".*" = {
-                                        body = {
-                                            reasoning = {
-                                                exclude = true;
-                                                effort = "none";
-                                            };
-                                        };
-                                    };
-                                };
+                            patch.chat_completions.".*".body.reasoning = {
+                                exclude = true;
+                                effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                #enabled = false;
+                                #max_tokens = "2000";
                             };
 
                             models = [
