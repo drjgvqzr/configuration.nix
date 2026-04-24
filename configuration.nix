@@ -576,7 +576,7 @@
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
                             patch.chat_completions.".*".body.reasoning = {
                                 exclude = true;
-                                effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                effort = "high"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 #enabled = false;
                                 #max_tokens = "2000";
                             };
