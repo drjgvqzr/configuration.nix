@@ -578,6 +578,8 @@
                                 provider = {
                                     order = ["deepseek"];
                                     data_collection = "allow";
+                                    #zdr = false;
+                                    sort = "price";
                                 };
                                 reasoning = {
                                     exclude = true;
