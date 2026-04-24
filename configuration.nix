@@ -574,10 +574,24 @@
                             name = "openrouter";
                             api_base = "https://openrouter.ai/api/v1";
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
+                            patch = {
+                                chat_completions = {
+                                    ".*" = {
+                                        body = {
+                                            reasoning = {
+                                                enabled = false;
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+
                             models = [
                                 {
-                                    name = "deepseek/deepseek-v3.2";
-                                    reasoning.enabled = false;
+                                    name = "deepseek/deepseek-v4-flash";
+                                    reasoning = {
+                                        enabled = false;
+                                    };
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {
