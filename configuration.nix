@@ -176,7 +176,7 @@
         pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
         shells = with pkgs; [fish];
         sessionVariables = {
-            BROWSER = "xdg-open";
+            BROWSER = "handlr open";
             EDITOR = "nvim";
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
@@ -231,7 +231,7 @@
     nix = {
         gc = {
             automatic = true;
-            dates = "weekly";
+            dates = "Sunday";
         };
         optimise = {
             automatic = true;

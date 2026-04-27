@@ -124,9 +124,6 @@
                         https://secure.fanboy.co.nz/fanboy-agegate.txt
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt'';
                     popupPanelSections = 31;
-                    #                    user-filters = ''
-                    #                        ! Mar 14, 2026 https://de.pinterest.com
-                    #                        de.pinterest.com##.n62I2n.mJ2PyB.bnBtRO.aHn_t7.NYgy1O.Fm_EPH.ADXRXN'';
                     selectedFilterLists = [
                         "user-filters"
                         "ublock-filters"
@@ -413,7 +410,7 @@
                         pin: https://de.pinterest.com/search/pins/?q=%s
                         fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
                         lib: https://annas-archive.gd/search?q=%s
-                        wl: https://search.wikileaks.org/?q=%s
+                        wl: https://search.libraryofleaks.org/search?q=%s
                         elib: https://opac.elte.hu/Search/Results?lookfor=%s&type=AllFields
                         aw: https://wiki.archlinux.org/title/%s
                         gw: https://wiki.gentoo.org/wiki/%s
@@ -558,7 +555,7 @@
                     };
                     wikileaks = {
                         name = "WikiLeaks";
-                        urls = [{template = "https://search.wikileaks.org/?q={searchTerms}";}];
+                        urls = [{template = "https://search.libraryofleaks.org/search?q={searchTerms}";}];
                         definedAliases = ["wl"];
                     };
                     eltelibrary = {
