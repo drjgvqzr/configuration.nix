@@ -597,8 +597,7 @@
 
                             models = [
                                 {
-                                    #name = "deepseek/deepseek-v4-flash";
-                                    name = "deepseek/deepseek-v4-pro"; #🔥DeepSeek-V4-Pro API is 75% OFF until May 5th, 2026, 15:59 (UTC Time)! Don't miss out on this massive discount.
+                                    name = "deepseek/deepseek-v4-flash";
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {
