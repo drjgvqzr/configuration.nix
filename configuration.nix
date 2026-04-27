@@ -143,7 +143,7 @@
         kdePackages.kolourpaint
         kdiskmark
         logseq
-        lutris
+        #lutris
         mullvad-browser
         onlyoffice-desktopeditors
         pavucontrol
@@ -288,6 +288,10 @@
         };
         pam.services.swaylock = {};
         pam.services.login.enableGnomeKeyring = true;
+        pam.services.soma.enableGnomeKeyring = true;
+        pam.services.wayland.enableGnomeKeyring = true;
+        pam.services.passwd.enableGnomeKeyring = true;
+        pam.services.swaylock.enableGnomeKeyring = true;
         rtkit.enable = true;
         sudo.enable = false;
     };
@@ -298,7 +302,10 @@
         }
     ];
     system = {
-        autoUpgrade.enable = true;
+        autoUpgrade = {
+            enable = true;
+            dates = "weekly";
+        };
         stateVersion = "26.05";
     };
     systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
@@ -590,7 +597,8 @@
 
                             models = [
                                 {
-                                    name = "deepseek/deepseek-v4-flash";
+                                    #name = "deepseek/deepseek-v4-flash";
+                                    name = "deepseek/deepseek-v4-pro"; #🔥DeepSeek-V4-Pro API is 75% OFF until May 5th, 2026, 15:59 (UTC Time)! Don't miss out on this massive discount.
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {

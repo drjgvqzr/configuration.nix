@@ -242,7 +242,7 @@
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
             zathura = "zathura-sandbox";
-            rl = "rem -n -b1 | sort -r | tail -n 3 ; date \"+%Y/%m/%d %R %A Now\" | lolcat";
+            rl = "rem -n -b1 | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
             rc = "rem -cm";
             rw = "rem -c+m";
             fastfetch = "fastfetch --logo nixos_old";
@@ -286,7 +286,7 @@
             stat = "grc --colour=auto stat";
         };
         shellInit = ''
-            rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; date "+%Y/%m/%d %R %A Now" | lolcat
+            rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e \"\033[31m$(date "+%Y/%m/%d %R %A Now")
             rm -r /home/soma/Thunderbird &>/dev/null
             set fish_color_command green
             set fish_greeting
