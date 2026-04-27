@@ -147,7 +147,7 @@
                     notify-send -e -t 5000 "Rebuild Failed"
                     return 1
                 }'';
-            cb = ''curl -F "reqtype=fileupload" -F "time=72h" -F "fileToUpload=@$argv" https://litterbox.catbox.moe/resources/internals/api.php | wl-copy ; notify-send "File uploaded"'';
+            cb = ''curl -F "reqtype=fileupload" -F "time=72h" -F "fileToUpload=@$argv" https://litterbox.catbox.moe/resources/internals/api.php | wl-copy ; qrrs $(wl-paste) ; echo $(wl-paste) ; notify-send "File uploaded"'';
             pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf'';
         };
         shellAbbrs = {
