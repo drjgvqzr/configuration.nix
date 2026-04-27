@@ -286,7 +286,7 @@
             stat = "grc --colour=auto stat";
         };
         shellInit = ''
-            rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e \"\033[31m$(date "+%Y/%m/%d %R %A Now")
+            #rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e \"\033[31m$(date "+%Y/%m/%d %R %A Now")
             rm -r /home/soma/Thunderbird &>/dev/null
             set fish_color_command green
             set fish_greeting

@@ -304,7 +304,7 @@
     system = {
         autoUpgrade = {
             enable = true;
-            dates = "weekly";
+            dates = "Sat *-*-* 00:00:00";
         };
         stateVersion = "26.05";
     };
