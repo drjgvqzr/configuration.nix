@@ -597,7 +597,6 @@
 
                             models = [
                                 {
-                                    #name = "deepseek/deepseek-v4-flash";
                                     name = "deepseek/deepseek-v4-pro";
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
