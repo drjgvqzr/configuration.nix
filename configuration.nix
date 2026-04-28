@@ -139,7 +139,7 @@
         firefox
         fluffychat
         gimp
-        #googleearth-pro
+        googleearth-pro
         kdePackages.kolourpaint
         kdiskmark
         logseq
