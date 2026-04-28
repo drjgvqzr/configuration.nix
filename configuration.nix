@@ -149,7 +149,7 @@
         pavucontrol
         qdirstat
         shotwell
-        #starsector # TEITW-HP9ON-A7HMK-WA6YA
+        starsector # TEITW-HP9ON-A7HMK-WA6YA
         tor-browser
         ungoogled-chromium
         vesktop
@@ -243,6 +243,7 @@
                 "googleearth-pro"
                 "steam"
                 "steam-unwrapped"
+                "starsector"
             ];
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
