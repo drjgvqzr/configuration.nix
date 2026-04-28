@@ -190,7 +190,6 @@
             XDG_DESKTOP_DIR = "$HOME/ar";
             XDG_DOCUMENTS_DIR = "$HOME/dx";
             XDG_DOWNLOAD_DIR = "$HOME/dn";
-            XDG_MUSIC_DIR = "$HOME/mu";
             XDG_PICTURES_DIR = "$HOME/px";
             XDG_VIDEOS_DIR = "$HOME/vs";
         };
