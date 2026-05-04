@@ -25,6 +25,7 @@
         autotiling-rs
         backgroundremover
         bat
+        brave
         catdocx
         cointop
         cook-cli
@@ -61,6 +62,7 @@
         iwqr
         jmtpfs
         jq
+        ladybird
         libnotify
         libqalculate
         libreoffice
@@ -244,6 +246,8 @@
                 "steam"
                 "steam-unwrapped"
                 "starsector"
+                "vim-plugin-AnsiEsc"
+                "nvim-highlight-colors"
             ];
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
@@ -1012,8 +1016,8 @@
                 "E" = "search backward";
                 "N" = "search forward";
                 "D" = "toggle_page_mode";
-                "u" = "navigate previous";
-                "l" = "navigate next";
+                "u" = "navigate backward";
+                "l" = "navigate forward";
                 "R" = "rotate";
             };
             options = {
