@@ -249,7 +249,6 @@
                 "starsector"
                 "vim-plugin-AnsiEsc"
                 "nvim-highlight-colors"
-                "libsciter"
             ];
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
