@@ -142,6 +142,7 @@
         fluffychat
         gimp
         googleearth-pro
+        #kdePackages.kdenlive
         kdePackages.kolourpaint
         kdiskmark
         logseq
@@ -150,7 +151,7 @@
         onlyoffice-desktopeditors
         pavucontrol
         qdirstat
-        shotwell
+        rustdesk-flutter
         #starsector # TEITW-HP9ON-A7HMK-WA6YA
         tor-browser
         ungoogled-chromium
@@ -248,6 +249,7 @@
                 "starsector"
                 "vim-plugin-AnsiEsc"
                 "nvim-highlight-colors"
+                "libsciter"
             ];
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
