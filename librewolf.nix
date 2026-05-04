@@ -299,6 +299,11 @@
                             redirectUrl = "https://wiki.archlinux.org/$1?useskin=vector";
                             appliesTo = ["main_frame"];
                         }
+                        {
+                            includePattern = "https://annas-archive.gd/md5/*";
+                            redirectUrl = "https://annas-archive.gd/slow_download/$1/0/4";
+                            appliesTo = ["main_frame"];
+                        }
                     ];
                 };
                 "vimium-c@gdh1995.cn".settings = {
