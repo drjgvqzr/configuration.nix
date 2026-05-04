@@ -1016,8 +1016,8 @@
                 "E" = "search backward";
                 "N" = "search forward";
                 "D" = "toggle_page_mode";
-                "u" = "navigate backward";
-                "l" = "navigate forward";
+                "u" = "navigate up";
+                "l" = "navigate down";
                 "R" = "rotate";
             };
             options = {
