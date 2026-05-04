@@ -1016,8 +1016,8 @@
                 "E" = "search backward";
                 "N" = "search forward";
                 "D" = "toggle_page_mode";
-                "u" = "scroll page up";
-                "l" = "scroll page down";
+                "u" = "scroll full-up";
+                "l" = "scroll full-down";
                 "R" = "rotate";
             };
             options = {
