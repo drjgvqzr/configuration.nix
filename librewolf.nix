@@ -439,7 +439,8 @@
                         keys: https://gg.deals/game/$s{-}/
                         ai: https://openrouter.ai/models?q=%s
                         etf: https://www.justetf.com/en/search.html?query=%s&search=ALL
-                        ollama: https://ollama.com/search?q=%s'';
+                        ollama: https://ollama.com/search?q=%s
+                        ar: https://web.archive.org/web/*/%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -697,6 +698,11 @@
                         name = "Ollama";
                         urls = [{template = "https://ollama.com/search?q={searchTerms}";}];
                         definedAliases = ["ollama"];
+                    };
+                    archive = {
+                        name = "Archive.org";
+                        urls = [{template = "https://web.archive.org/web/*/{searchTerms}";}];
+                        definedAliases = ["ar"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
