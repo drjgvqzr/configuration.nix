@@ -142,7 +142,7 @@
         fluffychat
         gimp
         googleearth-pro
-        #kdePackages.kdenlive
+        kdePackages.kdenlive
         kdePackages.kolourpaint
         kdiskmark
         logseq
