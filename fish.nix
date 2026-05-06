@@ -231,6 +231,7 @@
             a = "aichat";
             as = "aichat -s";
             wa = "wl-paste | aichat";
+            was = "wl-paste | aichat summarize";
             aex = "aichat -e";
             ax = "aichat explain";
             ae = "aichat give an example for";
