@@ -142,6 +142,7 @@
         fluffychat
         gimp
         googleearth-pro
+        iwgtk
         kdePackages.kdenlive
         kdePackages.kolourpaint
         kdiskmark
