@@ -241,6 +241,8 @@
                         www.jofogas.hu * 3p-script noop
                         www.tradingview.com * 3p-script noop
                         teams.microsoft.com * 3p-script noop
+                        annas-archive.gd * 3p-script noop
+                        annas-archive.gd * 3p-script noop
                         www.patreon.com cloudflare.com * noop
                         www.pinterest.com * 3p-script noop
                         www.pornhub.com * 3p-script noop
