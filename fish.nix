@@ -161,7 +161,7 @@
             rv = "vi ~/dx/Backups/remind/remind.rem";
             rvp = "vi ~/dx/Backups/remind/past.rem";
             hv = "vi ~/dx/Backups/finance/2025.journal";
-            f = "yazi";
+            f = "fzf | xargs -I {} handlr open {}";
             qr = "qrrs";
             cr = "cook r (fd cook ~/dx/Backups/cook | fzf )";
             h = "hledger";
@@ -173,7 +173,6 @@
             nsp = "nix-shell -p";
             nt = "ping google.com";
             cdcook = "cd ~/dx/Backups/cook";
-            fo = "fzf | xargs -I {} handlr open {}";
             pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
             nr = "doas systemctl restart iwd.service";
             y = "pipe-viewer";
