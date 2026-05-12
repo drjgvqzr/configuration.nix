@@ -22,6 +22,7 @@
         alejandra
         android-tools
         any-nix-shell
+        astroterm
         autotiling-rs
         backgroundremover
         bat
@@ -77,6 +78,7 @@
         nix-search-tv
         ocrmypdf
         openai-whisper
+        oterm
         ouch
         pandoc
         parted
