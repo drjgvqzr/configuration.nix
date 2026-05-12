@@ -44,6 +44,7 @@
         fishPlugins.autopair
         fishPlugins.puffer
         fzf
+        fzf-preview
         gallery-dl
         gcc
         gh
