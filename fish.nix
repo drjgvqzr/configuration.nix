@@ -244,6 +244,7 @@
             zathura = "zathura-sandbox";
             rl = "rem -n -b1 | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
             rc = "rem -cm";
+            fzf = "fzf --preview 'fzf-preview {}'";
             rw = "rem -c+m";
             fastfetch = "fastfetch --logo nixos_old";
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
