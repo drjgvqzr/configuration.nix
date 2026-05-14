@@ -166,7 +166,7 @@
             cr = "cook r (fd cook ~/dx/Backups/cook | fzf )";
             h = "hledger";
             ha = "hledger add";
-            mc = "man configuration.nix";
+            mc = "links -dump https://nixos.org/manual/nixos/stable/options.html | nvim -R -";
             mh = "man home-configuration.nix";
             z = "zathura";
             nb = "newsboat";
