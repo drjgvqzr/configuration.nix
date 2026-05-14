@@ -177,6 +177,8 @@
         };
     };
     console.useXkbConfig = true;
+    documentation.man.mandoc.enable = true;
+    documentation.man.man-db.enable = false;
     environment = {
         binsh = "${pkgs.dash}/bin/dash";
         defaultPackages = [];
