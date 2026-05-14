@@ -98,7 +98,6 @@
         remind
         ripgrep
         ripgrep-all
-        rsync
         smartmontools
         solitaire-tui
         sox
@@ -179,7 +178,6 @@
     console.useXkbConfig = true;
     environment = {
         binsh = "${pkgs.dash}/bin/dash";
-        defaultPackages = [];
         pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
         shells = with pkgs; [fish];
         sessionVariables = {
