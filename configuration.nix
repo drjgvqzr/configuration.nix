@@ -176,6 +176,9 @@
         };
     };
     console.useXkbConfig = true;
+    documentation.man.mandoc.enable = true;
+    documentation.man.man-db.enable = false;
+    documentation.man.cache.enable = true;
     environment = {
         binsh = "${pkgs.dash}/bin/dash";
         pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
