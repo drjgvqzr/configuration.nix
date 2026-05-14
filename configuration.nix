@@ -803,6 +803,8 @@
                     require('nvim-highlight-colors').setup({})'';
                 extraConfig = ''
                     autocmd VimLeave * set guicursor=a:hor1-blinkwait500-blinkon250-blinkoff250
+                    set undofile
+                    set undodir=~/.config/nvim/undo//
                     set ignorecase
                     set shortmess=I
                     set linebreak
