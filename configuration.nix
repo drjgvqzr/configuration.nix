@@ -218,7 +218,7 @@
         graphics.enable = true;
     };
     networking = {
-        dhcpcd.enable = false;
+        #dhcpcd.enable = false;
         hostName = "laptop";
         nameservers = ["9.9.9.9#dns.quad9.net"];
         nftables.enable = true;
