@@ -292,11 +292,6 @@
             ];
         };
         pam.services.swaylock = {};
-        pam.services.login.enableGnomeKeyring = true;
-        pam.services.soma.enableGnomeKeyring = true;
-        pam.services.wayland.enableGnomeKeyring = true;
-        pam.services.passwd.enableGnomeKeyring = true;
-        pam.services.swaylock.enableGnomeKeyring = true;
         rtkit.enable = true;
         sudo.enable = false;
     };
