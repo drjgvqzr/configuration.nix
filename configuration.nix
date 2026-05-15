@@ -907,6 +907,7 @@
                     default-timeout = 5000;
                     background-color = "#000000BF";
                     border-color = "#AAAAAABF";
+                    layer = "overlay";
                 };
             };
             tldr-update.enable = true;
