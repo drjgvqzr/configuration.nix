@@ -908,6 +908,7 @@
                     background-color = "#000000BF";
                     border-color = "#AAAAAABF";
                     layer = "overlay";
+                    border-radius = "8";
                 };
             };
             tldr-update.enable = true;
