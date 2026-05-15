@@ -241,7 +241,7 @@
             cdmnt = ''cd /mnt/'';
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
-            zathura = "zathura-sandbox";
+            zathura = "swallow zathura-sandbox";
             rl = "rem -n -b1 | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
             rc = "rem -cum";
             rc3 = "rem -cu3m";
