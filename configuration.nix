@@ -52,7 +52,7 @@
         glow
         gnumake
         grc
-        groff
+        #groff
         gtrash
         handlr-regex
         heimdall
