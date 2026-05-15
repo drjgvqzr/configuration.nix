@@ -231,9 +231,9 @@
             as = "aichat -s";
             wa = "wl-paste | aichat";
             was = "wl-paste | aichat summarize";
-            aex = "aichat -e";
-            ax = "aichat explain";
-            ae = "aichat give an example for";
+            wae = "wl-paste | aichat explain";
+            ae = "aichat explain";
+            aex = "aichat give an example for";
             ad = "aichat what is the difference between";
             aw = "aichat provide the etymology, pronounciation without using phonetic symbols, meaning, and usage examples, all on new lines with markdown formatting, of the word";
         };
