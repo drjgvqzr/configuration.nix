@@ -221,7 +221,7 @@
         dhcpcd.enable = false;
         hostName = "laptop";
         nameservers = ["9.9.9.9#dns.quad9.net"];
-        networkmanager.enable = false;
+        #networkmanager.enable = ;
         nftables.enable = true;
         useDHCP = false;
         wg-quick.interfaces.wg0.configFile = "/home/soma/dx/nixos/misc/secrets/wg.conf";
