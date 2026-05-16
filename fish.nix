@@ -155,7 +155,7 @@
             "9" = "cd ..";
             d = "doas";
             q = "qalc";
-            ipinfo = "curl ipinfo.io";
+            ipinfo = "curl ipinfo.io | jq";
             untar = "tar xvf";
             downscale = "mogrify -resize 50%";
             o = "handlr open";
