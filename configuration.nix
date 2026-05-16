@@ -157,7 +157,7 @@
         pavucontrol
         qdirstat
         rustdesk-flutter
-        starsector # TEITW-HP9ON-A7HMK-WA6YA
+        #starsector # TEITW-HP9ON-A7HMK-WA6YA
         tor-browser
         ungoogled-chromium
         vesktop
