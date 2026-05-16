@@ -583,7 +583,7 @@
                             api_base = "https://openrouter.ai/api/v1";
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
                             patch.chat_completions.".*".body = {
-                                provider.order = ["deepseek"];
+                                provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request
                                 reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                             };
 

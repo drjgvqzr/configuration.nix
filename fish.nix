@@ -158,7 +158,6 @@
             ipinfo = "curl -s ipinfo.io | jq";
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
             crypto = "curl rate.sx";
-            untar = "tar xvf";
             downscale = "mogrify -resize 50%";
             o = "handlr open";
             rv = "vi ~/dx/Backups/remind/remind.rem";
