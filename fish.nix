@@ -126,10 +126,10 @@
                   set generation $(git -C $nixos_dir diff -U20 HEAD '*.nix' | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' )
                   git -C $nixos_dir commit -q -am $generation
                   git -C $nixos_dir push -q -u origin main
-                  notify-send -e -t 5000 "Rebuild successful"
+                  notify-send "Rebuild successful"
                 } || {
                   cat $nixos_dir/misc/nixos-switch.log | grep -i --color error | tail -n 1
-                  notify-send -e -t 5000 "Rebuild Failed"
+                  notify-send "Rebuild Failed"
                   return 1
                   }'';
             rebuildu = ''
@@ -141,10 +141,10 @@
                     set generation $(git -C $nixos_dir diff -U20 HEAD '*.nix' | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' )
                     git -C $nixos_dir commit -q -am $generation
                     git -C $nixos_dir push -q -u origin main
-                    notify-send -e -t 5000 "Rebuild successful"
+                    notify-send "Rebuild successful"
                 } || {
                     cat $nixos_dir/misc/nixos-switch.log | grep --color error | tail -n 1
-                    notify-send -e -t 5000 "Rebuild Failed"
+                    notify-send "Rebuild Failed"
                     return 1
                 }'';
             cb = ''curl -F "reqtype=fileupload" -F "time=72h" -F "fileToUpload=@$argv" https://litterbox.catbox.moe/resources/internals/api.php | wl-copy ; qrrs $(wl-paste) ; echo $(wl-paste) ; notify-send "File uploaded"'';
