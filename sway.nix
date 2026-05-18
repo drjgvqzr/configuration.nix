@@ -23,7 +23,7 @@
             bindsym XF86AudioNext exec playerctl --player mpv next || playerctl next
             bindsym XF86AudioPrev exec playerctl --player mpv previous || playerctl previous
             bindsym --release Super_L exec wmenu-run
-            bindgesture swipe:4:up input type:keyboard events toggle'';
+            bindgesture swipe:4:up exec "input type:keyboard events toggle ; notify-send -e 'Keyboard Toggled'"'';
         wrapperFeatures.gtk = true;
         config = {
             assigns = {
