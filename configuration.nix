@@ -64,7 +64,7 @@
         iwqr
         jmtpfs
         jq
-        ladybird
+        #ladybird
         libnotify
         libqalculate
         libreoffice
@@ -145,6 +145,7 @@
         fluffychat
         gamescope
         gimp
+        google-chrome
         googleearth-pro
         iwgtk
         kdePackages.kdenlive
@@ -250,6 +251,7 @@
                 "starsector"
                 "vim-plugin-AnsiEsc"
                 "nvim-highlight-colors"
+                "google-chrome"
             ];
         permittedInsecurePackages = [
             "googleearth-pro-7.3.6.10201"
