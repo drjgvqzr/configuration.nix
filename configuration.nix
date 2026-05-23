@@ -92,7 +92,6 @@
         poppler-utils
         presenterm
         prismlauncher
-        proton-vpn-cli
         pulsemixer
         qrrs
         rclone
