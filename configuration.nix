@@ -254,7 +254,7 @@
                 "google-chrome"
             ];
         permittedInsecurePackages = [
-            "googleearth-pro-7.3.6.10201"
+            "googleearth-pro-7.3.7.1155"
             "librewolf-bin-147.0.2-1"
             "librewolf-bin-unwrapped-147.0.2-1"
         ];
