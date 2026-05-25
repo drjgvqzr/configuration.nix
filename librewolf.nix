@@ -449,7 +449,8 @@
                         ai: https://openrouter.ai/models?q=%s
                         etf: https://www.justetf.com/en/search.html?query=%s&search=ALL
                         ollama: https://ollama.com/search?q=%s
-                        ar: https://web.archive.org/web/*/%s'';
+                        ar: https://web.archive.org/web/*/%s
+                        x: https://xcancel.com/%s'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -712,6 +713,11 @@
                         name = "Archive.org";
                         urls = [{template = "https://web.archive.org/web/*/{searchTerms}";}];
                         definedAliases = ["ar"];
+                    };
+                    x = {
+                        name = "x.com";
+                        urls = [{template = "https://xcancel.com/{searchTerms}";}];
+                        definedAliases = ["x"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;
