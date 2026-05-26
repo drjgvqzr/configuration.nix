@@ -54,7 +54,7 @@
                     }
                     {
                         command = "move scratchpad";
-                        criteria.title = "dropdown";
+                        criteria.app_id = "dropdown";
                     }
                     {
                         command = "floating enable, move absolute position 540 0, resize set width 300 height 200";
