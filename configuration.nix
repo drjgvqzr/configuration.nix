@@ -129,6 +129,7 @@
         hyprpicker
         i3-swallow
         slurp
+        sway-scratch
         swaybg
         swayidle
         swaylock
