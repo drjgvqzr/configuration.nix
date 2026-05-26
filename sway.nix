@@ -86,7 +86,7 @@
                 };
             };
             keybindings = {
-                "mod1+grave" = "exec  sway-scratch show --app-id dropdown --resize \"set 100 ppt 25 pp\" --exec \"foot -a dropdown\"";
+                #"mod1+grave" = "exec  sway-scratch show --app-id dropdown --resize \"set 100 ppt 25 pp\" --exec \"foot -a dropdown\"";
                 "mod1+Return" = "exec foot";
                 "mod1+BackSpace" = "scratchpad show";
                 "mod1+Shift+BackSpace" = " move scratchpad";
