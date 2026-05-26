@@ -53,6 +53,10 @@
                         criteria.class = ".*";
                     }
                     {
+                        command = "move scratchpad";
+                        criteria.title = "dropdown";
+                    }
+                    {
                         command = "floating enable, move absolute position 540 0, resize set width 300 height 200";
                         criteria.title = "^password$";
                     }
@@ -82,7 +86,7 @@
                 };
             };
             keybindings = {
-                "mod1+grave" = "exec sway-scratch show --app-id scratchterm --exec \"foot --app-id scratchterm\"";
+                "mod1+grave" = "exec  sway-scratch show --app-id dropdown --resize \"set 100 ppt 25 pp\" --exec \"foot -a dropdown\"";
                 "mod1+Return" = "exec foot";
                 "mod1+BackSpace" = "scratchpad show";
                 "mod1+Shift+BackSpace" = " move scratchpad";
