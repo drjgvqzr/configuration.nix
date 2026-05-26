@@ -83,6 +83,8 @@
             };
             keybindings = {
                 "mod1+Return" = "exec foot";
+                "mod1+BackSpace" = "scratchpad show";
+                "mod1+Shift+BackSpace" = " move scratchpad";
                 "mod1+c" = "kill";
                 "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status)\"";
                 "mod1+Shift+t" = "exec notify-send \"$(date \"+%H:%M\")\"";
