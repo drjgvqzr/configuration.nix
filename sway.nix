@@ -53,7 +53,7 @@
                         criteria.class = ".*";
                     }
                     {
-                        command = "move scratchpad";
+                        command = "move scratchpad, scratchpad show, resize set 100 ppt 25 ppt, move position 0 0";
                         criteria.app_id = "dropdown";
                     }
                     {
