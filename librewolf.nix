@@ -506,7 +506,7 @@
                     };
                     pb = {
                         name = "Torrents";
-                        urls = [{template = "https://torrents-csv.com/search?q={searchTerms}";}];
+                        urls = [{template = "https://thepiratebay.party/search/{searchTerms}";}];
                         definedAliases = ["pb"];
                     };
                     wiktionary = {
