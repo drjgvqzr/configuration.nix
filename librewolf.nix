@@ -52,6 +52,7 @@
                 "network.predictor.enabled" = true;
                 "network.http.speculative-parallel-limit" = 6;
                 "network.prefetch-next" = true;
+                "network.dns.disablePrefetchFromHTTPS" = false;
                 "browser.download.open_pdf_attachments_inline" = true;
                 "findbar.highlightAll" = true;
                 "font.name.monospace.x-western" = "Roboto Mono";
