@@ -219,6 +219,7 @@
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
     };
+    i18n.defaultLocale = "hu_HU.UTF-8";
     networking = {
         dhcpcd.enable = false;
         hostName = "laptop";
