@@ -247,6 +247,7 @@
             rl = "rem -n -b1 | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
             rc = "rem -cum";
             rc3 = "rem -cu3m";
+            rc2 = "rem -cu2m";
             fzf = "fzf --preview 'fzf-preview {}'";
             rw = "rem -c+um";
             fastfetch = "fastfetch --logo nixos_old";
