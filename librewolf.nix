@@ -46,6 +46,12 @@
                 "browser.startup.page" = 3;
                 "browser.startup.homepage" = "about:newtab";
                 "browser.newtabpage.enabled" = false;
+                "toolkit.cosmeticAnimations.enabled" = false;
+                "browser.tabs.closeWindowWithLastTab" = false;
+                "network.dns.disablePrefetch" = false;
+                "network.predictor.enabled" = true;
+                "network.http.speculative-parallel-limit" = 6;
+                "network.prefetch-next" = true;
                 "browser.download.open_pdf_attachments_inline" = true;
                 "findbar.highlightAll" = true;
                 "font.name.monospace.x-western" = "Roboto Mono";
