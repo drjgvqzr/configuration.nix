@@ -219,8 +219,7 @@
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
     };
-    i18n.defaultLocale = "hu_HU.UTF-8";
-    i18n.extraLocaleSettings.LC_ALL = "hu_HU.UTF-8"; # This overrides all other LC_* settings.
+    i18n.defaultLocale = "en_US.UTF-8";
     networking = {
         dhcpcd.enable = false;
         hostName = "laptop";
