@@ -161,7 +161,7 @@
             downscale = "mogrify -resize 50%";
             o = "handlr open";
             rv = "vi ~/dx/Backups/remind/remind.rem";
-            rvp = "vi ~/dx/Backups/remind/past.rem";
+            rp = "vi ~/dx/Backups/remind/past.rem";
             hv = "vi ~/dx/Backups/finance/2025.journal";
             f = "fzf | xargs -I {} handlr open {}";
             qr = "qrrs";
