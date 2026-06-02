@@ -259,6 +259,7 @@
             "googleearth-pro-7.3.7.1155"
             "librewolf-bin-147.0.2-1"
             "librewolf-bin-unwrapped-147.0.2-1"
+            "electron-39.8.10"
         ];
     };
     programs = {
@@ -777,6 +778,7 @@
                     L = "cycle-values loop-file \"inf\" \"no\"";
                     b = "script-binding sponsorblock_minimal/sponsorblock";
                     g = "script-message playlist-view-toggle";
+                    p = "script-binding webtorrent/toggle-info";
                 };
             };
             neovim = {
