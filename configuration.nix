@@ -169,7 +169,6 @@
         initrd = {
             checkJournalingFS = true;
             luks.devices."luks".allowDiscards = true;
-            systemd.enable = true;
         };
         kernelPackages = pkgs.linuxPackages_xanmod_latest;
         loader = {
