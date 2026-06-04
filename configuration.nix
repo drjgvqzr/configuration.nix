@@ -115,6 +115,7 @@
         transmission_4-gtk
         tree
         unoconv
+        vulkan-tools
         wget
         woeusb
         xdg-utils
