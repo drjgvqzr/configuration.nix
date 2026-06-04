@@ -152,7 +152,7 @@
         kdePackages.kolourpaint
         kdiskmark
         logseq
-        #lutris
+        lutris
         mullvad-browser
         onlyoffice-desktopeditors
         pavucontrol
