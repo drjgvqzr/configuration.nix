@@ -142,6 +142,7 @@
 
         #GUI
         audacity
+        bluejay
         firefox
         fluffychat
         gamescope
