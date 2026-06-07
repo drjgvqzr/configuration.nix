@@ -999,7 +999,7 @@
         programs.zathura = {
             enable = true;
             mappings = {
-                "Delete" = "exec \"rm '$FILE'\"";
+                "KPDelete" = "exec \"rm '$FILE'\"";
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
