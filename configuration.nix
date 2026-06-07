@@ -999,7 +999,7 @@
         programs.zathura = {
             enable = true;
             mappings = {
-                "<BackSpace>" = "exec \"pkill -f '$FILE' \"";
+                "<BackSpace>" = "exec \"pkill -f $FILE \"";
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
