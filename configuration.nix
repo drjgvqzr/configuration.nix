@@ -735,7 +735,7 @@
                 ];
                 bindings = {
                     "Shift+RIGHT" = "seek 1";
-                    "DEL" = "run rm \${path}";
+                    "DEL" = "run gtrash put \${path}";
                     "Shift+LEFT" = "seek -1";
                     RIGHT = "seek 5";
                     LEFT = "seek -5";
@@ -999,6 +999,7 @@
         programs.zathura = {
             enable = true;
             mappings = {
+                "<Delete>" = "exec \"rm -- '$FILE'\"";
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
