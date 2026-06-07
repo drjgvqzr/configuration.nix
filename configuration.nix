@@ -999,8 +999,8 @@
         programs.zathura = {
             enable = true;
             mappings = {
-                #"<C-c>" = "exec \"rm '$FILE'\"";
-                "<C-c>" = "exec \"echo '$FILE' > /home/soma/meme\"";
+                "<C-c>" = "exec \"rm '$FILE'\"";
+                #"<C-c>" = "exec \"echo '$FILE' > /home/soma/meme\"";
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
