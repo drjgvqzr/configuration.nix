@@ -183,7 +183,7 @@
                         no-csp-reports: * true
                         no-large-media: behind-the-scene false
                         no-large-media: duckduckgo.com false
-                        no-remote-fonts: * true
+                        #no-remote-fonts: * true
                         no-remote-fonts: github.com false
                         no-remote-fonts: monkeytype.com false
                         * * 3p-frame block
