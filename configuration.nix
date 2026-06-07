@@ -1000,6 +1000,7 @@
             enable = true;
             mappings = {
                 "<BackSpace>" = "exec \"rm '$FILE'\"";
+                "<Delete>" = "exec \"rm '$FILE'\"";
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
