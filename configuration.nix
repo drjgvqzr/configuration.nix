@@ -735,7 +735,7 @@
                 ];
                 bindings = {
                     "Shift+RIGHT" = "seek 1";
-                    "DEL" = "run \"rm\" \"\${path}\"";
+                    "DEL" = "run \"/run/current-system/sw/bin/rm\" \"\${path}\"";
                     "Shift+LEFT" = "seek -1";
                     RIGHT = "seek 5";
                     LEFT = "seek -5";
