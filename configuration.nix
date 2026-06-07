@@ -999,8 +999,7 @@
         programs.zathura = {
             enable = true;
             mappings = {
-                #"<C-d>" = "exec \"rm '$FILE'\"";
-                "Delete" = "scroll down";
+                "<C-d>" = "exec \"rm '$FILE'; exit\"";
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
