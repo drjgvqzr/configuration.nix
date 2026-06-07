@@ -999,7 +999,7 @@
         programs.zathura = {
             enable = true;
             mappings = {
-                "<BackSpace>" = "exec \"rm '$FILE'\"";
+                "<BackSpace>" = "exec \"gtrash put '$FILE'\"";
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
