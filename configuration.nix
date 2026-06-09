@@ -735,7 +735,7 @@
                 ];
                 bindings = {
                     "Shift+RIGHT" = "seek 1";
-                    "DEL" = "run gtrash put \${path}";
+                    "DEL" = "run gtrash put \${path} ; playlist-next";
                     "Shift+LEFT" = "seek -1";
                     RIGHT = "seek 5";
                     LEFT = "seek -5";
