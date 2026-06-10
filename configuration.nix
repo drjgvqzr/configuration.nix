@@ -692,13 +692,6 @@
                     };
                 };
             };
-            taskwarrior = {
-                enable = true;
-                config = {
-                    data.location = "/home/soma/dx/Backups/task";
-                    verbose = "nothing";
-                };
-            };
             mpv = {
                 enable = true;
                 config = {
