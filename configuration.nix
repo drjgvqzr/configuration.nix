@@ -190,6 +190,7 @@
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             LEDGER_FILE = "$HOME/dx/Backups/finance/2025.journal";
+            TTDL_FILENAME = "$HOME/dx/Backups/todo/todo.txt";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
             XDG_CACHE_HOME = "$HOME/.cache";
