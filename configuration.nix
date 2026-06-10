@@ -114,6 +114,7 @@
         translate-shell
         transmission_4-gtk
         tree
+        ttdl
         unoconv
         vulkan-tools
         wget
