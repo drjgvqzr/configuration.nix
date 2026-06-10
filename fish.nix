@@ -161,6 +161,7 @@
             crypto = "curl rate.sx";
             porn = "mpv --shuffle /home/soma/px/basketweaving/gif";
             downscale = "mogrify -resize 50%";
+            vitodo = "vi /home/soma/dx/Backups/todo/todo.txt";
             o = "handlr open";
             rv = "vi ~/dx/Backups/remind/remind.rem";
             rp = "vi ~/dx/Backups/remind/past.rem";
