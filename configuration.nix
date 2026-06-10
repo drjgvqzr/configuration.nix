@@ -80,7 +80,7 @@
         ocrmypdf
         openai-whisper
         oterm
-        ouch
+        ouch-rar
         pandoc
         parted
         pastel
@@ -256,6 +256,7 @@
                 "vim-plugin-AnsiEsc"
                 "nvim-highlight-colors"
                 "google-chrome"
+                "ouch"
             ];
         permittedInsecurePackages = [
             "googleearth-pro-7.3.7.1155"
