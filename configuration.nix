@@ -260,8 +260,6 @@
             ];
         permittedInsecurePackages = [
             "googleearth-pro-7.3.7.1155"
-            "librewolf-bin-147.0.2-1"
-            "librewolf-bin-unwrapped-147.0.2-1"
             "electron-39.8.10"
         ];
     };
@@ -783,7 +781,7 @@
                 defaultEditor = true;
                 viAlias = true;
                 vimdiffAlias = true;
-                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors vim-plug todo-txt-vim];
+                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim];
                 initLua = ''
                     vim.o.shada = ""
                     require('nvim-highlight-colors').setup({})'';
@@ -818,7 +816,6 @@
                     \ 'active': {
                     \   'right': [ [ 'lineinfo' ],
                     \              [ 'percent' ]]},}
-                    "Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
                     cabbrev wq silent wq
                     cabbrev w silent w
                     syntax on
