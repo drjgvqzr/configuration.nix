@@ -247,6 +247,7 @@
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
             todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
+            task = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
             #zathura = "swallow zathura-sandbox";
             zathura = "zathura-sandbox";
             rl = "rem -n -b1 | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
