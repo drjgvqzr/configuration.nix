@@ -261,6 +261,10 @@
         permittedInsecurePackages = [
             "googleearth-pro-7.3.7.1155"
             "electron-39.8.10"
+            "librewolf-151.0.2-1"
+            "librewolf-unwrapped-151.0.2-1"
+            "librewolf-bin-151.0.1-2"
+            "librewolf-bin-unwrapped-151.0.1-2"
         ];
     };
     programs = {
@@ -1054,7 +1058,7 @@
         programs.yt-dlp = {
             enable = true;
             settings = {
-                format-sort = "res:720";
+                format-sort = "res:1080";
                 progress = true;
                 no-warnings = true;
                 sub-langs = "en";
