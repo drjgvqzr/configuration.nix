@@ -120,9 +120,7 @@
                 "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace number 8'";
                 "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace number 9'";
                 "mod1+t" = "exec swaymsg '[app_id=\"thunderbird\"] focus' || exec thunderbird ; exec swaymsg 'workspace number 10'";
-                #"mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace number 11'";
-                #"mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] scratchpad show, move position center' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx'";
-                "Mod1+k" = "exec swaymsg '[app_id=org.keepassxc.KeePassXC] scratchpad show' || keepassxc";
+                "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace number 11'";
 
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace number 12'";
                 "mod1+Tab" = "workspace back_and_forth";
