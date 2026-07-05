@@ -798,7 +798,7 @@
                 defaultEditor = true;
                 viAlias = true;
                 vimdiffAlias = true;
-                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim];
+                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim nvim-lastplace];
                 initLua = ''
                     vim.o.shada = ""
                     require('nvim-highlight-colors').setup({})'';
@@ -837,8 +837,8 @@
                     \}
 
                     " === Command Abbreviations ===
-                    "cabbrev wq silent wq
-                    "cabbrev w silent w
+                    cabbrev wq silent wq
+                    cabbrev w silent w
 
                     " === Remap Navigation Keys ===
                     noremap m h
