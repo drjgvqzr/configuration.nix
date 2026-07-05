@@ -800,8 +800,8 @@
                 vimdiffAlias = true;
                 plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim];
                 initLua = ''
-                    vim.o.shada = ""
-                    require('nvim-highlight-colors').setup({})'';
+                    "vim.o.shada = ""
+                    "require('nvim-highlight-colors').setup({})'';
                 extraConfig = ''
                     " === General Settings ===
                     set nobackup
@@ -818,7 +818,6 @@
 
                     " === Display ===
                     set linebreak
-                    "set splitright
                     colorscheme vim
 
                     " === Indentation ===
@@ -838,20 +837,8 @@
                     \}
 
                     " === Command Abbreviations ===
-                    cabbrev wq silent wq
-                    cabbrev w silent w
-
-                    " === Search and Replace Mapping ===
-                    "noremap S :%s///g<Left><Left><Left>
-                    "noremap s :%s///g<Left><Left><Left>
-
-                    " === Disable Escape in Insert Mode ===
-                    "inoremap <Esc> <Nop>
-
-                    " === Disable Function Keys ===
-                    "noremap <F1> <Nop>
-                    "inoremap <F1> <Nop>
-                    "noremap <A-F1> <Nop>
+                    "cabbrev wq silent wq
+                    "cabbrev w silent w
 
                     " === Remap Navigation Keys ===
                     noremap m h
@@ -876,7 +863,7 @@
                     inoremap en <Esc>
 
                     " === Disable Netrw History ===
-                    let g:netrw_dirhistmax = 0
+                    "let g:netrw_dirhistmax = 0
 
                     " === Disable Arrow Keys ===
                     noremap <Up> <Nop>
