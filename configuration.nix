@@ -815,34 +815,20 @@
                     " === Search ===
                     set smartcase
                     set ignorecase
-                    "set incsearch
-                    "set hlsearch
 
                     " === Display ===
-                    "set linebreak
+                    set linebreak
                     "set splitright
-                    "syntax on
                     colorscheme vim
 
                     " === Indentation ===
                     set expandtab
                     set tabstop=4
-                    set softtabstop=4
                     set shiftwidth=4
 
-                    " === Wildmenu ===
-                    "set wildmode=longest,list,full
-
                     " === Filetype ===
-                    filetype plugin on
-                    filetype indent on
-
-                    " === Autocommands ===
-                    "autocmd VimLeave * set guicursor=a:hor1-blinkwait500-blinkon250-blinkoff250
-                    "autocmd InsertEnter * norm zz
-                    "autocmd BufWritePre * %s/\s\+$//e
-                    "autocmd WinNew * wincmd L
-                    "autocmd VimEnter * MatchDisable
+                    "filetype plugin on
+                    "filetype indent on
 
                     " === Lightline ===
                     let g:lightline = {
