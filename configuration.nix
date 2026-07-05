@@ -798,7 +798,7 @@
                 defaultEditor = true;
                 viAlias = true;
                 vimdiffAlias = true;
-                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim nvim-lastplace];
+                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim vim-lastplace];
                 initLua = ''
                     vim.o.shada = ""
                     require('nvim-highlight-colors').setup({})'';
