@@ -480,7 +480,6 @@
             };
         };
         thermald.enable = true;
-        #thinkfan.enable = true;
         xserver.xkb = {
             layout = "us";
             variant = "colemak_dh";
@@ -805,13 +804,11 @@
                     require('nvim-highlight-colors').setup({})'';
                 extraConfig = ''
                     " === General Settings ===
-                    "set nocompatible
-                    "set encoding=utf-8
                     set nobackup
                     set noswapfile
                     set undofile
                     set undodir=~/.config/nvim/undo//
-                    "set clipboard=unnamedplus
+                    set clipboard=unnamedplus
                     "set mouse=a
                     "set noerrorbells
                     "set shortmess=IcsCFSW
@@ -819,7 +816,7 @@
                     "set noshowmode
 
                     " === Search ===
-                    "set smartcase
+                    set smartcase
                     "set incsearch
                     "set hlsearch
 
@@ -827,20 +824,20 @@
                     "set linebreak
                     "set splitright
                     "syntax on
-                    "colorscheme vim
+                    colorscheme vim
 
                     " === Indentation ===
-                    "set expandtab
-                    "set tabstop=4
-                    "set softtabstop=4
-                    "set shiftwidth=4
+                    set expandtab
+                    set tabstop=4
+                    set softtabstop=4
+                    set shiftwidth=4
 
                     " === Wildmenu ===
                     "set wildmode=longest,list,full
 
                     " === Filetype ===
-                    "filetype plugin on
-                    "filetype indent on
+                    filetype plugin on
+                    filetype indent on
 
                     " === Autocommands ===
                     "autocmd VimLeave * set guicursor=a:hor1-blinkwait500-blinkon250-blinkoff250
@@ -857,15 +854,15 @@
                     \}
 
                     " === Command Abbreviations ===
-                    cabbrev wq silent wq
-                    cabbrev w silent w
+                    "cabbrev wq silent wq
+                    "cabbrev w silent w
 
                     " === Search and Replace Mapping ===
                     noremap S :%s///g<Left><Left><Left>
                     noremap s :%s///g<Left><Left><Left>
 
                     " === Disable Escape in Insert Mode ===
-                    noremap inoremap <Esc> <Nop>
+                    inoremap <Esc> <Nop>
 
                     " === Disable Function Keys ===
                     "noremap <F1> <Nop>
@@ -891,8 +888,8 @@
                     noremap l <Nop>
 
                     " === Alternacive Escape Mapping ===
-                    "inorumap ne <Esc>
-                    "inoremap en <Esc>
+                    inorumap ne <Esc>
+                    inoremap en <Esc>
 
                     " === Disable Netrw History ===
                     let g:netrw_dirhistmax = 0
