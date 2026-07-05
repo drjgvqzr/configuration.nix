@@ -888,7 +888,7 @@
                     noremap l <Nop>
 
                     " === Alternacive Escape Mapping ===
-                    inorumap ne <Esc>
+                    inoremap ne <Esc>
                     inoremap en <Esc>
 
                     " === Disable Netrw History ===
