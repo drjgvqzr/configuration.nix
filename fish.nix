@@ -148,7 +148,7 @@
                     notify-send "Rebuild Failed"
                     return 1
                 }'';
-            cb = ''curl -F "reqtype=fileupload" -F "time=72h" -F "fileToUpload=@$argv" https://litterbox.catbox.moe/resources/internals/api.php | wl-copy ; qrrs $(wl-paste) ; echo $(wl-paste) ; notify-send "File uploaded"'';
+            catbox = ''curl -i -F files[]=@$argv https://uguu.se/upload?output=text | tail -n 1 | wl-copy ; qrrs $(wl-paste) ; echo $(wl-paste) && notify-send "File uploaded"'';
             pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf'';
         };
         shellAbbrs = {
@@ -250,7 +250,8 @@
             task = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
             #zathura = "swallow zathura-sandbox";
             zathura = "zathura-sandbox";
-            rl = "rem -n -b1 | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
+            #rl = "rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
+            rl = "rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; set birth_date (cat /home/soma/birthdate.txt); set life_expectancy 80; set birth_epoch (date -d $birth_date +%s); set now_epoch (date +%s); set end_epoch (date -d \"$birth_date + $life_expectancy years\" +%s); set lived (math $now_epoch - $birth_epoch); set total (math $end_epoch - $birth_epoch); set pct (echo \"scale=4; ($lived / $total) * 100\" | bc | string join \"\" \"%\"); echo -e \"\033[37m$pct \033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
             rc = "rem -cum";
             rc3 = "rem -cu3m";
             rc2 = "rem -cu2m";
@@ -297,7 +298,9 @@
             stat = "grc --colour=auto stat";
         };
         shellInit = ''
-            rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e "\033[31m$(date "+%Y/%m/%d %R %A Now")"
+            #rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e "\033[31m$(date "+%Y/%m/%d %R %A Now")"
+            rl
+            set birth_date (cat /home/soma/birthdate.txt); set life_expectancy 80; set birth_epoch (date -d $birth_date +%s); set now_epoch (date +%s); set end_epoch (date -d "$birth_date + $life_expectancy years" +%s); set lived (math $now_epoch - $birth_epoch); set total (math $end_epoch - $birth_epoch); echo "scale=4; ($lived / $total) * 100" | bc | string join "" "%"
             rm -r /home/soma/Thunderbird &>/dev/null
             set fish_color_command green
             set fish_greeting

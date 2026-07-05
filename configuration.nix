@@ -26,6 +26,7 @@
         autotiling-rs
         backgroundremover
         bat
+        bc
         brave
         catdocx
         cointop
@@ -104,6 +105,7 @@
         speedread
         speedtest-go
         stc-cli
+        steamguard-cli
         stress
         sunwait
         ticker
@@ -144,11 +146,12 @@
         #GUI
         audacity
         bluejay
+        electron-mail
         firefox
         fluffychat
         gamescope
         gimp
-        google-chrome
+        #google-chrome
         googleearth-pro
         iwgtk
         kdePackages.kdenlive
@@ -168,7 +171,13 @@
         zotero
     ];
     boot = {
-        kernelParams = ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"];
+        kernelParams = [
+            "fbcon=rotate:1"
+            "video=DSI-1:panel_orientation=right_side_up"
+            "vm.dirty_writeback_centisecs=1500"
+            "snd_hda_intel.power_save=1"
+            "nmi_watchdog=0"
+        ];
         initrd = {
             checkJournalingFS = true;
             luks.devices."luks".allowDiscards = true;
@@ -216,7 +225,7 @@
     };
     hardware = {
         bluetooth = {
-            enable = true;
+            enable = false;
             powerOnBoot = false;
         };
         cpu.intel.updateMicrocode = true;
@@ -226,7 +235,7 @@
     networking = {
         dhcpcd.enable = false;
         hostName = "laptop";
-        nameservers = ["9.9.9.9#dns.quad9.net"];
+        nameservers = ["9.9.9.10#dns10.quad9.net"];
         wg-quick.interfaces.wg0.configFile = "/home/soma/dx/nixos/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
@@ -265,6 +274,7 @@
             "librewolf-unwrapped-151.0.2-1"
             "librewolf-bin-151.0.1-2"
             "librewolf-bin-unwrapped-151.0.1-2"
+            "pnpm-10.29.2"
         ];
     };
     programs = {
@@ -326,13 +336,15 @@
             settings = {
                 charger = {
                     governor = "powersave";
-                    energy_performance_preference = "balance_performance";
-                    energy_perf_bias = "balance_performance";
+                    energy_performance_preference = "balance_power";
+                    energy_perf_bias = "balance_power";
+                    turbo = "auto";
                 };
                 battery = {
                     governor = "powersave";
                     energy_performance_preference = "power";
                     energy_perf_bias = "power";
+                    turbo = "never";
                 };
             };
         };
@@ -352,6 +364,8 @@
             HandleLidSwitchExternalPower = "suspend-then-hibernate";
             HandlePowerKey = "suspend-then-hibernate";
             HandlePowerKeyLongPress = "suspend-then-hibernate";
+            IdleAction = "suspend-then-hibernate";
+            IdleActionSec = "30min";
         };
         ollama = {
             enable = true;
@@ -466,7 +480,7 @@
             };
         };
         thermald.enable = true;
-        vnstat.enable = true;
+        #thinkfan.enable = true;
         xserver.xkb = {
             layout = "us";
             variant = "colemak_dh";
@@ -790,57 +804,75 @@
                     vim.o.shada = ""
                     require('nvim-highlight-colors').setup({})'';
                 extraConfig = ''
-                    autocmd VimLeave * set guicursor=a:hor1-blinkwait500-blinkon250-blinkoff250
-                    set undofile
-                    set undodir=~/.config/nvim/undo//
-                    set ignorecase
-                    set shortmess=I
-                    set linebreak
-                    set noerrorbells
-                    set hls is
-                    set wildmode=longest,list,full
-                    set incsearch
-                    set mouse=a
-                    set splitright
-                    set encoding=utf-8
-                    set smartcase
-                    set nocompatible
-                    set expandtab
-                    set tabstop=4
-                    set softtabstop=4
-                    set shiftwidth=4
-                    "set autoindent
-                    set noshowmode
-                    set clipboard=unnamedplus
+                    " === General Settings ===
+                    "set nocompatible
+                    "set encoding=utf-8
                     set nobackup
                     set noswapfile
-                    set shm=csCFSW
-                    set cmdheight=0
+                    set undofile
+                    set undodir=~/.config/nvim/undo//
+                    "set clipboard=unnamedplus
+                    "set mouse=a
+                    "set noerrorbells
+                    "set shortmess=IcsCFSW
+                    "set cmdheight=0
+                    "set noshowmode
+
+                    " === Search ===
+                    "set smartcase
+                    "set incsearch
+                    "set hlsearch
+
+                    " === Display ===
+                    "set linebreak
+                    "set splitright
+                    "syntax on
+                    "colorscheme vim
+
+                    " === Indentation ===
+                    "set expandtab
+                    "set tabstop=4
+                    "set softtabstop=4
+                    "set shiftwidth=4
+
+                    " === Wildmenu ===
+                    "set wildmode=longest,list,full
+
+                    " === Filetype ===
+                    "filetype plugin on
+                    "filetype indent on
+
+                    " === Autocommands ===
+                    "autocmd VimLeave * set guicursor=a:hor1-blinkwait500-blinkon250-blinkoff250
+                    "autocmd InsertEnter * norm zz
+                    "autocmd BufWritePre * %s/\s\+$//e
+                    "autocmd WinNew * wincmd L
+                    "autocmd VimEnter * MatchDisable
+
+                    " === Lightline ===
                     let g:lightline = {
                     \ 'active': {
                     \   'right': [ [ 'lineinfo' ],
-                    \              [ 'percent' ]]},}
+                    \              [ 'percent' ]]},
+                    \}
+
+                    " === Command Abbreviations ===
                     cabbrev wq silent wq
                     cabbrev w silent w
-                    syntax on
-                    colorscheme vim
-                    filetype plugin on
-                    filetype indent on
-                    autocmd InsertEnter * norm zz
-                    autocmd BufWritePre * %s/\s\+$//e
-                    autocmd WinNew * wincmd L
-                    nnoremap S :%s///g<Left><Left><Left>
-                    inoremap <Esc> <Nop>
-                    map <F1> <Nop>
-                    imap <F1> <Nop>
-                    map <F9> :q!<CR>
-                    imap <F9> mn:q!<CR>
-                    map <F10> :q<CR>
-                    imap <F10> mn:q<CR>
-                    map <F11> :update<CR>
-                    imap <F11> mn:update<CR>
-                    map <F12> :x<CR>
-                    imap <F12> mn:x<CR>
+
+                    " === Search and Replace Mapping ===
+                    noremap S :%s///g<Left><Left><Left>
+                    noremap s :%s///g<Left><Left><Left>
+
+                    " === Disable Escape in Insert Mode ===
+                    noremap inoremap <Esc> <Nop>
+
+                    " === Disable Function Keys ===
+                    "noremap <F1> <Nop>
+                    "inoremap <F1> <Nop>
+                    "noremap <A-F1> <Nop>
+
+                    " === Remap Navigation Keys ===
                     noremap m h
                     noremap n j
                     noremap e k
@@ -848,13 +880,24 @@
                     noremap l e
                     noremap N n
                     noremap E N
-                    noremap ' i
-                    noremap " I
-                    inoremap ne <Esc>
-                    inoremap en <Esc>
-                    nmap <A-F1> <Nop>
+                    noremap o i
+                    noremap O I
+                    noremap ' o
+                    noremap " "
+
+                    noremap h <Nop>
+                    noremap j <Nop>
+                    noremap k <Nop>
+                    noremap l <Nop>
+
+                    " === Alternacive Escape Mapping ===
+                    "inorumap ne <Esc>
+                    "inoremap en <Esc>
+
+                    " === Disable Netrw History ===
                     let g:netrw_dirhistmax = 0
-                    autocmd VimEnter * :MatchDisable
+
+                    " === Disable Arrow Keys ===
                     noremap <Up> <Nop>
                     noremap <Down> <Nop>
                     noremap <Left> <Nop>
@@ -862,11 +905,7 @@
                     inoremap <Up> <Nop>
                     inoremap <Down> <Nop>
                     inoremap <Left> <Nop>
-                    inoremap <Right> <Nop>
-                    noremap <PageDown> <Nop>
-                    noremap <PageUp> <Nop>
-                    noremap <Home> <Nop>
-                    noremap <End> <Nop>'';
+                    inoremap <Right> <Nop>'';
             };
             keepassxc = {
                 enable = true;
@@ -906,7 +945,7 @@
                 enable = true;
                 latitude = 47.5;
                 longitude = 19;
-                temperature.night = 2700;
+                temperature.night = 2200;
             };
         };
         xdg = {
@@ -1018,8 +1057,9 @@
                 "R" = "rotate";
             };
             options = {
-                recolor = "true";
+                recolor = true;
                 selection-clipboard = "clipboard";
+                selection-notification = false;
             };
         };
         programs.newsboat = {

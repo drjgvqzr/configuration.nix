@@ -43,48 +43,72 @@
         };
         profiles.default = {
             settings = {
+                # --- General ---
                 "browser.startup.page" = 3;
                 "browser.startup.homepage" = "about:newtab";
                 "browser.newtabpage.enabled" = false;
-                "toolkit.cosmeticAnimations.enabled" = false;
                 "browser.tabs.closeWindowWithLastTab" = false;
+                "browser.download.open_pdf_attachments_inline" = true;
+                "browser.download.useDownloadDir" = false;
+                "browser.download.autohideButton" = true;
+                "browser.download.start_downloads_in_tmp_dir" = false;
+                "browser.translations.neverTranslateLanguages" = "hu,de";
+                "identity.fxaccounts.enabled" = true;
+                "permissions.default.desktop-notification" = 2;
+
+                # --- Appearance ---
+                "toolkit.cosmeticAnimations.enabled" = false;
+                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+                "ui.systemUsesDarkTheme" = 1;
+                "font.name.monospace.x-western" = "Roboto Mono";
+                "font.name.sans-serif.x-western" = "Roboto Mono";
+                "font.name.serif.x-western" = "Roboto Mono";
+                "font.size.variable.x-western" = "18";
+                "browser.toolbars.bookmarks.visibility" = "never";
+
+                # --- Sidebar / Vertical Tabs ---
+                "sidebar.verticalTabs" = true;
+                "sidebar.expandOnHoverMessage.dismissed" = true;
+                "sidebar.backupState" = "{\"command\":\"\",\"launcherWidth\":55,\"launcherExpanded\":false,\"launcherVisible\":true}";
+
+                # --- Network / Performance ---
                 "network.dns.disablePrefetch" = false;
                 "network.predictor.enabled" = true;
                 "network.http.speculative-parallel-limit" = 6;
                 "network.prefetch-next" = true;
                 "network.dns.disablePrefetchFromHTTPS" = false;
-                "browser.download.open_pdf_attachments_inline" = true;
+                "network.http.referer.XOriginPolicy" = 2;
+
+                # --- Search / URL Bar ---
+                "browser.search.suggest.enabled" = true;
+                "browser.urlbar.suggest.engines" = false;
                 "findbar.highlightAll" = true;
-                "font.name.monospace.x-western" = "Roboto Mono";
-                "font.name.sans-serif.x-western" = "Roboto Mono";
-                "font.name.serif.x-western" = "Roboto Mono";
-                "font.size.variable.x-western" = "18";
-                "sidebar.verticalTabs" = true;
-                "sidebar.expandOnHoverMessage.dismissed" = true;
-                "sidebar.backupState" = "{\"command\":\"\",\"launcherWidth\":55,\"launcherExpanded\":false,\"launcherVisible\":true}";
+
+                # --- Privacy / Security ---
                 "privacy.resistFingerprinting.letterboxing" = true;
                 "privacy.clearOnShutdown.history" = false;
-                "browser.download.useDownloadDir" = false;
-                "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
-                "browser.search.suggest.enabled" = true;
-                "identity.fxaccounts.enabled" = true;
-                "network.http.referer.XOriginPolicy" = 2;
-                "browser.toolbars.bookmarks.visibility" = "never";
                 "privacy.userContext.enabled" = false;
-                "browser.bookmarks.editDialog.showForNewBookmarks" = false;
-                "browser.download.autohideButton" = true;
-                "browser.urlbar.suggest.engines" = false;
-                "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
-                "browser.translations.neverTranslateLanguages" = "hu,de";
-                "librewolf.hidePasswdmgr" = true;
-                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-                "ui.systemUsesDarkTheme" = 1;
-                "network.protocol-handler.expose.magnet" = false;
-                "widget.use-xdg-desktop-portal.file-picker" = 2;
                 "privacy.trackingprotection.allow_list.baseline.enabled" = true;
                 "privacy.trackingprotection.allow_list.convenience.enabled" = true;
+                "network.protocol-handler.expose.magnet" = false;
                 "xpinstall.signatures.required" = false;
-                "browser.download.start_downloads_in_tmp_dir" = false;
+
+                # --- LibreWolf Specific ---
+                "librewolf.hidePasswdmgr" = true;
+
+                # --- Media ---
+                "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
+
+                # --- System Integration ---
+                "widget.use-xdg-desktop-portal.file-picker" = 2;
+
+                # --- Bookmarks ---
+                "browser.bookmarks.editDialog.showForNewBookmarks" = false;
+
+                # --- Extensions ---
+                "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
+
+                # --- UI Customization State ---
                 "browser.uiCustomization.state" = ''{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["sidebar-button","back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button","vertical-spacer"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"]},"seen":["ublock0_raymondhill_net-browser-action","developer-button","screenshot-button","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action","sponsorblocker_ajay_app-browser-action"],"dirtyAreaCache":["unified-extensions-area","nav-bar","TabsToolbar","vertical-tabs","toolbar-menubar","PersonalToolbar"],"currentVersion":23,"newElementCount":7}'';
                 "browser.uiCustomization.navBarWhenVerticalTabs" = ''["back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button"]'';
             };
@@ -282,12 +306,12 @@
                             redirectUrl = "https://inv.nadeko.net/$2";
                             appliesTo = ["main_frame"];
                         }
-                        {
-                            includePattern = "https://*reddit.com/*";
-                            excludePattern = "*old.reddit.com*|*preview.redd.it*|*reddit.com/media*|*reddit.com/gallery*";
-                            redirectUrl = "https://old.reddit.com/$2";
-                            appliesTo = ["main_frame"];
-                        }
+                        #{
+                        #    includePattern = "https://*reddit.com/*";
+                        #    excludePattern = "*old.reddit.com*|*preview.redd.it*|*reddit.com/media*|*reddit.com/gallery*";
+                        #    redirectUrl = "https://old.reddit.com/$2";
+                        #    appliesTo = ["main_frame"];
+                        #}
                         {
                             includePattern = "https://x.com/*";
                             redirectUrl = "https://xcancel.com/$1";
@@ -427,7 +451,7 @@
                         fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
                         lib: https://annas-archive.gd/search?q=%s
                         wl: https://search.libraryofleaks.org/search?q=%s
-                        elib: https://opac.elte.hu/Search/Results?lookfor=%s&type=AllFields
+                        eltelib: https://opac.elte.hu/Search/Results?lookfor=%s&type=AllFields
                         aw: https://wiki.archlinux.org/title/%s
                         gw: https://wiki.gentoo.org/wiki/%s
                         jf: https://www.jofogas.hu/magyarorszag?q=%s
