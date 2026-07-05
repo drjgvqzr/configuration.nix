@@ -814,6 +814,7 @@
 
                     " === Search ===
                     set smartcase
+                    set ignorecase
                     "set incsearch
                     "set hlsearch
 
