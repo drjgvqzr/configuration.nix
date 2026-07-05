@@ -809,7 +809,6 @@
                     set undofile
                     set undodir=~/.config/nvim/undo//
                     set clipboard=unnamedplus
-                    "set shortmess=IcsCFSW
                     set cmdheight=0
 
                     " === Search ===
