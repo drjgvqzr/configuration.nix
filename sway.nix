@@ -91,7 +91,7 @@
                 "mod1+BackSpace" = "scratchpad show";
                 "mod1+Shift+BackSpace" = " move scratchpad";
                 "mod1+c" = "kill";
-                "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status)\"";
+                "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status) $(date +%H:%M)\"";
                 "mod1+Shift+t" = "exec notify-send \"$(date \"+%H:%M\")\"";
                 "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
                 "mod1+r" = ''exec sh -c 'nixos_dir=~/dx/nixos ; git -C $nixos_dir diff --quiet "*.nix" && notify-send "No changes detected, exiting" && exit ; alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir ; notify-send "NixOS Rebuilding..." ; doas nice -n 19 nixos-rebuild switch &> $nixos_dir/misc/nixos-switch.log && generation=$(git -C $nixos_dir diff -U20 HEAD | aichat summarizewhat changed in my nixos config in one short sentence | sed 's/.$//' ) && git -C $nixos_dir commit -q -am "$generation" && git -C $nixos_dir push -q -u origin main && notify-send "Rebuild successful" || notify-send "Rebuild Failed" && exit '  '';
