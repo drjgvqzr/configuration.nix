@@ -809,11 +809,8 @@
                     set undofile
                     set undodir=~/.config/nvim/undo//
                     set clipboard=unnamedplus
-                    "set mouse=a
-                    "set noerrorbells
                     "set shortmess=IcsCFSW
-                    "set cmdheight=0
-                    "set noshowmode
+                    set cmdheight=0
 
                     " === Search ===
                     set smartcase
@@ -854,15 +851,15 @@
                     \}
 
                     " === Command Abbreviations ===
-                    "cabbrev wq silent wq
-                    "cabbrev w silent w
+                    cabbrev wq silent wq
+                    cabbrev w silent w
 
                     " === Search and Replace Mapping ===
-                    noremap S :%s///g<Left><Left><Left>
-                    noremap s :%s///g<Left><Left><Left>
+                    "noremap S :%s///g<Left><Left><Left>
+                    "noremap s :%s///g<Left><Left><Left>
 
                     " === Disable Escape in Insert Mode ===
-                    inoremap <Esc> <Nop>
+                    "inoremap <Esc> <Nop>
 
                     " === Disable Function Keys ===
                     "noremap <F1> <Nop>
