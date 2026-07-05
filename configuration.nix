@@ -800,8 +800,8 @@
                 vimdiffAlias = true;
                 plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim];
                 initLua = ''
-                    "vim.o.shada = ""
-                    "require('nvim-highlight-colors').setup({})'';
+                    vim.o.shada = ""
+                    require('nvim-highlight-colors').setup({})'';
                 extraConfig = ''
                     " === General Settings ===
                     set nobackup
