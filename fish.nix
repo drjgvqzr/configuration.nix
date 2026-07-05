@@ -285,7 +285,7 @@
             chown = "chown -Rv";
             chmod = "chmod -Rv";
             shred = "shred -uvf -n 1 --remove=wipe";
-            wttr = "curl https://wttr.in/budapest?format=1;sunwait list 47.5N 19E";
+            wttr = "curl https://wttr.in/budapest?format=1 ; sunwait list 47.5N 19E";
             speedtest = "speedtest-go -u decimal-bytes";
             trans = "echo ; /run/current-system/sw/bin/trans -b -j";
             diff = "grc --colour on diff";
