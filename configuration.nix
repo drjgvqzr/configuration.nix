@@ -58,6 +58,7 @@
         handlr-regex
         heimdall
         hledger
+        html2text
         hyperfine
         iftop
         imagemagick
@@ -65,6 +66,7 @@
         iwqr
         jmtpfs
         jq
+        keepass-diff
         #ladybird
         libnotify
         libqalculate
