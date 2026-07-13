@@ -301,6 +301,7 @@
         shellInit = ''
             rem -n -b1 | sort -r | tail -n 3
             echo -e "\033[31m$(date '+%Y/%m/%d %R %A') \033[37m$(echo "scale=6; ($(date +%s)-$(date -d"$(cat /home/soma/birthdate.txt)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%"
+            remind ~/dx/Backups/remind/chores.rem | tail -n +3 | grep -v '^$'
 
             rm -r /home/soma/thunderbird &>/dev/null
             set fish_color_command green
