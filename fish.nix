@@ -299,10 +299,10 @@
             stat = "grc --colour=auto stat";
         };
         shellInit = ''
-            #rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e "\033[31m$(date "+%Y/%m/%d %R %A Now")"
-            #rl
-            #set birth_date (cat /home/soma/birthdate.txt); set life_expectancy 80; set birth_epoch (date -d $birth_date +%s); set now_epoch (date +%s); set end_epoch (date -d "$birth_date + $life_expectancy years" +%s); set lived (math $now_epoch - $birth_epoch); set total (math $end_epoch - $birth_epoch); echo "scale=4; ($lived / $total) * 100" | bc | string join "" "%"
-            rm -r /home/soma/Thunderbird &>/dev/null
+            rem -n -b1 | sort -r | tail -n 3
+            echo -e "\033[31m$(date '+%Y/%m/%d %R %A') \033[37m$(echo "scale=6; ($(date +%s)-$(date -d"$(cat /home/soma/birthdate.txt)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%"
+
+            rm -r /home/soma/thunderbird &>/dev/null
             set fish_color_command green
             set fish_greeting
             set -g fish_key_bindings fish_vi_key_bindings

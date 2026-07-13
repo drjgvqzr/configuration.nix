@@ -27,7 +27,6 @@
         backgroundremover
         bat
         bc
-        brave
         catdocx
         cointop
         cook-cli
@@ -148,6 +147,7 @@
         #GUI
         audacity
         bluejay
+        #brave
         electron-mail
         firefox
         fluffychat
@@ -156,7 +156,7 @@
         #google-chrome
         googleearth-pro
         iwgtk
-        kdePackages.kdenlive
+        #kdePackages.kdenlive
         kdePackages.kolourpaint
         kdiskmark
         logseq
@@ -300,7 +300,6 @@
             enable = true;
             pinentryPackage = pkgs.wayprompt;
         };
-        localsend.enable = true;
         steam.enable = true;
     };
     security = {
@@ -524,81 +523,6 @@
                 enable = true;
                 profiles.default.isDefault = true;
             };
-            yazi = {
-                enable = true;
-                settings.mgr = {
-                    sort_by = "natural";
-                    sort_sensitive = false;
-                    sort_dir_first = true;
-                    sort_translit = true;
-                    show_symlink = true;
-                };
-                initLua = ''
-                    require("full-border"):setup()
-                    require("no-status"):setup()'';
-                keymap = {
-                    confirm.prepend_keymap = [
-                        {
-                            on = ["i"];
-                            run = "close --submit";
-                        }
-                        {
-                            on = ["m"];
-                            run = "close";
-                        }
-                    ];
-                    mgr.prepend_keymap = [
-                        {
-                            on = ["m"];
-                            run = "leave";
-                        }
-                        {
-                            on = ["n"];
-                            run = "arrow 1";
-                        }
-                        {
-                            on = ["e"];
-                            run = "arrow -1";
-                        }
-                        {
-                            on = ["i"];
-                            run = "plugin smart-enter";
-                        }
-                        {
-                            on = ["N"];
-                            run = "find_arrow";
-                        }
-                        {
-                            on = ["E"];
-                            run = "find_arrow --previous";
-                        }
-                        {
-                            on = ["k"];
-                            run = "seek 5";
-                        }
-                        {
-                            on = ["j"];
-                            run = "seek -5";
-                        }
-                        {
-                            on = ["C-["];
-                            run = "escape";
-                        }
-                        {
-                            on = ["q"];
-                            run = "quit";
-                        }
-                        {
-                            on = ["C-c"];
-                            run = "close";
-                        }
-                        {
-                            on = ["C-z"];
-                            run = "suspend";
-                        }
-                    ];
-                };
-            };
             aichat = {
                 enable = true;
                 settings = {
@@ -800,7 +724,7 @@
                 defaultEditor = true;
                 viAlias = true;
                 vimdiffAlias = true;
-                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim vim-lastplace];
+                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim];
                 initLua = ''
                     vim.o.shada = ""
                     require('nvim-highlight-colors').setup({})'';
