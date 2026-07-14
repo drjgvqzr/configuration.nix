@@ -536,14 +536,6 @@
                             patch.chat_completions.".*".body = {
                                 provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request
                                 reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                tools = [
-                                    {
-                                        type = "openrouter:web_search";
-                                    }
-                                    {
-                                        type = "openrouter:datetime";
-                                    }
-                                ];
                             };
 
                             models = [
