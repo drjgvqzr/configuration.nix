@@ -540,9 +540,9 @@
                                     #{
                                     #    type = "openrouter:web_search";
                                     #}
-                                    {
-                                        type = "openrouter:datetime";
-                                    }
+                                    #{
+                                    #    type = "openrouter:datetime";
+                                    #}
                                 ];
                             };
 
