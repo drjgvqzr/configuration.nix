@@ -42,6 +42,7 @@
         ffmpeg
         figlet
         fishPlugins.autopair
+        fishPlugins.grc
         fishPlugins.puffer
         fzf
         fzf-preview

@@ -288,15 +288,7 @@
             wttr = "curl https://wttr.in/budapest?format=1;sunwait list 47.5N 19E";
             speedtest = "speedtest-go -u decimal-bytes";
             trans = "echo ; /run/current-system/sw/bin/trans -b -j";
-            diff = "grc --colour on diff";
-            du = "grc --colour=auto du -h";
-            env = "grc --colour=auto env";
-            lsblk = "grc --colour=auto lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
-            lsmod = "grc --colour=auto lsmod";
-            lspci = "grc --colour=auto lspci";
-            make = "grc --colour=auto make";
-            ping = "grc --colour=auto ping";
-            stat = "grc --colour=auto stat";
+            lsblk = "lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
         };
         shellInit = ''
             rem -n -b1 | sort -r | tail -n 3
