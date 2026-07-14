@@ -155,6 +155,7 @@
             "8" = "cd -";
             "9" = "cd ..";
             d = "doas";
+            eur = "qcalc eur to huf";
             q = "qalc";
             ipinfo = "curl -s ipinfo.io | jq";
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
@@ -250,9 +251,6 @@
             task = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
             #zathura = "swallow zathura-sandbox";
             zathura = "zathura-sandbox";
-            #rl = "rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; echo -e \"\033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
-            #rl = "rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; set birth_date (cat /home/soma/birthdate.txt); set life_expectancy 80; set birth_epoch (date -d $birth_date +%s); set now_epoch (date +%s); set end_epoch (date -d \"$birth_date + $life_expectancy years\" +%s); set lived (math $now_epoch - $birth_epoch); set total (math $end_epoch - $birth_epoch); set pct (echo \"scale=4; ($lived / $total) * 100\" | bc | string join \"\" \"%\"); echo -e \"\033[37m$pct \033[31m$(date \"+%Y/%m/%d %R %A Now\")\"";
-            #rl = "rem -n -b1 | grep -v szülinap | sort -r | tail -n 3 ; set birth_date (cat /home/soma/birthdate.txt); set life_expectancy 80; set birth_epoch (date -d $birth_date +%s); set now_epoch (date +%s); set end_epoch (date -d \"$birth_date + $life_expectancy years\" +%s); set lived (math $now_epoch - $birth_epoch); set total (math $end_epoch - $birth_epoch); set pct (echo \"scale=4; ($lived / $total) * 100\" | bc | string trim)\"%\"; echo -e \"\033[37m$pct \033[31m$(date \"+%Y/%m/%d %R %A Now\")\""
             rc = "rem -cum";
             rc3 = "rem -cu3m";
             rc2 = "rem -cu2m";
