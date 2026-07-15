@@ -8,7 +8,7 @@
         enable = true;
         extraConfig = ''
             exec librewolf
-            exec thunderbird
+            exec electron-mail
             exec logseq
             exec fluffychat
             exec mako
@@ -30,7 +30,7 @@
                 "7" = [{app_id = "librewolf";}];
                 "8" = [{app_id = "Logseq";}];
                 "9" = [{app_id = "fluffychat";}];
-                "10" = [{app_id = "thunderbird";}];
+                "10" = [{app_id = "electron-mail";}];
                 "11" = [{app_id = "org.keepassxc.KeePassXC";}];
                 "12" = [{class = "ONLYOFFICE";}];
             };
@@ -118,7 +118,7 @@
                 "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace number 7'";
                 "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace number 8'";
                 "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace number 9'";
-                "mod1+t" = "exec swaymsg '[app_id=\"thunderbird\"] focus' || exec thunderbird ; exec swaymsg 'workspace number 10'";
+                "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace number 10'";
                 "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace number 11'";
 
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace number 12'";
