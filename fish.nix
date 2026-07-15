@@ -45,7 +45,7 @@
                 end
             end
 
-            #any-nix-shell fish | source
+            any-nix-shell fish | source
 
         '';
         functions = {
