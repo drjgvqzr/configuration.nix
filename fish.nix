@@ -6,6 +6,48 @@
 }: {
     home-manager.users.soma.programs.fish = {
         enable = true;
+        shellInit = ''
+            rem -n -b1 | sort -r | tail -n 3
+            remind ~/dx/Backups/remind/chores.rem | tail -n +2 | grep -v '^$'
+            echo -e "\033[31m$(date '+%Y/%m/%d %R %A') \033[91m$(echo "scale=6; ($(date +%s)-$(date -d"$(cat /home/soma/dx/nixos/misc/secrets/birthdate)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%"
+
+            rm -r /home/soma/thunderbird &>/dev/null
+            set fish_color_command green
+            set fish_greeting
+            set -g fish_key_bindings fish_vi_key_bindings
+
+            set fish_cursor_default block blink
+            set fish_cursor_insert underscore blink
+            set fish_cursor_replace_one line blink
+            set fish_cursor_replace line blink
+            set fish_cursor_external line blink
+            set fish_cursor_visual block blink
+
+            bind m backward-char
+            bind n down-or-search
+            bind e up-or-search
+            bind i forward-char
+
+            bind -M visual m backward-char
+            bind -M visual n down-line
+            bind -M visual e up-line
+            bind -M visual i forward-char
+
+            bind \' "set fish_bind_mode insert"
+            bind \" beginning-of-line "set fish_bind_mode insert"
+
+            set TTY1 (tty)
+            [ "$TTY1" = "/dev/tty1" ] && exec sway
+
+            function __ls_after_cd__on_variable_pwd --on-variable PWD
+                if status --is-interactive
+                    ls -hpNF --color
+                end
+            end
+
+            #any-nix-shell fish | source
+
+        '';
         functions = {
             fish_prompt = "string join '' -- (set_color red) '%' (set_color white)  (prompt_pwd --dir-length=0) (set_color green) '>' (set_color normal)";
             fish_mode_prompt = "";
@@ -288,48 +330,5 @@
             trans = "echo ; /run/current-system/sw/bin/trans -b -j";
             lsblk = "lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
         };
-        shellInit = ''
-            rem -n -b1 | sort -r | tail -n 3
-            echo -e "\033[31m$(date '+%Y/%m/%d %R %A') \033[91m$(echo "scale=6; ($(date +%s)-$(date -d"$(cat /home/soma/dx/nixos/misc/secrets/birthdate)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%"
-            remind ~/dx/Backups/remind/chores.rem | tail -n +2 | grep -v '^$'
-
-            rm -r /home/soma/thunderbird &>/dev/null
-            set fish_color_command green
-            set fish_greeting
-            set -g fish_key_bindings fish_vi_key_bindings
-
-            set fish_cursor_default block blink
-            set fish_cursor_insert underscore blink
-            set fish_cursor_replace_one line blink
-            set fish_cursor_replace line blink
-            set fish_cursor_external line blink
-            set fish_cursor_visual block blink
-
-            bind m backward-char
-            bind n down-or-search
-            bind e up-or-search
-            bind i forward-char
-
-            bind -M visual m backward-char
-            bind -M visual n down-line
-            bind -M visual e up-line
-            bind -M visual i forward-char
-
-            bind \' "set fish_bind_mode insert"
-            bind \" beginning-of-line "set fish_bind_mode insert"
-
-            set TTY1 (tty)
-            [ "$TTY1" = "/dev/tty1" ] && exec sway
-
-            set -q LS_AFTER_CD || set -xg LS_AFTER_CD true
-            function __ls_after_cd__on_variable_pwd --on-variable PWD
-                if test "$LS_AFTER_CD" = true; and status --is-interactive
-                    ls -hpNF --color
-                end
-            end
-
-            any-nix-shell fish | source
-
-        '';
     };
 }
