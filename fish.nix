@@ -328,7 +328,7 @@
             wttr = "curl https://wttr.in/budapest?format=1;sunwait list 47.5N 19E";
             speedtest = "speedtest-go -u decimal-bytes";
             trans = "echo ; /run/current-system/sw/bin/trans -b -j";
-            lsblk = "lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
+            lsblk = "grc lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
         };
     };
 }
