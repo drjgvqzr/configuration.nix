@@ -148,7 +148,7 @@
         #GUI
         audacity
         bluejay
-        #brave
+        brave
         electron-mail
         firefox
         fluffychat
