@@ -210,6 +210,7 @@
                         * * 3p-frame block
                         * * 3p-script block
                         * cloudflare.com * noop
+                        no-remote-fonts: * true
                         boards.4chan.org * 3p-script noop
                         bandcamp.com * 3p-script noop
                         soundcloud.com sndcdn.com * noop

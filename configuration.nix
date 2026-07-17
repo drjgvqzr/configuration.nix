@@ -181,10 +181,7 @@
             "snd_hda_intel.power_save=1"
             "nmi_watchdog=0"
         ];
-        initrd = {
-            checkJournalingFS = true;
-            luks.devices."luks".allowDiscards = true;
-        };
+        initrd.luks.devices."luks".allowDiscards = true;
         kernelPackages = pkgs.linuxPackages_latest;
         loader = {
             systemd-boot.enable = true;
