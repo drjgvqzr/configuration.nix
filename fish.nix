@@ -292,9 +292,9 @@
             task = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
             #zathura = "swallow zathura-sandbox";
             zathura = "zathura-sandbox";
-            rc = "rem -cum";
-            rc3 = "rem -cu3m";
-            rc2 = "rem -cu2m";
+            rc = "rem -cumb1";
+            rc3 = "rem -cu3mb1";
+            rc2 = "rem -cu2mb1";
             fzf = "fzf --preview 'fzf-preview {}'";
             rw = "rem -c+um";
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
