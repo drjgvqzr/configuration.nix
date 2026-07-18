@@ -211,6 +211,7 @@
                         * * 3p-script block
                         * cloudflare.com * noop
                         no-remote-fonts: * true
+                        no-remote-fonts: google.com false
                         boards.4chan.org * 3p-script noop
                         bandcamp.com * 3p-script noop
                         soundcloud.com sndcdn.com * noop

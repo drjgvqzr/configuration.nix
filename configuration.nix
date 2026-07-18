@@ -270,6 +270,7 @@
         permittedInsecurePackages = [
             "googleearth-pro-7.3.7.1155"
             "electron-39.8.10"
+            "electron-40.10.5"
             "librewolf-151.0.2-1"
             "librewolf-unwrapped-151.0.2-1"
             "librewolf-bin-151.0.1-2"
