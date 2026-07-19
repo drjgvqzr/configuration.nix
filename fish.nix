@@ -289,7 +289,7 @@
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
             todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
-            life = "watch -t -n 1 -c 'echo \"\\033[91m$(echo \"scale=10; ($(date +%s)-$(date -d \\\"$(cat /home/soma/dx/nixos/misc/secrets/birthdate)\\\" +%s))/(80*365.2425*86400)*100\"|bc|sed \"s/0*$//\")%\"'";
+            life = "watch -t -n 1 -c 'echo \"\\033[91m$(echo \"scale=10; ($(date +%s)-$(date -d $(cat /home/soma/dx/nixos/misc/secrets/birthdate) +%s))/(80*365.2425*86400)*100\"|bc|sed \"s/0*$//\")%\"'";
             task = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
             #zathura = "swallow zathura-sandbox";
             zathura = "zathura-sandbox";
