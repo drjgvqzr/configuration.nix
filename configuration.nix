@@ -64,7 +64,6 @@
         imagemagick
         inxi
         iwqr
-        jmtpfs
         jq
         keepass-diff
         #ladybird
