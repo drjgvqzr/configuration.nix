@@ -550,7 +550,7 @@
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {
-                                    name = "thenlper/gte-base";
+                                    name = "qwen/qwen3-embedding-8b";
                                     type = "embedding";
                                 }
                             ];
@@ -574,7 +574,7 @@
                     wrap = "auto";
                     wrap_code = true;
                     keybindings = "vi";
-                    rag_embedding_model = "openrouter:thenlper/gte-base";
+                    rag_embedding_model = "openrouter:qwen/qwen3-embedding-8b";
                     rag_chunk_size = 1000;
                     rag_chunk_overlap = 50;
                     document_loaders = {
