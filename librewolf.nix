@@ -502,7 +502,7 @@
                                 template = "https://lite.duckduckgo.com/lite/?q={searchTerms}";
                             }
                             {
-                                template = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+                                template = "https://duckduckgo.com/ac/?q={searchTerms}&type=list&kl=en-us";
                                 rels = ["suggestions"];
                                 type = "application/x-suggestions+json";
                             }
