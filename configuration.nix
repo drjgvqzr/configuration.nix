@@ -559,7 +559,7 @@
                             type = "openai-compatible";
                             name = "cohere";
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/cohere);
-                            api_base = "https://api.cohere.com/v1/embed";
+                            api_base = "https://cohere.com/api/v1";
                             models = [
                                 {
                                     name = "embed-v4.0";
