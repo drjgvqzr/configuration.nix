@@ -55,6 +55,7 @@
                 "browser.translations.neverTranslateLanguages" = "hu,de";
                 "identity.fxaccounts.enabled" = true;
                 "permissions.default.desktop-notification" = 2;
+                "accessibility.force_disabled" = 1;
 
                 # --- Appearance ---
                 "toolkit.cosmeticAnimations.enabled" = false;
@@ -496,7 +497,16 @@
                 engines = {
                     lite = {
                         name = "lite";
-                        urls = [{template = "https://lite.duckduckgo.com/lite/?q={searchTerms}";}];
+                        urls = [
+                            {
+                                template = "https://lite.duckduckgo.com/lite/?q={searchTerms}";
+                            }
+                            {
+                                template = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+                                rels = ["suggestions"];
+                                type = "application/x-suggestions+json";
+                            }
+                        ];
                         definedAliases = ["@lite"];
                     };
                     wiki = {
