@@ -533,40 +533,8 @@
                             api_base = "https://openrouter.ai/api/v1";
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
                             patch.chat_completions.".*".body = {
-                                provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request
+                                provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
                                 reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                tools = [
-                                    #{
-                                    #    type = "openrouter:web_search";
-                                    #}
-                                    #{
-                                    #    type = "openrouter:datetime";
-                                    #}
-                                ];
-                            };
-                            models = [
-                                {
-                                    name = "deepseek/deepseek-v4-pro";
-                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
-                                }
-                            ];
-                        }
-                        {
-                            type = "openai-compatible";
-                            name = "openrouter_internet";
-                            api_base = "https://openrouter.ai/api/v1";
-                            api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
-                            patch.chat_completions.".*".body = {
-                                provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request
-                                reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                tools = [
-                                    {
-                                        type = "openrouter:web_search";
-                                    }
-                                    {
-                                        type = "openrouter:datetime";
-                                    }
-                                ];
                             };
                             models = [
                                 {
@@ -593,6 +561,33 @@
                                     temperature = 1.0;
                                     top_p = 0.95;
                                     top_k = 64;
+                                }
+                            ];
+                        }
+                        {
+                            type = "openai-compatible";
+                            name = "internet";
+                            api_base = "https://openrouter.ai/api/v1";
+                            api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
+                            patch.chat_completions.".*".body = {
+                                provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                tools = [
+                                    {
+                                        type = "openrouter:web_search";
+                                    }
+                                    {
+                                        type = "openrouter:datetime";
+                                    }
+                                    {
+                                        type = "openrouter:web_fetch";
+                                    }
+                                ];
+                            };
+                            models = [
+                                {
+                                    name = "deepseek/deepseek-v4-pro";
+                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                             ];
                         }
