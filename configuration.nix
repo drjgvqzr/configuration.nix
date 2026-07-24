@@ -544,7 +544,6 @@
                                     #}
                                 ];
                             };
-
                             models = [
                                 {
                                     name = "deepseek/deepseek-v4-pro";
@@ -552,6 +551,18 @@
                                 }
                                 {
                                     name = "openai/text-embedding-3-small";
+                                    type = "embedding";
+                                }
+                            ];
+                        }
+                        {
+                            type = "openai-compatible";
+                            name = "cohere";
+                            api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/cohere);
+                            api_base = "https://api.cohere.com/v2";
+                            models = [
+                                {
+                                    name = "embed-v4.0";
                                     type = "embedding";
                                 }
                             ];
@@ -575,7 +586,7 @@
                     wrap = "auto";
                     wrap_code = true;
                     keybindings = "vi";
-                    rag_embedding_model = "openrouter:openai/text-embedding-3-small";
+                    rag_embedding_model = "cohere:embed-v4.0";
                     rag_chunk_size = 1000;
                     rag_chunk_overlap = 50;
                     document_loaders = {
