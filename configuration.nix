@@ -78,6 +78,7 @@
         mapscii
         nautilus
         ncdu
+        meme-image-generator
         nixos-anywhere
         nix-search-tv
         ocrmypdf
@@ -550,7 +551,7 @@
                                     system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
                                 }
                                 {
-                                    name = "baai/bge-m3";
+                                    name = "openai/text-embedding-3-small";
                                     type = "embedding";
                                 }
                             ];
@@ -574,7 +575,7 @@
                     wrap = "auto";
                     wrap_code = true;
                     keybindings = "vi";
-                    rag_embedding_model = "openrouter:baai/bge-m3";
+                    rag_embedding_model = "openrouter:openai/text-embedding-3-small";
                     rag_chunk_size = 1000;
                     rag_chunk_overlap = 50;
                     document_loaders = {

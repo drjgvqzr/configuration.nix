@@ -430,7 +430,7 @@
 
                     '';
                     searchEngines = ''
-                        w: https://en.wikipedia.org/wiki/%s Wikipedia
+                        w: http://en.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
                         y: https://inv.nadeko.net/search?q=%s Invidious
                         ns: https://search.nixos.org/packages?channel=unstable&from=0&size=999&sort=relevance&type=packages&query=%s NixOS Packages
                         nw: https://wiki.nixos.org/wiki/%s NixOS Wiki
