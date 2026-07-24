@@ -553,6 +553,10 @@
                                     name = "qwen/qwen3-embedding-8b";
                                     type = "embedding";
                                 }
+                                {
+                                    name = "cohere/rerank-4-pro";
+                                    type = "reranker";
+                                }
                             ];
                         }
                         {
@@ -575,6 +579,7 @@
                     wrap_code = true;
                     keybindings = "vi";
                     rag_embedding_model = "openrouter:qwen/qwen3-embedding-8b";
+                    rag_reranking_model = "openrouter:cohere/rerank-v4-pro";
                     rag_chunk_size = 1000;
                     rag_chunk_overlap = 50;
                     document_loaders = {
