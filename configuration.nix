@@ -31,6 +31,7 @@
         cointop
         cook-cli
         dash
+        dejsonlz4
         doxx
         exfatprogs
         exiftool
