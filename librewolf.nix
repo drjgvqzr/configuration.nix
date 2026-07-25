@@ -155,6 +155,9 @@
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt
                         https://secure.fanboy.co.nz/fanboy-agegate.txt
                         https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt'';
+                    user-filters = ''
+                        pinterest.*##div[data-test-id=fullPageSignupModal]:has(div[data-test-id=login-modal-redesign])
+                    '';
                     popupPanelSections = 31;
                     selectedFilterLists = [
                         "user-filters"
