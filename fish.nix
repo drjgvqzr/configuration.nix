@@ -197,6 +197,7 @@
             "9" = "cd ..";
             d = "doas";
             eur = "qcalc eur to huf";
+            oc = "opencode";
             q = "qalc";
             ipinfo = "curl -s ipinfo.io | jq";
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
