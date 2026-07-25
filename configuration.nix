@@ -67,7 +67,6 @@
         iwqr
         jq
         keepass-diff
-        khal
         #ladybird
         libnotify
         libqalculate
@@ -79,7 +78,6 @@
         mapscii
         nautilus
         ncdu
-        meme-image-generator
         nixos-anywhere
         nix-search-tv
         ocrmypdf
