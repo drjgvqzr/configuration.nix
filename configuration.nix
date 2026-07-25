@@ -67,6 +67,7 @@
         iwqr
         jq
         keepass-diff
+        khal
         #ladybird
         libnotify
         libqalculate
@@ -83,6 +84,7 @@
         nix-search-tv
         ocrmypdf
         openai-whisper
+        opencode
         oterm
         ouch-rar
         pandoc
@@ -140,7 +142,6 @@
         swaybg
         swayidle
         swaylock
-        wayprompt
         wev
         wf-recorder
         wl-clipboard-rs
@@ -165,6 +166,7 @@
         lutris
         mullvad-browser
         onlyoffice-desktopeditors
+        opencode-desktop
         pavucontrol
         qdirstat
         rustdesk-flutter
@@ -298,7 +300,7 @@
         };
         gnupg.agent = {
             enable = true;
-            pinentryPackage = pkgs.wayprompt;
+            #pinentryPackage = pkgs.wayprompt;
         };
         steam.enable = true;
     };
@@ -571,16 +573,18 @@
                             api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
                             patch.chat_completions.".*".body = {
                                 provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
-                                reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 tools = [
                                     {
                                         type = "openrouter:web_search";
+                                        parameters.engine = "native";
                                     }
                                     {
                                         type = "openrouter:datetime";
                                     }
                                     {
                                         type = "openrouter:web_fetch";
+                                        parameters.engine = "native";
                                     }
                                 ];
                             };

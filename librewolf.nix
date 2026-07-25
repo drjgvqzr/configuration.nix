@@ -481,7 +481,8 @@
                         etf: https://www.justetf.com/en/search.html?query=%s&search=ALL
                         ollama: https://ollama.com/search?q=%s
                         ar: https://web.archive.org/web/*/%s
-                        x: https://xcancel.com/%s'';
+                        x: https://xcancel.com/%s
+                        fd: https://search.f-droid.org/?q=%s F-Droid'';
                     linkHintCharacters = "arstf";
                     preferBrowserSearch = true;
                     newTabUrl_f = "about:newtab";
@@ -758,6 +759,11 @@
                         name = "x.com";
                         urls = [{template = "https://xcancel.com/{searchTerms}";}];
                         definedAliases = ["x"];
+                    };
+                    fd = {
+                        name = "F-Droid";
+                        urls = [{template = "https://search.f-droid.org/?q={searchTerms}";}];
+                        definedAliases = ["fd"];
                     };
                     bing.metaData.hidden = true;
                     google.metaData.hidden = true;

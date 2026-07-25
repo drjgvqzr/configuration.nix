@@ -275,6 +275,7 @@
             tm = "trans :hu";
             tr = "trans :ru";
             a = "aichat";
+            ai = "aichat --model internet:deepseek/deepseek-v4-pro";
             as = "aichat -s";
             wa = "wl-paste | aichat";
             was = "wl-paste | aichat summarize";
@@ -289,6 +290,7 @@
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
             todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
+            steamguard = "steamguard -m /home/soma/dx/nixos/secrets/steamguard-cli";
             life = "watch -t -n 1 -c 'echo \"\\033[91m$(echo \"scale=10; ($(date +%s)-$(date -d $(cat /home/soma/dx/nixos/misc/secrets/birthdate) +%s))/(80*365.2425*86400)*100\"|bc|sed \"s/0*$//\")%\"'";
             task = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
             #zathura = "swallow zathura-sandbox";
