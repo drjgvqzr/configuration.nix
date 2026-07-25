@@ -99,6 +99,7 @@
         presenterm
         prismlauncher
         pulsemixer
+        python315
         qrrs
         rclone
         remind
