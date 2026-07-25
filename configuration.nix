@@ -257,6 +257,7 @@
             automatic = true;
             dates = "monthly";
         };
+        settings.experimental-features = ["nix-command"];
     };
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
