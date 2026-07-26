@@ -331,21 +331,6 @@
         stateVersion = "26.05";
     };
     systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
-    systemd.services.ticker = {
-        script = ''sh -c 'curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=$(cat /home/soma/dx/nixos/misc/secrets/alphavantage) | jq -r '."Global Quote"."05. price"' | sed 's/0*$/€/' > /home/soma/webn' '';
-        startAt = "daily";
-    };
-    systemd.services."hello-world" = {
-        script = ''
-            set -eu
-            ${pkgs.coreutils}/bin/echo "Hello World > /home/soma/hello"
-        '';
-        serviceConfig = {
-            Type = "oneshot";
-            User = "root";
-        };
-        startAt = "*:0/5";
-    };
     services = {
         auto-cpufreq = {
             enable = true;
