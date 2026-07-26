@@ -49,8 +49,7 @@
                 titlebar = false;
                 commands = [
                     {
-                        #command = "opacity 0.75";
-                        command = "opacity 1";
+                        command = "opacity 0.75";
                         criteria.class = ".*";
                     }
                     {
