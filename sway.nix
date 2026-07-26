@@ -33,7 +33,7 @@
                 "electron-mail" = [{app_id = "electron-mail";}];
                 "KeePassXC" = [{app_id = "org.keepassxc.KeePassXC";}];
                 "ONLYOFFICE" = [{class = "ONLYOFFICE";}];
-                "OpenCode" = [{title = "^OC \\||opencode";}];
+                "OpenCode" = [{title = "^OC \\|";} {title = "^opencode";}];
             };
             output = {
                 DSI-1 = {
