@@ -127,7 +127,7 @@
                 "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace KeePassXC'";
 
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
-                "mod1+a" = "exec swaymsg '[title=\"^OC |\"] focus' || exec foot opencode ; exec swaymsg 'workspace OpenCode'";
+                "mod1+a" = "exec swaymsg '[title=\"^opencode\"] focus' || exec swaymsg '[title=\"^OC\"] focus' || exec foot opencode ; exec swaymsg 'workspace OpenCode'";
                 "mod1+Tab" = "workspace back_and_forth";
 
                 "mod1+Shift+space" = "floating toggle";
