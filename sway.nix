@@ -27,12 +27,13 @@
         wrapperFeatures.gtk = true;
         config = {
             assigns = {
-                "7" = [{app_id = "librewolf";}];
-                "8" = [{app_id = "Logseq";}];
-                "9" = [{app_id = "fluffychat";}];
-                "10" = [{app_id = "electron-mail";}];
-                "11" = [{app_id = "org.keepassxc.KeePassXC";}];
-                "12" = [{class = "ONLYOFFICE";}];
+                "librewolf" = [{app_id = "librewolf";}];
+                "Logseq" = [{app_id = "Logseq";}];
+                "fluffychat" = [{app_id = "fluffychat";}];
+                "electron-mail" = [{app_id = "electron-mail";}];
+                "KeePassXC" = [{app_id = "org.keepassxc.KeePassXC";}];
+                "ONLYOFFICE" = [{class = "ONLYOFFICE";}];
+                "OpenCode" = [{title = "^OC \\|";}];
             };
             output = {
                 DSI-1 = {
@@ -63,6 +64,10 @@
                     {
                         command = "floating enable, resize set width 1060 height 600";
                         criteria.title = "^opencode-summarize$";
+                    }
+                    {
+                        command = "move to workspace OpenCode";
+                        criteria.title = "^OC \\|";
                     }
                 ];
             };
@@ -120,13 +125,14 @@
                 "mod1+Ctrl+i" = "resize grow width";
 
                 "mod1+1" = "workspace number 1";
-                "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace number 7'";
-                "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace number 8'";
-                "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace number 9'";
-                "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace number 10'";
-                "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace number 11'";
+                "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace librewolf'";
+                "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace Logseq'";
+                "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace fluffychat'";
+                "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
+                "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace KeePassXC'";
 
-                "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace number 12'";
+                "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
+                "mod1+a" = "exec swaymsg '[title=\"^OC |\"] focus' || exec foot -T 'OC |' opencode ; exec swaymsg 'workspace OpenCode'";
                 "mod1+Tab" = "workspace back_and_forth";
 
                 "mod1+Shift+space" = "floating toggle";

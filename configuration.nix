@@ -237,7 +237,7 @@
     networking = {
         dhcpcd.enable = false;
         hostName = "laptop";
-        nameservers = ["1.1.1.1#cloudflare-dns.com"];
+        nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
         wg-quick.interfaces.wg0.configFile = "/home/soma/dx/nixos/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
