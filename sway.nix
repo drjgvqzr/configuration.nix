@@ -33,7 +33,7 @@
                 "electron-mail" = [{app_id = "electron-mail";}];
                 "KeePassXC" = [{app_id = "org.keepassxc.KeePassXC";}];
                 "ONLYOFFICE" = [{class = "ONLYOFFICE";}];
-                "OpenCode" = [{title = "^OC \\|";}];
+                "OpenCode" = [{title = "^OC \\||opencode";}];
             };
             output = {
                 DSI-1 = {
@@ -60,10 +60,6 @@
                     {
                         command = "floating enable, move absolute position 540 0, resize set width 300 height 200";
                         criteria.title = "^password$";
-                    }
-                    {
-                        command = "floating enable, resize set width 1060 height 600";
-                        criteria.title = "^opencode-summarize$";
                     }
                     {
                         command = "move to workspace OpenCode";
@@ -105,7 +101,6 @@
                 "mod1+r" = ''exec sh -c 'nixos_dir=~/dx/nixos ; git -C $nixos_dir diff --quiet "*.nix" && notify-send "No changes detected, exiting" && exit ; alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir ; notify-send "NixOS Rebuilding..." ; doas nice -n 19 nixos-rebuild switch &> $nixos_dir/misc/nixos-switch.log && generation=$(git -C $nixos_dir diff -U20 HEAD | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' ) && git -C $nixos_dir commit -q -am "$generation" && git -C $nixos_dir push -q -u origin main && notify-send "Rebuild successful" || notify-send "Rebuild Failed" && exit '  '';
                 "mod1+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; [[ -n "$entry" ]] && nohup librewolf --new-tab $( echo -e "$password\n" | keepassxc-cli show -q -a URL dx/Backups/Keepass/keepass.kdbx "$entry" ) &> /dev/null & echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
                 "mod1+Shift+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t  "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
-                "mod1+Shift+s" = ''exec foot -T opencode-summarize sh -c 'wl-paste | aichat summarize; exec $SHELL' '';
                 "Print" = "exec grim -g \"$(slurp)\"";
                 "mod1+f" = "fullscreen";
 
@@ -132,7 +127,7 @@
                 "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace KeePassXC'";
 
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
-                "mod1+a" = "exec swaymsg '[title=\"^OC |\"] focus' || exec foot -T 'OC |' opencode ; exec swaymsg 'workspace OpenCode'";
+                "mod1+a" = "exec swaymsg '[title=\"^OC |\"] focus' || exec foot opencode ; exec swaymsg 'workspace OpenCode'";
                 "mod1+Tab" = "workspace back_and_forth";
 
                 "mod1+Shift+space" = "floating toggle";

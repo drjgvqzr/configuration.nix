@@ -165,7 +165,6 @@
         lutris
         mullvad-browser
         onlyoffice-desktopeditors
-        opencode-desktop
         pavucontrol
         qdirstat
         rustdesk-flutter
