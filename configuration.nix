@@ -332,8 +332,9 @@
     };
     systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
     systemd.services.ticker = {
-        script = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=(cat /home/soma/dx/nixos/misc/secrets/alphavantage) | jq -r '."Global Quote"."05. price"' | sed 's/0*$/€/' > /tmp/webn '';
-        startAt = "daily";
+        #script = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=(cat /home/soma/dx/nixos/misc/secrets/alphavantage) | jq -r '."Global Quote"."05. price"' | sed 's/0*$/€/' > /tmp/webn '';
+        script = ''echo $SHELL > /tmp/webn '';
+        startAt = "05:15";
     };
     services = {
         auto-cpufreq = {
