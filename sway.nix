@@ -33,7 +33,6 @@
                 "electron-mail" = [{app_id = "electron-mail";}];
                 "KeePassXC" = [{app_id = "org.keepassxc.KeePassXC";}];
                 "ONLYOFFICE" = [{class = "ONLYOFFICE";}];
-                "OpenCode" = [{title = "^OC";} {title = "^opencode";}];
             };
             output = {
                 DSI-1 = {
@@ -60,10 +59,6 @@
                     {
                         command = "floating enable, move absolute position 540 0, resize set width 300 height 200";
                         criteria.title = "^password$";
-                    }
-                    {
-                        command = "move to workspace OpenCode";
-                        criteria.title = "^OC \\||^opencode";
                     }
                 ];
             };
@@ -127,7 +122,6 @@
                 "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace KeePassXC'";
 
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
-                "mod1+a" = "[title=^opencode] focus || [title=^OC] focus || exec foot opencode";
                 "mod1+Tab" = "workspace back_and_forth";
 
                 "mod1+Shift+space" = "floating toggle";
