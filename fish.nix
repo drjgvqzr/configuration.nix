@@ -287,7 +287,8 @@
             aw = "aichat provide the etymology, pronounciation without using phonetic symbols, meaning, and usage examples, all on new lines with markdown formatting, of the word";
         };
         shellAliases = {
-            cdmnt = ''cd /mnt/'';
+            cdmnt = "cd /mnt/";
+            webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=(cat /home/soma/dx/nixos/misc/secrets/alphavantage) | jq -r '."Global Quote"."05. price"' | sed 's/0*$/€/' '';
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
             todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
