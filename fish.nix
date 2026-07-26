@@ -7,8 +7,8 @@
     home-manager.users.soma.programs.fish = {
         enable = true;
         shellInit = ''
-            rem -n -b1 | sort -r | tail -n 3
-            echo -e "\033[31m$(date '+%Y/%m/%d %R %A') \033[91m$(echo "scale=6; ($(date +%s)-$(date -d"$(cat /home/soma/dx/nixos/misc/secrets/birthdate)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%\033[0m"
+            rem -n -b1 | sort -r | tail -n 3 | sed 's|^[0-9]\{4\}/||'
+            echo -e "\033[31m$(date '+%m/%d %R %A') \033[91m$(echo "scale=6; ($(date +%s)-$(date -d"$(cat /home/soma/dx/nixos/misc/secrets/birthdate)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%\033[0m"
             remind ~/dx/Backups/remind/chores.rem | tail -n +2 | grep -v '^$'
 
             set fish_color_command green
