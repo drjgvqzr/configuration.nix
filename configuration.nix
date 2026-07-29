@@ -352,7 +352,7 @@
         fcron = {
             enable = true;
             systab = ''
-                %hourly * curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=$(cat /home/soma/dx/nixos/misc/secrets/alphavantage)" | jq -r '."Global Quote"."05. price"' | sed 's/0*$/€/' > /tmp/webn
+                %hourly * curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U" | jq -r '."Global Quote"."05. price"' | sed 's/0*$/€/' > /tmp/webn
             '';
         };
         getty = {
