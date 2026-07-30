@@ -349,11 +349,11 @@
                 };
             };
         };
-        cron = {
+        fcron = {
             enable = true;
-            systemCronJobs = [
-                ''0 * * * * curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U" | jq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' > /tmp/webn''
-            ];
+            systab = ''
+                %hourly * curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U" | jq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' > /tmp/webn
+            '';
         };
         getty = {
             autologinUser = "soma";
