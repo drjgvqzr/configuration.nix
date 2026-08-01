@@ -1012,8 +1012,7 @@
                 #macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; cat /tmp/sub.en.vtt | sed -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\} -->/d' -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\}/d' -e 's/<[^>]*>/g' | awk 'NF'| sed 's/$/ /' | tr -d '\n' | aichat 'give a detailed summary of the previous text with the main points. Do not mention any promotions or sponsors.' | less" ; open-in-browser ; set browser mpv
                 #macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ;; cat /tmp/sub.en.vtt | sed -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\} -->/d' -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\}/d' -e 's/<[^>]*>//g' | awk 'NF' | sed 's/$/ /' | tr -d '\n' | aichat 'give a detailed summary of the previous text with the main points. Do not mention any promotions or sponsors.' | less" ; open-in-browser ; set browser mpv
                 #macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; cat /tmp/sub.en.vtt | less" ; open-in-browser ; set browser mpv
-                macro b set browser "echo $SHELL > /home/soma/meme" ; open-in-browser ; set browser mpv
-                #macro a set browser "${pkgs.yt-dlp}/bin/yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u" ; open-in-browser
+                macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u" ; open-in-browser
             '';
         };
         programs.btop = {
