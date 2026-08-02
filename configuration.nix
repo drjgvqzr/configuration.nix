@@ -262,16 +262,6 @@
             };
         };
     };
-    nix = {
-        gc = {
-            automatic = true;
-            dates = "Sunday";
-        };
-        optimise = {
-            automatic = true;
-            dates = "monthly";
-        };
-    };
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) [
@@ -340,6 +330,7 @@
         autoUpgrade = {
             enable = true;
             dates = "Saturday";
+            runGarbageCollection = true;
         };
         stateVersion = "26.05";
     };
@@ -523,20 +514,6 @@
         backupFileExtension = "backup";
     };
     home-manager.users.soma = {
-        accounts.email.accounts.mailbox = {
-            enable = true;
-            thunderbird.enable = true;
-            primary = true;
-            address = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/email);
-            realName = "John Smith";
-            userName = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/email);
-            imap.authentication = "plain";
-            imap.host = "imap.mailbox.org";
-            imap.port = 993;
-            smtp.authentication = "plain";
-            smtp.host = "smtp.mailbox.org";
-            smtp.port = 465;
-        };
         programs = {
             thunderbird = {
                 enable = true;
