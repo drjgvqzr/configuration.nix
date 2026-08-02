@@ -223,7 +223,7 @@
                         amazon.de * 3p-frame noop
                         amazon.de * 3p-script noop
 
-                        annas-archive.gd * 3p-script noop
+                        annas-archive.gd * 3p noop
 
                         bandcamp.com * 3p-script noop
 
@@ -328,6 +328,7 @@
                         no-remote-fonts: 127.0.0.1 false
                         no-remote-fonts: office.com false
                         no-remote-fonts: hasznaltauto.hu false
+                        no-remote-fonts: inv.nadeko.net false
                     '';
                 };
                 "redirector@einaregilsson.com".settings = {
