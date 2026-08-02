@@ -863,10 +863,6 @@
                     name = "Zathura";
                     exec = "zathura-sandbox";
                 };
-                transmission = {
-                    name = "Transmission";
-                    exec = "transmission-cli -er -w /home/soma/tr";
-                };
             };
             mimeApps = {
                 enable = true;
