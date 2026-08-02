@@ -28,7 +28,6 @@
         sessionVariables = {
             BROWSER = "handlr open";
             EDITOR = "nvim";
-            FZF_DEFAULT_COMMAND = "fd --type f --type l --type d --strip-cwd-prefix";
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             LEDGER_FILE = "$HOME/dx/Backups/finance/2025.journal";
