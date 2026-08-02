@@ -5,7 +5,7 @@ nmcli device wifi list
 read -p "Enter WiFi SSID: " ssid
 read -s -p "Enter WiFi password: " password
 nmcli device wifi connect "$ssid" password "$password"
-sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+#sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 mkdir -p /home/soma/dx/
 mkdir -p /home/soma/.config
 mv /mnt/nixos /home/soma/dx/

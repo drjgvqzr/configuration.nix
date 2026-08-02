@@ -4,177 +4,6 @@
     lib,
     ...
 }: {
-    imports = [
-        /etc/nixos/hardware-configuration.nix
-        "${
-            builtins.fetchTarball {
-                url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "0qqlidc85b1km0dp2f03wdx9k37fyisnjm6cn685ab66m723c2s6";
-            }
-        }/nixos"
-        ./librewolf.nix
-        ./sway.nix
-        ./fish.nix
-        ./misc/thunderbird.nix
-        #./misc/printing.nix
-    ];
-    environment.systemPackages = with pkgs; [
-        #CLI
-        alejandra
-        android-tools
-        any-nix-shell
-        astroterm
-        autotiling-rs
-        backgroundremover
-        bat
-        bc
-        catdocx
-        cointop
-        cook-cli
-        dash
-        dejsonlz4
-        doxx
-        exfatprogs
-        exiftool
-        f3
-        fastfetch
-        fbcat
-        fd
-        fdupes
-        ffmpeg
-        figlet
-        fishPlugins.autopair
-        fishPlugins.grc
-        fishPlugins.puffer
-        fzf
-        fzf-preview
-        gallery-dl
-        gcc
-        gh
-        ghc
-        glow
-        gnumake
-        grc
-        #groff
-        gtrash
-        handlr-regex
-        heimdall
-        hledger
-        html2text
-        hyperfine
-        iftop
-        imagemagick
-        inxi
-        iwqr
-        jq
-        keepass-diff
-        #ladybird
-        libnotify
-        libqalculate
-        libreoffice
-        links2
-        lm_sensors
-        lolcat
-        mailsy
-        mapscii
-        nautilus
-        ncdu
-        nixos-anywhere
-        nix-search-tv
-        ocrmypdf
-        openai-whisper
-        opencode
-        oterm
-        ouch-rar
-        pandoc
-        parted
-        pastel
-        pciutils
-        pdftk
-        pipe-rename
-        piper-tts
-        pipe-viewer
-        poppler-utils
-        presenterm
-        prismlauncher
-        pulsemixer
-        python315
-        qrrs
-        rclone
-        remind
-        ripgrep
-        ripgrep-all
-        smartmontools
-        solitaire-tui
-        sox
-        speedread
-        speedtest-go
-        stc-cli
-        steamguard-cli
-        stress
-        sunwait
-        ticker
-        tickrs
-        timer
-        tldr
-        toipe
-        translate-shell
-        transmission_4-gtk
-        tree
-        ttdl
-        unoconv
-        vulkan-tools
-        wget
-        woeusb
-        xdg-utils
-        zbar
-
-        #Wayland
-        brightnessctl
-        grim
-        hunspell
-        hunspellDicts.en_US-large
-        hunspellDicts.hu_HU
-        hyprpicker
-        i3-swallow
-        slurp
-        sway-scratch
-        swaybg
-        swayidle
-        swaylock
-        wev
-        wf-recorder
-        wl-clipboard-rs
-        wmenu
-
-        #GUI
-        audacity
-        bluejay
-        brave
-        electron-mail
-        firefox
-        fluffychat
-        gamescope
-        gimp
-        #google-chrome
-        googleearth-pro
-        iwgtk
-        #kdePackages.kdenlive
-        kdePackages.kolourpaint
-        kdiskmark
-        logseq
-        lutris
-        mullvad-browser
-        onlyoffice-desktopeditors
-        pavucontrol
-        qdirstat
-        rustdesk-flutter
-        #starsector # TEITW-HP9ON-A7HMK-WA6YA
-        tor-browser
-        ungoogled-chromium
-        vesktop
-        zotero
-    ];
     boot = {
         kernelParams = [
             "fbcon=rotate:1"
@@ -215,6 +44,163 @@
             XDG_PICTURES_DIR = "$HOME/px";
             XDG_VIDEOS_DIR = "$HOME/vs";
         };
+        systemPackages = with pkgs; [
+            #CLI
+            alejandra
+            android-tools
+            any-nix-shell
+            astroterm
+            autotiling-rs
+            backgroundremover
+            bat
+            bc
+            catdocx
+            cointop
+            cook-cli
+            dash
+            dejsonlz4
+            doxx
+            exfatprogs
+            exiftool
+            f3
+            fastfetch
+            fbcat
+            fd
+            fdupes
+            ffmpeg
+            figlet
+            fishPlugins.autopair
+            fishPlugins.grc
+            fishPlugins.puffer
+            fzf
+            fzf-preview
+            gallery-dl
+            gcc
+            gh
+            ghc
+            glow
+            gnumake
+            grc
+            #groff
+            gtrash
+            handlr-regex
+            heimdall
+            hledger
+            html2text
+            hyperfine
+            iftop
+            imagemagick
+            inxi
+            iwqr
+            jq
+            keepass-diff
+            #ladybird
+            libnotify
+            libqalculate
+            libreoffice
+            links2
+            lm_sensors
+            lolcat
+            mailsy
+            mapscii
+            nautilus
+            ncdu
+            nixos-anywhere
+            nix-search-tv
+            ocrmypdf
+            openai-whisper
+            opencode
+            oterm
+            ouch-rar
+            pandoc
+            parted
+            pastel
+            pciutils
+            pdftk
+            pipe-rename
+            piper-tts
+            pipe-viewer
+            poppler-utils
+            presenterm
+            prismlauncher
+            pulsemixer
+            python315
+            qrrs
+            rclone
+            remind
+            ripgrep
+            ripgrep-all
+            smartmontools
+            solitaire-tui
+            sox
+            speedread
+            speedtest-go
+            stc-cli
+            steamguard-cli
+            stress
+            sunwait
+            ticker
+            tickrs
+            timer
+            tldr
+            toipe
+            translate-shell
+            transmission_4-gtk
+            tree
+            ttdl
+            unoconv
+            vulkan-tools
+            wget
+            woeusb
+            xdg-utils
+            zbar
+
+            #Wayland
+            brightnessctl
+            grim
+            hunspell
+            hunspellDicts.en_US-large
+            hunspellDicts.hu_HU
+            hyprpicker
+            i3-swallow
+            slurp
+            sway-scratch
+            swaybg
+            swayidle
+            swaylock
+            wev
+            wf-recorder
+            wl-clipboard-rs
+            wmenu
+
+            #GUI
+            audacity
+            bluejay
+            brave
+            electron-mail
+            firefox
+            fluffychat
+            gamescope
+            gimp
+            #google-chrome
+            googleearth-pro
+            iwgtk
+            #kdePackages.kdenlive
+            kdePackages.kolourpaint
+            kdiskmark
+            logseq
+            lutris
+            mullvad-browser
+            onlyoffice-desktopeditors
+            pavucontrol
+            qdirstat
+            rustdesk-flutter
+            #starsector # TEITW-HP9ON-A7HMK-WA6YA
+            tor-browser
+            ungoogled-chromium
+            vesktop
+            zotero
+        ];
     };
     fonts = {
         packages = with pkgs; [roboto-mono noto-fonts-color-emoji unifont];
@@ -234,6 +220,20 @@
         graphics.enable = true;
     };
     i18n.defaultLocale = "en_US.UTF-8";
+    imports = [
+        /etc/nixos/hardware-configuration.nix
+        "${
+            builtins.fetchTarball {
+                url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
+                sha256 = "0qqlidc85b1km0dp2f03wdx9k37fyisnjm6cn685ab66m723c2s6";
+            }
+        }/nixos"
+        ./librewolf.nix
+        ./sway.nix
+        ./fish.nix
+        ./misc/thunderbird.nix
+        #./misc/printing.nix
+    ];
     networking = {
         dhcpcd.enable = false;
         hostName = "laptop";
