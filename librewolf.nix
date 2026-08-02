@@ -327,6 +327,7 @@
                         no-remote-fonts: duckduckgo.com false
                         no-remote-fonts: 127.0.0.1 false
                         no-remote-fonts: office.com false
+                        no-remote-fonts: hasznaltauto.hu false
                     '';
                 };
                 "redirector@einaregilsson.com".settings = {
