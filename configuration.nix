@@ -22,6 +22,7 @@
         sessionVariables = {
             BROWSER = "handlr open";
             GIT_PAGER = "less -R";
+            GTK_CSD = "0";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
