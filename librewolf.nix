@@ -329,6 +329,7 @@
                         no-remote-fonts: office.com false
                         no-remote-fonts: hasznaltauto.hu false
                         no-remote-fonts: inv.nadeko.net false
+                        no-remote-fonts: justetf.com false
                     '';
                 };
                 "redirector@einaregilsson.com".settings = {
