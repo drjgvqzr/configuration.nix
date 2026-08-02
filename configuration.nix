@@ -378,7 +378,7 @@
                         devices = ["Laptop" "Backup" "Phone"];
                         versioning = {
                             type = "trashcan";
-                            #params.cleanoutDays = "30";
+                            params.cleanoutDays = "30";
                         };
                     };
                     "dx" = {
