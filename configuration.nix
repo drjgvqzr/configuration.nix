@@ -6,11 +6,8 @@
 }: {
     boot = {
         kernelParams = [
-            "fbcon=rotate:1"
+            #"fbcon=rotate:1"
             "video=DSI-1:panel_orientation=right_side_up"
-            #"vm.dirty_writeback_centisecs=1500"
-            #"snd_hda_intel.power_save=1"
-            #"nmi_watchdog=0"
         ];
         initrd.luks.devices."luks".allowDiscards = true;
         kernelPackages = pkgs.linuxPackages_latest;
