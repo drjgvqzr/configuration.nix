@@ -229,10 +229,6 @@
         };
     };
     hardware = {
-        bluetooth = {
-            enable = false;
-            powerOnBoot = false;
-        };
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
     };
@@ -352,11 +348,7 @@
         getty = {
             autologinUser = "soma";
             autologinOnce = true;
-            extraArgs = [
-                "--noissue"
-                "-N"
-                "--nohostname"
-            ];
+            extraArgs = ["--noissue" "-N" "--nohostname"];
             greetingLine = "";
         };
         gnome.gnome-keyring.enable = true;
@@ -492,10 +484,7 @@
         defaultUserShell = pkgs.fish;
         users.soma = {
             isNormalUser = true;
-            extraGroups = [
-                "wheel"
-                "adbusers"
-            ];
+            extraGroups = ["wheel" "adbusers"];
         };
     };
     home-manager = {
@@ -505,10 +494,6 @@
     };
     home-manager.users.soma = {
         programs = {
-            thunderbird = {
-                enable = true;
-                profiles.default.isDefault = true;
-            };
             broot.enable = true;
             aichat = {
                 enable = true;
@@ -650,6 +635,8 @@
                         scrollback-end = "Control+End";
                         show-urls-copy = "Control+y";
                         search-start = "Control+r";
+                        find-prev = "Control+E";
+                        find-next = "Control+N";
                     };
                 };
             };
