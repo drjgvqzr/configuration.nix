@@ -211,7 +211,7 @@
                         ! === Global ===
                         * * 3p-frame block
                         * * 3p-script block
-                        * cloudflare.com * noop
+                        * cloudflare.com * allow
                         behind-the-scene * * noop
 
                         ! === Per-Site Rules ===
@@ -326,6 +326,7 @@
                         no-remote-fonts: duolingo.com false
                         no-remote-fonts: duckduckgo.com false
                         no-remote-fonts: 127.0.0.1 false
+                        no-remote-fonts: office.com false
                     '';
                 };
                 "redirector@einaregilsson.com".settings = {
