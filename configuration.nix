@@ -594,7 +594,7 @@
                         scrollback-home = "Control+Home";
                         scrollback-end = "Control+End";
                         show-urls-copy = "Control+y";
-                        search-start = "Control+\/";
+                        search-start = "Control+slash";
                     };
                     search-bindings = {
                         find-prev = "Shift+e";
