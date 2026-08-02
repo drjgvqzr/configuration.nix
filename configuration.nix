@@ -759,10 +759,7 @@
             keepassxc = {
                 enable = true;
                 settings = {
-                    GUI = {
-                        #ApplicationTheme = "dark";
-                        HideGroupPanel = true;
-                    };
+                    GUI.HideGroupPanel = true;
                     Security = {
                         ClearClipboardTimeout = 15;
                         IconDownloadFallback = true;
@@ -857,13 +854,12 @@
         };
         gtk = {
             enable = true;
-            colorScheme = "dark";
+            #colorScheme = "dark";
         };
         qt = {
             enable = true;
             platformTheme.name = "gtk";
         };
-        #dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
         programs.zathura = {
             enable = true;
             mappings = {
