@@ -292,6 +292,7 @@
         shellAliases = {
             cdmnt = "cd /mnt/";
             jq = "jaq";
+            cd = "zoxide";
             ls = "eza -F --no-quotes --color-scale-mode=gradient --color-scale=all --group-directories-first --smart-group -o --no-permissions";
             du = "dust";
             grep = "rg -S";

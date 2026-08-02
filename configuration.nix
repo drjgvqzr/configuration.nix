@@ -205,18 +205,11 @@
             sd
             eza
             dust
-            duf
             procs
-            bottom
-            delta
             wiki-tui
-            porsmo
             zoxide
-            fselect
             presenterm
-            xh
             wikit
-            wikiman
         ];
     };
     fonts = {
@@ -861,8 +854,7 @@
         };
         gtk = {
             enable = true;
-            #theme.name = "Adwaita-dark";
-            theme.name = "HighContrast";
+            theme.name = "Adwaita-dark";
             theme.package = pkgs.gnome-themes-extra;
         };
         qt = {
