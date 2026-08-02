@@ -290,6 +290,7 @@
         shellAliases = {
             cdmnt = "cd /mnt/";
             jq = "jaq";
+            grep = "rg -S";
             du = "dua";
             webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
             "0" = "cd ~;clear";
@@ -303,7 +304,7 @@
             rc = "rem -cumb1";
             rc3 = "rem -cu3mb1";
             rc2 = "rem -cu2mb1";
-            fzf = "env SHELL=bash fzf --preview 'fzf-preview {}'";
+            fzf = "SHELL=bash FZF_DEFAULT_COMMAND=\"fd --type f --type l --type d --strip-cwd-prefix\" fzf --preview 'fzf-preview {}' 2>/dev/null";
             rw = "rem -c+um";
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
@@ -319,7 +320,6 @@
             trashinfo = "gtrash summary";
             trashempty = "gtrash prune --day 0";
             newsboat = "newsboat -q -u /home/soma/dx/nixos/misc/newsboat";
-            grep = "grep -i --color";
             mkdir = "mkdir -pv";
             mw = "mpv $(wl-paste)";
             head = "head -v";

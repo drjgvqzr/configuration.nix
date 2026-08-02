@@ -108,6 +108,7 @@
             nautilus
             nixos-anywhere
             nix-search-tv
+            nushell
             ocrmypdf
             openai-whisper
             opencode
@@ -206,6 +207,23 @@
             ungoogled-chromium
             vesktop
             zotero
+
+            #Experment with rust rewrites
+            #https://github.com/rcalixte/awesome-wayland
+            #https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
+            sd
+            eza
+            dust
+            duf
+            procs
+            bottom
+            delta
+            wiki-tui
+            porsmo
+            zoxide
+            fselect
+            presenterm
+            xh
         ];
     };
     fonts = {
