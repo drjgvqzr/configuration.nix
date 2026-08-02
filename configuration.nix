@@ -205,6 +205,7 @@
             sd
             eza
             dust
+            dua
             duf
             procs
             bottom

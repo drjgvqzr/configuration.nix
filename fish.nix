@@ -290,6 +290,7 @@
         shellAliases = {
             cdmnt = "cd /mnt/";
             jq = "jaq";
+            ls = "eza -F --no-quotes";
             grep = "rg -S";
             du = "dua";
             webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
@@ -310,7 +311,7 @@
             irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             qalc = "qalc -c -s 'upxrates 1'";
 
-            ls = "ls -hpNF --color";
+            #ls = "ls -hNF --color";
             mv = "mv -vu";
             rm = "gtrash put";
             cat = "bat --pager less";
