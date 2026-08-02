@@ -166,6 +166,7 @@
             swaybg
             swayidle
             swaylock
+            tesseract
             wev
             wl-screenrec
             wl-clipboard-rs
@@ -862,7 +863,7 @@
         qt = {
             enable = true;
             platformTheme.name = "adwaita";
-            style.name = "adwaita";
+            style.name = "Adwaita-dark";
             style.package = pkgs.adwaita-qt;
         };
         dconf.settings."org/freedesktop/appearance".color-scheme = "1";
