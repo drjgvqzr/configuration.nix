@@ -378,7 +378,7 @@
                         devices = ["Laptop" "Backup" "Phone"];
                         versioning = {
                             type = "trashcan";
-                            params.cleanoutDays = "30";
+                            #params.cleanoutDays = "30";
                         };
                     };
                     "dx" = {
@@ -619,47 +619,63 @@
                     uosc
                 ];
                 bindings = {
+                    # === Playlist & Quit ===
                     "DEL" = "run gtrash put \${path} ; playlist-next";
+                    BS = "playlist-prev";
+                    ENTER = "playlist-next";
+                    S = "playlist-shuffle";
+                    q = "quit-watch-later";
+                    "ctrl+c" = "quit-watch-later";
+
+                    # === Seek ===
                     RIGHT = "seek 5";
                     LEFT = "seek -5";
                     UP = "seek 60";
                     DOWN = "seek -60";
+                    HOME = "seek 0 absolute";
+                    PGUP = "add chapter 1";
+                    PGDWN = "add chapter -1";
+                    "." = "frame-step";
+                    "," = "frame-back-step";
+
+                    # === Playback Speed ===
+                    o = "multiply speed 1/1.1";
+                    "'" = "multiply speed 1.1";
+                    i = "set speed 1.0";
+
+                    # === Pause & Fullscreen ===
+                    SPACE = "cycle pause";
                     MBTN_LEFT_DBL = "cycle fullscreen";
                     f = "cycle fullscreen";
-                    "Ctrl+MBTN_LEFT" = "script-binding positioning/drag-to-pan";
+
+                    # === Pan & Zoom & Rotate ===
                     a = "add video-pan-x  +0.1";
                     s = "add video-pan-x  -0.1";
                     w = "add video-pan-y  +0.1";
                     r = "add video-pan-y  -0.1";
-                    R = "cycle_values video-rotate 90 180 270 0";
                     t = "add video-zoom   +0.1";
                     d = "add video-zoom   -0.1";
                     c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
+                    R = "cycle_values video-rotate 90 180 270 0";
+
+                    # === Audio & Video Tracks ===
                     m = "cycle mute";
-                    "]" = "script-binding stats/display-stats";
-                    "\\" = "show-progress";
-                    "0" = "cycle sub-visibility";
-                    "9" = "add sub-delay +0.1";
-                    "8" = "add sub-delay -0.1";
                     "+" = "cycle video";
                     _ = "cycle audio";
                     ")" = "cycle sub";
-                    S = "playlist-shuffle";
-                    q = "quit-watch-later";
-                    o = "multiply speed 1/1.1";
-                    "'" = "multiply speed 1.1";
-                    i = "set speed 1.0";
-                    HOME = "seek 0 absolute";
-                    PGUP = "add chapter 1";
-                    PGDWN = "add chapter -1";
-                    BS = "playlist-prev";
-                    ENTER = "playlist-next";
-                    "." = "frame-step";
-                    "," = "frame-back-step";
-                    "ctrl+c" = "quit-watch-later";
-                    SPACE = "cycle pause";
+
+                    # === Subtitles ===
+                    "0" = "cycle sub-visibility";
+                    "9" = "add sub-delay +0.1";
+                    "8" = "add sub-delay -0.1";
+
+                    # === Loop ===
                     l = "ab-loop";
                     L = "cycle-values loop-file \"inf\" \"no\"";
+
+                    # === OSD & Scripts ===
+                    "]" = "script-binding stats/display-stats";
+                    "\\" = "show-progress";
                     b = "script-binding sponsorblock_minimal/sponsorblock";
                     g = "script-message playlist-view-toggle";
                     p = "script-binding webtorrent/toggle-info";
