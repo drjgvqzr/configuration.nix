@@ -620,6 +620,7 @@
                         selection-target = "clipboard";
                         pad = "5x0";
                     };
+                    cursor.underline-thickness = "2px";
                     scrollback.lines = 100000;
                     colors-dark = {
                         background = "000000";
@@ -647,8 +648,8 @@
                         scrollback-down-page = "Control+Page_Down";
                         scrollback-home = "Control+Home";
                         scrollback-end = "Control+End";
-                        show-urls-copy = "Control+Shift+y";
-                        search-start = "Control+Shift+r";
+                        show-urls-copy = "Control+y";
+                        search-start = "Control+r";
                     };
                 };
             };
