@@ -170,7 +170,7 @@
                   git -C $nixos_dir push -q -u origin main
                   notify-send "Rebuild successful"
                 } || {
-                  cat $nixos_dir/misc/nixos-switch.log | grep -i --color error | tail -n 1
+                  cat $nixos_dir/misc/nixos-switch.log | grep error | tail -n 1
                   notify-send "Rebuild Failed"
                   return 1
                   }'';

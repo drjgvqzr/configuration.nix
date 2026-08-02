@@ -595,8 +595,8 @@
                         scrollback-end = "Control+End";
                         show-urls-copy = "Control+y";
                         search-start = "Control+r";
-                        find-prev = "Control+E";
-                        find-next = "Control+N";
+                        find-prev = "Control+Shift+e";
+                        find-next = "Control+Shift+n";
                     };
                 };
             };
@@ -869,7 +869,7 @@
             style.name = "adwaita";
             style.package = pkgs.adwaita-qt;
         };
-        #dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+        dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
         programs.zathura = {
             enable = true;
             mappings = {
