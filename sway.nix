@@ -3,7 +3,9 @@
     pkgs,
     lib,
     ...
-}: {
+}: let
+    nixos = "/home/soma/dx/nixos";
+in {
     home-manager.users.soma.wayland.windowManager.sway = {
         enable = true;
         checkConfig = false;
@@ -17,7 +19,7 @@
                 "librewolf" = [{app_id = "librewolf";}];
             };
             bars = [];
-            bindswitches."lid:toggle".action = "exec swaylock -fFK -s fill -i /home/soma/dx/nixos/misc/wallpaper.jpg";
+            bindswitches."lid:toggle".action = "exec ${pkgs.swaylock}/bin/swaylock -fFK -s fill -i ${nixos}/misc/wallpaper.jpg";
             colors = {
                 focused = {
                     background = "#aaaaaa";
@@ -83,7 +85,7 @@
                 "mod1+n" = "focus down";
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
                 "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
-                "mod1+r" = ''exec sh -c 'nixos_dir=~/dx/nixos ; git -C $nixos_dir diff --quiet "*.nix" && notify-send "No changes detected, exiting" && exit ; alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir ; notify-send "NixOS Rebuilding..." ; doas nice -n 19 nixos-rebuild switch &> $nixos_dir/misc/nixos-switch.log && generation=$(git -C $nixos_dir diff -U20 HEAD | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' ) && git -C $nixos_dir commit -q -am "$generation" && git -C $nixos_dir push -q -u origin main && notify-send "Rebuild successful" || notify-send "Rebuild Failed" && exit '  '';
+                "mod1+r" = "exec ${nixos}/misc/rebuild.sh";
                 "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace fluffychat'";
                 "mod1+space" = "focus mode_toggle";
                 "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
@@ -92,7 +94,7 @@
             modes = {};
             output = {
                 DSI-1 = {
-                    bg = "/home/soma/dx/nixos/misc/wallpaper.jpg fill";
+                    bg = "${nixos}/misc/wallpaper.jpg fill";
                     scale = "1.5";
                 };
             };

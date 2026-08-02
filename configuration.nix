@@ -3,27 +3,30 @@
     pkgs,
     lib,
     ...
-}: {
+}: let
+    nixos = "/home/soma/dx/nixos";
+    font = "Roboto Mono";
+    trimFile = name: lib.strings.trim (builtins.readFile "${nixos}/misc/${name}");
+in {
     boot = {
-        kernelParams = ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"];
         initrd.luks.devices."luks".allowDiscards = true;
         kernelPackages = pkgs.linuxPackages_latest;
+        kernelParams = ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"];
         loader = {
-            systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
+            systemd-boot.enable = true;
             timeout = 0;
         };
     };
     console.useXkbConfig = true;
     environment = {
         binsh = "${pkgs.dash}/bin/dash";
-        pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
-        shells = with pkgs; [fish];
+        pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
         sessionVariables = {
             BROWSER = "handlr open";
+            DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             GIT_PAGER = "less -R";
             GTK_CSD = "0";
-            DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
             XDG_DESKTOP_DIR = "$HOME/ar";
@@ -32,6 +35,7 @@
             XDG_PICTURES_DIR = "$HOME/px";
             XDG_VIDEOS_DIR = "$HOME/vs";
         };
+        shells = with pkgs; [fish];
         systemPackages = with pkgs; [
             #CLI
             alejandra
@@ -203,41 +207,41 @@
         ];
     };
     fonts = {
-        packages = with pkgs; [roboto-mono noto-fonts-color-emoji unifont];
         fontconfig.defaultFonts = {
-            monospace = ["Roboto Mono"];
-            serif = ["Roboto Mono"];
-            sansSerif = ["Roboto Mono"];
             emoji = ["Noto Color Emoji"];
+            monospace = [font];
+            sansSerif = [font];
+            serif = [font];
         };
+        packages = with pkgs; [noto-fonts-color-emoji roboto-mono unifont];
     };
     hardware = {
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
     };
     imports = [
-        /etc/nixos/hardware-configuration.nix
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
                 sha256 = "0qqlidc85b1km0dp2f03wdx9k37fyisnjm6cn685ab66m723c2s6";
             }
         }/nixos"
-        ./librewolf.nix
-        ./sway.nix
         ./fish.nix
+        ./librewolf.nix
         ./misc/thunderbird.nix
         #./misc/printing.nix
+        ./sway.nix
+        /etc/nixos/hardware-configuration.nix
     ];
     networking = {
         dhcpcd.enable = false;
         nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-        wg-quick.interfaces.wg0.configFile = "/home/soma/dx/nixos/misc/secrets/wg.conf";
+        wg-quick.interfaces.wg0.configFile = "${nixos}/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
             settings.General = {
-                EnableNetworkConfiguration = true;
                 AddressRandomization = "network";
+                EnableNetworkConfiguration = true;
             };
         };
     };
@@ -261,9 +265,9 @@
             enable = true;
             extraRules = [
                 {
-                    users = ["soma"];
                     keepEnv = true;
                     noPass = true;
+                    users = ["soma"];
                 }
             ];
         };
@@ -271,36 +275,21 @@
         rtkit.enable = true;
         sudo.enable = false;
     };
-    swapDevices = [
-        {
-            device = "/var/lib/swapfile";
-            size = 16000;
-        }
-    ];
-    system = {
-        autoUpgrade = {
-            enable = true;
-            dates = "Saturday";
-            runGarbageCollection = true;
-        };
-        stateVersion = "26.05";
-    };
-    systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
     services = {
         auto-cpufreq = {
             enable = true;
             settings = {
-                charger = {
-                    governor = "powersave";
-                    energy_performance_preference = "balance_power";
-                    energy_perf_bias = "balance_power";
-                    turbo = "auto";
-                };
                 battery = {
-                    governor = "powersave";
-                    energy_performance_preference = "power";
                     energy_perf_bias = "power";
+                    energy_performance_preference = "power";
+                    governor = "powersave";
                     turbo = "never";
+                };
+                charger = {
+                    energy_perf_bias = "balance_power";
+                    energy_performance_preference = "balance_power";
+                    governor = "powersave";
+                    turbo = "auto";
                 };
             };
         };
@@ -311,9 +300,9 @@
             '';
         };
         getty = {
-            autologinUser = "soma";
             autologinOnce = true;
-            extraArgs = ["--noissue" "-N" "--nohostname"];
+            autologinUser = "soma";
+            extraArgs = ["--nohostname" "--noissue" "-N"];
             greetingLine = "";
         };
         gnome.gnome-keyring.enable = true;
@@ -338,718 +327,733 @@
         resolved = {
             enable = true;
             settings.Resolve = {
-                DNSOverTLS = "true";
                 DNSSEC = "true";
+                DNSOverTLS = "true";
                 Domains = ["~."];
             };
         };
         syncthing = {
             enable = true;
+            cert = "${nixos}/misc/secrets/cert.pem";
             dataDir = "/home/soma";
             group = "users";
+            key = "${nixos}/misc/secrets/key.pem";
             openDefaultPorts = true;
-            user = "soma";
-            cert = "/home/soma/dx/nixos/misc/secrets/cert.pem";
-            key = "/home/soma/dx/nixos/misc/secrets/key.pem";
             settings = {
                 devices = {
-                    "Backup".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Backup_st-id);
-                    "Laptop".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Laptop_st-id);
-                    "Phone".id = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/Phone_st-id);
+                    "Backup".id = trimFile "secrets/Backup_st-id";
+                    "Laptop".id = trimFile "secrets/Laptop_st-id";
+                    "Phone".id = trimFile "secrets/Phone_st-id";
                 };
                 folders = {
                     "ar" = {
-                        path = "~/ar";
-                        id = "ciwug-fwawa";
                         devices = ["Laptop" "Backup"];
+                        id = "ciwug-fwawa";
+                        path = "~/ar";
                         versioning = {
-                            type = "trashcan";
                             params.cleanoutDays = "30";
+                            type = "trashcan";
                         };
                     };
                     "dn" = {
-                        path = "~/dn";
-                        id = "eztfs-xg2pf";
                         devices = ["Laptop" "Backup" "Phone"];
+                        id = "eztfs-xg2pf";
+                        path = "~/dn";
                         versioning = {
-                            type = "trashcan";
                             params.cleanoutDays = "30";
+                            type = "trashcan";
                         };
                     };
                     "dx" = {
-                        path = "~/dx";
-                        id = "oh2oz-9t565";
                         devices = ["Laptop" "Backup" "Phone"];
+                        id = "oh2oz-9t565";
+                        path = "~/dx";
                         versioning = {
-                            type = "trashcan";
                             params.cleanoutDays = "30";
+                            type = "trashcan";
                         };
                     };
                     "ph" = {
-                        path = "~/ph";
-                        id = "domno-sd3ps";
                         devices = ["Laptop" "Backup" "Phone"];
+                        id = "domno-sd3ps";
+                        path = "~/ph";
                         versioning = {
-                            type = "trashcan";
                             params.cleanoutDays = "30";
+                            type = "trashcan";
                         };
                     };
                     "px" = {
-                        path = "~/px";
-                        id = "d0ind-uzt2e";
                         devices = ["Laptop" "Backup" "Phone"];
+                        id = "d0ind-uzt2e";
+                        path = "~/px";
                         versioning = {
-                            type = "trashcan";
                             params.cleanoutDays = "30";
+                            type = "trashcan";
                         };
                     };
                     "vs" = {
-                        path = "~/vs";
-                        id = "7sr22-b5ui1";
                         devices = ["Laptop" "Backup"];
+                        id = "7sr22-b5ui1";
+                        path = "~/vs";
                         versioning = {
-                            type = "trashcan";
                             params.cleanoutDays = "30";
+                            type = "trashcan";
                         };
                     };
                 };
             };
+            user = "soma";
         };
         thermald.enable = true;
         xserver.xkb = {
             layout = "us";
-            variant = "colemak_dh";
             options = "caps:backspace";
+            variant = "colemak_dh";
         };
     };
+    swapDevices = [
+        {
+            device = "/var/lib/swapfile";
+            size = 16000;
+        }
+    ];
+    system = {
+        autoUpgrade = {
+            enable = true;
+            dates = "Saturday";
+            runGarbageCollection = true;
+        };
+        stateVersion = "26.05";
+    };
+    systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
     time.timeZone = "Europe/Budapest";
     users = {
         defaultUserShell = pkgs.fish;
         users.soma = {
-            isNormalUser = true;
             extraGroups = ["wheel" "adbusers"];
+            isNormalUser = true;
         };
     };
     home-manager = {
-        useUserPackages = true;
-        useGlobalPkgs = true;
         backupFileExtension = "backup";
-    };
-    home-manager.users.soma = {
-        programs = {
-            broot.enable = true;
-            aichat = {
-                enable = true;
-                settings = {
-                    clients = [
-                        {
-                            type = "openai-compatible";
-                            name = "openrouter";
-                            api_base = "https://openrouter.ai/api/v1";
-                            api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
-                            patch.chat_completions.".*".body = {
-                                provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
-                                reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                            };
-                            models = [
-                                {
-                                    name = "deepseek/deepseek-v4-pro";
-                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
-                                }
-                                {
-                                    name = "qwen/qwen3-embedding-8b";
-                                    type = "embedding";
-                                }
-                                {
-                                    name = "cohere/rerank-4-pro";
-                                    type = "reranker";
-                                }
-                            ];
-                        }
-                        {
-                            type = "openai-compatible";
-                            name = "ollama";
-                            api_base = "http://localhost:11434/v1";
-                            models = [
-                                {
-                                    name = "gemma4:e2b";
-                                    temperature = 1.0;
-                                    top_p = 0.95;
-                                    top_k = 64;
-                                }
-                            ];
-                        }
-                        {
-                            type = "openai-compatible";
-                            name = "internet";
-                            api_base = "https://openrouter.ai/api/v1";
-                            api_key = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/secrets/openrouter);
-                            patch.chat_completions.".*".body = {
-                                provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
-                                #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                reasoning.exclude = true;
-                                tools = [
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        users.soma = {
+            programs = {
+                aichat = {
+                    enable = true;
+                    settings = {
+                        clients = [
+                            {
+                                type = "openai-compatible";
+                                name = "internet";
+                                api_base = "https://openrouter.ai/api/v1";
+                                api_key = trimFile "secrets/openrouter";
+                                patch.chat_completions.".*".body = {
+                                    provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                    #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                    reasoning.exclude = true;
+                                    tools = [
+                                        {
+                                            type = "openrouter:web_search";
+                                            parameters.engine = "native";
+                                        }
+                                        {
+                                            type = "openrouter:datetime";
+                                        }
+                                        {
+                                            type = "openrouter:web_fetch";
+                                            parameters.engine = "native";
+                                        }
+                                    ];
+                                };
+                                models = [
                                     {
-                                        type = "openrouter:web_search";
-                                        parameters.engine = "native";
-                                    }
-                                    {
-                                        type = "openrouter:datetime";
-                                    }
-                                    {
-                                        type = "openrouter:web_fetch";
-                                        parameters.engine = "native";
+                                        name = "deepseek/deepseek-v4-pro";
+                                        system_prompt_prefix = trimFile "ai_sysprompt";
                                     }
                                 ];
-                            };
-                            models = [
-                                {
-                                    name = "deepseek/deepseek-v4-pro";
-                                    system_prompt_prefix = lib.strings.trim (builtins.readFile /home/soma/dx/nixos/misc/ai_sysprompt);
-                                }
-                            ];
-                        }
-                    ];
-                    save = true;
-                    save_session = false;
-                    wrap = "auto";
-                    wrap_code = true;
-                    keybindings = "vi";
-                    rag_embedding_model = "openrouter:qwen/qwen3-embedding-8b";
-                    rag_reranking_model = "openrouter:cohere/rerank-v4-pro";
-                    rag_chunk_size = 1000;
-                    rag_chunk_overlap = 50;
-                    document_loaders = {
-                        pdf = "pdftotext $1 -";
-                        epub = "pandoc --to plain $1";
-                        docx = "pandoc --to plain $1";
-                        odt = "pandoc --to plain $1";
-                        pptx = "sh -c \"unoconv -d presentation -f pdf --stdout $1 |pdftotext - -\"";
+                            }
+                            {
+                                type = "openai-compatible";
+                                name = "ollama";
+                                api_base = "http://localhost:11434/v1";
+                                models = [
+                                    {
+                                        name = "gemma4:e2b";
+                                        temperature = 1.0;
+                                        top_p = 0.95;
+                                        top_k = 64;
+                                    }
+                                ];
+                            }
+                            {
+                                type = "openai-compatible";
+                                name = "openrouter";
+                                api_base = "https://openrouter.ai/api/v1";
+                                api_key = trimFile "secrets/openrouter";
+                                patch.chat_completions.".*".body = {
+                                    provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                    reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                };
+                                models = [
+                                    {
+                                        name = "deepseek/deepseek-v4-pro";
+                                        system_prompt_prefix = trimFile "ai_sysprompt";
+                                    }
+                                    {
+                                        name = "qwen/qwen3-embedding-8b";
+                                        type = "embedding";
+                                    }
+                                    {
+                                        name = "cohere/rerank-4-pro";
+                                        type = "reranker";
+                                    }
+                                ];
+                            }
+                        ];
+                        document_loaders = {
+                            docx = "pandoc --to plain $1";
+                            epub = "pandoc --to plain $1";
+                            odt = "pandoc --to plain $1";
+                            pdf = "pdftotext $1 -";
+                            pptx = "sh -c \"unoconv -d presentation -f pdf --stdout $1 |pdftotext - -\"";
+                        };
+                        keybindings = "vi";
+                        rag_chunk_overlap = 50;
+                        rag_chunk_size = 1000;
+                        rag_embedding_model = "openrouter:qwen/qwen3-embedding-8b";
+                        rag_reranking_model = "openrouter:cohere/rerank-v4-pro";
+                        save = true;
+                        save_session = false;
+                        wrap = "auto";
+                        wrap_code = true;
                     };
                 };
-            };
-            dircolors = {
-                enable = true;
-                settings = {
-                    ".pdf" = "01;93";
-                    ".epub" = "01;93";
-                    ".pptx" = "01;33";
-                    ".docx" = "01;33";
-                    ".odt" = "01;33";
-                    ".xlsx" = "01;33";
-                    ".rtf" = "01;33";
-                };
-            };
-            foot = {
-                enable = true;
-                settings = {
-                    main = {
-                        font = "Roboto Mono:size=14";
-                        selection-target = "clipboard";
-                        pad = "5x0";
-                    };
-                    cursor.underline-thickness = "2px";
-                    scrollback.lines = 100000;
-                    colors-dark = {
-                        background = "000000";
-                        foreground = "ffffff";
-                        regular0 = "000000";
-                        regular1 = "aa0000";
-                        regular2 = "00aa00";
-                        regular3 = "aa5500";
-                        regular4 = "3333ff";
-                        regular5 = "aa00aa";
-                        regular6 = "00aaaa";
-                        regular7 = "aaaaaa";
-                        bright0 = "555555";
-                        bright1 = "ff5555";
-                        bright2 = "55ff55";
-                        bright3 = "ffff55";
-                        bright4 = "5555ff";
-                        bright5 = "ff55ff";
-                        bright6 = "55ffff";
-                        bright7 = "ffffff";
-                    };
-                    key-bindings = {
-                        clipboard-paste = "Control+v";
-                        scrollback-up-page = "Control+Page_Up";
-                        scrollback-down-page = "Control+Page_Down";
-                        scrollback-home = "Control+Home";
-                        scrollback-end = "Control+End";
-                        show-urls-copy = "Control+y";
-                        search-start = "Control+slash";
-                    };
-                    search-bindings = {
-                        find-prev = "Shift+e";
-                        find-next = "Shift+n";
-                    };
-                };
-            };
-            mpv = {
-                enable = true;
-                config = {
-                    fullscreen = true;
-                    term-osd-bar-chars = "[/|\\]";
-                    image-display-duration = "inf";
-                    msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,ffmpeg=no,input=no";
-                    term-osd-bar = true;
-                    volume-max = "100";
-                    osd-font = "Roboto Mono";
-                    sub-font = "Roboto Mono";
-                    input-default-bindings = false;
-                    osc = false;
-                };
-                scriptOpts = {
-                    stats.key_page_0 = "2";
-                    webtorrent.path = "/home/soma/tr/";
-                    sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
-                    thumbfast.network = "yes";
-                };
-                scripts = with pkgs.mpvScripts; [
-                    webtorrent-mpv-hook
-                    sponsorblock-minimal
-                    mpris
-                    thumbfast
-                    mpv-gallery-view
-                    uosc
-                ];
-                bindings = {
-                    # === Playlist & Quit ===
-                    "DEL" = "run gtrash put \${path} ; playlist-next";
-                    BS = "playlist-prev";
-                    ENTER = "playlist-next";
-                    S = "playlist-shuffle";
-                    q = "quit-watch-later";
-                    "ctrl+c" = "quit-watch-later";
-
-                    # === Seek ===
-                    RIGHT = "seek 5";
-                    LEFT = "seek -5";
-                    UP = "seek 60";
-                    DOWN = "seek -60";
-                    HOME = "seek 0 absolute";
-                    PGUP = "add chapter 1";
-                    PGDWN = "add chapter -1";
-                    "." = "frame-step";
-                    "," = "frame-back-step";
-
-                    # === Playback Speed ===
-                    o = "multiply speed 1/1.1";
-                    "'" = "multiply speed 1.1";
-                    i = "set speed 1.0";
-
-                    # === Pause & Fullscreen ===
-                    SPACE = "cycle pause";
-                    MBTN_LEFT_DBL = "cycle fullscreen";
-                    f = "cycle fullscreen";
-
-                    # === Pan & Zoom & Rotate ===
-                    a = "add video-pan-x  +0.1";
-                    s = "add video-pan-x  -0.1";
-                    w = "add video-pan-y  +0.1";
-                    r = "add video-pan-y  -0.1";
-                    t = "add video-zoom   +0.1";
-                    d = "add video-zoom   -0.1";
-                    c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
-                    R = "cycle_values video-rotate 90 180 270 0";
-
-                    # === Audio & Video Tracks ===
-                    m = "cycle mute";
-                    "+" = "cycle video";
-                    _ = "cycle audio";
-                    ")" = "cycle sub";
-
-                    # === Subtitles ===
-                    "0" = "cycle sub-visibility";
-                    "9" = "add sub-delay +0.1";
-                    "8" = "add sub-delay -0.1";
-
-                    # === Loop ===
-                    l = "ab-loop";
-                    L = "cycle-values loop-file \"inf\" \"no\"";
-
-                    # === OSD & Scripts ===
-                    "]" = "script-binding stats/display-stats";
-                    "\\" = "show-progress";
-                    b = "script-binding sponsorblock_minimal/sponsorblock";
-                    g = "script-message playlist-view-toggle";
-                    p = "script-binding webtorrent/toggle-info";
-                };
-            };
-            neovim = {
-                enable = true;
-                defaultEditor = true;
-                viAlias = true;
-                vimdiffAlias = true;
-                plugins = with pkgs.vimPlugins; [lightline-vim vim-plugin-AnsiEsc indentLine nvim-highlight-colors todo-txt-vim];
-                initLua = ''
-                    vim.o.shada = ""
-                    require('nvim-highlight-colors').setup({})'';
-                extraConfig = ''
-                    " === General Settings ===
-                    set nobackup
-                    set noswapfile
-                    set undofile
-                    set undodir=~/.config/nvim/undo//
-                    set clipboard=unnamedplus
-                    set cmdheight=0
-
-                    " === Search ===
-                    set smartcase
-                    set ignorecase
-
-                    " === Display ===
-                    set linebreak
-                    colorscheme vim
-
-                    " === Indentation ===
-                    set expandtab
-                    set tabstop=4
-                    set shiftwidth=4
-
-                    " === Filetype ===
-                    "filetype plugin on
-                    "filetype indent on
-
-                    " === Lightline ===
-                    let g:lightline = {
-                    \ 'active': {
-                    \   'right': [ [ 'lineinfo' ],
-                    \              [ 'percent' ]]},
-                    \}
-
-                    " === Command Abbreviations ===
-                    cabbrev wq silent wq
-                    cabbrev w silent w
-
-                    " === Remap Navigation Keys ===
-                    noremap m h
-                    noremap n j
-                    noremap e k
-                    noremap i l
-                    noremap l e
-                    noremap N n
-                    noremap E N
-                    noremap o i
-                    noremap O I
-                    noremap ' o
-                    noremap " O
-
-                    noremap h <Nop>
-                    noremap j <Nop>
-                    noremap k <Nop>
-                    noremap l <Nop>
-
-                    " === Alternacive Escape Mapping ===
-                    inoremap ne <Esc>
-                    inoremap en <Esc>
-
-                    " === Disable Netrw History ===
-                    "let g:netrw_dirhistmax = 0
-
-                    " === Disable Arrow Keys ===
-                    noremap <Up> <Nop>
-                    noremap <Down> <Nop>
-                    noremap <Left> <Nop>
-                    noremap <Right> <Nop>
-                    inoremap <Up> <Nop>
-                    inoremap <Down> <Nop>
-                    inoremap <Left> <Nop>
-                    inoremap <Right> <Nop>'';
-            };
-            keepassxc = {
-                enable = true;
-                settings = {
-                    GUI.HideGroupPanel = true;
-                    Security = {
-                        ClearClipboardTimeout = 15;
-                        IconDownloadFallback = true;
-                        LockDatabaseIdle = true;
-                        LockDatabaseIdleSeconds = 600;
-                        PasswordsHidden = false;
-                        HidePasswordPreviewPanel = false;
-                    };
-                };
-            };
-        };
-        services = {
-            batsignal = {
-                enable = true;
-                extraArgs = ["-D systemctl suspend-then-hibernate"];
-            };
-            mako = {
-                enable = true;
-                settings = {
-                    default-timeout = 5000;
-                    background-color = "#000000BF";
-                    border-color = "#AAAAAABF";
-                    layer = "overlay";
-                };
-            };
-            tldr-update.enable = true;
-            wl-clip-persist.enable = true;
-            wlsunset = {
-                enable = true;
-                latitude = 47.5;
-                longitude = 19;
-                temperature.night = 2200;
-            };
-        };
-        xdg = {
-            enable = true;
-            mimeApps = {
-                enable = true;
-                defaultApplications = {
-                    "text/html" = "librewolf.desktop";
-                    "x-scheme-handler/http" = "librewolf.desktop";
-                    "x-scheme-handler/https" = "librewolf.desktop";
-                    "x-scheme-handler/about" = "librewolf.desktop";
-                    "x-scheme-handler/unknown" = "librewolf.desktop";
-                    "x-scheme-handler/mailto" = "electron-mail.desktop";
-                    "application/pdf" = "org.pwmt.zathura.desktop";
-                    "video/mp4" = "mpv.desktop";
-                    "video/webm" = "mpv.desktop";
-                    "video/quicktime" = "mpv.desktop";
-                    "video/mpeg" = "mpv.desktop";
-                    "video/x-matroska" = "mpv.desktop";
-                    "audio/mpeg" = "mpv.desktop";
-                    "audio/wav" = "mpv.desktop";
-                    "audio/ogg" = "mpv.desktop";
-                    "audio/aac" = "mpv.desktop";
-                    "audio/flac" = "mpv.desktop";
-                    "image/png" = "mpv.desktop";
-                    "image/jpeg" = "mpv.desktop";
-                    "image/webp" = "mpv.desktop";
-                    "text/plain" = "nvim.desktop";
-                    "application/json" = "nvim.desktop";
-                    "application/xml" = "nvim.desktop";
-                    "text/css" = "nvim.desktop";
-                    "text/javascript" = "nvim.desktop";
-                    "application/javascript" = "nvim.desktop";
-                    "text/markdown" = "nvim.desktop";
-                    "application/yaml" = "nvim.desktop";
-                    "text/x-python" = "nvim.desktop";
-                    "text/x-sh" = "nvim.desktop";
-                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
-                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "onlyoffice-desktopeditors.desktop";
-                    "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "onlyoffice-desktopeditors.desktop";
-                    "application/rft" = "onlyoffice-desktopeditors.desktop";
-                    "application/x-bittorrent" = "transmission.desktop";
-                };
-            };
-            portal = {
-                enable = true;
-                extraPortals = [pkgs.xdg-desktop-portal-gtk];
-            };
-            userDirs = {
-                enable = true;
-                desktop = "/home/soma/ar";
-                documents = "/home/soma/dx";
-                download = "/home/soma/dn";
-                music = "/home/soma/mu";
-                pictures = "/home/soma/px";
-                videos = "/home/soma/vs";
-            };
-        };
-        gtk = {
-            enable = true;
-            colorScheme = "dark";
-        };
-        qt = {
-            enable = true;
-            platformTheme.name = "gtk";
-        };
-        programs.zathura = {
-            enable = true;
-            mappings = {
-                # === Scroll ===
-                "w" = "scroll up";
-                "a" = "scroll left";
-                "r" = "scroll down";
-                "s" = "scroll right";
-
-                "m" = "scroll left";
-                "n" = "scroll down";
-                "e" = "scroll up";
-                "i" = "scroll right";
-
-                "u" = "scroll full-up";
-                "l" = "scroll full-down";
-
-                # === Zoom ===
-                "t" = "zoom in";
-                "d" = "zoom out";
-
-                # === Adjust ===
-                "x" = "adjust_window best-fit";
-                "c" = "adjust_window width";
-                "D" = "toggle_page_mode";
-                "R" = "rotate";
-
-                # === Search ===
-                "E" = "search backward";
-                "N" = "search forward";
-
-                # === Delete ===
-                "<BackSpace>" = "exec \"gtrash put '$FILE'\"";
-            };
-            options = {
-                recolor = true;
-                selection-clipboard = "clipboard";
-                selection-notification = false;
-            };
-        };
-        programs.newsboat = {
-            enable = true;
-            browser = "/etc/profiles/per-user/soma/bin/mpv";
-            extraConfig = ''
-                # === Color ===
-                color listfocus black white
-                color listfocus_unread black white bold
-                color title black black
-                color info black black
-
-                # === Filter ===
-                ignore-mode "display"
-                ignore-article "*" "title =~ \"#shorts\""
-                ignore-article "*" "link =~ \"shorts\""
-
-                # === Summary ===
-                macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; sed '1,4d; /^[0-9]\\{2\\}:/d; s/<[^>]*>//g; s/&gt;//g' /tmp/sub.en.vtt | awk 'NF' | uniq | tr '\n' ' ' | aichat Summarize the YouTube video. Do not mention filler. | less" ; open-in-browser
-            '';
-        };
-        programs.btop = {
-            enable = true;
-            settings = {
-                net_iface = "wlan0";
-                update_ms = 100;
-                proc_sorting = "cpu direct";
-                proc_per_core = true;
-                proc_left = true;
-                proc_filter_kernel = true;
-                cpu_single_graph = true;
-                show_coretemp = false;
-                base_10_sizes = true;
-                mem_graphs = false;
-                show_swap = true;
-                swap_disk = true;
-                net_sync = false;
-                check_temp = false;
-            };
-        };
-        programs.yt-dlp = {
-            enable = true;
-            settings = {
-                format-sort = "res:1080";
-                progress = true;
-                no-warnings = true;
-                sub-langs = "en";
-                embed-chapters = true;
-                embed-thumbnail = true;
-                embed-metadata = true;
-                embed-subs = true;
-                sponsorblock-remove = "all";
-            };
-        };
-        home = {
-            pointerCursor = {
-                enable = true;
-                package = pkgs.vanilla-dmz;
-                name = "Vanilla-DMZ-AA";
-                size = 24;
-                sway.enable = true;
-            };
-            stateVersion = "26.05";
-            preferXdgDirectories = true;
-            file = {
-                mime_handlers = {
+                broot.enable = true;
+                btop = {
                     enable = true;
-                    force = true;
-                    target = ".librewolf/default/handlers.json";
-                    text = ''
-                        {
-                        "defaultHandlersVersion": {},
-                            "mimeTypes": {
-                                "application/pdf": {
-                                    "action": 4,
-                                    "extensions": [
-                                        "pdf"
-                                    ]
-                                },
-                                "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
-                                    "action": 4,
-                                    "extensions": [
-                                        "docx"
-                                    ]
-                                },
-                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
-                                    "action": 4,
-                                    "extensions": [
-                                        "xlsx"
-                                    ]
-                                },
-                                "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
-                                    "action": 4,
-                                    "extensions": [
-                                        "pptx"
-                                    ]
-                                },
-                                "application/rtf": {
-                                    "action": 4,
-                                    "extensions": [
-                                        "rtf"
-                                    ]
-                                },
-                                "image/webp": {
-                                    "action": 3,
-                                    "extensions": [
-                                        "webp"
-                                    ]
-                                },
-                                "image/avif": {
-                                    "action": 3,
-                                    "extensions": [
-                                        "avif"
-                                    ]
-                                }
-                            },
-                            "schemes": {
-                                "mailto": {
-                                    "handlers": [
-                                        {
-                                            "name": "Thunderbird",
-                                            "command": "thunderbird --name thunderbird %U"
-                                        }
-                                    ],
-                                    "action": 2
-                                },
-                                "magnet": {
-                                    "action": 2,
-                                    "handlers": [
-                                        {
-                                            "name": "mpv",
-                                            "path": "/etc/profiles/per-user/soma/bin/mpv"
-                                        }
-                                    ],
-                                    "ask": false
-                                }
-                            },
-                            "isDownloadsImprovementsAlreadyMigrated": false
-                        }
+                    settings = {
+                        base_10_sizes = true;
+                        check_temp = false;
+                        cpu_single_graph = true;
+                        mem_graphs = false;
+                        net_iface = "wlan0";
+                        net_sync = false;
+                        proc_filter_kernel = true;
+                        proc_left = true;
+                        proc_per_core = true;
+                        proc_sorting = "cpu direct";
+                        show_coretemp = false;
+                        show_swap = true;
+                        swap_disk = true;
+                        update_ms = 100;
+                    };
+                };
+                dircolors = {
+                    enable = true;
+                    settings = {
+                        ".docx" = "01;33";
+                        ".epub" = "01;93";
+                        ".odt" = "01;33";
+                        ".pdf" = "01;93";
+                        ".pptx" = "01;33";
+                        ".rtf" = "01;33";
+                        ".xlsx" = "01;33";
+                    };
+                };
+                foot = {
+                    enable = true;
+                    settings = {
+                        colors-dark = {
+                            background = "000000";
+                            bright0 = "555555";
+                            bright1 = "ff5555";
+                            bright2 = "55ff55";
+                            bright3 = "ffff55";
+                            bright4 = "5555ff";
+                            bright5 = "ff55ff";
+                            bright6 = "55ffff";
+                            bright7 = "ffffff";
+                            foreground = "ffffff";
+                            regular0 = "000000";
+                            regular1 = "aa0000";
+                            regular2 = "00aa00";
+                            regular3 = "aa5500";
+                            regular4 = "3333ff";
+                            regular5 = "aa00aa";
+                            regular6 = "00aaaa";
+                            regular7 = "aaaaaa";
+                        };
+                        cursor.underline-thickness = "2px";
+                        key-bindings = {
+                            clipboard-paste = "Control+v";
+                            scrollback-up-page = "Control+Page_Up";
+                            scrollback-down-page = "Control+Page_Down";
+                            scrollback-home = "Control+Home";
+                            scrollback-end = "Control+End";
+                            show-urls-copy = "Control+y";
+                            search-start = "Control+slash";
+                        };
+                        main = {
+                            font = "${font}:size=14";
+                            pad = "5x0";
+                            selection-target = "clipboard";
+                        };
+                        scrollback.lines = 100000;
+                        search-bindings = {
+                            find-prev = "Shift+e";
+                            find-next = "Shift+n";
+                        };
+                    };
+                };
+                keepassxc = {
+                    enable = true;
+                    settings = {
+                        GUI.HideGroupPanel = true;
+                        Security = {
+                            ClearClipboardTimeout = 15;
+                            HidePasswordPreviewPanel = false;
+                            IconDownloadFallback = true;
+                            LockDatabaseIdle = true;
+                            LockDatabaseIdleSeconds = 600;
+                            PasswordsHidden = false;
+                        };
+                    };
+                };
+                mpv = {
+                    enable = true;
+                    bindings = {
+                        # === Playlist & Quit ===
+                        "DEL" = "run gtrash put \${path} ; playlist-next";
+                        BS = "playlist-prev";
+                        ENTER = "playlist-next";
+                        S = "playlist-shuffle";
+                        q = "quit-watch-later";
+                        "ctrl+c" = "quit-watch-later";
+
+                        # === Seek ===
+                        RIGHT = "seek 5";
+                        LEFT = "seek -5";
+                        UP = "seek 60";
+                        DOWN = "seek -60";
+                        HOME = "seek 0 absolute";
+                        PGUP = "add chapter 1";
+                        PGDWN = "add chapter -1";
+                        "." = "frame-step";
+                        "," = "frame-back-step";
+
+                        # === Playback Speed ===
+                        o = "multiply speed 1/1.1";
+                        "'" = "multiply speed 1.1";
+                        i = "set speed 1.0";
+
+                        # === Pause & Fullscreen ===
+                        SPACE = "cycle pause";
+                        MBTN_LEFT_DBL = "cycle fullscreen";
+                        f = "cycle fullscreen";
+
+                        # === Pan & Zoom & Rotate ===
+                        a = "add video-pan-x  +0.1";
+                        s = "add video-pan-x  -0.1";
+                        w = "add video-pan-y  +0.1";
+                        r = "add video-pan-y  -0.1";
+                        t = "add video-zoom   +0.1";
+                        d = "add video-zoom   -0.1";
+                        c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
+                        R = "cycle_values video-rotate 90 180 270 0";
+
+                        # === Audio & Video Tracks ===
+                        m = "cycle mute";
+                        "+" = "cycle video";
+                        _ = "cycle audio";
+                        ")" = "cycle sub";
+
+                        # === Subtitles ===
+                        "0" = "cycle sub-visibility";
+                        "9" = "add sub-delay +0.1";
+                        "8" = "add sub-delay -0.1";
+
+                        # === Loop ===
+                        l = "ab-loop";
+                        L = "cycle-values loop-file \"inf\" \"no\"";
+
+                        # === OSD & Scripts ===
+                        "]" = "script-binding stats/display-stats";
+                        "\\" = "show-progress";
+                        b = "script-binding sponsorblock_minimal/sponsorblock";
+                        g = "script-message playlist-view-toggle";
+                        p = "script-binding webtorrent/toggle-info";
+                    };
+                    config = {
+                        fullscreen = true;
+                        image-display-duration = "inf";
+                        input-default-bindings = false;
+                        msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,ffmpeg=no,input=no";
+                        osc = false;
+                        osd-font = font;
+                        sub-font = font;
+                        term-osd-bar = true;
+                        term-osd-bar-chars = "[/|\\]";
+                        volume-max = "100";
+                    };
+                    scriptOpts = {
+                        sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
+                        stats.key_page_0 = "2";
+                        thumbfast.network = "yes";
+                        webtorrent.path = "/home/soma/tr/";
+                    };
+                    scripts = with pkgs.mpvScripts; [
+                        mpris
+                        mpv-gallery-view
+                        sponsorblock-minimal
+                        thumbfast
+                        uosc
+                        webtorrent-mpv-hook
+                    ];
+                };
+                neovim = {
+                    enable = true;
+                    defaultEditor = true;
+                    viAlias = true;
+                    vimdiffAlias = true;
+                    plugins = with pkgs.vimPlugins; [indentLine lightline-vim nvim-highlight-colors todo-txt-vim vim-plugin-AnsiEsc];
+                    initLua = ''
+                        vim.o.shada = ""
+                        require('nvim-highlight-colors').setup({})'';
+                    extraConfig = ''
+                        " === General Settings ===
+                        set nobackup
+                        set noswapfile
+                        set undofile
+                        set undodir=~/.config/nvim/undo//
+                        set clipboard=unnamedplus
+                        set cmdheight=0
+
+                        " === Search ===
+                        set smartcase
+                        set ignorecase
+
+                        " === Display ===
+                        set linebreak
+                        colorscheme vim
+
+                        " === Indentation ===
+                        set expandtab
+                        set tabstop=4
+                        set shiftwidth=4
+
+                        " === Filetype ===
+                        "filetype plugin on
+                        "filetype indent on
+
+                        " === Lightline ===
+                        let g:lightline = {
+                        \ 'active': {
+                        \   'right': [ [ 'lineinfo' ],
+                        \              [ 'percent' ]]},
+                        \}
+
+                        " === Command Abbreviations ===
+                        cabbrev wq silent wq
+                        cabbrev w silent w
+
+                        " === Remap Navigation Keys ===
+                        noremap m h
+                        noremap n j
+                        noremap e k
+                        noremap i l
+                        noremap l e
+                        noremap N n
+                        noremap E N
+                        noremap o i
+                        noremap O I
+                        noremap ' o
+                        noremap " O
+
+                        noremap h <Nop>
+                        noremap j <Nop>
+                        noremap k <Nop>
+                        noremap l <Nop>
+
+                        " === Alternacive Escape Mapping ===
+                        inoremap ne <Esc>
+                        inoremap en <Esc>
+
+                        " === Disable Netrw History ===
+                        "let g:netrw_dirhistmax = 0
+
+                        " === Disable Arrow Keys ===
+                        noremap <Up> <Nop>
+                        noremap <Down> <Nop>
+                        noremap <Left> <Nop>
+                        noremap <Right> <Nop>
+                        inoremap <Up> <Nop>
+                        inoremap <Down> <Nop>
+                        inoremap <Left> <Nop>
+                        inoremap <Right> <Nop>'';
+                };
+                newsboat = {
+                    enable = true;
+                    browser = "/etc/profiles/per-user/soma/bin/mpv";
+                    extraConfig = ''
+                        # === Color ===
+                        color listfocus black white
+                        color listfocus_unread black white bold
+                        color title black black
+                        color info black black
+
+                        # === Filter ===
+                        ignore-mode "display"
+                        ignore-article "*" "title =~ \"#shorts\""
+                        ignore-article "*" "link =~ \"shorts\""
+
+                        # === Summary ===
+                        macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; sed '1,4d; /^[0-9]\\{2\\}:/d; s/<[^>]*>//g; s/&gt;//g' /tmp/sub.en.vtt | awk 'NF' | uniq | tr '\n' ' ' | aichat Summarize the YouTube video. Do not mention filler. | less" ; open-in-browser
                     '';
                 };
-                dotpulse-cookie = {
+                yt-dlp = {
                     enable = true;
-                    force = true;
-                    target = ".config/pulse/client.conf";
-                    text = "cookie-file = ~/.config/pulse/cookie";
+                    settings = {
+                        embed-chapters = true;
+                        embed-metadata = true;
+                        embed-subs = true;
+                        embed-thumbnail = true;
+                        format-sort = "res:1080";
+                        no-warnings = true;
+                        progress = true;
+                        sponsorblock-remove = "all";
+                        sub-langs = "en";
+                    };
                 };
-                links = {
+                zathura = {
                     enable = true;
-                    force = true;
-                    target = ".links";
-                    source = "/home/soma/dx/nixos/misc/.links";
+                    mappings = {
+                        # === Scroll ===
+                        "w" = "scroll up";
+                        "a" = "scroll left";
+                        "r" = "scroll down";
+                        "s" = "scroll right";
+
+                        "m" = "scroll left";
+                        "n" = "scroll down";
+                        "e" = "scroll up";
+                        "i" = "scroll right";
+
+                        "u" = "scroll full-up";
+                        "l" = "scroll full-down";
+
+                        # === Zoom ===
+                        "t" = "zoom in";
+                        "d" = "zoom out";
+
+                        # === Adjust ===
+                        "x" = "adjust_window best-fit";
+                        "c" = "adjust_window width";
+                        "D" = "toggle_page_mode";
+                        "R" = "rotate";
+
+                        # === Search ===
+                        "E" = "search backward";
+                        "N" = "search forward";
+
+                        # === Delete ===
+                        "<BackSpace>" = "exec \"gtrash put '$FILE'\"";
+                    };
+                    options = {
+                        recolor = true;
+                        selection-clipboard = "clipboard";
+                        selection-notification = false;
+                    };
                 };
+            };
+            services = {
+                batsignal = {
+                    enable = true;
+                    extraArgs = ["-D systemctl suspend-then-hibernate"];
+                };
+                mako = {
+                    enable = true;
+                    settings = {
+                        background-color = "#000000BF";
+                        border-color = "#AAAAAABF";
+                        default-timeout = 5000;
+                        layer = "overlay";
+                    };
+                };
+                tldr-update.enable = true;
+                wl-clip-persist.enable = true;
+                wlsunset = {
+                    enable = true;
+                    latitude = 47.5;
+                    longitude = 19;
+                    temperature.night = 2200;
+                };
+            };
+            xdg = {
+                enable = true;
+                mimeApps = {
+                    enable = true;
+                    defaultApplications = {
+                        "application/javascript" = "nvim.desktop";
+                        "application/json" = "nvim.desktop";
+                        "application/pdf" = "org.pwmt.zathura.desktop";
+                        "application/rft" = "onlyoffice-desktopeditors.desktop";
+                        "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "onlyoffice-desktopeditors.desktop";
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "onlyoffice-desktopeditors.desktop";
+                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
+                        "application/x-bittorrent" = "transmission.desktop";
+                        "application/xml" = "nvim.desktop";
+                        "application/yaml" = "nvim.desktop";
+                        "audio/aac" = "mpv.desktop";
+                        "audio/flac" = "mpv.desktop";
+                        "audio/mpeg" = "mpv.desktop";
+                        "audio/ogg" = "mpv.desktop";
+                        "audio/wav" = "mpv.desktop";
+                        "image/jpeg" = "mpv.desktop";
+                        "image/png" = "mpv.desktop";
+                        "image/webp" = "mpv.desktop";
+                        "text/css" = "nvim.desktop";
+                        "text/html" = "librewolf.desktop";
+                        "text/javascript" = "nvim.desktop";
+                        "text/markdown" = "nvim.desktop";
+                        "text/plain" = "nvim.desktop";
+                        "text/x-python" = "nvim.desktop";
+                        "text/x-sh" = "nvim.desktop";
+                        "video/mp4" = "mpv.desktop";
+                        "video/mpeg" = "mpv.desktop";
+                        "video/quicktime" = "mpv.desktop";
+                        "video/webm" = "mpv.desktop";
+                        "video/x-matroska" = "mpv.desktop";
+                        "x-scheme-handler/about" = "librewolf.desktop";
+                        "x-scheme-handler/http" = "librewolf.desktop";
+                        "x-scheme-handler/https" = "librewolf.desktop";
+                        "x-scheme-handler/mailto" = "electron-mail.desktop";
+                        "x-scheme-handler/unknown" = "librewolf.desktop";
+                    };
+                };
+                portal = {
+                    enable = true;
+                    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+                };
+                userDirs = {
+                    enable = true;
+                    desktop = "/home/soma/ar";
+                    documents = "/home/soma/dx";
+                    download = "/home/soma/dn";
+                    music = "/home/soma/mu";
+                    pictures = "/home/soma/px";
+                    videos = "/home/soma/vs";
+                };
+            };
+            gtk = {
+                enable = true;
+                colorScheme = "dark";
+            };
+            qt = {
+                enable = true;
+                platformTheme.name = "gtk";
+            };
+            home = {
+                file = {
+                    dotpulse-cookie = {
+                        enable = true;
+                        force = true;
+                        target = ".config/pulse/client.conf";
+                        text = "cookie-file = ~/.config/pulse/cookie";
+                    };
+                    links = {
+                        enable = true;
+                        force = true;
+                        source = "${nixos}/misc/.links";
+                        target = ".links";
+                    };
+                    mime_handlers = {
+                        enable = true;
+                        force = true;
+                        target = ".librewolf/default/handlers.json";
+                        text = ''
+                            {
+                            "defaultHandlersVersion": {},
+                                "mimeTypes": {
+                                    "application/pdf": {
+                                        "action": 4,
+                                        "extensions": [
+                                            "pdf"
+                                        ]
+                                    },
+                                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+                                        "action": 4,
+                                        "extensions": [
+                                            "docx"
+                                        ]
+                                    },
+                                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+                                        "action": 4,
+                                        "extensions": [
+                                            "xlsx"
+                                        ]
+                                    },
+                                    "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
+                                        "action": 4,
+                                        "extensions": [
+                                            "pptx"
+                                        ]
+                                    },
+                                    "application/rtf": {
+                                        "action": 4,
+                                        "extensions": [
+                                            "rtf"
+                                        ]
+                                    },
+                                    "image/webp": {
+                                        "action": 3,
+                                        "extensions": [
+                                            "webp"
+                                        ]
+                                    },
+                                    "image/avif": {
+                                        "action": 3,
+                                        "extensions": [
+                                            "avif"
+                                        ]
+                                    }
+                                },
+                                "schemes": {
+                                    "mailto": {
+                                        "handlers": [
+                                            {
+                                                "name": "Thunderbird",
+                                                "command": "thunderbird --name thunderbird %U"
+                                            }
+                                        ],
+                                        "action": 2
+                                    },
+                                    "magnet": {
+                                        "action": 2,
+                                        "handlers": [
+                                            {
+                                                "name": "mpv",
+                                                "path": "/etc/profiles/per-user/soma/bin/mpv"
+                                            }
+                                        ],
+                                        "ask": false
+                                    }
+                                },
+                                "isDownloadsImprovementsAlreadyMigrated": false
+                            }
+                        '';
+                    };
+                };
+                pointerCursor = {
+                    enable = true;
+                    name = "Vanilla-DMZ-AA";
+                    package = pkgs.vanilla-dmz;
+                    size = 24;
+                    sway.enable = true;
+                };
+                preferXdgDirectories = true;
+                stateVersion = "26.05";
             };
         };
     };

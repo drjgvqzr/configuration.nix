@@ -3,37 +3,39 @@
     pkgs,
     lib,
     ...
-}: {
+}: let
+    font = "Roboto Mono";
+in {
     home-manager.users.soma.programs.librewolf = {
         enable = true;
         #package = pkgs.librewolf-bin;
         policies.ExtensionSettings = {
-            "redirector@einaregilsson.com" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/redirector/latest.xpi";
-                installation_mode = "force_installed";
-            };
             "addon@darkreader.org" = {
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-                installation_mode = "force_installed";
-            };
-            "vimium-c@gdh1995.cn" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-c/latest.xpi";
-                installation_mode = "force_installed";
-            };
-            "newtab-adapter@gdh1995.cn" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/newtab-adapter/latest.xpi";
                 installation_mode = "force_installed";
             };
             "contact@example.com" = {
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/smartreader/latest.xpi";
                 installation_mode = "force_installed";
             };
+            "extraneous@sysrqmagician.github.io" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/latest/extraneous/latest.xpi";
+                installation_mode = "force_installed";
+            };
+            "newtab-adapter@gdh1995.cn" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/latest/newtab-adapter/latest.xpi";
+                installation_mode = "force_installed";
+            };
+            "redirector@einaregilsson.com" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/latest/redirector/latest.xpi";
+                installation_mode = "force_installed";
+            };
             "sponsorBlocker@ajay.app" = {
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
                 installation_mode = "force_installed";
             };
-            "extraneous@sysrqmagician.github.io" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/extraneous/latest.xpi";
+            "vimium-c@gdh1995.cn" = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-c/latest.xpi";
                 installation_mode = "force_installed";
             };
             "{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}" = {
@@ -42,505 +44,436 @@
             };
         };
         profiles.default = {
-            settings = {
-                # === General ===
-                "browser.startup.page" = 3;
-                "browser.startup.homepage" = "about:newtab";
-                "browser.newtabpage.enabled" = false;
-                "browser.tabs.closeWindowWithLastTab" = false;
-                "browser.download.open_pdf_attachments_inline" = true;
-                "browser.download.useDownloadDir" = false;
-                "browser.download.autohideButton" = true;
-                "browser.download.start_downloads_in_tmp_dir" = false;
-                "browser.translations.neverTranslateLanguages" = "hu,de";
-                "identity.fxaccounts.enabled" = true;
-                "permissions.default.desktop-notification" = 2;
-                "accessibility.force_disabled" = 1;
-
-                # === Appearance ===
-                "toolkit.cosmeticAnimations.enabled" = false;
-                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-                "ui.systemUsesDarkTheme" = 1;
-                "font.name.monospace.x-western" = "Roboto Mono";
-                "font.name.sans-serif.x-western" = "Roboto Mono";
-                "font.name.serif.x-western" = "Roboto Mono";
-                "font.size.variable.x-western" = "18";
-                "browser.toolbars.bookmarks.visibility" = "never";
-
-                # === Sidebar / Vertical Tabs ===
-                "sidebar.verticalTabs" = true;
-                "sidebar.expandOnHoverMessage.dismissed" = true;
-                "sidebar.backupState" = "{\"command\":\"\",\"launcherWidth\":55,\"launcherExpanded\":false,\"launcherVisible\":true}";
-
-                # === Network / Performance ===
-                "network.dns.disablePrefetch" = false;
-                "network.predictor.enabled" = true;
-                "network.http.speculative-parallel-limit" = 6;
-                "network.prefetch-next" = true;
-                "network.dns.disablePrefetchFromHTTPS" = false;
-                "network.http.referer.XOriginPolicy" = 2;
-
-                # === Search / URL Bar ===
-                "browser.search.suggest.enabled" = true;
-                "browser.urlbar.suggest.engines" = false;
-                "findbar.highlightAll" = true;
-
-                # === Privacy / Security ===
-                "privacy.resistFingerprinting.letterboxing" = true;
-                "privacy.clearOnShutdown.history" = false;
-                "privacy.userContext.enabled" = false;
-                "privacy.trackingprotection.allow_list.baseline.enabled" = true;
-                "privacy.trackingprotection.allow_list.convenience.enabled" = true;
-                "network.protocol-handler.expose.magnet" = false;
-                "xpinstall.signatures.required" = false;
-
-                # === LibreWolf Specific ===
-                "librewolf.hidePasswdmgr" = true;
-
-                # === Media ===
-                "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
-
-                # === System Integration ===
-                "widget.use-xdg-desktop-portal.file-picker" = 2;
-
-                # === Bookmarks ===
-                "browser.bookmarks.editDialog.showForNewBookmarks" = false;
-
-                # === Extensions ===
-                "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
-
-                # === UI Customization State ===
-                "browser.uiCustomization.state" = ''{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["sidebar-button","back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button","vertical-spacer"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"]},"seen":["ublock0_raymondhill_net-browser-action","developer-button","screenshot-button","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action","sponsorblocker_ajay_app-browser-action"],"dirtyAreaCache":["unified-extensions-area","nav-bar","TabsToolbar","vertical-tabs","toolbar-menubar","PersonalToolbar"],"currentVersion":23,"newElementCount":7}'';
-                "browser.uiCustomization.navBarWhenVerticalTabs" = ''["back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button"]'';
-            };
-            isDefault = true;
-            extensions.force = true;
-            extensions.settings."addon@darkreader.org".settings = {
-                theme = {
-                    contrast = 150;
-                };
-                syncSettings = false;
-                detectDarkTheme = false;
-                changeBrowserTheme = true;
-                enableForProtectedPages = true;
-                disabledFor = ["teams.microsoft.com"];
-            };
-            extensions.settings = {
-                "extraneous@sysrqmagician.github.io".settings = {
-                    config = {
-                        watched.enabled = false;
-                        hideSlop = {
-                            enabled = true;
-                            badTitleRegex = "^.*#short.*$";
-                            minDuration = "00:02:00";
+            extensions = {
+                force = true;
+                settings = {
+                    "addon@darkreader.org".settings = {
+                        changeBrowserTheme = true;
+                        detectDarkTheme = false;
+                        disabledFor = ["teams.microsoft.com"];
+                        enableForProtectedPages = true;
+                        syncSettings = false;
+                        theme = {
+                            contrast = 150;
                         };
-                        deArrow = {
-                            enabled = true;
-                            trustedOnly = true;
-                            highlightReplacedTitles = true;
+                    };
+                    "extraneous@sysrqmagician.github.io".settings = {
+                        config = {
+                            additionalLinks.cobaltTools = false;
+                            deArrow = {
+                                enabled = true;
+                                highlightReplacedTitles = true;
+                                trustedOnly = true;
+                            };
+                            hideSlop = {
+                                badTitleRegex = "^.*#short.*$";
+                                enabled = true;
+                                minDuration = "00:02:00";
+                            };
+                            watched.enabled = false;
                         };
-                        additionalLinks.cobaltTools = false;
+                    };
+                    "redirector@einaregilsson.com".settings = {
+                        redirects = [
+                            {
+                                includePattern = "https://*youtube.com/*";
+                                redirectUrl = "https://inv.nadeko.net/$2";
+                                appliesTo = ["main_frame"];
+                            }
+                            #{
+                            #    includePattern = "https://*reddit.com/*";
+                            #    excludePattern = "*old.reddit.com*|*preview.redd.it*|*reddit.com/media*|*reddit.com/gallery*";
+                            #    redirectUrl = "https://old.reddit.com/$2";
+                            #    appliesTo = ["main_frame"];
+                            #}
+                            {
+                                includePattern = "https://x.com/*";
+                                redirectUrl = "https://xcancel.com/$1";
+                                appliesTo = ["main_frame"];
+                            }
+                            {
+                                includePattern = "https://inv.nadeko.net/feed/popular";
+                                redirectUrl = "https://inv.nadeko.net/search";
+                                appliesTo = ["main_frame"];
+                            }
+                            {
+                                includePattern = "https://*.wikipedia.org/wiki/*";
+                                excludePattern = "*?useskin=minerva|*#*";
+                                redirectUrl = "https://$1.wikipedia.org/wiki/$2?useskin=minerva";
+                                appliesTo = ["main_frame"];
+                            }
+                            {
+                                includePattern = "https://wiki.archlinux.org/*";
+                                excludePattern = "*?useskin=vector#bodyContent|*anubis*|*#*";
+                                redirectUrl = "https://wiki.archlinux.org/$1?useskin=vector";
+                                appliesTo = ["main_frame"];
+                            }
+                            {
+                                includePattern = "https://annas-archive.gd/md5/*";
+                                redirectUrl = "https://annas-archive.gd/slow_download/$1/0/4";
+                                appliesTo = ["main_frame"];
+                            }
+                        ];
+                    };
+                    "uBlock0@raymondhill.net".settings = {
+                        advancedUserEnabled = true;
+                        contextMenuEnabled = false;
+                        dynamicFilteringString = ''
+                            ! === Global ===
+                            * * 3p-frame block
+                            * * 3p-script block
+                            * cloudflare.com * allow
+                            behind-the-scene * * noop
+
+                            ! === Per-Site Rules ===
+                            boards.4chan.org * 3p-script noop
+
+                            aliexpress.com * 3p-frame noop
+                            aliexpress.com * 3p-script noop
+
+                            amazon.de * 3p-frame noop
+                            amazon.de * 3p-script noop
+
+                            annas-archive.gd * 3p noop
+                            annas-archive.gd * 3p-frame noop
+                            annas-archive.gd * 3p-script noop
+
+                            bandcamp.com * 3p-script noop
+
+                            booru.soyjak.st * 3p-frame noop
+                            booru.soyjak.st * 3p-script noop
+
+                            deepseek.com * 3p-script noop
+
+                            dropbox.com * 3p-frame noop
+                            dropbox.com * 3p-script noop
+
+                            ebay.de * 3p-frame noop
+                            ebay.de * 3p-script noop
+
+                            etsy.com * 3p-frame noop
+                            etsy.com * 3p-script noop
+
+                            genius.com * 3p-script noop
+
+                            github.com githubassets.com * noop
+
+                            google.com * 3p-script noop
+
+                            gsmarena.com * 3p-frame noop
+                            gsmarena.com * 3p-script noop
+
+                            hasznaltauto.hu * 3p-frame noop
+                            hasznaltauto.hu * 3p-script noop
+
+                            imgur.com * 3p-script noop
+
+                            ingatlan.com * 3p-frame noop
+                            ingatlan.com * 3p-script noop
+
+                            instagram.com * 3p-script noop
+
+                            jofogas.hu * 3p-frame noop
+                            jofogas.hu * 3p-script noop
+
+                            login.live.com * 3p-script noop
+
+                            login.microsoftonline.com * 3p-frame noop
+                            login.microsoftonline.com * 3p-script noop
+
+                            messenger.com * 3p-frame noop
+                            messenger.com * 3p-script noop
+
+                            monkeytype.com * * noop
+
+                            mynixos.com * 3p-script noop
+
+                            ncore.pro * 3p-frame noop
+                            ncore.pro * 3p-script noop
+
+                            office.net * 3p-script noop
+
+                            openrouter.ai * 3p-frame noop
+                            openrouter.ai * 3p-script noop
+
+                            outlook.office.com * 3p-frame noop
+                            outlook.office.com * 3p-script noop
+
+                            pinterest.com * 3p-script noop
+                            pinterest.com * 3p-frame noop
+
+                            pornhub.com * 3p-script noop
+
+                            reddit.com * 3p-script noop
+                            reddit.com reddit.map.fastly.net * noop
+                            reddit.com redditstatic.com * noop
+
+                            soundcloud.com cloudfront.net * noop
+                            soundcloud.com sndcdn.com * noop
+                            soundcloud.com * 3p-script noop
+
+                            steampowered.com * 3p-frame noop
+                            steampowered.com * 3p-script noop
+
+                            teams.microsoft.com * 3p-script noop
+
+                            tiktok.com * 3p-script noop
+
+                            tradingview.com * 3p-script noop
+
+                            vocaroo.com * 3p-script noop
+
+                            duolingo.com * 3p-frame noop
+                            duolingo.com * 3p-script noop
+
+                            x.com * 3p-script noop
+
+                            xhamster.com * 3p-script noop'';
+                        externalLists = ''
+                            https://divested.dev/blocklists/Fingerprinting.ubl
+                            https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt
+                            https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt
+                            https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt
+                            https://github.com/liamengland1/miscfilters/raw/refs/heads/master/antipaywall.txt
+                            https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt
+                            https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt
+                            https://secure.fanboy.co.nz/fanboy-agegate.txt
+                            https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt'';
+                        hostnameSwitchesString = ''
+                            no-remote-fonts: * true
+                            no-csp-reports: * true
+                            no-remote-fonts: monkeytype.com false
+                            no-remote-fonts: github.com false
+                            no-remote-fonts: google.com false
+                            no-remote-fonts: duolingo.com false
+                            no-remote-fonts: duckduckgo.com false
+                            no-remote-fonts: 127.0.0.1 false
+                            no-remote-fonts: office.com false
+                            no-remote-fonts: hasznaltauto.hu false
+                            no-remote-fonts: inv.nadeko.net false
+                            no-remote-fonts: justetf.com false
+                        '';
+                        popupPanelSections = 31;
+                        selectedFilterLists = [
+                            "user-filters"
+                            "ublock-filters"
+                            "ublock-badware"
+                            "ublock-privacy"
+                            "ublock-quick-fixes"
+                            "ublock-unbreak"
+                            "easylist"
+                            "adguard-generic"
+                            "adguard-mobile"
+                            "easyprivacy"
+                            "LegitimateURLShortener"
+                            "adguard-spyware"
+                            "adguard-spyware-url"
+                            "block-lan"
+                            "urlhaus-1"
+                            "curben-phishing"
+                            "plowe-0"
+                            "dpollock-0"
+                            "fanboy-cookiemonster"
+                            "ublock-cookies-easylist"
+                            "adguard-cookies"
+                            "ublock-cookies-adguard"
+                            "fanboy-social"
+                            "adguard-social"
+                            "fanboy-thirdparty_social"
+                            "fanboy-ai-suggestions"
+                            "easylist-chat"
+                            "easylist-newsletters"
+                            "easylist-notifications"
+                            "easylist-annoyances"
+                            "adguard-mobile-app-banners"
+                            "adguard-other-annoyances"
+                            "adguard-popup-overlays"
+                            "adguard-widgets"
+                            "ublock-annoyances"
+                            "HUN-0"
+                            "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt"
+                            "https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt"
+                            "https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt"
+                            "https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt"
+                            "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt"
+                            "https://github.com/liamengland1/miscfilters/raw/refs/heads/master/antipaywall.txt"
+                            "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt"
+                            "https://secure.fanboy.co.nz/fanboy-agegate.txt"
+                            "https://divested.dev/blocklists/Fingerprinting.ubl"
+                            "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
+                        ];
+                        urlFilteringString = "";
+                        user-filters = ''
+                            pinterest.*##div[data-test-id=fullPageSignupModal]:has(div[data-test-id=login-modal-redesign])
+                        '';
+                    };
+                    "vimium-c@gdh1995.cn".settings = {
+                        keyMappings = ''
+                            # === Base Exclusions ===
+                            #!no-check
+                            unmapAll
+
+                            # === Navigation ===
+                            map m goBack
+                            map n scrollDown keepHover=false
+                            map e scrollUp keepHover=false
+                            map i goForward
+
+                            # === Tab Management ===
+                            map l nextTab
+                            map u previousTab
+                            map L moveTabRight
+                            map U moveTabLeft
+                            map yt duplicateTab
+                            map x removeTab
+                            map X restoreTab
+
+                            # === Input & Hints ===
+                            map gi focusInput
+                            map gI LinkHints.activateEdit
+
+                            map f LinkHints.activate
+                            map F LinkHints.activateOpenInNewTab
+
+                            # === Find ===
+                            map / enterFindMode
+                            map N performFind
+                            map E performBackwardsFind
+
+                            # === Clipboard ===
+                            map p openCopiedUrlInCurrentTab
+                            map P openCopiedUrlInNewTab
+
+                            # === Scrolling ===
+                            map gg scrollToTop
+                            map G scrollToBottom
+
+                            # === Reload ===
+                            map r reload
+                            map R reload hard
+
+                            # === Copy ===
+                            map yf LinkHints.activateCopyLinkUrl
+                            map yy copyCurrentUrl
+                            map yi LinkHints.activateCopyImage
+
+                            # === Downloads ===
+                            map d LinkHints.activateDownloadImage
+                            map D LinkHints.activateDownloadLink
+
+                            # === Hierarchy ===
+                            map gu goUp
+                            map gU goToRoot
+
+                            # === Sequential Navigation ===
+                            map ]] goNext
+                            map >> goNext
+                            map .. goNext
+                            map [[ goPrevious
+                            map << goPrevious
+                            map ,, goPrevious
+
+                            # === Mode Switching ===
+                            map ' enterInsertMode
+                            ##map v enterVisualMode
+                            map V enterVisualLineMode
+                            map c LinkHints.activateSelect use caret
+                            map v LinkHints.activateSelect use visual
+
+                            # === Visual Mode Sub-mappings ===
+                            mapkey <m:v> h
+                            mapkey <n:v> j
+                            mapkey <e:v> k
+                            mapkey <i:v> l
+
+                            # === Vomnibar ===
+                            map o Vomnibar.activate
+                            map O Vomnibar.activateInNewTab
+
+                            map b Vomnibar.activateBookmarks
+                            map B Vomnibar.activateBookmarksInNewTab
+
+                            map h Vomnibar.activateHistory
+                            map H Vomnibar.activateHistoryInNewTab
+
+                            map T Vomnibar.activateTabs
+
+                            map ge Vomnibar.activateEditUrl
+                            map gE Vomnibar.activateEditUrlInNewTab
+
+                            # === Utilities ===
+                            map gm toggleMuteTab all
+                            map gr toggleReaderMode
+
+                            ##map c zoomReset
+                            map ? showHelp
+                            map w reset
+                        '';
+                        linkHintCharacters = "arstf";
+                        newTabUrl_f = "about:newtab";
+                        nextPatterns = "next,more,newer,>,›,→,»,≫,>>";
+                        omniBlockList = "porn,4chan";
+                        preferBrowserSearch = true;
+                        previousPatterns = "prev,previous,back,older,<,‹,←,«,≪,<<";
+                        searchEngines = ''
+                            w: http://en.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
+                            y: https://inv.nadeko.net/search?q=%s Invidious
+                            ns: https://search.nixos.org/packages?channel=unstable&from=0&size=999&sort=relevance&type=packages&query=%s NixOS Packages
+                            nw: https://wiki.nixos.org/wiki/%s NixOS Wiki
+                            gm: https://www.google.com/maps?q=%s Google Maps
+                            gmn: https://www.google.com/maps/dir/$s{$1/$2} Google Maps Navigation
+                            g: https://www.google.com/search?q=%s Google
+                            az: https://www.amazon.de/s/?field-keywords=%s Amazon
+                            i: https://duckduckgo.com/?&q=%s&ia=images&iax=images Images
+                            h: https://lite.duckduckgo.com/lite/?&q=%s&kl=hu-hu Hungary
+                            gh: https://github.com/search?q=%s&type=repositories&s=stars&ref=opensearch Github
+                            ghg: https://gist.github.com/search?q=%s&ref=opensearch Github Gist
+                            ud: https://rd.vern.cc/define.php?term=%s Urban Dictionary
+                            pb: https://thepiratebay.party/search/%s Torrents
+                            we: https://en.wiktionary.org/wiki/%s#English Wiktionary
+                            r: https://www.reddit.com/search?q=%s Reddit
+                            sr: https://www.reddit.com/r/%s/top?t=all Subreddit
+                            pin: https://de.pinterest.com/search/pins/?q=%s
+                            fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
+                            lib: https://annas-archive.gd/search?q=%s
+                            wl: https://search.libraryofleaks.org/search?q=%s
+                            eltelib: https://opac.elte.hu/Search/Results?lookfor=%s&type=AllFields
+                            aw: https://wiki.archlinux.org/title/%s
+                            gw: https://wiki.gentoo.org/wiki/%s
+                            jf: https://www.jofogas.hu/magyarorszag?q=%s
+                            ak: https://www.arukereso.hu/CategorySearch.php?st=%s
+                            eb: https://www.ebay.de/sch/i.html?_nkw=%s
+                            ph: https://www.pornhub.com/video/search?search=%s
+                            4: https://boards.4chan.org/%s/catalog
+                            sh: javascript:location='https://sci-hub.st/https://'%20+%20escape(location.hostname%20+%20location.pathname)%20+%20'%20%S'%20;%20void%200
+                            4pol: https://archive.4plebs.org/pol/search/type/op/text/%s
+                            4g: https://desuarchive.org/g/search/type/op/text/%s/
+                            r34: https://rule34.xxx/index.php?page=post&s=list&tags=%s
+                            schol: https://scholar.google.com/scholar?q=%s&hl=en
+                            et: https://www.etsy.com/search?q=%s
+                            ya: https://yandex.com/search?text=%s&lr=10466
+                            ali: https://www.aliexpress.com/w/wholesale-%s.html
+                            phil: https://plato.stanford.edu/search/searcher.py?query=%s
+                            trends: https://trends.google.com/trends/explore?date=all&q=%s&hl=en-US
+                            wordfreq: https://books.google.com/ngrams/graph?content=%s&year_start=1800&year_end=2022&corpus=en&smoothing=3
+                            ikea: https://www.ikea.com/hu/hu/search/?q=%s
+                            sc: https://soundcloud.com/search?q=%s
+                            tiktok: https://www.tiktok.com/search?q=%s
+                            steam: https://store.steampowered.com/search?term=%s
+                            poly: https://polymarket.com/search?_q=%s
+                            ticker: https://www.tradingview.com/chart/?symbol=%s
+                            keys: https://gg.deals/game/$s{-}/
+                            ai: https://openrouter.ai/models?q=%s
+                            etf: https://www.justetf.com/en/search.html?query=%s&search=ALL
+                            ollama: https://ollama.com/search?q=%s
+                            ar: https://web.archive.org/web/*/%s
+                            x: https://xcancel.com/%s
+                            fd: https://search.f-droid.org/?q=%s F-Droid'';
+                        titleIgnoreList = "porn,4chan";
                     };
                 };
-                "uBlock0@raymondhill.net".settings = {
-                    advancedUserEnabled = true;
-                    contextMenuEnabled = false;
-                    externalLists = ''
-                        https://divested.dev/blocklists/Fingerprinting.ubl
-                        https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt
-                        https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt
-                        https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt
-                        https://github.com/liamengland1/miscfilters/raw/refs/heads/master/antipaywall.txt
-                        https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt
-                        https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt
-                        https://secure.fanboy.co.nz/fanboy-agegate.txt
-                        https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt'';
-                    user-filters = ''
-                        pinterest.*##div[data-test-id=fullPageSignupModal]:has(div[data-test-id=login-modal-redesign])
-                    '';
-                    popupPanelSections = 31;
-                    selectedFilterLists = [
-                        "user-filters"
-                        "ublock-filters"
-                        "ublock-badware"
-                        "ublock-privacy"
-                        "ublock-quick-fixes"
-                        "ublock-unbreak"
-                        "easylist"
-                        "adguard-generic"
-                        "adguard-mobile"
-                        "easyprivacy"
-                        "LegitimateURLShortener"
-                        "adguard-spyware"
-                        "adguard-spyware-url"
-                        "block-lan"
-                        "urlhaus-1"
-                        "curben-phishing"
-                        "plowe-0"
-                        "dpollock-0"
-                        "fanboy-cookiemonster"
-                        "ublock-cookies-easylist"
-                        "adguard-cookies"
-                        "ublock-cookies-adguard"
-                        "fanboy-social"
-                        "adguard-social"
-                        "fanboy-thirdparty_social"
-                        "fanboy-ai-suggestions"
-                        "easylist-chat"
-                        "easylist-newsletters"
-                        "easylist-notifications"
-                        "easylist-annoyances"
-                        "adguard-mobile-app-banners"
-                        "adguard-other-annoyances"
-                        "adguard-popup-overlays"
-                        "adguard-widgets"
-                        "ublock-annoyances"
-                        "HUN-0"
-                        "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt"
-                        "https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt"
-                        "https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt"
-                        "https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt"
-                        "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt"
-                        "https://github.com/liamengland1/miscfilters/raw/refs/heads/master/antipaywall.txt"
-                        "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt"
-                        "https://secure.fanboy.co.nz/fanboy-agegate.txt"
-                        "https://divested.dev/blocklists/Fingerprinting.ubl"
-                        "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
-                    ];
-                    dynamicFilteringString = ''
-                        ! === Global ===
-                        * * 3p-frame block
-                        * * 3p-script block
-                        * cloudflare.com * allow
-                        behind-the-scene * * noop
-
-                        ! === Per-Site Rules ===
-                        boards.4chan.org * 3p-script noop
-
-                        aliexpress.com * 3p-frame noop
-                        aliexpress.com * 3p-script noop
-
-                        amazon.de * 3p-frame noop
-                        amazon.de * 3p-script noop
-
-                        annas-archive.gd * 3p noop
-                        annas-archive.gd * 3p-frame noop
-                        annas-archive.gd * 3p-script noop
-
-                        bandcamp.com * 3p-script noop
-
-                        booru.soyjak.st * 3p-frame noop
-                        booru.soyjak.st * 3p-script noop
-
-                        deepseek.com * 3p-script noop
-
-                        dropbox.com * 3p-frame noop
-                        dropbox.com * 3p-script noop
-
-                        ebay.de * 3p-frame noop
-                        ebay.de * 3p-script noop
-
-                        etsy.com * 3p-frame noop
-                        etsy.com * 3p-script noop
-
-                        genius.com * 3p-script noop
-
-                        github.com githubassets.com * noop
-
-                        google.com * 3p-script noop
-
-                        gsmarena.com * 3p-frame noop
-                        gsmarena.com * 3p-script noop
-
-                        hasznaltauto.hu * 3p-frame noop
-                        hasznaltauto.hu * 3p-script noop
-
-                        imgur.com * 3p-script noop
-
-                        ingatlan.com * 3p-frame noop
-                        ingatlan.com * 3p-script noop
-
-                        instagram.com * 3p-script noop
-
-                        jofogas.hu * 3p-frame noop
-                        jofogas.hu * 3p-script noop
-
-                        login.live.com * 3p-script noop
-
-                        login.microsoftonline.com * 3p-frame noop
-                        login.microsoftonline.com * 3p-script noop
-
-                        messenger.com * 3p-frame noop
-                        messenger.com * 3p-script noop
-
-                        monkeytype.com * * noop
-
-                        mynixos.com * 3p-script noop
-
-                        ncore.pro * 3p-frame noop
-                        ncore.pro * 3p-script noop
-
-                        office.net * 3p-script noop
-
-                        openrouter.ai * 3p-frame noop
-                        openrouter.ai * 3p-script noop
-
-                        outlook.office.com * 3p-frame noop
-                        outlook.office.com * 3p-script noop
-
-                        pinterest.com * 3p-script noop
-                        pinterest.com * 3p-frame noop
-
-                        pornhub.com * 3p-script noop
-
-                        reddit.com * 3p-script noop
-                        reddit.com reddit.map.fastly.net * noop
-                        reddit.com redditstatic.com * noop
-
-                        soundcloud.com cloudfront.net * noop
-                        soundcloud.com sndcdn.com * noop
-                        soundcloud.com * 3p-script noop
-
-                        steampowered.com * 3p-frame noop
-                        steampowered.com * 3p-script noop
-
-                        teams.microsoft.com * 3p-script noop
-
-                        tiktok.com * 3p-script noop
-
-                        tradingview.com * 3p-script noop
-
-                        vocaroo.com * 3p-script noop
-
-                        duolingo.com * 3p-frame noop
-                        duolingo.com * 3p-script noop
-
-                        x.com * 3p-script noop
-
-                        xhamster.com * 3p-script noop'';
-                    urlFilteringString = "";
-                    hostnameSwitchesString = ''
-                        no-remote-fonts: * true
-                        no-csp-reports: * true
-                        no-remote-fonts: monkeytype.com false
-                        no-remote-fonts: github.com false
-                        no-remote-fonts: google.com false
-                        no-remote-fonts: duolingo.com false
-                        no-remote-fonts: duckduckgo.com false
-                        no-remote-fonts: 127.0.0.1 false
-                        no-remote-fonts: office.com false
-                        no-remote-fonts: hasznaltauto.hu false
-                        no-remote-fonts: inv.nadeko.net false
-                        no-remote-fonts: justetf.com false
-                    '';
-                };
-                "redirector@einaregilsson.com".settings = {
-                    redirects = [
-                        {
-                            includePattern = "https://*youtube.com/*";
-                            redirectUrl = "https://inv.nadeko.net/$2";
-                            appliesTo = ["main_frame"];
-                        }
-                        #{
-                        #    includePattern = "https://*reddit.com/*";
-                        #    excludePattern = "*old.reddit.com*|*preview.redd.it*|*reddit.com/media*|*reddit.com/gallery*";
-                        #    redirectUrl = "https://old.reddit.com/$2";
-                        #    appliesTo = ["main_frame"];
-                        #}
-                        {
-                            includePattern = "https://x.com/*";
-                            redirectUrl = "https://xcancel.com/$1";
-                            appliesTo = ["main_frame"];
-                        }
-                        {
-                            includePattern = "https://inv.nadeko.net/feed/popular";
-                            redirectUrl = "https://inv.nadeko.net/search";
-                            appliesTo = ["main_frame"];
-                        }
-                        {
-                            includePattern = "https://*.wikipedia.org/wiki/*";
-                            excludePattern = "*?useskin=minerva|*#*";
-                            redirectUrl = "https://$1.wikipedia.org/wiki/$2?useskin=minerva";
-                            appliesTo = ["main_frame"];
-                        }
-                        {
-                            includePattern = "https://wiki.archlinux.org/*";
-                            excludePattern = "*?useskin=vector#bodyContent|*anubis*|*#*";
-                            redirectUrl = "https://wiki.archlinux.org/$1?useskin=vector";
-                            appliesTo = ["main_frame"];
-                        }
-                        {
-                            includePattern = "https://annas-archive.gd/md5/*";
-                            redirectUrl = "https://annas-archive.gd/slow_download/$1/0/4";
-                            appliesTo = ["main_frame"];
-                        }
-                    ];
-                };
-                "vimium-c@gdh1995.cn".settings = {
-                    keyMappings = ''
-                        # === Base Exclusions ===
-                        #!no-check
-                        unmapAll
-
-                        # === Navigation ===
-                        map m goBack
-                        map n scrollDown keepHover=false
-                        map e scrollUp keepHover=false
-                        map i goForward
-
-                        # === Tab Management ===
-                        map l nextTab
-                        map u previousTab
-                        map L moveTabRight
-                        map U moveTabLeft
-                        map yt duplicateTab
-                        map x removeTab
-                        map X restoreTab
-
-                        # === Input & Hints ===
-                        map gi focusInput
-                        map gI LinkHints.activateEdit
-
-                        map f LinkHints.activate
-                        map F LinkHints.activateOpenInNewTab
-
-                        # === Find ===
-                        map / enterFindMode
-                        map N performFind
-                        map E performBackwardsFind
-
-                        # === Clipboard ===
-                        map p openCopiedUrlInCurrentTab
-                        map P openCopiedUrlInNewTab
-
-                        # === Scrolling ===
-                        map gg scrollToTop
-                        map G scrollToBottom
-
-                        # === Reload ===
-                        map r reload
-                        map R reload hard
-
-                        # === Copy ===
-                        map yf LinkHints.activateCopyLinkUrl
-                        map yy copyCurrentUrl
-                        map yi LinkHints.activateCopyImage
-
-                        # === Downloads ===
-                        map d LinkHints.activateDownloadImage
-                        map D LinkHints.activateDownloadLink
-
-                        # === Hierarchy ===
-                        map gu goUp
-                        map gU goToRoot
-
-                        # === Sequential Navigation ===
-                        map ]] goNext
-                        map >> goNext
-                        map .. goNext
-                        map [[ goPrevious
-                        map << goPrevious
-                        map ,, goPrevious
-
-                        # === Mode Switching ===
-                        map ' enterInsertMode
-                        ##map v enterVisualMode
-                        map V enterVisualLineMode
-                        map c LinkHints.activateSelect use caret
-                        map v LinkHints.activateSelect use visual
-
-                        # === Visual Mode Sub-mappings ===
-                        mapkey <m:v> h
-                        mapkey <n:v> j
-                        mapkey <e:v> k
-                        mapkey <i:v> l
-
-                        # === Vomnibar ===
-                        map o Vomnibar.activate
-                        map O Vomnibar.activateInNewTab
-
-                        map b Vomnibar.activateBookmarks
-                        map B Vomnibar.activateBookmarksInNewTab
-
-                        map h Vomnibar.activateHistory
-                        map H Vomnibar.activateHistoryInNewTab
-
-                        map T Vomnibar.activateTabs
-
-                        map ge Vomnibar.activateEditUrl
-                        map gE Vomnibar.activateEditUrlInNewTab
-
-                        # === Utilities ===
-                        map gm toggleMuteTab all
-                        map gr toggleReaderMode
-
-                        ##map c zoomReset
-                        map ? showHelp
-                        map w reset
-                    '';
-                    searchEngines = ''
-                        w: http://en.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
-                        y: https://inv.nadeko.net/search?q=%s Invidious
-                        ns: https://search.nixos.org/packages?channel=unstable&from=0&size=999&sort=relevance&type=packages&query=%s NixOS Packages
-                        nw: https://wiki.nixos.org/wiki/%s NixOS Wiki
-                        gm: https://www.google.com/maps?q=%s Google Maps
-                        gmn: https://www.google.com/maps/dir/$s{$1/$2} Google Maps Navigation
-                        g: https://www.google.com/search?q=%s Google
-                        az: https://www.amazon.de/s/?field-keywords=%s Amazon
-                        i: https://duckduckgo.com/?&q=%s&ia=images&iax=images Images
-                        h: https://lite.duckduckgo.com/lite/?&q=%s&kl=hu-hu Hungary
-                        gh: https://github.com/search?q=%s&type=repositories&s=stars&ref=opensearch Github
-                        ghg: https://gist.github.com/search?q=%s&ref=opensearch Github Gist
-                        ud: https://rd.vern.cc/define.php?term=%s Urban Dictionary
-                        pb: https://thepiratebay.party/search/%s Torrents
-                        we: https://en.wiktionary.org/wiki/%s#English Wiktionary
-                        r: https://www.reddit.com/search?q=%s Reddit
-                        sr: https://www.reddit.com/r/%s/top?t=all Subreddit
-                        pin: https://de.pinterest.com/search/pins/?q=%s
-                        fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
-                        lib: https://annas-archive.gd/search?q=%s
-                        wl: https://search.libraryofleaks.org/search?q=%s
-                        eltelib: https://opac.elte.hu/Search/Results?lookfor=%s&type=AllFields
-                        aw: https://wiki.archlinux.org/title/%s
-                        gw: https://wiki.gentoo.org/wiki/%s
-                        jf: https://www.jofogas.hu/magyarorszag?q=%s
-                        ak: https://www.arukereso.hu/CategorySearch.php?st=%s
-                        eb: https://www.ebay.de/sch/i.html?_nkw=%s
-                        ph: https://www.pornhub.com/video/search?search=%s
-                        4: https://boards.4chan.org/%s/catalog
-                        sh: javascript:location='https://sci-hub.st/https://'%20+%20escape(location.hostname%20+%20location.pathname)%20+%20'%20%S'%20;%20void%200
-                        4pol: https://archive.4plebs.org/pol/search/type/op/text/%s
-                        4g: https://desuarchive.org/g/search/type/op/text/%s/
-                        r34: https://rule34.xxx/index.php?page=post&s=list&tags=%s
-                        schol: https://scholar.google.com/scholar?q=%s&hl=en
-                        et: https://www.etsy.com/search?q=%s
-                        ya: https://yandex.com/search?text=%s&lr=10466
-                        ali: https://www.aliexpress.com/w/wholesale-%s.html
-                        phil: https://plato.stanford.edu/search/searcher.py?query=%s
-                        trends: https://trends.google.com/trends/explore?date=all&q=%s&hl=en-US
-                        wordfreq: https://books.google.com/ngrams/graph?content=%s&year_start=1800&year_end=2022&corpus=en&smoothing=3
-                        ikea: https://www.ikea.com/hu/hu/search/?q=%s
-                        sc: https://soundcloud.com/search?q=%s
-                        tiktok: https://www.tiktok.com/search?q=%s
-                        steam: https://store.steampowered.com/search?term=%s
-                        poly: https://polymarket.com/search?_q=%s
-                        ticker: https://www.tradingview.com/chart/?symbol=%s
-                        keys: https://gg.deals/game/$s{-}/
-                        ai: https://openrouter.ai/models?q=%s
-                        etf: https://www.justetf.com/en/search.html?query=%s&search=ALL
-                        ollama: https://ollama.com/search?q=%s
-                        ar: https://web.archive.org/web/*/%s
-                        x: https://xcancel.com/%s
-                        fd: https://search.f-droid.org/?q=%s F-Droid'';
-                    linkHintCharacters = "arstf";
-                    preferBrowserSearch = true;
-                    newTabUrl_f = "about:newtab";
-                    previousPatterns = "prev,previous,back,older,<,‹,←,«,≪,<<";
-                    nextPatterns = "next,more,newer,>,›,→,»,≫,>>";
-                    titleIgnoreList = "porn,4chan";
-                    omniBlockList = "porn,4chan";
-                };
             };
+            isDefault = true;
             search = {
                 default = "lite";
                 force = true;
@@ -819,6 +752,77 @@
                     wikipedia.metaData.hidden = true;
                     duckduckgo.metaData.hidden = true;
                 };
+            };
+            settings = {
+                # === General ===
+                "browser.startup.page" = 3;
+                "browser.startup.homepage" = "about:newtab";
+                "browser.newtabpage.enabled" = false;
+                "browser.tabs.closeWindowWithLastTab" = false;
+                "browser.download.open_pdf_attachments_inline" = true;
+                "browser.download.useDownloadDir" = false;
+                "browser.download.autohideButton" = true;
+                "browser.download.start_downloads_in_tmp_dir" = false;
+                "browser.translations.neverTranslateLanguages" = "hu,de";
+                "identity.fxaccounts.enabled" = true;
+                "permissions.default.desktop-notification" = 2;
+                "accessibility.force_disabled" = 1;
+
+                # === Appearance ===
+                "toolkit.cosmeticAnimations.enabled" = false;
+                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+                "ui.systemUsesDarkTheme" = 1;
+                "font.name.monospace.x-western" = "${font}";
+                "font.name.sans-serif.x-western" = "${font}";
+                "font.name.serif.x-western" = "${font}";
+                "font.size.variable.x-western" = "18";
+                "browser.toolbars.bookmarks.visibility" = "never";
+
+                # === Sidebar / Vertical Tabs ===
+                "sidebar.verticalTabs" = true;
+                "sidebar.expandOnHoverMessage.dismissed" = true;
+                "sidebar.backupState" = "{\"command\":\"\",\"launcherWidth\":55,\"launcherExpanded\":false,\"launcherVisible\":true}";
+
+                # === Network / Performance ===
+                "network.dns.disablePrefetch" = false;
+                "network.predictor.enabled" = true;
+                "network.http.speculative-parallel-limit" = 6;
+                "network.prefetch-next" = true;
+                "network.dns.disablePrefetchFromHTTPS" = false;
+                "network.http.referer.XOriginPolicy" = 2;
+
+                # === Search / URL Bar ===
+                "browser.search.suggest.enabled" = true;
+                "browser.urlbar.suggest.engines" = false;
+                "findbar.highlightAll" = true;
+
+                # === Privacy / Security ===
+                "privacy.resistFingerprinting.letterboxing" = true;
+                "privacy.clearOnShutdown.history" = false;
+                "privacy.userContext.enabled" = false;
+                "privacy.trackingprotection.allow_list.baseline.enabled" = true;
+                "privacy.trackingprotection.allow_list.convenience.enabled" = true;
+                "network.protocol-handler.expose.magnet" = false;
+                "xpinstall.signatures.required" = false;
+
+                # === LibreWolf Specific ===
+                "librewolf.hidePasswdmgr" = true;
+
+                # === Media ===
+                "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
+
+                # === System Integration ===
+                "widget.use-xdg-desktop-portal.file-picker" = 2;
+
+                # === Bookmarks ===
+                "browser.bookmarks.editDialog.showForNewBookmarks" = false;
+
+                # === Extensions ===
+                "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
+
+                # === UI Customization State ===
+                "browser.uiCustomization.state" = ''{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["sidebar-button","back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button","vertical-spacer"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"]},"seen":["ublock0_raymondhill_net-browser-action","developer-button","screenshot-button","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action","sponsorblocker_ajay_app-browser-action"],"dirtyAreaCache":["unified-extensions-area","nav-bar","TabsToolbar","vertical-tabs","toolbar-menubar","PersonalToolbar"],"currentVersion":23,"newElementCount":7}'';
+                "browser.uiCustomization.navBarWhenVerticalTabs" = ''["back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button"]'';
             };
             userChrome = ''                /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_toolbox.css made available under Mozilla Public License v. 2.0
                 See the above repository for updates as well as full license text. */
