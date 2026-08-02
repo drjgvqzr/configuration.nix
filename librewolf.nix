@@ -43,7 +43,7 @@
         };
         profiles.default = {
             settings = {
-                # --- General ---
+                # === General ===
                 "browser.startup.page" = 3;
                 "browser.startup.homepage" = "about:newtab";
                 "browser.newtabpage.enabled" = false;
@@ -57,7 +57,7 @@
                 "permissions.default.desktop-notification" = 2;
                 "accessibility.force_disabled" = 1;
 
-                # --- Appearance ---
+                # === Appearance ===
                 "toolkit.cosmeticAnimations.enabled" = false;
                 "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                 "ui.systemUsesDarkTheme" = 1;
@@ -67,12 +67,12 @@
                 "font.size.variable.x-western" = "18";
                 "browser.toolbars.bookmarks.visibility" = "never";
 
-                # --- Sidebar / Vertical Tabs ---
+                # === Sidebar / Vertical Tabs ===
                 "sidebar.verticalTabs" = true;
                 "sidebar.expandOnHoverMessage.dismissed" = true;
                 "sidebar.backupState" = "{\"command\":\"\",\"launcherWidth\":55,\"launcherExpanded\":false,\"launcherVisible\":true}";
 
-                # --- Network / Performance ---
+                # === Network / Performance ===
                 "network.dns.disablePrefetch" = false;
                 "network.predictor.enabled" = true;
                 "network.http.speculative-parallel-limit" = 6;
@@ -80,12 +80,12 @@
                 "network.dns.disablePrefetchFromHTTPS" = false;
                 "network.http.referer.XOriginPolicy" = 2;
 
-                # --- Search / URL Bar ---
+                # === Search / URL Bar ===
                 "browser.search.suggest.enabled" = true;
                 "browser.urlbar.suggest.engines" = false;
                 "findbar.highlightAll" = true;
 
-                # --- Privacy / Security ---
+                # === Privacy / Security ===
                 "privacy.resistFingerprinting.letterboxing" = true;
                 "privacy.clearOnShutdown.history" = false;
                 "privacy.userContext.enabled" = false;
@@ -94,22 +94,22 @@
                 "network.protocol-handler.expose.magnet" = false;
                 "xpinstall.signatures.required" = false;
 
-                # --- LibreWolf Specific ---
+                # === LibreWolf Specific ===
                 "librewolf.hidePasswdmgr" = true;
 
-                # --- Media ---
+                # === Media ===
                 "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
 
-                # --- System Integration ---
+                # === System Integration ===
                 "widget.use-xdg-desktop-portal.file-picker" = 2;
 
-                # --- Bookmarks ---
+                # === Bookmarks ===
                 "browser.bookmarks.editDialog.showForNewBookmarks" = false;
 
-                # --- Extensions ---
+                # === Extensions ===
                 "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
 
-                # --- UI Customization State ---
+                # === UI Customization State ===
                 "browser.uiCustomization.state" = ''{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["sidebar-button","back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button","vertical-spacer"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"]},"seen":["ublock0_raymondhill_net-browser-action","developer-button","screenshot-button","addon_darkreader_org-browser-action","vimium-c_gdh1995_cn-browser-action","extraneous_sysrqmagician_github_io-browser-action","redirector_einaregilsson_com-browser-action","contact_example_com-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action","sponsorblocker_ajay_app-browser-action"],"dirtyAreaCache":["unified-extensions-area","nav-bar","TabsToolbar","vertical-tabs","toolbar-menubar","PersonalToolbar"],"currentVersion":23,"newElementCount":7}'';
                 "browser.uiCustomization.navBarWhenVerticalTabs" = ''["back-button","forward-button","urlbar-container","downloads-button","ublock0_raymondhill_net-browser-action","unified-extensions-button"]'';
             };
@@ -346,14 +346,17 @@
                 };
                 "vimium-c@gdh1995.cn".settings = {
                     keyMappings = ''
+                        # === Base Exclusions ===
                         #!no-check
                         unmapAll
 
+                        # === Navigation ===
                         map m goBack
                         map n scrollDown keepHover=false
                         map e scrollUp keepHover=false
                         map i goForward
 
+                        # === Tab Management ===
                         map l nextTab
                         map u previousTab
                         map L moveTabRight
@@ -362,36 +365,44 @@
                         map x removeTab
                         map X restoreTab
 
+                        # === Input & Hints ===
                         map gi focusInput
                         map gI LinkHints.activateEdit
 
                         map f LinkHints.activate
                         map F LinkHints.activateOpenInNewTab
 
+                        # === Find ===
                         map / enterFindMode
                         map N performFind
                         map E performBackwardsFind
 
-
+                        # === Clipboard ===
                         map p openCopiedUrlInCurrentTab
                         map P openCopiedUrlInNewTab
 
+                        # === Scrolling ===
                         map gg scrollToTop
                         map G scrollToBottom
 
+                        # === Reload ===
                         map r reload
                         map R reload hard
 
+                        # === Copy ===
                         map yf LinkHints.activateCopyLinkUrl
                         map yy copyCurrentUrl
                         map yi LinkHints.activateCopyImage
 
+                        # === Downloads ===
                         map d LinkHints.activateDownloadImage
                         map D LinkHints.activateDownloadLink
 
+                        # === Hierarchy ===
                         map gu goUp
                         map gU goToRoot
 
+                        # === Sequential Navigation ===
                         map ]] goNext
                         map >> goNext
                         map .. goNext
@@ -399,17 +410,20 @@
                         map << goPrevious
                         map ,, goPrevious
 
+                        # === Mode Switching ===
                         map ' enterInsertMode
-
                         ##map v enterVisualMode
                         map V enterVisualLineMode
                         map c LinkHints.activateSelect use caret
                         map v LinkHints.activateSelect use visual
+
+                        # === Visual Mode Sub-mappings ===
                         mapkey <m:v> h
                         mapkey <n:v> j
                         mapkey <e:v> k
                         mapkey <i:v> l
 
+                        # === Vomnibar ===
                         map o Vomnibar.activate
                         map O Vomnibar.activateInNewTab
 
@@ -424,13 +438,13 @@
                         map ge Vomnibar.activateEditUrl
                         map gE Vomnibar.activateEditUrlInNewTab
 
+                        # === Utilities ===
                         map gm toggleMuteTab all
                         map gr toggleReaderMode
 
                         ##map c zoomReset
                         map ? showHelp
                         map w reset
-
                     '';
                     searchEngines = ''
                         w: http://en.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia

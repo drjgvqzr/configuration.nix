@@ -879,26 +879,36 @@
         programs.zathura = {
             enable = true;
             mappings = {
-                "<BackSpace>" = "exec \"gtrash put '$FILE'\"";
+                # === Scroll ===
                 "w" = "scroll up";
                 "a" = "scroll left";
                 "r" = "scroll down";
                 "s" = "scroll right";
+
                 "m" = "scroll left";
                 "n" = "scroll down";
                 "e" = "scroll up";
                 "i" = "scroll right";
-                "t" = "zoom in";
-                "d" = "zoom out";
-                "p" = "snap_to_page";
-                "x" = "adjust_window best-fit";
-                "c" = "adjust_window width";
-                "E" = "search backward";
-                "N" = "search forward";
-                "D" = "toggle_page_mode";
+
                 "u" = "scroll full-up";
                 "l" = "scroll full-down";
+
+                # === Zoom ===
+                "t" = "zoom in";
+                "d" = "zoom out";
+
+                # === Adjust ===
+                "x" = "adjust_window best-fit";
+                "c" = "adjust_window width";
+                "D" = "toggle_page_mode";
                 "R" = "rotate";
+
+                # === Search ===
+                "E" = "search backward";
+                "N" = "search forward";
+
+                # === Delete ===
+                "<BackSpace>" = "exec \"gtrash put '$FILE'\"";
             };
             options = {
                 recolor = true;
@@ -910,18 +920,19 @@
             enable = true;
             browser = "/etc/profiles/per-user/soma/bin/mpv";
             extraConfig = ''
+                # === Color ===
                 color listfocus black white
                 color listfocus_unread black white bold
                 color title black black
                 color info black black
 
+                # === Filter ===
                 ignore-mode "display"
                 ignore-article "*" "title =~ \"#shorts\""
-                #ignore-article "*" "description =~ \"#shorts\""
-                #ignore-article "*" "content =~ \"#shorts\""
                 ignore-article "*" "link =~ \"shorts\""
-                macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; sed '1,4d; /^[0-9]\\{2\\}:/d; s/<[^>]*>//g; s/&gt;//g' /tmp/sub.en.vtt | awk 'NF' | uniq | tr '\n' ' ' | aichat Summarize the YouTube video. Do not mention filler. | less" ; open-in-browser
 
+                # === Summary ===
+                macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; sed '1,4d; /^[0-9]\\{2\\}:/d; s/<[^>]*>//g; s/&gt;//g' /tmp/sub.en.vtt | awk 'NF' | uniq | tr '\n' ' ' | aichat Summarize the YouTube video. Do not mention filler. | less" ; open-in-browser
             '';
         };
         programs.btop = {

@@ -252,9 +252,8 @@
             rb = "reboot";
             la = "ls -A";
             ll = "ls -Al";
-            lv = "ls -hpNFl --color";
-            lt = "ls -hpNFltr --color";
-            lS = "ls -hpNFlSr --color";
+            lt = "ls -l --sort=modified --reverse";
+            lS = "ls -l --sort=size --reverse";
             tree = "tree --dirsfirst -CF";
             da = "date \"+%H:%M\"|figlet;cal";
             nf = "fastfetch";
