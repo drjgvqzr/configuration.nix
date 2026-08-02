@@ -144,14 +144,4 @@
             };
         };
     };
-    home-manager.users.soma.services.swayidle = {
-        enable = true;
-        timeouts = [
-            {
-                timeout = 10;
-                #command = "${pkgs.swaylock}/bin/swaylock -fFK -s fill-i /home/soma/dx/nixos/misc/wallpaper.jpg ; [ $(cat /sys/class/power_supply/BAT0/status) = Discharging ] && systemctl suspend-then-hibernate";
-                command = "swaylock";
-            }
-        ];
-    };
 }

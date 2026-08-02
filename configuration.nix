@@ -863,8 +863,10 @@
             style.name = "adwaita";
             style.package = pkgs.adwaita-qt;
         };
-        #dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-        dconf.settings."org/freedesktop/appearance".color-scheme = "1";
+        dconf.settings = {
+            "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+            "org/freedesktop/appearance".color-scheme = "1";
+        };
         programs.zathura = {
             enable = true;
             mappings = {
