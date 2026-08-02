@@ -854,6 +854,10 @@
             enable = true;
             colorScheme = "dark";
         };
+        qt = {
+            enable = true;
+            platformTheme.name = "gtk";
+        };
         programs.zathura = {
             enable = true;
             mappings = {
