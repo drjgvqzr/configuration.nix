@@ -169,7 +169,7 @@
                 and echo "No changes detected, exiting."
                 and return 1
 
-                git -C $nixos_dir diff -U0 '*.nix' | tail -n +5
+                git -C $nixos_dir diff --color=always -U0 '*.nix' | tail -n +5
                 echo "NixOS Rebuilding..."
                 doas nice -n 19 nixos-rebuild switch $upgrade &> $nixos_dir/misc/nixos-switch.log
                 and begin
