@@ -50,37 +50,16 @@
 
         '';
         functions = {
+            # === Fish ===
             fish_prompt = "string join '' -- (set_color red) '%' (set_color white)  (prompt_pwd --dir-length=0) (set_color green) '>' (set_color normal)";
             fish_mode_prompt = "";
-            s = ''links "https://lite.duckduckgo.com/lite/?q=$argv"'';
-            isomount = ''doas mount $argv /mnt ; cd /mnt'';
-            sdh = ''links "https://lite.duckduckgo.com/lite/?q=$argv&kl=hu-hu"'';
-            sud = ''links "https://rd.vern.cc/define.php?term=$argv"'';
-            sg = ''links "https://github.com/search?q=$argv&s=stars"'';
+
+            # === Links ===
             w = ''links "https://en.wikipedia.org/wiki/$argv?useskin=minerva#bodyContent"'';
             we = ''links "https://en.wiktionary.org/wiki/$argv#English"'';
             pb = ''links "https://thepiratebay.party/search/$argv"'';
-            ay = ''
-                yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub $(wl-paste | sed 's|inv.nadeko.net|youtube.com|');
-                cat /tmp/sub.en.vtt|
-                sed -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\} -->/d' -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\}/d' -e 's/<[^>]*>//g'|
-                awk 'NF'|
-                uniq -d|
-                sed 's/$/ /'|
-                tr -d '\n'|
-                aichat "give a detailed summary of the previous text with the main points. Do not mention any promotions or sponsors."'';
-            "4" = ''
-                curl -sL $(wl-paste)|
-                grep -o 'is2.4chan.org[^"]*webm'|
-                uniq|
-                sed s.^.https://.|
-                mpv --playlist=-'';
-            "4d" = ''
-                curl -sL $(wl-paste)|
-                grep -o 'is2.4chan.org[^"]*webm'|
-                uniq|
-                sed s.^.https://.|
-                xargs -I {} wget -nc -P ~/Videos/$argv[1] {}'';
+
+            # === Bluetooth ===
             bcnp = ''
                 bluetoothctl power on
                 set btexists $(pgrep -f bluetoothctl)
@@ -97,6 +76,8 @@
                 bluetoothctl devices | grep Device | grep -v '.*-.*-.*-.*-.*-.*' | sort | fzf | cut -d' ' -f2 | xargs -I {} bluetoothctl connect {}'';
             bdcn = ''bluetoothctl devices Connected | grep Device | sort | fzf | cut -d' ' -f2 | xargs -I {} bluetoothctl disconnect {}'';
             bcnf = ''bluetoothctl devices Paired | grep Device | sort | fzf | cut -d' ' -f2 | xargs -I {} bluetoothctl remove {}'';
+
+            # === WiFi ===
             sn = ''iwctl station wlan0 scan;iwctl station wlan0 get-networks'';
             cn = ''
                 watch -c -n 2 "iwctl station wlan0 scan ; iwctl station wlan0 get-networks"
@@ -106,6 +87,9 @@
             cnf = ''
                 set ssid $(iwctl known-networks list | fzf --ansi |sed -e 's/ \{10,\}.*//' -e 's/^[[:space:]]*//')
                 iwctl known-networks $ssid forget'';
+
+            # === Disk / USB ===
+            isomount = ''doas mount $argv /mnt ; cd /mnt'';
             nformat = ''
                 [ "$(pwd)" = "/mnt" ] && cd ~
                     ls /mnt 2>/dev/null || doas mkdir -p /mnt
@@ -158,6 +142,21 @@
                     ls /mnt 2>/dev/null || doas mkdir -p /mnt
                     doas umount /mnt/;
                     doas cryptsetup close sd"$argv[1]"1 2>/dev/null;'';
+
+            # === Media / Misc ===
+            ay = ''
+                yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub $(wl-paste | sed 's|inv.nadeko.net|youtube.com|');
+                cat /tmp/sub.en.vtt|
+                sed -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\} -->/d' -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\}/d' -e 's/<[^>]*>//g'|
+                awk 'NF'|
+                uniq -d|
+                sed 's/$/ /'|
+                tr -d '\n'|
+                aichat "give a detailed summary of the previous text with the main points. Do not mention any promotions or sponsors."'';
+            catbox = ''curl -i -F files[]=@$argv https://uguu.se/upload?output=text | tail -n 1 | wl-copy ; qrrs $(wl-paste) ; echo $(wl-paste) && notify-send "File uploaded"'';
+            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf'';
+
+            # === NixOS ===
             rebuild = ''
                 set nixos_dir ~/dx/nixos
                 alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir
@@ -191,91 +190,81 @@
                     notify-send "Rebuild Failed"
                     return 1
                 }'';
-            catbox = ''curl -i -F files[]=@$argv https://uguu.se/upload?output=text | tail -n 1 | wl-copy ; qrrs $(wl-paste) ; echo $(wl-paste) && notify-send "File uploaded"'';
-            pdfr = ''pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf'';
         };
         shellAbbrs = {
+            # === Navigation ===
             "8" = "cd -";
             "9" = "cd ..";
-            d = "doas";
-            eur = "qcalc eur to huf";
+            "0" = "cd ~ ; clear";
+            cdn = "cd ~/dn";
+            cdx = "cd ~/dx";
+            cdc = "cd ~/dx/nixos/misc";
+            cdmnt = "cd /mnt/";
+
+            # === File Ops ===
             catpdf = "pdftotext -";
-            oc = "opencode";
-            q = "qalc";
-            ipinfo = "curl -s ipinfo.io | jaq";
-            huf = "curl crrcy.sh/last/EUR/HUF/30d";
-            crypto = "curl rate.sx";
-            porn = "mpv --shuffle /home/soma/px/basketweaving/gif";
             downscale = "mogrify -resize 50%";
-            vitodo = "vi /home/soma/dx/Backups/todo/todo.txt";
+            mkexec = "chmod +x";
+            mkd = "mkdir";
+
+            # === Editors / Viewers ===
             o = "handlr open";
-            rv = "vi ~/dx/Backups/remind/remind.rem";
-            rp = "vi ~/dx/Backups/remind/past.rem";
-            hv = "vi ~/dx/Backups/finance/2025.journal";
             f = "fzf | xargs -I {} handlr open {}";
-            qr = "qrrs";
-            cr = "cook r (fd cook ~/dx/Backups/cook | fzf )";
-            h = "hledger";
-            ha = "hledger add";
+            z = "zathura";
             mc = "links -dump /run/current-system/sw/share/doc/nixos/options.html | nvim -R -";
             mh = "man home-configuration.nix";
-            z = "zathura";
-            nb = "newsboat";
-            nsp = "nix-shell -p";
-            nt = "ping google.com";
-            cdcook = "cd ~/dx/Backups/cook";
-            pomo = "doas systemctl stop iwd.service ; timer -f 30m ; notify-send \"Pomodoro over\" ; doas systemctl start iwd.service ; timer -f 5m";
-            nr = "doas systemctl restart iwd.service";
-            y = "pipe-viewer";
-            wq = "wl-paste | xargs -I {} qrrs {}";
-            color = "pastel color";
-            tempmail = "mailsy";
-            yd = "yt-dlp";
-            yda = "yt-dlp -x";
-            ydap = "yt-dlp -x -o \"%(playlist_index)s - %(title)s.%(ext)s\"";
-            mkexec = "chmod +x";
-            ta = "task add";
-            tl = "task list";
+
+            # === NixOS ===
             nrs = "rebuild";
             nrst = "tail -c +0 -f ~/dx/nixos/misc/nixos-switch.log";
-            nrsv = "vi ~/dx/nixos/misc/nixos-switch.log";
             nrsu = "rebuildu";
             nconf = "vi ~/dx/nixos/configuration.nix";
             nconfl = "vi ~/dx/nixos/librewolf.nix";
             nconfs = "vi ~/dx/nixos/sway.nix";
             nconff = "vi ~/dx/nixos/fish.nix";
             ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
-            sw = "sway";
-            gal = "shotwell";
+            nsp = "nix-shell -p";
+
+            # === System / Power ===
+            d = "doas";
             po = "poweroff";
-            hn = "hibernate";
             rb = "reboot";
-            la = "ls -A";
-            ll = "ls -Al";
-            lt = "ls -l --sort=modified --reverse";
-            tree = "tree --dirsfirst -CF";
-            da = "date \"+%H:%M\"|figlet;cal";
-            nf = "fastfetch";
+
+            # === Network ===
+            nt = "ping google.com";
+            ipinfo = "curl -s ipinfo.io | jaq";
             tra = "transmission-cli";
-            l = "links";
-            v = "vi";
-            m = "mpv";
-            mt = "mpv --no-really-quiet";
-            mtp = "mpv --no-really-quiet *";
-            p = "mpv *";
-            cdn = "cd ~/dn";
-            cdx = "cd ~/dx";
-            cdc = "cd ~/dx/nixos/misc";
-            b = "btop";
             wgu = "doas systemctl start wg-quick-wg0.service";
             wgd = "doas systemctl stop wg-quick-wg0.service";
             wgr = "doas systemctl restart wg-quick-wg0.service";
-            mkd = "mkdir";
-            lb = "lsblk";
+            nr = "doas systemctl restart iwd.service";
+
+            # === Finance ===
+            eur = "qcalc eur to huf";
+            huf = "curl crrcy.sh/last/EUR/HUF/30d";
+
+            # === Tasks / Calendar ===
+            vitodo = "vi /home/soma/dx/Backups/todo/todo.txt";
+            rv = "vi ~/dx/Backups/remind/remind.rem";
+            rp = "vi ~/dx/Backups/remind/past.rem";
+
+            # === Media / Video ===
+            porn = "mpv --shuffle /home/soma/px/basketweaving/gif";
+            m = "mpv";
+            p = "mpv *";
+            y = "pipe-viewer";
+            yd = "yt-dlp";
+            yda = "yt-dlp -x";
+            ydp = "yt-dlp -o \"%(playlist_index)s - %(title)s.%(ext)s\"";
+            ydap = "yt-dlp -x -o \"%(playlist_index)s - %(title)s.%(ext)s\"";
+
+            # === Translate ===
             t = "trans";
             td = "trans :de";
             tm = "trans :hu";
             tr = "trans :ru";
+
+            # === AI ===
             a = "aichat";
             ai = "aichat --model internet:deepseek/deepseek-v4-pro";
             as = "aichat -s";
@@ -286,57 +275,70 @@
             aex = "aichat give an example for";
             ad = "aichat what is the difference between";
             aw = "aichat provide the etymology, pronounciation without using phonetic symbols, meaning, and usage examples, all on new lines with markdown formatting, of the word";
+
+            # === Misc / Tools ===
+            oc = "opencode";
+            la = "ls -A";
+            ll = "ls -Al";
+            lt = "ls -l --sort=modified --reverse";
+            nf = "fastfetch";
+            b = "btop";
+            nb = "newsboat";
+            lb = "lsblk";
+            qr = "qrrs";
+            wq = "wl-paste | xargs -I {} qrrs {}";
+            color = "pastel color";
+            q = "qalc";
         };
         shellAliases = {
-            cdmnt = "cd /mnt/";
-            jq = "jaq";
+            # === Core File Commands ===
             ls = "eza -F --no-quotes --color-scale-mode=gradient --color-scale=all --group-directories-first --smart-group -o --no-permissions";
             du = "dust";
             grep = "rg -S";
-            webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
-            "0" = "cd ~;clear";
-            hibernate = "systemctl hibernate";
-            todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
-            steamguard = "steamguard -v warn -m /home/soma/dx/nixos/misc/secrets/steamguard-cli";
-            life = "watch -t -n 1 -c 'echo \"\\033[91m$(echo \"scale=10; ($(date +%s)-$(date -d $(cat /home/soma/dx/nixos/misc/secrets/birthdate) +%s))/(80*365.2425*86400)*100\"|bc|sed \"s/0*$//\")%\"'";
-            task = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
-            #zathura = "swallow zathura-sandbox";
-            zathura = "zathura-sandbox";
-            rc = "rem -cumb1";
-            rc2 = "rem -cu2mb1";
-            rc3 = "rem -cu3mb1";
-            fzf = "SHELL=bash FZF_DEFAULT_COMMAND='fd --type f --type l --type d --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
-            fzfa = "SHELL=bash FZF_DEFAULT_COMMAND='fd --type f --type l --type d --hidden --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
-            rw = "rem -c+um";
-            "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
-            irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
-            qalc = "qalc -c -s 'upxrates 1'";
-
             #ls = "ls -hNF --color";
             mv = "mv -vu";
             rm = "gtrash put";
             cat = "bat --pager less";
-            gpg = "/run/current-system/sw/bin/gpg --pinentry-mode loopback";
-            fontname = ''/run/current-system/sw/bin/ls /nix/var/nix/profiles/system/sw/share/X11/fonts | fzf | xargs -I {} fc-query /nix/var/nix/profiles/system/sw/share/X11/fonts/{} | grep '^\s\+family:' | cut -d'"' -f2'';
-            trash = "gtrash restore";
-            trashinfo = "gtrash summary";
-            trashempty = "gtrash prune --day 0";
-            newsboat = "newsboat -q -u /home/soma/dx/nixos/misc/newsboat";
-            mkdir = "mkdir -pv";
-            mw = "mpv $(wl-paste)";
-            head = "head -v";
             cp = "cp -rvp";
-            cal = "cal -mw";
+            mkdir = "mkdir -pv";
+            head = "head -v";
             wget = "wget -c --hsts-file=~/.cache/wget-hsts";
-            rename = "rename -iv";
             ln = "ln -ivP";
             chown = "chown -Rv";
             chmod = "chmod -Rv";
             shred = "shred -uvf -n 1 --remove=wipe";
+            jq = "jaq";
+            #zathura = "swallow zathura-sandbox";
+            zathura = "zathura-sandbox";
+            qalc = "qalc -c -s 'upxrates 1'";
+            trans = "echo ; /run/current-system/sw/bin/trans -b -j";
+            newsboat = "newsboat -q -u /home/soma/dx/nixos/misc/newsboat";
+            lsblk = "grc lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
+            gpg = "/run/current-system/sw/bin/gpg --pinentry-mode loopback";
+
+            # === Search / FZF ===
+            fzf = "SHELL=bash FZF_DEFAULT_COMMAND='fd --type f --type l --type d --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
+            fzfa = "SHELL=bash FZF_DEFAULT_COMMAND='fd --type f --type l --type d --hidden --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
+
+            # === Tasks / Reminders ===
+            todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
+            rc = "rem -cumb1";
+            rc2 = "rem -cu2mb1";
+            rc3 = "rem -cu3mb1";
+
+            # === Recording ===
+            "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
+            irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
+
+            # === Misc ===
+            webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
+            life = "watch -t -n 1 -c 'echo \"\\033[91m$(echo \"scale=10; ($(date +%s)-$(date -d $(cat /home/soma/dx/nixos/misc/secrets/birthdate) +%s))/(80*365.2425*86400)*100\"|bc|sed \"s/0*$//\")%\"'";
             wttr = "curl https://wttr.in/budapest?format=1;sunwait list 47.5N 19E";
             speedtest = "speedtest-go -u decimal-bytes";
-            trans = "echo ; /run/current-system/sw/bin/trans -b -j";
-            lsblk = "grc lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
+            steamguard = "steamguard -v warn -m /home/soma/dx/nixos/misc/secrets/steamguard-cli";
+            trash = "gtrash restore";
+            trashinfo = "gtrash summary";
+            trashempty = "gtrash prune --day 0";
         };
     };
 }

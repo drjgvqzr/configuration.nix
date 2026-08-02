@@ -208,99 +208,123 @@
                         "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
                     ];
                     dynamicFilteringString = ''
-                        no-csp-reports: * true
-                        no-large-media: behind-the-scene false
-                        no-large-media: duckduckgo.com false
+                        ! === Global ===
                         * * 3p-frame block
                         * * 3p-script block
                         * cloudflare.com * noop
-                        no-remote-fonts: * true
-                        no-remote-fonts: google.com false
-                        boards.4chan.org * 3p-script noop
-                        bandcamp.com * 3p-script noop
-                        soundcloud.com sndcdn.com * noop
-                        soundcloud.com cloudfront.net * noop
-                        soundcloud.com * 3p-script noop
                         behind-the-scene * * noop
-                        behind-the-scene * 1p-script noop
-                        behind-the-scene * 3p noop
-                        behind-the-scene * 3p-frame noop
-                        behind-the-scene * 3p-script noop
-                        behind-the-scene * image noop
-                        behind-the-scene * inline-script noop
-                        no-remote-fonts: www.duolingo.com false
-                        www.duolingo.com * 3p-frame noop
-                        www.duolingo.com * 3p-script noop
-                        login.microsoftonline.com * 3p-frame noop
-                        login.microsoftonline.com * 3p-script noop
-                        outlook.office.com * 3p-frame noop
-                        outlook.office.com * 3p-script noop
-                        elte.dkodaj.net * * noop
-                        elte.dkodaj.net * 3p-frame noop
-                        elte.dkodaj.net * 3p-script noop
-                        www.aliexpress.com * 3p-script noop
-                        aliexpress.com * 3p-script noop
-                        www.aliexpress.com * 3p-frame noop
+
+                        ! === Per-Site Rules ===
+                        boards.4chan.org * 3p-script noop
+
                         aliexpress.com * 3p-frame noop
-                        www.dropbox.com * 3p-frame noop
-                        www.dropbox.com * 3p-script noop
-                        www.etsy.com * 3p-frame noop
-                        www.etsy.com * 3p-script noop
-                        genius.com * 3p-script noop
-                        www.tiktok.com * 3p-script noop
-                        github.com githubassets.com * noop
-                        www.google.com * 3p-script noop
-                        www.hasznaltauto.hu * 3p-frame noop
-                        www.hasznaltauto.hu * 3p-script noop
-                        messenger.com * 3p-frame noop
-                        messenger.com * 3p-script noop
-                        imgur.com * 3p-script noop
-                        www.jofogas.hu * 3p-script noop
-                        login.live.com * 3p-script noop
-                        monkeytype.com * * noop
-                        mynixos.com * 3p-script noop
-                        ncore.pro * 3p-frame noop
-                        ncore.pro * 3p-script noop
-                        ingatlan.com * 3p-frame noop
-                        ingatlan.com * 3p-script noop
-                        ebay.de * 3p-frame noop
-                        ebay.de * 3p-script noop
+                        aliexpress.com * 3p-script noop
+
                         amazon.de * 3p-frame noop
                         amazon.de * 3p-script noop
-                        steampowered.com * 3p-frame noop
-                        steampowered.com * 3p-script noop
-                        www.gsmarena.com * 3p-frame noop
-                        www.gsmarena.com * 3p-script noop
-                        www.jofogas.hu * 3p-frame noop
-                        www.jofogas.hu * 3p-script noop
-                        www.tradingview.com * 3p-script noop
-                        teams.microsoft.com * 3p-script noop
+
                         annas-archive.gd * 3p-script noop
-                        annas-archive.gd * 3p-script noop
-                        deepseek.com * 3p-script noop
-                        deepseek.com * 3p-script noop
-                        www.patreon.com cloudflare.com * noop
-                        www.pinterest.com * 3p-script noop
-                        www.pornhub.com * 3p-script noop
-                        www.instagram.com * 3p-script noop
-                        www.reddit.com * 3p-script noop
-                        www.reddit.com reddit.map.fastly.net * noop
-                        www.reddit.com redditstatic.com * noop
-                        pinterest.com * 3p-script noop
-                        rsf.org * 3p-frame noop
-                        rsf.org * 3p-script noop
-                        openrouter.ai * 3p-frame noop
-                        openrouter.ai * 3p-script noop
-                        www.rt.com * 3p-frame noop
-                        www.rt.com * 3p-script noop
+
+                        bandcamp.com * 3p-script noop
+
                         booru.soyjak.st * 3p-frame noop
                         booru.soyjak.st * 3p-script noop
+
+                        deepseek.com * 3p-script noop
+
+                        dropbox.com * 3p-frame noop
+                        dropbox.com * 3p-script noop
+
+                        ebay.de * 3p-frame noop
+                        ebay.de * 3p-script noop
+
+                        etsy.com * 3p-frame noop
+                        etsy.com * 3p-script noop
+
+                        genius.com * 3p-script noop
+
+                        github.com githubassets.com * noop
+
+                        google.com * 3p-script noop
+
+                        gsmarena.com * 3p-frame noop
+                        gsmarena.com * 3p-script noop
+
+                        hasznaltauto.hu * 3p-frame noop
+                        hasznaltauto.hu * 3p-script noop
+
+                        imgur.com * 3p-script noop
+
+                        ingatlan.com * 3p-frame noop
+                        ingatlan.com * 3p-script noop
+
+                        instagram.com * 3p-script noop
+
+                        jofogas.hu * 3p-frame noop
+                        jofogas.hu * 3p-script noop
+
+                        login.live.com * 3p-script noop
+
+                        login.microsoftonline.com * 3p-frame noop
+                        login.microsoftonline.com * 3p-script noop
+
+                        messenger.com * 3p-frame noop
+                        messenger.com * 3p-script noop
+
+                        monkeytype.com * * noop
+
+                        mynixos.com * 3p-script noop
+
+                        ncore.pro * 3p-frame noop
+                        ncore.pro * 3p-script noop
+
                         office.net * 3p-script noop
+
+                        openrouter.ai * 3p-frame noop
+                        openrouter.ai * 3p-script noop
+
+                        outlook.office.com * 3p-frame noop
+                        outlook.office.com * 3p-script noop
+
+                        pinterest.com * 3p-script noop
+                        pinterest.com * 3p-frame noop
+
+                        pornhub.com * 3p-script noop
+
+                        reddit.com * 3p-script noop
+                        reddit.com reddit.map.fastly.net * noop
+                        reddit.com redditstatic.com * noop
+
+                        soundcloud.com cloudfront.net * noop
+                        soundcloud.com sndcdn.com * noop
+                        soundcloud.com * 3p-script noop
+
+                        steampowered.com * 3p-frame noop
+                        steampowered.com * 3p-script noop
+
+                        teams.microsoft.com * 3p-script noop
+
+                        tiktok.com * 3p-script noop
+
+                        tradingview.com * 3p-script noop
+
                         vocaroo.com * 3p-script noop
+
+                        duolingo.com * 3p-frame noop
+                        duolingo.com * 3p-script noop
+
                         x.com * 3p-script noop
+
                         xhamster.com * 3p-script noop'';
                     urlFilteringString = "";
-                    hostnameSwitchesString = "no-large-media: behind-the-scene false\nno-remote-fonts: * true\nno-csp-reports: * true\nno-remote-fonts: github.com false\nno-large-media: duckduckgo.com        false\nno-strict-blocking: rentry.co true\nno-remote-fonts: monkeytype.com false\nno-strict-blocking: mobee.hu true";
+                    hostnameSwitchesString = ''
+                        no-remote-fonts: * true
+                        no-csp-reports: * true
+                        no-remote-fonts: monkeytype.com false
+                        no-remote-fonts: github.com false
+                        no-remote-fonts: google.com false
+                        no-remote-fonts: duolingo.com false
+                    '';
                 };
                 "redirector@einaregilsson.com".settings = {
                     redirects = [
