@@ -659,16 +659,13 @@
                     fullscreen = true;
                     term-osd-bar-chars = "[/|\\]";
                     image-display-duration = "inf";
-                    #msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,ffmpeg=no,input=no";
-                    msg-level = "all=no";
+                    msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,ffmpeg=no,input=no";
                     term-osd-bar = true;
                     volume-max = "100";
                     osd-font = "Roboto Mono";
                     sub-font = "Roboto Mono";
                     input-default-bindings = false;
                     osc = false;
-                    cache = true;
-                    ytdl-format = "bestvideo[height<=?720]+bestaudio/best";
                 };
                 scriptOpts = {
                     stats.key_page_0 = "2";
