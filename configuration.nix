@@ -856,7 +856,6 @@
         };
         qt = {
             enable = true;
-            platformTheme.name = "gtk";
         };
         programs.zathura = {
             enable = true;
