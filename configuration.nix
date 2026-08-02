@@ -621,7 +621,6 @@
                         pad = "5x0";
                     };
                     scrollback.lines = 100000;
-                    cursor.underline-thickness = "2px";
                     colors-dark = {
                         background = "000000";
                         foreground = "ffffff";
@@ -648,10 +647,8 @@
                         scrollback-down-page = "Control+Page_Down";
                         scrollback-home = "Control+Home";
                         scrollback-end = "Control+End";
-                        show-urls-copy = "Control+y";
+                        show-urls-copy = "Control+Shift+y";
                         search-start = "Control+Shift+r";
-                        scrollback-up-line = "Control+e";
-                        scrollback-down-line = "Control+n";
                     };
                 };
             };
