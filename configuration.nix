@@ -836,12 +836,6 @@
                     "application/x-bittorrent" = "transmission.desktop";
                 };
             };
-            portal = {
-                enable = false;
-                extraPortals = [pkgs.xdg-desktop-portal-gtk];
-                config.common.default = ["gtk"];
-                xdgOpenUsePortal = false;
-            };
             userDirs = {
                 enable = true;
                 desktop = "/home/soma/ar";
@@ -855,10 +849,6 @@
         gtk = {
             enable = true;
             colorScheme = "dark";
-        };
-        qt = {
-            enable = true;
-            #platformTheme.name = "gtk";
         };
         programs.zathura = {
             enable = true;
