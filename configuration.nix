@@ -291,9 +291,7 @@
         dconf.enable = true;
         fish.enable = true;
         gamemode.enable = true;
-        git = {
-            enable = true;
-        };
+        git.enable = true;
         gnupg.agent.enable = true;
         steam.enable = true;
     };
@@ -622,10 +620,8 @@
                         selection-target = "clipboard";
                         pad = "5x0";
                     };
-                    bell.system = false;
                     scrollback.lines = 100000;
                     cursor.underline-thickness = "2px";
-                    mouse.hide-when-typing = true;
                     colors-dark = {
                         background = "000000";
                         foreground = "ffffff";
