@@ -200,7 +200,7 @@
             catpdf = "pdftotext -";
             oc = "opencode";
             q = "qalc";
-            ipinfo = "curl -s ipinfo.io | jq";
+            ipinfo = "curl -s ipinfo.io | jaq";
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
             crypto = "curl rate.sx";
             porn = "mpv --shuffle /home/soma/px/basketweaving/gif";
@@ -289,7 +289,8 @@
         };
         shellAliases = {
             cdmnt = "cd /mnt/";
-            webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
+            jq = "jaq";
+            webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
             todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";

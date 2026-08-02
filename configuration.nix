@@ -78,7 +78,6 @@
             gcc
             gh
             ghc
-            glow
             gnumake
             grc
             #groff
@@ -92,7 +91,7 @@
             imagemagick
             inxi
             iwqr
-            jq
+            jaq
             keepass-diff
             #ladybird
             libnotify
@@ -103,6 +102,7 @@
             lolcat
             mailsy
             mapscii
+            mdcat
             nautilus
             ncdu
             nixos-anywhere
@@ -359,7 +359,7 @@
         fcron = {
             enable = true;
             systab = ''
-                %hourly * curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U" | jq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' > /tmp/webn
+                %hourly * curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U" | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' > /tmp/webn
             '';
         };
         getty = {
