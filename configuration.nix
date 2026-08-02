@@ -854,11 +854,11 @@
         };
         gtk = {
             enable = true;
-            #colorScheme = "dark";
+            colorScheme = "dark";
         };
         qt = {
             enable = true;
-            platformTheme.name = "gtk";
+            #platformTheme.name = "gtk";
         };
         programs.zathura = {
             enable = true;
