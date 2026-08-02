@@ -595,8 +595,10 @@
                         scrollback-end = "Control+End";
                         show-urls-copy = "Control+y";
                         search-start = "Control+r";
-                        find-prev = "Control+Shift+e";
-                        find-next = "Control+Shift+n";
+                    };
+                    search-bindings = {
+                        find-prev = "Shift+e";
+                        find-next = "Shift+n";
                     };
                 };
             };
