@@ -852,11 +852,9 @@
         };
         gtk = {
             enable = true;
-            colorScheme = "dark";
+            #colorScheme = "dark";
         };
-        qt = {
-            enable = true;
-        };
+        qt.enable = true;
         programs.zathura = {
             enable = true;
             mappings = {
