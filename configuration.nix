@@ -21,16 +21,11 @@
         shells = with pkgs; [fish];
         sessionVariables = {
             BROWSER = "handlr open";
-            #EDITOR = "nvim";
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             TTDL_FILENAME = "$HOME/dx/Backups/todo/todo.txt";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
-            XDG_CACHE_HOME = "$HOME/.cache";
-            XDG_CONFIG_HOME = "$HOME/.config";
-            XDG_DATA_HOME = "$HOME/.local/share";
-            XDG_STATE_HOME = "$HOME/.local/state";
             XDG_DESKTOP_DIR = "$HOME/ar";
             XDG_DOCUMENTS_DIR = "$HOME/dx";
             XDG_DOWNLOAD_DIR = "$HOME/dn";
@@ -116,7 +111,6 @@
             piper-tts
             pipe-viewer
             poppler-utils
-            presenterm
             presenterm
             prismlauncher
             procs

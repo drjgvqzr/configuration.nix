@@ -158,38 +158,35 @@
 
             # === NixOS ===
             rebuild = ''
-                set nixos_dir ~/dx/nixos
+                set -l upgrade
+                contains -- --upgrade $argv
+                and set upgrade --upgrade
+
+                set -l nixos_dir ~/dx/nixos
                 alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir
-                git -C $nixos_dir diff --quiet '*.nix' &&
-                    echo "No changes detected, exiting." &&
-                    return 1
-                git -C $nixos_dir diff --color=always -U0 '*.nix' | tail -n +5
+
+                git -C $nixos_dir diff --quiet '*.nix'
+                and echo "No changes detected, exiting."
+                and return 1
+
+                git -C $nixos_dir diff -U0 '*.nix' | tail -n +5
                 echo "NixOS Rebuilding..."
-                doas nice -n 19 nixos-rebuild switch &> $nixos_dir/misc/nixos-switch.log && {
-                  set generation $(git -C $nixos_dir diff -U20 HEAD '*.nix' | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' )
-                  git -C $nixos_dir commit -q -am $generation
-                  git -C $nixos_dir push -q -u origin main
-                  notify-send "Rebuild successful"
-                } || {
-                  cat $nixos_dir/misc/nixos-switch.log | grep error | tail -n 1
-                  notify-send "Rebuild Failed"
-                  return 1
-                  }'';
-            rebuildu = ''
-                set nixos_dir ~/dx/nixos
-                alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir
-                git -C $nixos_dir diff -U0 '*.nix'
-                echo "NixOS Rebuilding..."
-                doas nice -n 19 nixos-rebuild switch --upgrade &> $nixos_dir/misc/nixos-switch.log && {
-                    set generation $(git -C $nixos_dir diff -U20 HEAD '*.nix' | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' )
+                doas nice -n 19 nixos-rebuild switch $upgrade &> $nixos_dir/misc/nixos-switch.log
+                and begin
+                    set generation $(git -C $nixos_dir diff -U20 HEAD '*.nix' | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//')
                     git -C $nixos_dir commit -q -am $generation
                     git -C $nixos_dir push -q -u origin main
                     notify-send "Rebuild successful"
-                } || {
-                    cat $nixos_dir/misc/nixos-switch.log | grep --color error | tail -n 1
+                end
+                or begin
+                    cat $nixos_dir/misc/nixos-switch.log | grep error | tail -n 1
                     notify-send "Rebuild Failed"
                     return 1
-                }'';
+                end
+            '';
+            rebuildu = ''
+                rebuild --upgrade
+            '';
         };
         shellAbbrs = {
             # === Navigation ===
