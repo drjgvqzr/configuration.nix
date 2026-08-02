@@ -5,8 +5,7 @@
     ...
 }: let
     nixos = "/home/soma/dx/nixos";
-    font = "Roboto Mono";
-    trimFile = name: lib.strings.trim (builtins.readFile "${nixos}/misc/${name}");
+    secret = name: lib.strings.trim (builtins.readFile "${nixos}/misc/secrets/${name}");
 in {
     boot = {
         initrd.luks.devices."luks".allowDiscards = true;
@@ -209,9 +208,9 @@ in {
     fonts = {
         fontconfig.defaultFonts = {
             emoji = ["Noto Color Emoji"];
-            monospace = [font];
-            sansSerif = [font];
-            serif = [font];
+            monospace = ["Roboto Mono"];
+            sansSerif = ["Roboto Mono"];
+            serif = ["Roboto Mono"];
         };
         packages = with pkgs; [noto-fonts-color-emoji roboto-mono unifont];
     };
@@ -341,9 +340,9 @@ in {
             openDefaultPorts = true;
             settings = {
                 devices = {
-                    "Backup".id = trimFile "secrets/Backup_st-id";
-                    "Laptop".id = trimFile "secrets/Laptop_st-id";
-                    "Phone".id = trimFile "secrets/Phone_st-id";
+                    "Backup".id = secret "Backup_st-id";
+                    "Laptop".id = secret "Laptop_st-id";
+                    "Phone".id = secret "Phone_st-id";
                 };
                 folders = {
                     "ar" = {
@@ -448,7 +447,7 @@ in {
                                 type = "openai-compatible";
                                 name = "internet";
                                 api_base = "https://openrouter.ai/api/v1";
-                                api_key = trimFile "secrets/openrouter";
+                                api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
                                     provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
                                     #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
@@ -470,7 +469,7 @@ in {
                                 models = [
                                     {
                                         name = "deepseek/deepseek-v4-pro";
-                                        system_prompt_prefix = trimFile "ai_sysprompt";
+                                        system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                 ];
                             }
@@ -491,7 +490,7 @@ in {
                                 type = "openai-compatible";
                                 name = "openrouter";
                                 api_base = "https://openrouter.ai/api/v1";
-                                api_key = trimFile "secrets/openrouter";
+                                api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
                                     provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
                                     reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
@@ -499,7 +498,7 @@ in {
                                 models = [
                                     {
                                         name = "deepseek/deepseek-v4-pro";
-                                        system_prompt_prefix = trimFile "ai_sysprompt";
+                                        system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
                                         name = "qwen/qwen3-embedding-8b";
@@ -596,7 +595,7 @@ in {
                             search-start = "Control+slash";
                         };
                         main = {
-                            font = "${font}:size=14";
+                            font = "Roboto Mono:size=14";
                             pad = "5x0";
                             selection-target = "clipboard";
                         };
@@ -691,8 +690,8 @@ in {
                         input-default-bindings = false;
                         msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,ffmpeg=no,input=no";
                         osc = false;
-                        osd-font = font;
-                        sub-font = font;
+                        osd-font = "Roboto Mono";
+                        sub-font = "Roboto Mono";
                         term-osd-bar = true;
                         term-osd-bar-chars = "[/|\\]";
                         volume-max = "100";

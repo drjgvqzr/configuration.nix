@@ -3,9 +3,7 @@
     pkgs,
     lib,
     ...
-}: let
-    font = "Roboto Mono";
-in {
+}: {
     home-manager.users.soma.programs.librewolf = {
         enable = true;
         #package = pkgs.librewolf-bin;
@@ -772,9 +770,9 @@ in {
                 "toolkit.cosmeticAnimations.enabled" = false;
                 "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                 "ui.systemUsesDarkTheme" = 1;
-                "font.name.monospace.x-western" = "${font}";
-                "font.name.sans-serif.x-western" = "${font}";
-                "font.name.serif.x-western" = "${font}";
+                "font.name.monospace.x-western" = "Roboto Mono";
+                "font.name.sans-serif.x-western" = "Roboto Mono";
+                "font.name.serif.x-western" = "Roboto Mono";
                 "font.size.variable.x-western" = "18";
                 "browser.toolbars.bookmarks.visibility" = "never";
 
