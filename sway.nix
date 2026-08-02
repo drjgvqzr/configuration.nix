@@ -148,8 +148,9 @@
         enable = true;
         timeouts = [
             {
-                timeout = 60;
-                command = "${pkgs.swaylock}/bin/swaylock -fFK -s fill-i /home/soma/dx/nixos/misc/wallpaper.jpg ; [ $(cat /sys/class/power_supply/BAT0/status) = Discharging ] && systemctl suspend-then-hibernate";
+                timeout = 10;
+                #command = "${pkgs.swaylock}/bin/swaylock -fFK -s fill-i /home/soma/dx/nixos/misc/wallpaper.jpg ; [ $(cat /sys/class/power_supply/BAT0/status) = Discharging ] && systemctl suspend-then-hibernate";
+                command = "swaylock";
             }
         ];
     };
