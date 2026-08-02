@@ -206,10 +206,6 @@
             ungoogled-chromium
             vesktop
             zotero
-
-            #Experment with rust rewrites
-            #https://github.com/rcalixte/awesome-wayland
-            #https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
         ];
     };
     fonts = {
