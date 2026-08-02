@@ -314,11 +314,12 @@
             gpg = "/run/current-system/sw/bin/gpg --pinentry-mode loopback";
 
             # === Search / FZF ===
-            fzf = "SHELL=bash FZF_DEFAULT_COMMAND='fd --type f --type l --type d --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
-            fzfa = "SHELL=bash FZF_DEFAULT_COMMAND='fd --type f --type l --type d --hidden --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
+            fzf = "SHELL=bash FZF_DEFAULT_COMMAND=' fd --type f --type l --type d --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
+            fzfa = "SHELL=bash FZF_DEFAULT_COMMAND=' fd --type f --type l --type d --hidden --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
 
             # === Tasks / Reminders ===
-            todo = "ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
+
+            todo = "TTDL_FILENAME='$HOME/dx/Backups/todo/todo.txt' ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
             rc = "rem -cumb1";
             rc2 = "rem -cu2mb1";
             rc3 = "rem -cu3mb1";
