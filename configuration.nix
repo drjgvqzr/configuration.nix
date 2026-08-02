@@ -142,7 +142,7 @@
             ticker
             tickrs
             timer
-            tldr
+            tlrc
             toipe
             translate-shell
             transmission_4-gtk
