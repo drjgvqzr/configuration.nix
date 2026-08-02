@@ -760,7 +760,7 @@
                 enable = true;
                 settings = {
                     GUI = {
-                        ApplicationTheme = "dark";
+                        #ApplicationTheme = "dark";
                         HideGroupPanel = true;
                     };
                     Security = {
