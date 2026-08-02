@@ -293,14 +293,6 @@
         gamemode.enable = true;
         git = {
             enable = true;
-            config = [
-                {
-                    user = {
-                        name = "soma";
-                        email = "ligma@mailbox.org";
-                    };
-                }
-            ];
         };
         gnupg.agent.enable = true;
         steam.enable = true;
