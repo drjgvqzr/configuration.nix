@@ -846,6 +846,12 @@
                 pictures = "/home/soma/px";
                 videos = "/home/soma/vs";
             };
+            portal = {
+                enable = false;
+                extraPortals = [pkgs.xdg-desktop-portal-gtk];
+                config.common.default = ["gtk"];
+                xdgOpenUsePortal = false;
+            };
         };
         gtk = {
             enable = true;
