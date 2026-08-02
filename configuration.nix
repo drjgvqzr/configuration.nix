@@ -8,7 +8,7 @@
         /etc/nixos/hardware-configuration.nix
         "${
             builtins.fetchTarball {
-                url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+                url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
             }
         }/nixos"
         ./librewolf.nix
@@ -1009,10 +1009,8 @@
                 #ignore-article "*" "description =~ \"#shorts\""
                 #ignore-article "*" "content =~ \"#shorts\""
                 ignore-article "*" "link =~ \"shorts\""
-                #macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; cat /tmp/sub.en.vtt | sed -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\} -->/d' -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\}/d' -e 's/<[^>]*>/g' | awk 'NF'| sed 's/$/ /' | tr -d '\n' | aichat 'give a detailed summary of the previous text with the main points. Do not mention any promotions or sponsors.' | less" ; open-in-browser ; set browser mpv
-                #macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ;; cat /tmp/sub.en.vtt | sed -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\} -->/d' -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\}/d' -e 's/<[^>]*>//g' | awk 'NF' | sed 's/$/ /' | tr -d '\n' | aichat 'give a detailed summary of the previous text with the main points. Do not mention any promotions or sponsors.' | less" ; open-in-browser ; set browser mpv
-                #macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; cat /tmp/sub.en.vtt | less" ; open-in-browser ; set browser mpv
-                macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; sed '1,4d; /^[0-9]\{2\}:/d; s/<[^>]*>//g; s/&gt;//g' /tmp/sub.en.vtt | awk 'NF' | uniq | tr '\n' ' ' | less" ; open-in-browser
+                macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; sed '1,4d; /^[0-9]\\{2\\}:/d; s/<[^>]*>//g; s/&gt;//g' /tmp/sub.en.vtt | awk 'NF' | uniq | tr '\n' ' ' | aichat Summarize the YouTube video. Do not mention filler. | less" ; open-in-browser
+
             '';
         };
         programs.btop = {
