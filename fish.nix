@@ -35,8 +35,10 @@
             bind \' "set fish_bind_mode insert"
             bind \" beginning-of-line "set fish_bind_mode insert"
 
-            set TTY1 (tty)
-            [ "$TTY1" = "/dev/tty1" ] && exec sway
+            #set TTY1 (tty)
+            #[ "$TTY1" = "/dev/tty1" ] && exec sway
+
+            [ (tty) = "/dev/tty1" ] && exec sway
 
             function __ls_after_cd__on_variable_pwd --on-variable PWD
                 if status --is-interactive
