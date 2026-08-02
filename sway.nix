@@ -86,20 +86,24 @@
                 };
             };
             keybindings = {
-                #"mod1+grave" = "exec  sway-scratch show --app-id dropdown --resize \"set 100 ppt 25 pp\" --exec \"foot -a dropdown\"";
+                # === Launcher / Terminal ===
                 "mod1+Return" = "exec foot";
                 "mod1+BackSpace" = "scratchpad show";
                 "mod1+Shift+BackSpace" = " move scratchpad";
+                "mod1+space" = "focus mode_toggle";
+                "mod1+Shift+space" = "floating toggle";
+                "mod1+Tab" = "workspace back_and_forth";
+
+                # === System / Action ===
                 "mod1+c" = "kill";
+                "mod1+f" = "fullscreen";
                 "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\"";
-                "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
                 "mod1+r" = "exec fish -c 'rebuild'";
                 "mod1+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; [[ -n "$entry" ]] && nohup librewolf --new-tab $( echo -e "$password\n" | keepassxc-cli show -q -a URL dx/Backups/Keepass/keepass.kdbx "$entry" ) &> /dev/null & echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
                 "mod1+Shift+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t  "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
-                "Print" = "exec grim -g \"$(slurp)\"";
-                "Shift+Print" = "exec grim";
-                "mod1+f" = "fullscreen";
+                "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
 
+                # === Navigation ===
                 "mod1+m" = "focus left";
                 "mod1+n" = "focus down";
                 "mod1+e" = "focus up";
@@ -115,19 +119,20 @@
                 "mod1+Ctrl+e" = "resize grow height";
                 "mod1+Ctrl+i" = "resize grow width";
 
+                # === Workspaces / Apps ===
                 "mod1+1" = "workspace number 1";
                 "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace librewolf'";
                 "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace Logseq'";
                 "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace fluffychat'";
                 "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
                 "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace KeePassXC'";
-
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
-                "mod1+Tab" = "workspace back_and_forth";
 
-                "mod1+Shift+space" = "floating toggle";
-                "mod1+space" = "focus mode_toggle";
+                # === Screenshot ===
+                "Print" = "exec grim -g \"$(slurp)\"";
+                "Shift+Print" = "exec grim";
 
+                # === Clipboard ===
                 "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d '-\\n' | tr '\\n' ' ' | wl-copy\"";
             };
         };

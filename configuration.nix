@@ -23,7 +23,6 @@
             BROWSER = "handlr open";
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
-            TTDL_FILENAME = "$HOME/dx/Backups/todo/todo.txt";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
             XDG_DESKTOP_DIR = "$HOME/ar";
@@ -866,10 +865,8 @@
             style.name = "adwaita";
             style.package = pkgs.adwaita-qt;
         };
-        dconf.settings = {
-            "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-            "org/freedesktop/appearance".color-scheme = "1";
-        };
+        dconf.settings."org/freedesktop/appearance".color-scheme = "1";
+        dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
         programs.zathura = {
             enable = true;
             mappings = {
