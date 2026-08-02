@@ -149,7 +149,6 @@
             tree
             ttdl
             unoconv
-            uutils-coreutils
             vulkan-tools
             wget
             woeusb
