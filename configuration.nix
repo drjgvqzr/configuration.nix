@@ -22,7 +22,6 @@
         sessionVariables = {
             BROWSER = "handlr open";
             GIT_PAGER = "less -R";
-            GTK_CSD = "0";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
@@ -837,6 +836,12 @@
                     "application/x-bittorrent" = "transmission.desktop";
                 };
             };
+            portal = {
+                enable = false;
+                extraPortals = [pkgs.xdg-desktop-portal-gtk];
+                config.common.default = ["gtk"];
+                xdgOpenUsePortal = false;
+            };
             userDirs = {
                 enable = true;
                 desktop = "/home/soma/ar";
@@ -846,16 +851,14 @@
                 pictures = "/home/soma/px";
                 videos = "/home/soma/vs";
             };
-            portal = {
-                enable = false;
-                extraPortals = [pkgs.xdg-desktop-portal-gtk];
-                config.common.default = ["gtk"];
-                xdgOpenUsePortal = false;
-            };
         };
         gtk = {
             enable = true;
             colorScheme = "dark";
+        };
+        qt = {
+            enable = true;
+            #platformTheme.name = "gtk";
         };
         programs.zathura = {
             enable = true;
