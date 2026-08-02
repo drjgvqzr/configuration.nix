@@ -260,26 +260,8 @@
     };
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
-            builtins.elem (lib.getName pkg) [
-                "googleearth-pro"
-                "steam"
-                "steam-unwrapped"
-                "starsector"
-                "vim-plugin-AnsiEsc"
-                "nvim-highlight-colors"
-                "google-chrome"
-                "ouch"
-            ];
-        permittedInsecurePackages = [
-            "googleearth-pro-7.3.7.1155"
-            "electron-39.8.10"
-            "electron-40.10.5"
-            "librewolf-151.0.2-1"
-            "librewolf-unwrapped-151.0.2-1"
-            "librewolf-bin-151.0.1-2"
-            "librewolf-bin-unwrapped-151.0.1-2"
-            "pnpm-10.29.2"
-        ];
+            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "vim-plugin-AnsiEsc" "nvim-highlight-colors" "google-chrome" "ouch"];
+        permittedInsecurePackages = ["googleearth-pro-7.3.7.1155" "electron-39.8.10" "electron-40.10.5" "librewolf-151.0.2-1" "librewolf-unwrapped-151.0.2-1" "librewolf-bin-151.0.1-2" "librewolf-bin-unwrapped-151.0.1-2" "pnpm-10.29.2"];
     };
     programs = {
         bash.shellInit = "export HISTFILE=/tmp/bash_history";
@@ -396,10 +378,7 @@
                     "ar" = {
                         path = "~/ar";
                         id = "ciwug-fwawa";
-                        devices = [
-                            "Laptop"
-                            "Backup"
-                        ];
+                        devices = ["Laptop" "Backup"];
                         versioning = {
                             type = "trashcan";
                             params.cleanoutDays = "30";
@@ -408,11 +387,7 @@
                     "dn" = {
                         path = "~/dn";
                         id = "eztfs-xg2pf";
-                        devices = [
-                            "Laptop"
-                            "Backup"
-                            "Phone"
-                        ];
+                        devices = ["Laptop" "Backup" "Phone"];
                         versioning = {
                             type = "trashcan";
                             params.cleanoutDays = "30";
@@ -421,11 +396,7 @@
                     "dx" = {
                         path = "~/dx";
                         id = "oh2oz-9t565";
-                        devices = [
-                            "Laptop"
-                            "Backup"
-                            "Phone"
-                        ];
+                        devices = ["Laptop" "Backup" "Phone"];
                         versioning = {
                             type = "trashcan";
                             params.cleanoutDays = "30";
@@ -434,11 +405,7 @@
                     "ph" = {
                         path = "~/ph";
                         id = "domno-sd3ps";
-                        devices = [
-                            "Laptop"
-                            "Backup"
-                            "Phone"
-                        ];
+                        devices = ["Laptop" "Backup" "Phone"];
                         versioning = {
                             type = "trashcan";
                             params.cleanoutDays = "30";
@@ -447,11 +414,7 @@
                     "px" = {
                         path = "~/px";
                         id = "d0ind-uzt2e";
-                        devices = [
-                            "Laptop"
-                            "Backup"
-                            "Phone"
-                        ];
+                        devices = ["Laptop" "Backup" "Phone"];
                         versioning = {
                             type = "trashcan";
                             params.cleanoutDays = "30";
@@ -460,10 +423,7 @@
                     "vs" = {
                         path = "~/vs";
                         id = "7sr22-b5ui1";
-                        devices = [
-                            "Laptop"
-                            "Backup"
-                        ];
+                        devices = ["Laptop" "Backup"];
                         versioning = {
                             type = "trashcan";
                             params.cleanoutDays = "30";
