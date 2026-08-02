@@ -658,13 +658,10 @@
                 config = {
                     fullscreen = true;
                     term-osd-bar-chars = "[/|\\]";
-                    gapless-audio = true;
                     image-display-duration = "inf";
-                    audio-display = false;
-                    msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,ffmpeg=no,input=no";
+                    #msg-level = "vo/gpu=no,vo/ffmpeg=no,ffmpeg/demuxer=no,ffmpeg=no,input=no";
+                    msg-level = "all=no";
                     term-osd-bar = true;
-                    slang = "en,de";
-                    sid = false;
                     volume-max = "100";
                     osd-font = "Roboto Mono";
                     sub-font = "Roboto Mono";
