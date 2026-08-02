@@ -6,7 +6,6 @@
 }: {
     home-manager.users.soma.wayland.windowManager.sway = {
         enable = true;
-        xwayland = false;
         extraConfig = ''
             exec librewolf
             exec electron-mail
