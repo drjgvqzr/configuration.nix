@@ -857,14 +857,15 @@
         };
         gtk = {
             enable = true;
-            theme.name = "Adwaita-dark";
-            theme.package = pkgs.gnome-themes-extra;
+            colorScheme = "dark";
+            #theme.name = "Adwaita-dark";
+            #theme.package = pkgs.gnome-themes-extra;
         };
         qt = {
             enable = true;
-            platformTheme.name = "adwaita";
-            style.name = "Adwaita-dark";
-            style.package = pkgs.adwaita-qt;
+            platformTheme.name = "gtk";
+            #style.name = "Adwaita-dark";
+            #style.package = pkgs.adwaita-qt;
         };
         #dconf.settings."org/freedesktop/appearance".color-scheme = "1";
         dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
