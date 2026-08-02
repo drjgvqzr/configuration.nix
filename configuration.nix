@@ -836,6 +836,10 @@
                     "application/x-bittorrent" = "transmission.desktop";
                 };
             };
+            portal = {
+                enable = true;
+                extraPortals = [pkgs.xdg-desktop-portal-gtk];
+            };
             userDirs = {
                 enable = true;
                 desktop = "/home/soma/ar";
