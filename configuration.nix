@@ -159,7 +159,6 @@
             woeusb
             xdg-utils
             zbar
-            zoxide
 
             #Wayland
             brightnessctl
