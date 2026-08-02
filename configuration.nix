@@ -8,9 +8,9 @@
         kernelParams = [
             "fbcon=rotate:1"
             "video=DSI-1:panel_orientation=right_side_up"
-            "vm.dirty_writeback_centisecs=1500"
-            "snd_hda_intel.power_save=1"
-            "nmi_watchdog=0"
+            #"vm.dirty_writeback_centisecs=1500"
+            #"snd_hda_intel.power_save=1"
+            #"nmi_watchdog=0"
         ];
         initrd.luks.devices."luks".allowDiscards = true;
         kernelPackages = pkgs.linuxPackages_latest;
@@ -30,7 +30,6 @@
             EDITOR = "nvim";
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
-            LEDGER_FILE = "$HOME/dx/Backups/finance/2025.journal";
             TTDL_FILENAME = "$HOME/dx/Backups/todo/todo.txt";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
@@ -85,7 +84,6 @@
             gtrash
             handlr-regex
             heimdall
-            hledger
             html2text
             hyperfine
             iftop
@@ -223,6 +221,8 @@
             fselect
             presenterm
             xh
+            wikit
+            wikiman
         ];
     };
     fonts = {
