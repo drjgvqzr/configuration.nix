@@ -302,9 +302,9 @@
             #zathura = "swallow zathura-sandbox";
             zathura = "zathura-sandbox";
             rc = "rem -cumb1";
-            rc3 = "rem -cu3mb1";
             rc2 = "rem -cu2mb1";
-            fzf = "SHELL=bash fzf --preview 'fzf-preview {}' 2>/dev/null";
+            rc3 = "rem -cu3mb1";
+            fzf = "SHELL=bash FZF_DEFAULT_COMMAND='fd --type f --type l --type d --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
             rw = "rem -c+um";
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
