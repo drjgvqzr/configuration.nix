@@ -224,6 +224,8 @@
                         amazon.de * 3p-script noop
 
                         annas-archive.gd * 3p noop
+                        annas-archive.gd * 3p-frame noop
+                        annas-archive.gd * 3p-script noop
 
                         bandcamp.com * 3p-script noop
 
