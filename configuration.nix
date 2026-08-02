@@ -21,7 +21,7 @@
         shells = with pkgs; [fish];
         sessionVariables = {
             BROWSER = "handlr open";
-            EDITOR = "nvim";
+            #EDITOR = "nvim";
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             TTDL_FILENAME = "$HOME/dx/Backups/todo/todo.txt";
@@ -854,16 +854,6 @@
         };
         xdg = {
             enable = true;
-            desktopEntries = {
-                librewolf = {
-                    name = "LibreWolf";
-                    exec = "librewolf";
-                };
-                zathura = {
-                    name = "Zathura";
-                    exec = "zathura-sandbox";
-                };
-            };
             mimeApps = {
                 enable = true;
                 defaultApplications = {
@@ -872,8 +862,8 @@
                     "x-scheme-handler/https" = "librewolf.desktop";
                     "x-scheme-handler/about" = "librewolf.desktop";
                     "x-scheme-handler/unknown" = "librewolf.desktop";
-                    "x-scheme-handler/mailto" = "thunderbird.desktop";
-                    "application/pdf" = "zathura.desktop";
+                    "x-scheme-handler/mailto" = "electron-mail.desktop";
+                    "application/pdf" = "org.pwmt.zathura.desktop";
                     "video/mp4" = "mpv.desktop";
                     "video/webm" = "mpv.desktop";
                     "video/quicktime" = "mpv.desktop";
@@ -905,7 +895,7 @@
                 };
             };
             portal = {
-                enable = true;
+                enable = false;
                 extraPortals = [pkgs.xdg-desktop-portal-gtk];
                 config.common.default = ["gtk"];
                 xdgOpenUsePortal = false;
@@ -922,16 +912,17 @@
         };
         gtk = {
             enable = true;
-            theme.name = "Adwaita-dark";
+            #theme.name = "Adwaita-dark";
+            theme.name = "HighContrast";
             theme.package = pkgs.gnome-themes-extra;
         };
         qt = {
             enable = true;
             platformTheme.name = "adwaita";
-            style.name = "Adwaita-dark";
+            style.name = "adwaita";
             style.package = pkgs.adwaita-qt;
         };
-        dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+        #dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
         programs.zathura = {
             enable = true;
             mappings = {
