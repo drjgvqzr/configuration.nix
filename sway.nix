@@ -7,47 +7,105 @@
     home-manager.users.soma.wayland.windowManager.sway = {
         enable = true;
         checkConfig = false;
-        extraConfig = ''
-            exec librewolf
-            exec electron-mail
-            exec logseq
-            exec fluffychat
-            exec mako
-            exec autotiling-rs
-            bindsym XF86AudioMute exec volumectl toggle-mute
-            bindsym XF86AudioRaiseVolume exec volumectl -u up
-            bindsym XF86AudioLowerVolume exec volumectl -u down
-            bindsym XF86MonBrightnessDown exec lightctl down
-            bindsym XF86MonBrightnessUp exec lightctl up
-            bindsym Pause exec playerctl --player mpv play-pause || playerctl play-pause
-            bindsym XF86AudioNext exec playerctl --player mpv next || playerctl next
-            bindsym XF86AudioPrev exec playerctl --player mpv previous || playerctl previous
-            bindsym --release Super_L exec wmenu-run
-            bindgesture swipe:4:up exec "swaymsg input type:keyboard events toggle ; notify-send 'Keyboard Toggled'"'';
-        wrapperFeatures.gtk = true;
         config = {
-            output.DSI-1.bg = "/home/soma/dx/nixos/misc/wallpaper.jpg fill";
             assigns = {
-                "librewolf" = [{app_id = "librewolf";}];
-                "Logseq" = [{app_id = "Logseq";}];
-                "fluffychat" = [{app_id = "fluffychat";}];
-                "electron-mail" = [{app_id = "electron-mail";}];
                 "KeePassXC" = [{app_id = "org.keepassxc.KeePassXC";}];
+                "Logseq" = [{app_id = "Logseq";}];
                 "ONLYOFFICE" = [{class = "ONLYOFFICE";}];
+                "electron-mail" = [{app_id = "electron-mail";}];
+                "fluffychat" = [{app_id = "fluffychat";}];
+                "librewolf" = [{app_id = "librewolf";}];
             };
-            output = {
-                DSI-1 = {
-                    scale = "1.5";
+            bars = [];
+            bindswitches."lid:toggle".action = "exec swaylock -fFK -s fill -i /home/soma/dx/nixos/misc/wallpaper.jpg";
+            colors = {
+                focused = {
+                    background = "#aaaaaa";
+                    border = "#aaaaaa";
+                    childBorder = "#aaaaaa";
+                    indicator = "#aaaaaa";
+                    text = "#aaaaaa";
                 };
             };
             defaultWorkspace = "workspace number 1";
-            bindswitches."lid:toggle".action = "exec ${pkgs.swaylock}/bin/swaylock -fFK -s fill -i /home/soma/dx/nixos/misc/wallpaper.jpg";
-            bars = [];
+            focus = {
+                followMouse = "always";
+                mouseWarping = "container";
+            };
+            input = {
+                "type:keyboard" = {
+                    xkb_layout = "us,hu";
+                    xkb_options = "caps:backspace,grp:shifts_toggle";
+                    xkb_variant = "colemak_dh,101_qwerty_dot_nodead";
+                };
+                "type:touchpad" = {
+                    dwt = "disabled";
+                    natural_scroll = "enabled";
+                    tap = "enabled";
+                };
+            };
+            keybindings = {
+                "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d '-\\n' | tr '\\n' ' ' | wl-copy\"";
+                "Pause" = "exec playerctl --player mpv play-pause || playerctl play-pause";
+                "Print" = "exec grim -g \"$(slurp)\"";
+                "Shift+Print" = "exec grim";
+                "XF86AudioLowerVolume" = "exec volumectl -u down";
+                "XF86AudioMute" = "exec volumectl toggle-mute";
+                "XF86AudioNext" = "exec playerctl --player mpv next || playerctl next";
+                "XF86AudioPrev" = "exec playerctl --player mpv previous || playerctl previous";
+                "XF86AudioRaiseVolume" = "exec volumectl -u up";
+                "XF86MonBrightnessDown" = "exec lightctl down";
+                "XF86MonBrightnessUp" = "exec lightctl up";
+                "mod1+1" = "workspace number 1";
+                "mod1+BackSpace" = "scratchpad show";
+                "mod1+Ctrl+e" = "resize grow height";
+                "mod1+Ctrl+i" = "resize grow width";
+                "mod1+Ctrl+m" = "resize shrink width";
+                "mod1+Ctrl+n" = "resize shrink height";
+                "mod1+Return" = "exec foot";
+                "mod1+Shift+BackSpace" = " move scratchpad";
+                "mod1+Shift+e" = "move up";
+                "mod1+Shift+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t  "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
+                "mod1+Shift+i" = "move right";
+                "mod1+Shift+m" = "move left";
+                "mod1+Shift+n" = "move down";
+                "mod1+Shift+space" = "floating toggle";
+                "mod1+Tab" = "workspace back_and_forth";
+                "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\"";
+                "mod1+c" = "kill";
+                "mod1+e" = "focus up";
+                "mod1+f" = "fullscreen";
+                "mod1+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; [[ -n "$entry" ]] && nohup librewolf --new-tab $( echo -e "$password\n" | keepassxc-cli show -q -a URL dx/Backups/Keepass/keepass.kdbx "$entry" ) &> /dev/null & echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
+                "mod1+i" = "focus right";
+                "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace KeePassXC'";
+                "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace Logseq'";
+                "mod1+m" = "focus left";
+                "mod1+n" = "focus down";
+                "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
+                "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
+                "mod1+r" = ''exec sh -c 'nixos_dir=~/dx/nixos ; git -C $nixos_dir diff --quiet "*.nix" && notify-send "No changes detected, exiting" && exit ; alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir ; notify-send "NixOS Rebuilding..." ; doas nice -n 19 nixos-rebuild switch &> $nixos_dir/misc/nixos-switch.log && generation=$(git -C $nixos_dir diff -U20 HEAD | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' ) && git -C $nixos_dir commit -q -am "$generation" && git -C $nixos_dir push -q -u origin main && notify-send "Rebuild successful" || notify-send "Rebuild Failed" && exit '  '';
+                "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace fluffychat'";
+                "mod1+space" = "focus mode_toggle";
+                "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
+                "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace librewolf'";
+            };
             modes = {};
+            output = {
+                DSI-1 = {
+                    bg = "/home/soma/dx/nixos/misc/wallpaper.jpg fill";
+                    scale = "1.5";
+                };
+            };
+            startup = [
+                {command = "autotiling-rs";}
+                {command = "electron-mail";}
+                {command = "fluffychat";}
+                {command = "librewolf";}
+                {command = "logseq";}
+                {command = "mako";}
+            ];
             window = {
                 border = 1;
-                hideEdgeBorders = "smart_no_gaps";
-                titlebar = false;
                 commands = [
                     {
                         command = "opacity 0.75";
@@ -62,91 +120,26 @@
                         criteria.title = "^password$";
                     }
                 ];
+                hideEdgeBorders = "smart_no_gaps";
+                titlebar = false;
             };
-            focus.followMouse = "always";
-            focus.mouseWarping = "container";
-            colors = {
-                focused = {
-                    background = "#aaaaaa";
-                    border = "#aaaaaa";
-                    childBorder = "#aaaaaa";
-                    indicator = "#aaaaaa";
-                    text = "#aaaaaa";
-                };
-            };
-            input = {
-                "type:keyboard" = {
-                    xkb_layout = "us,hu";
-                    xkb_variant = "colemak_dh,101_qwerty_dot_nodead";
-                    xkb_options = "caps:backspace,grp:shifts_toggle";
-                };
-                "type:touchpad" = {
-                    tap = "enabled";
-                    dwt = "disabled";
-                    natural_scroll = "enabled";
-                };
-            };
-            keybindings = {
-                # === Launcher / Terminal ===
-                "mod1+Return" = "exec foot";
-                "mod1+BackSpace" = "scratchpad show";
-                "mod1+Shift+BackSpace" = " move scratchpad";
-                "mod1+space" = "focus mode_toggle";
-                "mod1+Shift+space" = "floating toggle";
-                "mod1+Tab" = "workspace back_and_forth";
-
-                # === System / Action ===
-                "mod1+c" = "kill";
-                "mod1+f" = "fullscreen";
-                "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\"";
-                "mod1+r" = ''exec sh -c 'nixos_dir=~/dx/nixos ; git -C $nixos_dir diff --quiet "*.nix" && notify-send "No changes detected, exiting" && exit ; alejandra --experimental-config /home/soma/dx/nixos/misc/alejandra.toml --quiet $nixos_dir ; notify-send "NixOS Rebuilding..." ; doas nice -n 19 nixos-rebuild switch &> $nixos_dir/misc/nixos-switch.log && generation=$(git -C $nixos_dir diff -U20 HEAD | aichat summarize what changed in my nixos config in one short sentence | sed 's/.$//' ) && git -C $nixos_dir commit -q -am "$generation" && git -C $nixos_dir push -q -u origin main && notify-send "Rebuild successful" || notify-send "Rebuild Failed" && exit '  '';
-                "mod1+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; [[ -n "$entry" ]] && nohup librewolf --new-tab $( echo -e "$password\n" | keepassxc-cli show -q -a URL dx/Backups/Keepass/keepass.kdbx "$entry" ) &> /dev/null & echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
-                "mod1+Shift+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t  "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
-                "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
-
-                # === Navigation ===
-                "mod1+m" = "focus left";
-                "mod1+n" = "focus down";
-                "mod1+e" = "focus up";
-                "mod1+i" = "focus right";
-
-                "mod1+Shift+m" = "move left";
-                "mod1+Shift+n" = "move down";
-                "mod1+Shift+e" = "move up";
-                "mod1+Shift+i" = "move right";
-
-                "mod1+Ctrl+m" = "resize shrink width";
-                "mod1+Ctrl+n" = "resize shrink height";
-                "mod1+Ctrl+e" = "resize grow height";
-                "mod1+Ctrl+i" = "resize grow width";
-
-                # === Workspaces / Apps ===
-                "mod1+1" = "workspace number 1";
-                "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace librewolf'";
-                "mod1+l" = "exec swaymsg '[app_id=\"Logseq\"] focus' || exec logseq ; exec swaymsg 'workspace Logseq'";
-                "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace fluffychat'";
-                "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
-                "mod1+k" = "exec swaymsg '[app_id=\"org.keepassxc.KeePassXC\"] focus' || exec keepassxc /home/soma/dx/Backups/Keepass/keepass.kdbx ; exec swaymsg 'workspace KeePassXC'";
-                "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
-
-                # === Screenshot ===
-                "Print" = "exec grim -g \"$(slurp)\"";
-                "Shift+Print" = "exec grim";
-
-                # === Clipboard ===
-                "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d '-\\n' | tr '\\n' ' ' | wl-copy\"";
-            };
+        };
+        extraConfig = ''
+            bindsym --release Super_L exec wmenu-run
+            bindgesture swipe:4:up exec "swaymsg input type:keyboard events toggle ; notify-send 'Keyboard Toggled'"'';
+        wrapperFeatures = {
+            gtk = true;
         };
     };
     home-manager.users.soma.services.avizo = {
         enable = true;
         settings = {
             default = {
-                time = 0.5;
-                image-opacity = 0.75;
                 background = "rgba(160, 160, 160, 0.8)";
-                border-color = "rgba(90, 90, 90, 0.8)";
                 bar-fg-color = "rgba(0, 0, 0, 0.8)";
+                border-color = "rgba(90, 90, 90, 0.8)";
+                image-opacity = 0.75;
+                time = 0.5;
             };
         };
     };
