@@ -53,8 +53,10 @@
             dash
             dejsonlz4
             doxx
+            dust
             exfatprogs
             exiftool
+            eza
             f3
             fastfetch
             fbcat
@@ -115,7 +117,9 @@
             pipe-viewer
             poppler-utils
             presenterm
+            presenterm
             prismlauncher
+            procs
             pulsemixer
             python315
             qrrs
@@ -123,6 +127,7 @@
             remind
             ripgrep
             ripgrep-all
+            sd
             smartmontools
             solitaire-tui
             sox
@@ -142,16 +147,19 @@
             ttdl
             unoconv
             uutils-coreutils-noprefix
-            uutils-findutils
             uutils-diffutils
+            uutils-findutils
             uutils-login
             uutils-sed
             uutils-tar
             vulkan-tools
             wget2
+            wikit
+            wiki-tui
             woeusb
             xdg-utils
             zbar
+            zoxide
 
             #Wayland
             brightnessctl
@@ -202,14 +210,6 @@
             #Experment with rust rewrites
             #https://github.com/rcalixte/awesome-wayland
             #https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
-            sd
-            eza
-            dust
-            procs
-            wiki-tui
-            zoxide
-            presenterm
-            wikit
         ];
     };
     fonts = {
