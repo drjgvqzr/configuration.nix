@@ -150,6 +150,11 @@
             ttdl
             unoconv
             uutils-coreutils-noprefix
+            uutils-findutils
+            uutils-diffutils
+            uutils-login
+            uutils-sed
+            uutils-tar
             vulkan-tools
             wget
             woeusb
