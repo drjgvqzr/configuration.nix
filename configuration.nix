@@ -175,7 +175,7 @@
             swayidle
             swaylock
             wev
-            wf-recorder
+            wl-screenrec
             wl-clipboard-rs
             wmenu
 
