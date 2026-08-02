@@ -40,7 +40,7 @@
 
             function __ls_after_cd__on_variable_pwd --on-variable PWD
                 if status --is-interactive
-                    ls -hpNF --color
+                    eza -F --no-quotes --group-directories-first
                 end
             end
 
@@ -290,9 +290,9 @@
         shellAliases = {
             cdmnt = "cd /mnt/";
             jq = "jaq";
-            ls = "eza -F --no-quotes";
+            ls = "eza -F --no-quotes --color-scale-mode=gradient --color-scale=all --group-directories-first --smart-group -o --no-permissions";
+            du = "dust";
             grep = "rg -S";
-            du = "dua";
             webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
