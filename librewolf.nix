@@ -324,6 +324,8 @@
                         no-remote-fonts: github.com false
                         no-remote-fonts: google.com false
                         no-remote-fonts: duolingo.com false
+                        no-remote-fonts: duckduckgo.com false
+                        no-remote-fonts: 127.0.0.1 false
                     '';
                 };
                 "redirector@einaregilsson.com".settings = {
