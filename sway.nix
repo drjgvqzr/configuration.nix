@@ -6,13 +6,13 @@
 }: {
     home-manager.users.soma.wayland.windowManager.sway = {
         enable = true;
+        checkConfig = false;
         extraConfig = ''
             exec librewolf
             exec electron-mail
             exec logseq
             exec fluffychat
             exec mako
-            exec swaybg -m fill -i /home/soma/dx/nixos/misc/wallpaper.jpg
             exec autotiling-rs
             bindsym XF86AudioMute exec volumectl toggle-mute
             bindsym XF86AudioRaiseVolume exec volumectl -u up
@@ -26,6 +26,7 @@
             bindgesture swipe:4:up exec "swaymsg input type:keyboard events toggle ; notify-send 'Keyboard Toggled'"'';
         wrapperFeatures.gtk = true;
         config = {
+            output.DSI-1.bg = "/home/soma/dx/nixos/misc/wallpaper.jpg fill";
             assigns = {
                 "librewolf" = [{app_id = "librewolf";}];
                 "Logseq" = [{app_id = "Logseq";}];

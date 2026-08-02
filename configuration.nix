@@ -733,7 +733,7 @@
                     noremap o i
                     noremap O I
                     noremap ' o
-                    noremap " "
+                    noremap " O
 
                     noremap h <Nop>
                     noremap j <Nop>
@@ -855,7 +855,10 @@
             enable = true;
             colorScheme = "dark";
         };
-        qt.enable = true;
+        qt = {
+            enable = true;
+            platformTheme.name = "gtk";
+        };
         programs.zathura = {
             enable = true;
             mappings = {
