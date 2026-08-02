@@ -837,7 +837,7 @@
                 };
             };
             portal = {
-                enable = true;
+                enable = false;
                 extraPortals = [pkgs.xdg-desktop-portal-gtk];
                 config.common.default = ["gtk"];
                 xdgOpenUsePortal = false;
