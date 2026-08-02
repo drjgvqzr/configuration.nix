@@ -28,6 +28,7 @@
         sessionVariables = {
             BROWSER = "handlr open";
             EDITOR = "nvim";
+            FZF_DEFAULT_COMMAND = "fd --type f --type l --type d --strip-cwd-prefix";
             GIT_PAGER = "less -R";
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             LEDGER_FILE = "$HOME/dx/Backups/finance/2025.journal";
@@ -76,6 +77,7 @@
             fzf-preview
             gallery-dl
             gcc
+            gdu
             gh
             ghc
             gnumake
@@ -104,7 +106,6 @@
             mapscii
             mdcat
             nautilus
-            ncdu
             nixos-anywhere
             nix-search-tv
             ocrmypdf
@@ -146,7 +147,6 @@
             toipe
             translate-shell
             transmission_4-gtk
-            tree
             ttdl
             unoconv
             uutils-coreutils-noprefix
@@ -156,7 +156,7 @@
             uutils-sed
             uutils-tar
             vulkan-tools
-            wget
+            wget2
             woeusb
             xdg-utils
             zbar
@@ -536,6 +536,7 @@
                 enable = true;
                 profiles.default.isDefault = true;
             };
+            broot.enable = true;
             aichat = {
                 enable = true;
                 settings = {

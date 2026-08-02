@@ -290,6 +290,7 @@
         shellAliases = {
             cdmnt = "cd /mnt/";
             jq = "jaq";
+            du = "dua";
             webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
             "0" = "cd ~;clear";
             hibernate = "systemctl hibernate";
@@ -302,7 +303,7 @@
             rc = "rem -cumb1";
             rc3 = "rem -cu3mb1";
             rc2 = "rem -cu2mb1";
-            fzf = "fzf --preview 'fzf-preview {}'";
+            fzf = "env SHELL=dash fzf --preview 'fzf-preview {}'";
             rw = "rem -c+um";
             "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
             irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
