@@ -852,7 +852,7 @@
         };
         gtk = {
             enable = true;
-            #colorScheme = "dark";
+            colorScheme = "dark";
         };
         qt.enable = true;
         programs.zathura = {
