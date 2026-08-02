@@ -840,7 +840,7 @@
                 };
             };
             portal = {
-                enable = false;
+                enable = true;
                 extraPortals = [pkgs.xdg-desktop-portal-gtk];
                 config.common.default = ["gtk"];
                 xdgOpenUsePortal = false;
@@ -858,14 +858,14 @@
         gtk = {
             enable = true;
             colorScheme = "dark";
-            #theme.name = "Adwaita-dark";
-            #theme.package = pkgs.gnome-themes-extra;
+            theme.name = "Adwaita-dark";
+            theme.package = pkgs.gnome-themes-extra;
         };
         qt = {
             enable = true;
             platformTheme.name = "gtk";
-            #style.name = "Adwaita-dark";
-            #style.package = pkgs.adwaita-qt;
+            style.name = "Adwaita-dark";
+            style.package = pkgs.adwaita-qt;
         };
         #dconf.settings."org/freedesktop/appearance".color-scheme = "1";
         dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
