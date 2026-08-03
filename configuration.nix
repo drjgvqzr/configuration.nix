@@ -181,10 +181,9 @@ in {
             fluffychat
             gamescope
             gimp
-            #google-chrome
             googleearth-pro
             iwgtk
-            #kdePackages.kdenlive
+            kdePackages.kdenlive
             kdePackages.kolourpaint
             kdiskmark
             logseq
