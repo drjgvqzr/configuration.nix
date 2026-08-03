@@ -12,10 +12,6 @@
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
                 installation_mode = "force_installed";
             };
-            "contact@example.com" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/smartreader/latest.xpi";
-                installation_mode = "force_installed";
-            };
             "extraneous@sysrqmagician.github.io" = {
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/extraneous/latest.xpi";
                 installation_mode = "force_installed";
