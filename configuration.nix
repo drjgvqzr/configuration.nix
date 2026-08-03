@@ -330,7 +330,6 @@ in {
         printing = {
             enable = true;
             drivers = [
-                pkgs.gutenprint
                 pkgs.gutenprintBin
                 pkgs.hplip
                 pkgs.epson-escpr
