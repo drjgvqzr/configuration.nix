@@ -164,11 +164,7 @@ in {
             hunspellDicts.en_US-large
             hunspellDicts.hu_HU
             hyprpicker
-            i3-swallow
             slurp
-            sway-scratch
-            swaybg
-            swayidle
             swaylock
             tesseract
             wev
