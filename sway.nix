@@ -42,7 +42,7 @@ in {
                 };
             };
             keybindings = {
-                "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d '-\\n' | tr '\\n' ' ' | wl-copy\"";
+                "Ctrl+Shift+v" = ''exec sh -c "wl-paste | tr -d '-\n' | sed 's/\n/ /g' | wl-copy"'';
                 "Pause" = "exec playerctl --player mpv play-pause || playerctl play-pause";
                 "Print" = "exec grim -g \"$(slurp)\"";
                 "Shift+Print" = "exec grim -g \"$(slurp)\" - | tesseract - - | wl-copy";
