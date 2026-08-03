@@ -7,7 +7,7 @@
     nixos = "/home/soma/dx/nixos";
 in {
     home-manager.users.soma.programs.fish = {
-        enable = false;
+        enable = true;
         functions = {
             # === Fish ===
             fish_prompt = "string join '' -- (set_color red) '%' (set_color white)  (prompt_pwd --dir-length=0) (set_color green) '>' (set_color normal)";
@@ -148,7 +148,7 @@ in {
 
             # === NixOS ===
             nrs = "rebuild";
-            nrst = "tail -c +0 -f ~/dx/nixos/misc/nixos-switch.log";
+            nrst = "tail -c +0 -f ~/dx/nixos/misc/.nixos-switch.log";
             nrsu = "rebuildu";
             nconf = "vi ~/dx/nixos/configuration.nix";
             nconfl = "vi ~/dx/nixos/librewolf.nix";

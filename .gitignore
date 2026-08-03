@@ -1,4 +1,5 @@
-nixos-switch.log
+.nixos-switch.log
+.rebuild.lock
 secrets
 violentmonkey
 .logseq
