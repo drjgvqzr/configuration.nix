@@ -137,7 +137,7 @@ in {
             # === Editors / Viewers ===
             o = "handlr open";
             f = "fzf | xargs -I {} handlr open {}";
-            z = "zathura";
+            #z = "zathura";
             mc = "links -dump /run/current-system/sw/share/doc/nixos/options.html | nvim -R -";
             mh = "man home-configuration.nix";
 
