@@ -706,6 +706,7 @@ in {
                         term-osd-bar = true;
                         term-osd-bar-chars = "[/|\\]";
                         volume-max = "100";
+                        ytdl-format = "bestvideo[height<=720]+bestaudio/best[height<=720]";
                     };
                     scriptOpts = {
                         sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
