@@ -456,6 +456,30 @@ in {
                         clients = [
                             {
                                 type = "openai-compatible";
+                                name = "openrouter";
+                                api_base = "https://openrouter.ai/api/v1";
+                                api_key = secret "openrouter";
+                                patch.chat_completions.".*".body = {
+                                    provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                    reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                };
+                                models = [
+                                    {
+                                        name = "deepseek/deepseek-v4-pro";
+                                        system_prompt_prefix = secret "ai_sysprompt";
+                                    }
+                                    {
+                                        name = "qwen/qwen3-embedding-8b";
+                                        type = "embedding";
+                                    }
+                                    {
+                                        name = "cohere/rerank-4-pro";
+                                        type = "reranker";
+                                    }
+                                ];
+                            }
+                            {
+                                type = "openai-compatible";
                                 name = "internet";
                                 api_base = "https://openrouter.ai/api/v1";
                                 api_key = secret "openrouter";
@@ -494,30 +518,6 @@ in {
                                         temperature = 1.0;
                                         top_p = 0.95;
                                         top_k = 64;
-                                    }
-                                ];
-                            }
-                            {
-                                type = "openai-compatible";
-                                name = "openrouter";
-                                api_base = "https://openrouter.ai/api/v1";
-                                api_key = secret "openrouter";
-                                patch.chat_completions.".*".body = {
-                                    provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
-                                    reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                };
-                                models = [
-                                    {
-                                        name = "deepseek/deepseek-v4-pro";
-                                        system_prompt_prefix = secret "ai_sysprompt";
-                                    }
-                                    {
-                                        name = "qwen/qwen3-embedding-8b";
-                                        type = "embedding";
-                                    }
-                                    {
-                                        name = "cohere/rerank-4-pro";
-                                        type = "reranker";
                                     }
                                 ];
                             }
