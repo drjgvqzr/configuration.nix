@@ -50,7 +50,7 @@ in {
                 "Ctrl+Shift+v" = "exec sh -c \"wl-paste | tr -d '-\\n' | tr '\\n' ' ' | wl-copy\"";
                 "Pause" = "exec playerctl --player mpv play-pause || playerctl play-pause";
                 "Print" = "exec grim -g \"$(slurp)\"";
-                "Shift+Print" = "exec grim";
+                "Shift+Print" = "exec grim -g \"$(slurp)\" - | tesseract - - | wl-copy";
                 "XF86AudioLowerVolume" = "exec volumectl -u down";
                 "XF86AudioMute" = "exec volumectl toggle-mute";
                 "XF86AudioNext" = "exec playerctl --player mpv next || playerctl next";
