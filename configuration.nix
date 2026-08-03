@@ -1,6 +1,6 @@
 {
-    pkgs,
     lib,
+    pkgs,
     ...
 }: let
     nixos = "/home/soma/dx/nixos";
