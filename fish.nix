@@ -249,7 +249,7 @@ in {
 
             # === Tasks / Reminders ===
 
-            todo = "TTDL_FILENAME=~/dx/Backups/todo/todo.txt ttdl --auto-hide-cols --always-hide-cols=created --no-headers";
+            todo = "ttdl --todo-file ~/dx/Backups/todo/todo.txt --auto-hide-cols --always-hide-cols=created --no-headers";
             rc = "rem -cumb1";
             rc2 = "rem -cu2mb1";
             rc3 = "rem -cu3mb1";
