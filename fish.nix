@@ -176,12 +176,12 @@ in {
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
 
             # === Tasks / Calendar ===
-            vitodo = "vi /home/soma/dx/Backups/todo/todo.txt";
+            vitodo = "vi ~/dx/Backups/todo/todo.txt";
             rv = "vi ~/dx/Backups/remind/remind.rem";
             rp = "vi ~/dx/Backups/remind/past.rem";
 
             # === Media / Video ===
-            porn = "mpv --shuffle /home/soma/px/basketweaving/gif";
+            porn = "mpv --shuffle ~/px/basketweaving/gif";
             m = "mpv";
             p = "mpv *";
             y = "pipe-viewer";
@@ -260,8 +260,8 @@ in {
             rc3 = "rem -cu3mb1";
 
             # === Recording ===
-            "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
-            irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor /home/soma/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
+            "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 ~/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
+            irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor ~/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
 
             # === Misc ===
             webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
