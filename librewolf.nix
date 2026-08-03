@@ -1,9 +1,4 @@
-{
-    config,
-    pkgs,
-    lib,
-    ...
-}: {
+{pkgs, ...}: {
     home-manager.users.soma.programs.librewolf = {
         enable = true;
         #package = pkgs.librewolf-bin;
