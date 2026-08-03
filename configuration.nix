@@ -700,7 +700,7 @@ in {
                         sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
                         stats.key_page_0 = "2";
                         thumbfast.network = "yes";
-                        webtorrent.path = "/home/soma/tr/";
+                        webtorrent.path = "~/tr/";
                     };
                     scripts = with pkgs.mpvScripts; [
                         mpris
@@ -938,12 +938,12 @@ in {
                 };
                 userDirs = {
                     enable = true;
-                    desktop = "/home/soma/ar";
-                    documents = "/home/soma/dx";
-                    download = "/home/soma/dn";
-                    music = "/home/soma/mu";
-                    pictures = "/home/soma/px";
-                    videos = "/home/soma/vs";
+                    desktop = "~/ar";
+                    documents = "~/dx";
+                    download = "~/dn";
+                    music = "~/mu";
+                    pictures = "~/px";
+                    videos = "~/vs";
                 };
             };
             gtk = {
