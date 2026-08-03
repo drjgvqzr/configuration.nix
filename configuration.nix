@@ -217,6 +217,7 @@ in {
     hardware = {
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
+        sane.enable = true;
     };
     imports = [
         "${
@@ -227,8 +228,6 @@ in {
         }/nixos"
         ./fish.nix
         ./librewolf.nix
-        ./misc/thunderbird.nix
-        #./misc/printing.nix
         ./sway.nix
         /etc/nixos/hardware-configuration.nix
     ];
@@ -292,6 +291,11 @@ in {
                 };
             };
         };
+        avahi = {
+            enable = true;
+            nssmdns4 = true;
+            openFirewall = true;
+        };
         fcron = {
             enable = true;
             systab = ''
@@ -323,6 +327,19 @@ in {
             pulse.enable = true;
         };
         playerctld.enable = true;
+        printing = {
+            enable = true;
+            drivers = [
+                pkgs.gutenprint
+                pkgs.gutenprintBin
+                pkgs.hplip
+                pkgs.epson-escpr
+                pkgs.epson-escpr2
+                pkgs.brlaser
+                pkgs.splix
+                pkgs.postscript-lexmark
+            ];
+        };
         resolved = {
             enable = true;
             settings.Resolve = {
