@@ -859,7 +859,6 @@ in {
                         "d" = "zoom out";
 
                         # === Adjust ===
-                        "x" = "adjust_window best-fit";
                         "c" = "adjust_window width";
                         "D" = "toggle_page_mode";
                         "R" = "rotate";
