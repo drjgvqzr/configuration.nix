@@ -1,9 +1,4 @@
-{
-    config,
-    pkgs,
-    lib,
-    ...
-}: let
+{...}: let
     nixos = "/home/soma/dx/nixos";
 in {
     home-manager.users.soma.wayland.windowManager.sway = {
@@ -19,7 +14,7 @@ in {
                 "librewolf" = [{app_id = "librewolf";}];
             };
             bars = [];
-            bindswitches."lid:toggle".action = "exec ${pkgs.swaylock}/bin/swaylock -fFK -s fill -i ${nixos}/misc/wallpaper.jpg";
+            bindswitches."lid:toggle".action = "exec swaylock -fFK -s fill -i ${nixos}/misc/wallpaper.jpg";
             colors = {
                 focused = {
                     background = "#aaaaaa";

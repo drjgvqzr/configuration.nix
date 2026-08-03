@@ -1,9 +1,4 @@
-{
-    config,
-    pkgs,
-    lib,
-    ...
-}: let
+{...}: let
     nixos = "/home/soma/dx/nixos";
 in {
     home-manager.users.soma.programs.fish = {
