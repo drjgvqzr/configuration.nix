@@ -7,7 +7,7 @@
     nixos = "/home/soma/dx/nixos";
 in {
     home-manager.users.soma.programs.fish = {
-        enable = true;
+        enable = false;
         functions = {
             # === Fish ===
             fish_prompt = "string join '' -- (set_color red) '%' (set_color white)  (prompt_pwd --dir-length=0) (set_color green) '>' (set_color normal)";
