@@ -414,7 +414,7 @@
                             g: https://www.google.com/search?q=%s Google
                             az: https://www.amazon.de/s/?field-keywords=%s Amazon
                             i: https://duckduckgo.com/?&q=%s&ia=images&iax=images Images
-                            h: https://lite.duckduckgo.com/lite/?&q=%s&kl=hu-hu Hungary
+                            m: https://lite.duckduckgo.com/lite/?&q=%s&kl=hu-hu Hungary
                             gh: https://github.com/search?q=%s&type=repositories&s=stars&ref=opensearch Github
                             ghg: https://gist.github.com/search?q=%s&ref=opensearch Github Gist
                             ud: https://rd.vern.cc/define.php?term=%s Urban Dictionary
