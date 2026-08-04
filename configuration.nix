@@ -81,6 +81,7 @@ in {
             hyperfine
             iftop
             imagemagick
+            invoice
             inxi
             iwqr
             jaq
@@ -176,6 +177,7 @@ in {
             audacity
             bluejay
             brave
+            claude-code
             electron-mail
             firefox
             fluffychat
@@ -240,7 +242,7 @@ in {
     };
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
-            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "vim-plugin-AnsiEsc" "nvim-highlight-colors" "google-chrome" "ouch"];
+            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "vim-plugin-AnsiEsc" "nvim-highlight-colors" "google-chrome" "ouch" "claude-code"];
         permittedInsecurePackages = ["googleearth-pro-7.3.7.1155" "electron-39.8.10" "electron-40.10.5" "librewolf-151.0.2-1" "librewolf-unwrapped-151.0.2-1" "librewolf-bin-151.0.1-2" "librewolf-bin-unwrapped-151.0.1-2" "pnpm-10.29.2"];
     };
     programs = {

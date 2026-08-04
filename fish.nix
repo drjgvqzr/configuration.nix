@@ -125,7 +125,9 @@ in {
             "0" = "cd ~ ; clear";
             cdn = "cd ~/dn";
             cdx = "cd ~/dx";
-            cdc = "cd ~/dx/nixos/misc";
+            cdc = ''
+                cd ${nixos}
+            '';
             cdmnt = "cd /mnt/";
 
             # === File Ops ===
