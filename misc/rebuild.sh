@@ -6,7 +6,7 @@ lock_file="$nixos_dir/misc/.rebuild.lock"
 
 : > "$lock_file"
 exec 9<"$lock_file"
-flock -n 9 || { echo "Already rebuilding, exiting"; notify-send "Rebuild Failed"; exit 1; }
+flock -n 9 || { echo "Already rebuilding, exiting"; notify-send "Already rebuilding, exiting"; exit 1; }
 
 alejandra --experimental-config <(printf 'indentation = "FourSpaces"\n') --quiet "$nixos_dir"
 

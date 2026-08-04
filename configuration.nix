@@ -462,12 +462,12 @@ in {
                                 api_base = "https://openrouter.ai/api/v1";
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
-                                    provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
-                                    reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                    #provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                    #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 };
                                 models = [
                                     {
-                                        name = "deepseek/deepseek-v4-pro";
+                                        name = "openai/gpt-3.5-turbo";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
