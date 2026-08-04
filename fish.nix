@@ -277,7 +277,7 @@ in {
             remind ~/dx/Backups/remind/chores.rem | tail -n +2 | grep -v '^$'
 
             #set fish_color_command green
-            #set fish_greeting
+            set fish_greeting
             #set -g fish_key_bindings fish_vi_key_bindings
 
             #set fish_cursor_default block blink
