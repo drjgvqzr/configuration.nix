@@ -207,7 +207,8 @@ in {
             oc = "opencode";
             la = "ls -A";
             ll = "ls -Al";
-            lt = "ls -l --sort=modified --reverse";
+            lt = "ls -l --s modified";
+            lS = "ls -l --s none --total size";
             nf = "fastfetch";
             b = "btop";
             nb = "newsboat";
