@@ -406,7 +406,7 @@
                         previousPatterns = "prev,previous,back,older,<,‹,←,«,≪,<<";
                         searchEngines = ''
                             w: http://en.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
-                            y: https://inv.nadeko.net/search?q=%s Invidious
+                            y: https://inv.nadeko.net/search?q=%s&sort=views Invidious
                             ns: https://search.nixos.org/packages?channel=unstable&from=0&size=999&sort=relevance&type=packages&query=%s NixOS Packages
                             nw: https://wiki.nixos.org/wiki/%s NixOS Wiki
                             gm: https://www.google.com/maps?q=%s Google Maps
@@ -488,7 +488,7 @@
                     };
                     inv = {
                         name = "Invidious";
-                        urls = [{template = "https://inv.nadeko.net/search?q={searchTerms}";}];
+                        urls = [{template = "https://inv.nadeko.net/search?q={searchTerms}&sort=views";}];
                         definedAliases = ["y"];
                     };
                     images = {
