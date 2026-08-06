@@ -184,6 +184,9 @@
 
                             openrouter.ai * 3p-frame noop
                             openrouter.ai * 3p-script noop
+                            frei.chat * 3p-frame noop
+                            frei.chat * 3p-script noop
+
 
                             outlook.office.com * 3p-frame noop
                             outlook.office.com * 3p-script noop
