@@ -72,6 +72,7 @@ in {
             gh
             ghc
             gnumake
+            gomuks
             grc
             #groff
             gtrash
@@ -243,7 +244,7 @@ in {
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "vim-plugin-AnsiEsc" "nvim-highlight-colors" "google-chrome" "ouch" "claude-code"];
-        permittedInsecurePackages = ["googleearth-pro-7.3.7.1155" "electron-39.8.10" "electron-40.10.5" "librewolf-151.0.2-1" "librewolf-unwrapped-151.0.2-1" "librewolf-bin-151.0.1-2" "librewolf-bin-unwrapped-151.0.1-2" "pnpm-10.29.2"];
+        permittedInsecurePackages = ["googleearth-pro-7.3.7.1155" "electron-39.8.10" "electron-40.10.5" "librewolf-151.0.2-1" "librewolf-unwrapped-151.0.2-1" "librewolf-bin-151.0.1-2" "librewolf-bin-unwrapped-151.0.1-2" "pnpm-10.29.2" "olm-3.2.16"];
     };
     programs = {
         bash.shellInit = "export HISTFILE=/tmp/bash_history";
@@ -281,10 +282,10 @@ in {
                     turbo = "never";
                 };
                 charger = {
-                    energy_perf_bias = "balance_power";
-                    energy_performance_preference = "balance_power";
+                    energy_perf_bias = "power";
+                    energy_performance_preference = "power";
                     governor = "powersave";
-                    turbo = "auto";
+                    turbo = "never";
                 };
             };
         };
@@ -495,12 +496,12 @@ in {
                                 api_base = "https://openrouter.ai/api/v1";
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
-                                    #provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                    provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
                                     #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 };
                                 models = [
                                     {
-                                        name = "openai/gpt-3.5-turbo";
+                                        name = "deepseek-v4-flash-0731";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
@@ -538,7 +539,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "deepseek/deepseek-v4-pro";
+                                        name = "deepseek-v4-flash-0731";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                 ];
