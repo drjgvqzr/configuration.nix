@@ -497,7 +497,7 @@ in {
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
                                     provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
-                                    #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                    reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 };
                                 models = [
                                     {
