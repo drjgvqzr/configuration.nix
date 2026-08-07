@@ -195,7 +195,7 @@ in {
 
             # === AI ===
             a = "aichat";
-            ai = "aichat --model internet:deepseek/deepseek-v4-pro";
+            ai = "aichat --model internet:deepseek/deepseek-v4-flash-0731";
             as = "aichat -s";
             wa = "wl-paste | aichat";
             was = "wl-paste | aichat summarize";
