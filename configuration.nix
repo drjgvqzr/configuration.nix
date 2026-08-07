@@ -294,6 +294,40 @@ in {
             nssmdns4 = true;
             openFirewall = true;
         };
+        borgmatic = {
+            enable = true;
+            configurations.local = {
+                repositories = [
+                    {
+                        label = "local";
+                        path = "/home/soma/ar/borg";
+                    }
+                ];
+                source_directories = [
+                    "/home/soma/dx"
+                    "/home/soma/px"
+                    "/home/soma/ph"
+                    "/home/soma/dn"
+                    "/home/soma/vs"
+                    "/home/soma/.ssh"
+                    "/home/soma/.gnupg"
+                    "/home/soma/.config"
+                    "/home/soma/.librewolf"
+                    "/home/soma/.local"
+                ];
+                exclude_patterns = [
+                    "/home/soma/.local/share/Trash"
+                    "/home/soma/.local/share/Steam"
+                    "/home/soma/.local/share/lutris"
+                ];
+                compression = "zstd";
+                keep_daily = 7;
+                keep_weekly = 4;
+                keep_monthly = 6;
+                keep_yearly = 10;
+                encryption_passcommand = "cat ${nixos}/misc/secrets/borgmatic";
+            };
+        };
         fcron = {
             enable = true;
             systab = ''
@@ -416,40 +450,6 @@ in {
                 };
             };
             user = "soma";
-        };
-        borgmatic = {
-            enable = true;
-            configurations.local = {
-                repositories = [
-                    {
-                        label = "local";
-                        path = "/home/soma/ar/borg";
-                    }
-                ];
-                source_directories = [
-                    "/home/soma/dx"
-                    "/home/soma/px"
-                    "/home/soma/ph"
-                    "/home/soma/dn"
-                    "/home/soma/vs"
-                    "/home/soma/.ssh"
-                    "/home/soma/.gnupg"
-                    "/home/soma/.config"
-                    "/home/soma/.librewolf"
-                    "/home/soma/.local"
-                ];
-                exclude_patterns = [
-                    "/home/soma/ar/borg"
-                    "/home/soma/.local/share/Trash"
-                    "/home/soma/.local/share/Steam"
-                    "/home/soma/.local/share/lutris"
-                ];
-                compression = "zstd";
-                keep_daily = 7;
-                keep_weekly = 4;
-                keep_monthly = 6;
-                encryption_passcommand = "cat ${nixos}/misc/secrets/borgmatic";
-            };
         };
         thermald.enable = true;
         xserver.xkb = {
