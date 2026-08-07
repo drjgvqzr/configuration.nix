@@ -447,7 +447,7 @@ in {
                 keep_daily = 7;
                 keep_weekly = 4;
                 keep_monthly = 6;
-                encryption_passcommand = "cat /root/borgmatic/passphrase";
+                encryption_passcommand = "cat ${nixos}/misc/secrets/borgmatic";
             };
         };
         thermald.enable = true;
