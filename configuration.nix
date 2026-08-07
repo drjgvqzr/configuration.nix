@@ -499,9 +499,10 @@ in {
                                     provider = {
                                         #provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
                                         data_collection = "deny"; #https://openrouter.ai/docs/api/api-reference/chat/
+                                        max_price.prompt = "0.28";
                                         preferred_max_latency = 2;
                                         preferred_min_throughput = 20;
-                                        quantizations = ["fp8"];
+                                        #quantizations = ["fp8"];
                                         sort = "price";
                                         zdr = true;
                                     };
