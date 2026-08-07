@@ -496,7 +496,15 @@ in {
                                 api_base = "https://openrouter.ai/api/v1";
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
-                                    provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                    provider = {
+                                        #provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
+                                        data_collection = "deny"; #https://openrouter.ai/docs/api/api-reference/chat/
+                                        preferred_max_latency = 2;
+                                        preferred_min_throughput = 20;
+                                        quantizations = ["fp8"];
+                                        sort = "price";
+                                        zdr = true;
+                                    };
                                     reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 };
                                 models = [
