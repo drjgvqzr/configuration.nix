@@ -308,7 +308,6 @@ in {
                     "/home/soma/px"
                     "/home/soma/ph"
                     "/home/soma/dn"
-                    "/home/soma/vs"
                     "/home/soma/.ssh"
                     "/home/soma/.gnupg"
                     "/home/soma/.config"
