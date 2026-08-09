@@ -1,4 +1,4 @@
-{...}: {
+{
     home-manager.users.soma.programs.librewolf = {
         enable = true;
         #package = pkgs.librewolf-bin;
