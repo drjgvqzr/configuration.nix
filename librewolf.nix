@@ -244,6 +244,7 @@
                             no-remote-fonts: hasznaltauto.hu false
                             no-remote-fonts: inv.nadeko.net false
                             no-remote-fonts: justetf.com false
+                            no-remote-fonts: disroot.org false
                         '';
                         popupPanelSections = 31;
                         selectedFilterLists = [
