@@ -210,7 +210,7 @@ in {
             la = "ls -A";
             ll = "ls -Al";
             lt = "ls -l -s modified";
-            lS = "ls -l -s none --total-size";
+            lS = "ls -l -s size --total-size";
             nf = "fastfetch";
             b = "btop";
             nb = "newsboat";
