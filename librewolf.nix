@@ -446,6 +446,7 @@
                             et: https://www.etsy.com/search?q=%s
                             ya: https://yandex.com/search?text=%s&lr=10466
                             ali: https://www.aliexpress.com/w/wholesale-%s.html
+                            alieu: https://www.aliexpress.com/w/wholesale-%s.html?selectedSwitches=filterCode%3Ashipfrom
                             phil: https://plato.stanford.edu/search/searcher.py?query=%s
                             trends: https://trends.google.com/trends/explore?date=all&q=%s&hl=en-US
                             wordfreq: https://books.google.com/ngrams/graph?content=%s&year_start=1800&year_end=2022&corpus=en&smoothing=3
@@ -659,6 +660,11 @@
                         name = "AliExpress";
                         urls = [{template = "https://www.aliexpress.com/w/wholesale-{searchTerms}.html";}];
                         definedAliases = ["ali"];
+                    };
+                    aliexpresseu = {
+                        name = "AliExpress EU";
+                        urls = [{template = "https://www.aliexpress.com/w/wholesale-{searchTerms}.html?selectedSwitches=filterCode%3Ashipfrom";}];
+                        definedAliases = ["alieu"];
                     };
                     stanford = {
                         name = "Stanford Encyclopedia of Philosophy";
