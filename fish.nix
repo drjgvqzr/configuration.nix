@@ -169,7 +169,7 @@ in {
             nr = "doas systemctl restart iwd.service";
 
             # === Finance ===
-            eur = "qcalc eur to huf";
+            eur = "qalc eur to huf";
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
 
             # === Tasks / Calendar ===
