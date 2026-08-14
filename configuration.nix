@@ -213,6 +213,7 @@ in {
         packages = with pkgs; [noto-fonts-color-emoji roboto-mono unifont];
     };
     hardware = {
+        bluetooth.enable = true;
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
         sane.enable = true;
