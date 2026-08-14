@@ -182,7 +182,7 @@ in {
             electron-mail
             firefox
             fluffychat
-            gamescope
+            gamescope #gamemoderun %command%
             gimp
             googleearth-pro
             iwgtk
