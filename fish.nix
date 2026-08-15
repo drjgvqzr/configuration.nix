@@ -124,6 +124,7 @@ in {
             "9" = "cd ..";
             "0" = "cd ~ ; clear";
             cdn = "cd ~/dn";
+            selfdestruct = "doas cryptsetup luksErase /dev/nvme0n1p2";
             cdx = "cd ~/dx";
             cdc = ''
                 cd ${nixos}
