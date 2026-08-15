@@ -224,6 +224,7 @@ in {
             # === Core File Commands ===
             ls = "eza -F --no-quotes --color-scale-mode=gradient --color-scale=all --group-directories-first --smart-group -o --no-permissions";
             du = "dust";
+            cd = "z";
             grep = "rg -S";
             #ls = "ls -hNF --color";
             mv = "mv -vu";
@@ -313,6 +314,7 @@ in {
             end
 
             any-nix-shell fish | source
+            zoxide init fish | source
 
         '';
     };

@@ -603,6 +603,7 @@ in {
                         mem_graphs = false;
                         net_iface = "wlan0";
                         net_sync = false;
+                        proc_cpu_graphs = false;
                         proc_filter_kernel = true;
                         proc_left = true;
                         proc_per_core = true;
