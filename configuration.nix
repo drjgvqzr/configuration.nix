@@ -222,7 +222,7 @@ in {
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "0qqlidc85b1km0dp2f03wdx9k37fyisnjm6cn685ab66m723c2s6";
+                sha256 = "1yvs69y5ym11q4z0zpppf9ylg9jc2rgys864b8haxj1zslnmrd31";
             }
         }/nixos"
         ./fish.nix
@@ -283,8 +283,8 @@ in {
                     turbo = "never";
                 };
                 charger = {
-                    energy_perf_bias = "balance_power";
-                    energy_performance_preference = "balance_power";
+                    energy_perf_bias = "balance_performance";
+                    energy_performance_preference = "balance_performance";
                     governor = "powersave";
                     turbo = "auto";
                 };
