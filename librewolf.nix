@@ -201,6 +201,7 @@
                             pinterest.com * 3p-frame noop
 
                             pornhub.com * 3p-script noop
+                            pornhub.com * 3p-frame noop
 
                             reddit.com * 3p-script noop
                             reddit.com reddit.map.fastly.net * noop
