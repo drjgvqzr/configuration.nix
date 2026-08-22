@@ -170,6 +170,9 @@
                             login.microsoftonline.com * 3p-frame noop
                             login.microsoftonline.com * 3p-script noop
 
+                            mega.nz * 3p-frame noop
+                            mega.nz * 3p-script noop
+
                             messenger.com * 3p-frame noop
                             messenger.com * 3p-script noop
 
@@ -237,6 +240,7 @@
                         hostnameSwitchesString = ''
                             no-remote-fonts: * true
                             no-csp-reports: * true
+                            no-remote-fonts: mega.nz false
                             no-remote-fonts: monkeytype.com false
                             no-remote-fonts: github.com false
                             no-remote-fonts: google.com false
