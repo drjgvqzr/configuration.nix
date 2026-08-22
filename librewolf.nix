@@ -786,6 +786,7 @@
                 "browser.toolbars.bookmarks.visibility" = "never";
 
                 # === Sidebar / Vertical Tabs ===
+                "browser.fullscreen.autohide" = false;
                 "sidebar.verticalTabs" = true;
                 "sidebar.expandOnHoverMessage.dismissed" = true;
                 "sidebar.backupState" = "{\"command\":\"\",\"launcherWidth\":55,\"launcherExpanded\":false,\"launcherVisible\":true}";
