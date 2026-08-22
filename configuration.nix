@@ -222,7 +222,7 @@ in {
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "1yvs69y5ym11q4z0zpppf9ylg9jc2rgys864b8haxj1zslnmrd31";
+                sha256 = "1qsx6l8z2v2rzr47chfqvmr9585lcrb2wihixbklmz63nhsba6sb";
             }
         }/nixos"
         ./fish.nix
@@ -498,9 +498,8 @@ in {
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
                                     provider = {
-                                        max_price.prompt = "0.28";
-                                        preferred_max_latency = 2;
-                                        preferred_min_throughput = 20;
+                                        preferred_max_latency = 1.2;
+                                        preferred_min_throughput = 35;
                                         #quantizations = ["fp8"];
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
@@ -529,14 +528,11 @@ in {
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
                                     provider = {
-                                        #provider.order = ["deepseek"]; #https://openrouter.ai/docs/api/api-reference/chat/
-                                        data_collection = "deny"; #https://openrouter.ai/docs/api/api-reference/chat/
-                                        max_price.prompt = "0.28";
-                                        preferred_max_latency = 2;
-                                        preferred_min_throughput = 20;
-                                        quantizations = ["fp8"];
+                                        preferred_max_latency = 1.2;
+                                        preferred_min_throughput = 35;
+                                        #quantizations = ["fp8"];
                                         sort = "price";
-                                        zdr = true;
+                                        zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
                                     #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                     reasoning.exclude = true;

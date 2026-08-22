@@ -191,6 +191,9 @@
                             outlook.office.com * 3p-frame noop
                             outlook.office.com * 3p-script noop
 
+                            paypal.com * 3p-script noop
+                            paypal.com * 3p-frame noop
+
                             pinterest.com * 3p-script noop
                             pinterest.com * 3p-frame noop
 
