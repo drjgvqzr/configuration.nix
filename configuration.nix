@@ -397,55 +397,31 @@ in {
                         devices = ["Laptop" "Backup"];
                         id = "ciwug-fwawa";
                         path = "~/ar";
-                        versioning = {
-                            params.cleanoutDays = "30";
-                            type = "trashcan";
-                        };
                     };
                     "dn" = {
                         devices = ["Laptop" "Backup" "Phone"];
                         id = "eztfs-xg2pf";
                         path = "~/dn";
-                        versioning = {
-                            params.cleanoutDays = "30";
-                            type = "trashcan";
-                        };
                     };
                     "dx" = {
                         devices = ["Laptop" "Backup" "Phone"];
                         id = "oh2oz-9t565";
                         path = "~/dx";
-                        versioning = {
-                            params.cleanoutDays = "30";
-                            type = "trashcan";
-                        };
                     };
                     "ph" = {
                         devices = ["Laptop" "Backup" "Phone"];
                         id = "domno-sd3ps";
                         path = "~/ph";
-                        versioning = {
-                            params.cleanoutDays = "30";
-                            type = "trashcan";
-                        };
                     };
                     "px" = {
                         devices = ["Laptop" "Backup" "Phone"];
                         id = "d0ind-uzt2e";
                         path = "~/px";
-                        versioning = {
-                            params.cleanoutDays = "30";
-                            type = "trashcan";
-                        };
                     };
                     "vs" = {
                         devices = ["Laptop" "Backup"];
                         id = "7sr22-b5ui1";
                         path = "~/vs";
-                        versioning = {
-                            params.cleanoutDays = "30";
-                            type = "trashcan";
-                        };
                     };
                 };
             };
