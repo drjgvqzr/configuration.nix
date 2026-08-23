@@ -435,7 +435,7 @@
                             we: https://en.wiktionary.org/wiki/%s#English Wiktionary
                             r: https://www.reddit.com/search?q=%s Reddit
                             sr: https://www.reddit.com/r/%s/top?t=all Subreddit
-                            pin: https://de.pinterest.com/search/pins/?q=%s
+                            pin: https://bn.bloat.cat/search.php?q=%s
                             fa: https://addons.mozilla.org/en-US/firefox/search/?q=%s Firefox Addons
                             lib: https://annas-archive.gd/search?q=%s
                             wl: https://search.libraryofleaks.org/search?q=%s
@@ -461,6 +461,7 @@
                             wordfreq: https://books.google.com/ngrams/graph?content=%s&year_start=1800&year_end=2022&corpus=en&smoothing=3
                             ikea: https://www.ikea.com/hu/hu/search/?q=%s
                             sc: https://soundcloud.com/search?q=%s
+                            lyrics: https://dumb.ducks.party/search?q=%s Genius
                             tiktok: https://www.tiktok.com/search?q=%s
                             steam: https://store.steampowered.com/search?term=%s
                             poly: https://polymarket.com/search?_q=%s
@@ -494,6 +495,11 @@
                             }
                         ];
                         definedAliases = ["@lite"];
+                    };
+                    genius = {
+                        name = "Genius";
+                        urls = [{template = "https://dumb.ducks.party/search?q={searchTerms}";}];
+                        definedAliases = ["lyrics"];
                     };
                     wiki = {
                         name = "Wikipedia";
@@ -552,7 +558,7 @@
                     };
                     pinterest = {
                         name = "Pinterest";
-                        urls = [{template = "https://de.pinterest.com/search/pins/?q={searchTerms}";}];
+                        urls = [{template = "https://bn.bloat.cat/search.php?q={searchTerms}";}];
                         definedAliases = ["pin"];
                     };
                     maps = {
