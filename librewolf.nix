@@ -800,6 +800,10 @@
                 "network.prefetch-next" = true;
                 "network.dns.disablePrefetchFromHTTPS" = false;
                 "network.http.referer.XOriginPolicy" = 2;
+                "browser.places.speculativeConnect.enabled" = true;
+                "browser.urlbar.speculativeConnect.enabled" = true;
+                "browser.cache.disk.enable" = true;
+                "browser.cache.memory.enable" = true;
 
                 # === Search / URL Bar ===
                 "browser.search.suggest.enabled" = true;
