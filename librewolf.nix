@@ -766,8 +766,10 @@
                 "browser.startup.homepage" = "about:newtab";
                 "browser.newtabpage.enabled" = false;
                 "browser.tabs.closeWindowWithLastTab" = false;
+                "browser.download.folderList" = 2;
+                "browser.download.dir" = "/home/soma/dn";
+                "browser.download.useDownloadDir" = true;
                 "browser.download.open_pdf_attachments_inline" = true;
-                "browser.download.useDownloadDir" = false;
                 "browser.download.autohideButton" = true;
                 "browser.download.start_downloads_in_tmp_dir" = false;
                 "browser.translations.neverTranslateLanguages" = "hu,de";

@@ -64,12 +64,17 @@ https://lukesmith.xyz/rss #Luke Smith
 https://nixos.org/blog/announcements-rss.xml #NixOS
 https://www.kitklarenberg.com/feed
 https://ujszem.org/feed
+https://dominiccummings.substack.com/feed
+https://shen.hong.io/feed
+https://gwern.substack.com/feed
+https://emma.best/feed/
 " "
 "--- X ---"
 " "
 https://xcancel.com/deepseek_ai/rss #DeepSeek
 https://xcancel.com/wikileaks/rss #Wikileaks
 https://xcancel.com/go_lightyear/rss #Wikileaks
+https://xcancel.com/gorhill/rss
 " "
 "--- BreadTube ---"
 " "
@@ -149,6 +154,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCJwZeLXvTYLydWMHcLgREMQ #Th
 https://www.youtube.com/feeds/videos.xml?channel_id=UCQVT5XJ7nCQcAZE6RlpozQQ #Young Sploinkler
 https://www.youtube.com/feeds/videos.xml?channel_id=UCR6LasBpceuYUhuLToKBzvQ #Solar Sands
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9h8BDcXwkhZtnqoQJ7PggA #WarFronts
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGl20l047qvZc9zmYnSZaEA #Ex Libris
+https://www.youtube.com/feeds/videos.xml?channel_id=UCl4R4M9YVfYjjPmILU2Ie1A #1420
 " "
 "--- History ---"
 " "
