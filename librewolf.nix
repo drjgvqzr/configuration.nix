@@ -776,6 +776,8 @@
                 "identity.fxaccounts.enabled" = true;
                 "permissions.default.desktop-notification" = 2;
                 "accessibility.force_disabled" = 1;
+                "browser.display.use_document_fonts" = 0;
+                "intl.accept_languages" = "en-us";
 
                 # === Appearance ===
                 "toolkit.cosmeticAnimations.enabled" = false;
