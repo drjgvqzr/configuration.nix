@@ -155,6 +155,9 @@
                             hasznaltauto.hu * 3p-frame noop
                             hasznaltauto.hu * 3p-script noop
 
+                            huel.com * 3p-frame noop
+                            huel.com * 3p-script noop
+
                             imgur.com * 3p-script noop
 
                             ingatlan.com * 3p-frame noop
@@ -304,9 +307,7 @@
                             "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
                         ];
                         urlFilteringString = "";
-                        user-filters = ''
-                            pinterest.*##div[data-test-id=fullPageSignupModal]:has(div[data-test-id=login-modal-redesign])
-                        '';
+                        user-filters = '''';
                     };
                     "vimium-c@gdh1995.cn".settings = {
                         keyMappings = ''
