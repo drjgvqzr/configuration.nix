@@ -974,7 +974,7 @@ in {
                     config.common.default = ["gtk"];
                 };
                 userDirs = {
-                    enable = false;
+                    enable = true;
                     desktop = "~/ar";
                     documents = "~/dx";
                     download = "~/dn";
