@@ -515,14 +515,14 @@ in {
                                     tools = [
                                         {
                                             type = "openrouter:web_search";
-                                            parameters.engine = "native";
+                                            parameters.engine = "firecrawl";
                                         }
                                         {
                                             type = "openrouter:datetime";
                                         }
                                         {
                                             type = "openrouter:web_fetch";
-                                            parameters.engine = "native";
+                                            parameters.engine = "firecrawl";
                                         }
                                     ];
                                 };
@@ -974,7 +974,7 @@ in {
                     config.common.default = ["gtk"];
                 };
                 userDirs = {
-                    enable = true;
+                    enable = false;
                     desktop = "~/ar";
                     documents = "~/dx";
                     download = "~/dn";
