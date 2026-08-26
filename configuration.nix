@@ -301,24 +301,24 @@ in {
                 repositories = [
                     {
                         label = "local";
-                        path = "/home/soma/ar/borg";
+                        path = "~/ar/borg";
                     }
                 ];
                 source_directories = [
-                    "/home/soma/dx"
-                    "/home/soma/px"
-                    "/home/soma/ph"
-                    "/home/soma/dn"
-                    "/home/soma/.ssh"
-                    "/home/soma/.gnupg"
-                    "/home/soma/.config"
-                    "/home/soma/.librewolf"
-                    "/home/soma/.local"
+                    "~/dx"
+                    "~/px"
+                    "~/ph"
+                    "~/dn"
+                    "~/.ssh"
+                    "~/.gnupg"
+                    "~/.config"
+                    "~/.librewolf"
+                    "~/.local"
                 ];
                 exclude_patterns = [
-                    "/home/soma/.local/share/Trash"
-                    "/home/soma/.local/share/Steam"
-                    "/home/soma/.local/share/lutris"
+                    "~/.local/share/Trash"
+                    "~/.local/share/Steam"
+                    "~/.local/share/lutris"
                 ];
                 compression = "zstd";
                 keep_daily = 7;
