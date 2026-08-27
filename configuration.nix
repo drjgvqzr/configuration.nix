@@ -39,7 +39,6 @@ in {
             backgroundremover
             bat
             bc
-            bsdgames
             catdocx
             cointop
             cook-cli
