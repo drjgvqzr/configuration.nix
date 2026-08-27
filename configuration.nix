@@ -27,13 +27,8 @@ in {
             GTK_CSD = "0";
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
-            XDG_DESKTOP_DIR = "$HOME/ar";
-            XDG_DOCUMENTS_DIR = "$HOME/dx";
-            XDG_DOWNLOAD_DIR = "$HOME/dn";
-            XDG_PICTURES_DIR = "$HOME/px";
-            XDG_VIDEOS_DIR = "$HOME/vs";
         };
-        shells = with pkgs; [fish];
+        shells = [pkgs.fish];
         systemPackages = with pkgs; [
             #CLI
             alejandra
