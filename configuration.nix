@@ -9,7 +9,7 @@ in {
     boot = {
         initrd.luks.devices."luks".allowDiscards = true;
         kernelPackages = pkgs.linuxPackages_latest;
-        kernelParams = ["fbcon=rotate:1" "video=DSI-1:rotate:90" "plymouth.force-frame-buffer-on-boot"];
+        kernelParams = ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"];
         loader = {
             efi.canTouchEfiVariables = true;
             systemd-boot.enable = true;
@@ -230,7 +230,7 @@ in {
         enableIPv6 = false;
         dhcpcd.enable = false;
         nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-        wg-quick.interfaces.wg0.configFile = "${nixos}/misc/secrets/wg.conf";
+        #wg-quick.interfaces.wg0.configFile = "${nixos}/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
             settings.General = {
