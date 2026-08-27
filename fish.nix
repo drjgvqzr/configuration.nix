@@ -13,35 +13,6 @@ in {
             we = ''links "https://en.wiktionary.org/wiki/$argv#English"'';
             pb = ''links "https://thepiratebay.party/search/$argv"'';
 
-            # === Bluetooth ===
-            bcnp = ''
-                bluetoothctl power on
-                set btexists $(pgrep -f bluetoothctl)
-                [[ -z $btexists ]] && bluetoothctl -t 60 scan on > /dev/null &
-                watch -c -n 1 "bluetoothctl devices| grep Device | grep -v '.*-.*-.*-.*-.*-.*' | sort"
-                set selected $(bluetoothctl devices | grep Device | grep -v '.*-.*-.*-.*-.*-.*' | sort | fzf | cut -d' ' -f2)
-                bluetoothctl pair $selected
-                bluetoothctl connect $selected'';
-            bcn = ''
-                bluetoothctl power on
-                set btexists $(pgrep -f bluetoothctl)
-                [[ -z $btexists ]] && bluetoothctl -t 60 scan on > /dev/null &
-                watch -c -n 1 "bluetoothctl devices| grep Device | grep -v '.*-.*-.*-.*-.*-.*' | sort"
-                bluetoothctl devices | grep Device | grep -v '.*-.*-.*-.*-.*-.*' | sort | fzf | cut -d' ' -f2 | xargs -I {} bluetoothctl connect {}'';
-            bdcn = ''bluetoothctl devices Connected | grep Device | sort | fzf | cut -d' ' -f2 | xargs -I {} bluetoothctl disconnect {}'';
-            bcnf = ''bluetoothctl devices Paired | grep Device | sort | fzf | cut -d' ' -f2 | xargs -I {} bluetoothctl remove {}'';
-
-            # === WiFi ===
-            sn = ''iwctl station wlan0 scan;iwctl station wlan0 get-networks'';
-            cn = ''
-                watch -c -n 2 "iwctl station wlan0 scan ; iwctl station wlan0 get-networks"
-                set ssid $(iwctl station wlan0 get-networks | fzf --ansi |sed -e 's/ \{10,\}.*//' -e 's/^[[:space:]]*//')
-                read -P "Password: " password
-                iwctl --passphrase="$password" station wlan0 connect "$ssid"'';
-            cnf = ''
-                set ssid $(iwctl known-networks list | fzf --ansi |sed -e 's/ \{10,\}.*//' -e 's/^[[:space:]]*//')
-                iwctl known-networks $ssid forget'';
-
             # === Disk / USB ===
             isomount = ''doas mount $argv /mnt ; cd /mnt'';
             nformat = ''
@@ -92,7 +63,7 @@ in {
                     doas chown -R "$USER":users /mnt/;
                     cd /mnt;'';
             umnt = ''
-                [ "$(pwd)" = "/mnt" ] && cd ~
+                [ (pwd) = /mnt ] && cd ~
                     ls /mnt 2>/dev/null || doas mkdir -p /mnt
                     doas umount /mnt/;
                     doas cryptsetup close sd"$argv[1]"1 2>/dev/null;'';

@@ -509,14 +509,14 @@ in {
                                     tools = [
                                         {
                                             type = "openrouter:web_search";
-                                            parameters.engine = "firecrawl";
+                                            parameters.engine = "native";
                                         }
                                         {
                                             type = "openrouter:datetime";
                                         }
                                         {
                                             type = "openrouter:web_fetch";
-                                            parameters.engine = "firecrawl";
+                                            parameters.engine = "native";
                                         }
                                     ];
                                 };
