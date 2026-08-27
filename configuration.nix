@@ -15,7 +15,6 @@ in {
             systemd-boot.enable = true;
             timeout = 0;
         };
-        plymouth.enable = true;
     };
     console.useXkbConfig = true;
     environment = {
@@ -230,7 +229,7 @@ in {
         enableIPv6 = false;
         dhcpcd.enable = false;
         nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-        #wg-quick.interfaces.wg0.configFile = "${nixos}/misc/secrets/wg.conf";
+        wg-quick.interfaces.wg0.configFile = "${nixos}/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
             settings.General = {
