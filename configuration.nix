@@ -238,8 +238,7 @@ in {
         };
     };
     nixpkgs.config = {
-        allowUnfreePredicate = pkg:
-            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "ouch"];
+        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "ouch"];
         permittedInsecurePackages = ["olm-3.2.16" "googleearth-pro-7.3.7.1155" "electron-39.8.10"];
     };
     programs = {
