@@ -9,7 +9,7 @@ in {
     boot = {
         initrd.luks.devices."luks".allowDiscards = true;
         kernelPackages = pkgs.linuxPackages_latest;
-        kernelParams = ["fbcon=rotate:1" "video=DSI-1:rotate:90"];
+        kernelParams = ["fbcon=rotate:1" "video=DSI-1:rotate:90" "plymouth.force-frame-buffer-on-boot"];
         loader = {
             efi.canTouchEfiVariables = true;
             systemd-boot.enable = true;
