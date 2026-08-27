@@ -173,7 +173,6 @@ in {
             audacity
             bluejay
             brave
-            claude-code
             electron-mail
             firefox
             fluffychat
@@ -240,8 +239,9 @@ in {
     };
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
-            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "vim-plugin-AnsiEsc" "nvim-highlight-colors" "google-chrome" "ouch" "claude-code"];
-        permittedInsecurePackages = ["googleearth-pro-7.3.7.1155" "electron-39.8.10" "electron-40.10.5" "librewolf-151.0.2-1" "librewolf-unwrapped-151.0.2-1" "librewolf-bin-151.0.1-2" "librewolf-bin-unwrapped-151.0.1-2" "pnpm-10.29.2" "olm-3.2.16"];
+            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "vim-plugin-AnsiEsc" "nvim-highlight-colors" "ouch"];
+        #permittedInsecurePackages = ["googleearth-pro-7.3.7.1155" "electron-39.8.10" "electron-40.10.5" "librewolf-151.0.2-1" "librewolf-unwrapped-151.0.2-1" "librewolf-bin-151.0.1-2" "librewolf-bin-unwrapped-151.0.1-2" "pnpm-10.29.2" "olm-3.2.16"];
+        permittedInsecurePackages = ["olm-3.2.16" "googleearth-pro-7.3.7.1155" "electron-39.8.10"];
     };
     programs = {
         bash.shellInit = "export HISTFILE=/tmp/bash_history";
