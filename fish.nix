@@ -129,7 +129,13 @@ in {
             cdc = ''
                 cd ${nixos}
             '';
-            cdmnt = "cd /mnt/";
+            cdcm = ''
+                cd ${nixos}/misc
+            '';
+            cdcms = ''
+                cd ${nixos}/misc/secrets
+            '';
+            cdm = "cd /mnt";
 
             # === File Ops ===
             catpdf = "pdftotext -";
@@ -281,10 +287,7 @@ in {
             set fish_color_normal white
             set fish_greeting
 
-            #set TTY1 (tty)
-            #[ "$TTY1" = "/dev/tty1" ] && exec sway
-
-            (tty) = /dev/tty1 && exec sway
+            [ (tty) = /dev/tty1 ] && exec sway
 
             function __ls_after_cd__on_variable_pwd --on-variable PWD
                 if status --is-interactive
@@ -294,7 +297,6 @@ in {
 
             any-nix-shell fish | source
             zoxide init fish | source
-
         '';
     };
 }
