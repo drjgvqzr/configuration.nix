@@ -239,7 +239,7 @@ in {
     };
     nixpkgs.config = {
         allowUnfreePredicate = pkg:
-            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "vim-plugin-AnsiEsc" "nvim-highlight-colors" "ouch"];
+            builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "ouch"];
         permittedInsecurePackages = ["olm-3.2.16" "googleearth-pro-7.3.7.1155" "electron-39.8.10"];
     };
     programs = {
@@ -749,7 +749,7 @@ in {
                     defaultEditor = true;
                     viAlias = true;
                     vimdiffAlias = true;
-                    plugins = with pkgs.vimPlugins; [indentLine lightline-vim nvim-highlight-colors todo-txt-vim vim-plugin-AnsiEsc];
+                    plugins = with pkgs.vimPlugins; [indentLine lightline-vim nvim-highlight-colors todo-txt-vim Improved-AnsiEsc];
                     initLua = ''
                         vim.o.shada = ""
                         require('nvim-highlight-colors').setup({})'';
