@@ -278,35 +278,13 @@ in {
             echo -e "\033[31m$(date '+%m/%d %R %A') \033[91m$(echo "scale=5; ($(date +%s)-$(date -d"$(cat ${nixos}/misc/secrets/birthdate)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%\033[0m \033[92m$(cat /tmp/webn)\033[0m"
             remind ~/dx/Backups/remind/chores.rem | tail -n +2 | grep -v '^$'
 
-            #set fish_color_command green
             set fish_color_normal white
             set fish_greeting
-            #set -g fish_key_bindings fish_vi_key_bindings
-
-            #set fish_cursor_default block blink
-            #set fish_cursor_insert underscore blink
-            #set fish_cursor_replace_one line blink
-            #set fish_cursor_replace line blink
-            #set fish_cursor_external line blink
-            #set fish_cursor_visual block blink
-
-            #bind m backward-char
-            #bind n down-or-search
-            #bind e up-or-search
-            #bind i forward-char
-
-            #bind -M visual m backward-char
-            #bind -M visual n down-line
-            #bind -M visual e up-line
-            #bind -M visual i forward-char
-
-            #bind \' "set fish_bind_mode insert"
-            #bind \" beginning-of-line "set fish_bind_mode insert"
 
             #set TTY1 (tty)
             #[ "$TTY1" = "/dev/tty1" ] && exec sway
 
-            [ (tty) = "/dev/tty1" ] && exec sway
+            (tty) = /dev/tty1 && exec sway
 
             function __ls_after_cd__on_variable_pwd --on-variable PWD
                 if status --is-interactive
