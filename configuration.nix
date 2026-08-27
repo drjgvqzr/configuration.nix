@@ -9,12 +9,13 @@ in {
     boot = {
         initrd.luks.devices."luks".allowDiscards = true;
         kernelPackages = pkgs.linuxPackages_latest;
-        kernelParams = ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"];
+        kernelParams = ["fbcon=rotate:1" "video=DSI-1:rotate:90"];
         loader = {
             efi.canTouchEfiVariables = true;
             systemd-boot.enable = true;
             timeout = 0;
         };
+        plymouth.enable = true;
     };
     console.useXkbConfig = true;
     environment = {
