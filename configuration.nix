@@ -493,6 +493,36 @@ in {
                             }
                             {
                                 type = "openai-compatible";
+                                name = "thinking";
+                                api_base = "https://openrouter.ai/api/v1";
+                                api_key = secret "openrouter";
+                                patch.chat_completions.".*".body = {
+                                    provider = {
+                                        preferred_max_latency = 1.2;
+                                        preferred_min_throughput = 35;
+                                        quantizations = ["fp8"];
+                                        sort = "price";
+                                        zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
+                                    };
+                                    reasoning.effort = "xhigh"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                };
+                                models = [
+                                    {
+                                        name = "deepseek-v4-flash-0731";
+                                        system_prompt_prefix = secret "ai_sysprompt";
+                                    }
+                                    {
+                                        name = "qwen/qwen3-embedding-8b";
+                                        type = "embedding";
+                                    }
+                                    {
+                                        name = "cohere/rerank-4-pro";
+                                        type = "reranker";
+                                    }
+                                ];
+                            }
+                            {
+                                type = "openai-compatible";
                                 name = "internet";
                                 api_base = "https://openrouter.ai/api/v1";
                                 api_key = secret "openrouter";
