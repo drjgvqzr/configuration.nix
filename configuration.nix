@@ -474,12 +474,11 @@ in {
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
-                                    #reasoning.effort = "minimal"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                    #reasoning.exclude = true;
+                                    reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 };
                                 models = [
                                     {
-                                        name = "z-ai/glm-5.3-flash";
+                                        name = "deepseek-v4-flash-0731";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
@@ -505,8 +504,8 @@ in {
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
-                                    #reasoning.effort = "minimal"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                    #reasoning.exclude = true;
+                                    #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                    reasoning.exclude = true;
                                     tools = [
                                         {
                                             type = "openrouter:web_search";
@@ -523,7 +522,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "z-ai/glm-5.3-flash";
+                                        name = "deepseek-v4-flash-0731";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                 ];
