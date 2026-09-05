@@ -474,11 +474,12 @@ in {
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
-                                    reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                    #reasoning.effort = "minimal"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                    reasoning.exclude = true;
                                 };
                                 models = [
                                     {
-                                        name = "deepseek-v4-flash-0731";
+                                        name = "z-ai/glm-5.3-flash";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
@@ -504,7 +505,7 @@ in {
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
-                                    #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
+                                    #reasoning.effort = "minimal"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                     reasoning.exclude = true;
                                     tools = [
                                         {
@@ -522,7 +523,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "deepseek-v4-flash-0731";
+                                        name = "z-ai/glm-5.3-flash";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                 ];
