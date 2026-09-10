@@ -28,7 +28,7 @@ in {
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
         };
-        shells = [pkgs.fish];
+        #shells = [pkgs.fish];
         systemPackages = with pkgs; [
             #CLI
             alejandra
