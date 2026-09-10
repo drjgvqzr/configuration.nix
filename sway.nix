@@ -90,7 +90,7 @@ in {
             modes = {};
             output = {
                 DSI-1 = {
-                    bg = "${nixos}/misc/wallpaper.jpg fill";
+                    #bg = "${nixos}/misc/wallpaper.jpg fill";
                     scale = "1.5";
                 };
             };
@@ -105,10 +105,10 @@ in {
             window = {
                 border = 1;
                 commands = [
-                    {
-                        command = "opacity 0.75";
-                        criteria.class = ".*";
-                    }
+                    #{
+                    #command = "opacity 0.75";
+                    #criteria.class = ".*";
+                    #}
                     {
                         command = "move scratchpad, scratchpad show, resize set 100 ppt 25 ppt, move position 0 0";
                         criteria.app_id = "dropdown";

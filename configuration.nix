@@ -56,9 +56,9 @@ in {
             fdupes
             ffmpeg
             figlet
-            #fishPlugins.autopair
-            #fishPlugins.grc
-            #fishPlugins.puffer
+            fishPlugins.autopair
+            fishPlugins.grc
+            fishPlugins.puffer
             fzf
             fzf-preview
             gallery-dl
@@ -215,7 +215,7 @@ in {
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "1qsx6l8z2v2rzr47chfqvmr9585lcrb2wihixbklmz63nhsba6sb";
+                sha256 = "0fyjh6bv6p72ynz0pjkzlf1966h2dq40ivwbzy73lk45aqam1ymh";
             }
         }/nixos"
         ./fish.nix
@@ -584,7 +584,6 @@ in {
                         wrap_code = true;
                     };
                 };
-                broot.enable = true;
                 btop = {
                     enable = true;
                     settings = {

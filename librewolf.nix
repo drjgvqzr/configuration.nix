@@ -948,7 +948,11 @@
                 /*
                 #navigator-toolbox{ flex-direction: column; display: flex; }
                 #titlebar{ order: 2 }
-                */'';
+                */
+                #main-window {
+                    filter: grayscale(1) !important;
+                }
+            '';
         };
     };
 }
