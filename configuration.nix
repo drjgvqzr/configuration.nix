@@ -28,7 +28,6 @@ in {
             MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
         };
-        #shells = [pkgs.fish];
         systemPackages = with pkgs; [
             #CLI
             alejandra
@@ -472,7 +471,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "deepseek-v4-flash-0731";
+                                        name = "deepseek-v4.1-flash";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
@@ -503,7 +502,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "deepseek-v4-flash-0731";
+                                        name = "deepseek-v4.1-flash";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
@@ -547,7 +546,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "deepseek-v4-flash-0731";
+                                        name = "deepseek-v4.1-flash";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                 ];
