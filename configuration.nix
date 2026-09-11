@@ -208,7 +208,6 @@ in {
         bluetooth.enable = true;
         cpu.intel.updateMicrocode = true;
         graphics.enable = true;
-        sane.enable = true;
     };
     imports = [
         "${
@@ -282,11 +281,6 @@ in {
                 };
             };
         };
-        avahi = {
-            enable = true;
-            nssmdns4 = true;
-            openFirewall = true;
-        };
         borgmatic = {
             enable = true;
             configurations.local = {
@@ -349,18 +343,6 @@ in {
             pulse.enable = true;
         };
         playerctld.enable = true;
-        printing = {
-            enable = true;
-            drivers = [
-                pkgs.gutenprintBin
-                pkgs.hplip
-                pkgs.epson-escpr
-                pkgs.epson-escpr2
-                pkgs.brlaser
-                pkgs.splix
-                pkgs.postscript-lexmark
-            ];
-        };
         resolved = {
             enable = true;
             settings.Resolve = {
