@@ -463,9 +463,9 @@ in {
                                     provider = {
                                         preferred_max_latency = 1.2;
                                         preferred_min_throughput = 35;
-                                        quantizations = ["fp8"];
+                                        #quantizations = ["fp8"];
                                         sort = "price";
-                                        zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
+                                        #zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
                                     reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                 };
@@ -493,9 +493,9 @@ in {
                                     provider = {
                                         preferred_max_latency = 1.2;
                                         preferred_min_throughput = 35;
-                                        quantizations = ["fp8"];
+                                        #quantizations = ["fp8"];
                                         sort = "price";
-                                        zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
+                                        #zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
                                     reasoning.effort = "xhigh"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                     reasoning.exclude = true;
@@ -524,9 +524,9 @@ in {
                                     provider = {
                                         preferred_max_latency = 1.2;
                                         preferred_min_throughput = 35;
-                                        quantizations = ["fp8"];
+                                        #quantizations = ["fp8"];
                                         sort = "price";
-                                        zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
+                                        #zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
                                     #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
                                     reasoning.exclude = true;
