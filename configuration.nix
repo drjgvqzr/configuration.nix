@@ -213,7 +213,7 @@ in {
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "0fyjh6bv6p72ynz0pjkzlf1966h2dq40ivwbzy73lk45aqam1ymh";
+                sha256 = "07kv40q14hs6qj4hprjiasvmm77mdhjfzxz60wwgyd6d85dphyzn";
             }
         }/nixos"
         ./fish.nix

@@ -152,6 +152,9 @@
                             gsmarena.com * 3p-frame noop
                             gsmarena.com * 3p-script noop
 
+                            microsoft.com * 3p-frame noop
+                            microsoft.com * 3p-script noop
+
                             hasznaltauto.hu * 3p-frame noop
                             hasznaltauto.hu * 3p-script noop
 
