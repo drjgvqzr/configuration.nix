@@ -9,7 +9,7 @@ in {
                 "KeePassXC" = [{app_id = "org.keepassxc.KeePassXC";}];
                 "Logseq" = [{app_id = "Logseq";}];
                 "ONLYOFFICE" = [{class = "ONLYOFFICE";}];
-                "electron-mail" = [{app_id = "electron-mail";}];
+                #"electron-mail" = [{app_id = "electron-mail";}];
                 "fluffychat" = [{app_id = "fluffychat";}];
                 "librewolf" = [{app_id = "librewolf";}];
             };
