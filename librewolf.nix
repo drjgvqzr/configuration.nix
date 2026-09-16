@@ -253,6 +253,7 @@
                             no-remote-fonts: google.com false
                             no-remote-fonts: duolingo.com false
                             no-remote-fonts: duckduckgo.com false
+                            no-remote-fonts: magyarorszag.hu false
                             no-remote-fonts: 127.0.0.1 false
                             no-remote-fonts: office.com false
                             no-remote-fonts: hasznaltauto.hu false
