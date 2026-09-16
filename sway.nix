@@ -84,7 +84,7 @@ in {
                 "mod1+r" = "exec ${nixos}/misc/rebuild.sh";
                 "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace fluffychat'";
                 "mod1+space" = "focus mode_toggle";
-                "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
+                #"mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
                 "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace librewolf'";
             };
             modes = {};
@@ -96,7 +96,7 @@ in {
             };
             startup = [
                 {command = "autotiling-rs";}
-                {command = "electron-mail";}
+                #{command = "electron-mail";}
                 {command = "fluffychat";}
                 {command = "librewolf";}
                 {command = "logseq";}
