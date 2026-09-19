@@ -110,8 +110,8 @@ in {
                 pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf
             '';
             sn = ''
-                iwctl station wlan0 scan
-                iwctl station wlan0 get-networks
+                doas iwctl station wlan0 scan
+                doas iwctl station wlan0 get-networks
             '';
 
             # === NixOS ===

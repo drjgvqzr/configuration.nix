@@ -358,6 +358,7 @@ in {
             group = "users";
             key = "${nixos}/misc/secrets/key.pem";
             openDefaultPorts = true;
+            user = "soma";
             settings = {
                 devices = {
                     "Backup".id = secret "Backup_st-id";
@@ -397,7 +398,6 @@ in {
                     };
                 };
             };
-            user = "soma";
         };
         thermald.enable = true;
         xserver.xkb = {
@@ -601,6 +601,7 @@ in {
                     enable = true;
                     settings = {
                         colors-dark = {
+                            foreground = "ffffff";
                             background = "000000";
                             bright0 = "555555";
                             bright1 = "ff5555";
@@ -610,7 +611,6 @@ in {
                             bright5 = "ff55ff";
                             bright6 = "55ffff";
                             bright7 = "ffffff";
-                            foreground = "ffffff";
                             regular0 = "000000";
                             regular1 = "aa0000";
                             regular2 = "00aa00";
