@@ -229,6 +229,7 @@ in {
             du = "dust";
             cd = "z";
             grep = "rg -S";
+            cal = "cal -m";
             #ls = "ls -hNF --color";
             mv = "mv -vu";
             rm = "gtrash put";
