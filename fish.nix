@@ -9,7 +9,7 @@ in {
             fish_right_prompt = ''
                 set -l age (math "($(date +%s) - $(date -d (cat ~/dx/nixos/misc/secrets/birthdate) +%s)) / (80*365.2425*86400) * 100")
                 set_color brred
-                printf '%.5f%%' $age | string replace -r '0+%$' '%'
+                printf '%.3f%%' $age | string replace -r '0+%$' '%'
                 set_color brgreen
                 printf ' %s' (cat /tmp/webn 2>/dev/null)
                 set_color normal
@@ -288,8 +288,6 @@ in {
         };
         shellInit = ''
             #rem -n -b1 | sort -r | tail -n 3 | sed 's|^[0-9]\{4\}/||'
-            #echo -e "\033[31m$(date '+%m/%d %R %A') \033[91m$(echo "scale=5; ($(date +%s)-$(date -d"$(cat ${nixos}/misc/secrets/birthdate)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%\033[0m \033[92m$(cat /tmp/webn)\033[0m"
-            #echo -e "\033[31m$(date '+%m/%d %R %A') \033[91m$(echo "scale=5; ($(date +%s)-$(date -d"$(cat ${nixos}/misc/secrets/birthdate)" +%s))/(80*365.2425*86400)*100"|bc|sed 's/0*$//')%\033[0m \033[92m$(cat /tmp/webn)\033[0m"
             #remind ~/dx/Backups/remind/chores.rem | tail -n +2 | grep -v '^$'
 
             set fish_greeting
