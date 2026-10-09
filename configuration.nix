@@ -36,6 +36,7 @@ in {
             astroterm
             autotiling-rs
             backgroundremover
+            google-chrome
             bat
             bc
             catdocx
@@ -213,7 +214,7 @@ in {
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "02mrnlirg3jxqfgkv3jh8ar9hqiwhwqq9m7n5jv5hq40vjzq2s1d";
+                sha256 = "1vy9bsc0wgz9ccgghpv4vn0z077j486il9jhrld78llf9720xsbz";
             }
         }/nixos"
         ./fish.nix
@@ -235,7 +236,7 @@ in {
         };
     };
     nixpkgs.config = {
-        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "ouch"];
+        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "ouch" "google-chrome"];
         permittedInsecurePackages = ["olm-3.2.16" "googleearth-pro-7.3.7.1155" "electron-39.8.10"];
     };
     programs = {
@@ -423,6 +424,7 @@ in {
     systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
     time.timeZone = "Europe/Budapest";
     users.users.soma = {
+        extraGroups = ["wheel"];
         shell = pkgs.fish;
         isNormalUser = true;
     };
@@ -450,37 +452,6 @@ in {
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
                                     reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                };
-                                models = [
-                                    {
-                                        name = "deepseek-v4.1-flash";
-                                        system_prompt_prefix = secret "ai_sysprompt";
-                                    }
-                                    {
-                                        name = "qwen/qwen3-embedding-8b";
-                                        type = "embedding";
-                                    }
-                                    {
-                                        name = "cohere/rerank-4-pro";
-                                        type = "reranker";
-                                    }
-                                ];
-                            }
-                            {
-                                type = "openai-compatible";
-                                name = "thinking";
-                                api_base = "https://openrouter.ai/api/v1";
-                                api_key = secret "openrouter";
-                                patch.chat_completions.".*".body = {
-                                    provider = {
-                                        preferred_max_latency = 1.2;
-                                        preferred_min_throughput = 35;
-                                        #quantizations = ["fp8"];
-                                        sort = "price";
-                                        zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
-                                    };
-                                    reasoning.effort = "xhigh"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                    reasoning.exclude = true;
                                 };
                                 models = [
                                     {

@@ -155,6 +155,9 @@
                             microsoft.com * 3p-frame noop
                             microsoft.com * 3p-script noop
 
+                            cloud.microsoft * 3p-frame noop
+                            cloud.microsoft * 3p-script noop
+
                             hasznaltauto.hu * 3p-frame noop
                             hasznaltauto.hu * 3p-script noop
 
