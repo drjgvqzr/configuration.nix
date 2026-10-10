@@ -827,11 +827,9 @@ in {
                         embed-chapters = true;
                         embed-metadata = true;
                         embed-subs = true;
-                        embed-thumbnail = true;
                         format-sort = "res:1080";
                         no-warnings = true;
                         progress = true;
-                        sponsorblock-remove = "all";
                         sub-langs = "en";
                     };
                 };
