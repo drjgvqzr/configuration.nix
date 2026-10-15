@@ -33,6 +33,7 @@ in {
             alejandra
             android-tools
             any-nix-shell
+            appimage-run
             astroterm
             autotiling-rs
             backgroundremover
