@@ -828,7 +828,7 @@
                 "findbar.highlightAll" = true;
 
                 # === Privacy / Security ===
-                "privacy.resistFingerprinting.letterboxing" = true;
+                "privacy.resistFingerprinting.letterboxing" = false;
                 "privacy.clearOnShutdown.history" = false;
                 "privacy.userContext.enabled" = false;
                 "privacy.trackingprotection.allow_list.baseline.enabled" = true;
@@ -956,9 +956,6 @@
                 #navigator-toolbox{ flex-direction: column; display: flex; }
                 #titlebar{ order: 2 }
                 */
-                #main-window {
-                    filter: grayscale(1) !important;
-                }
             '';
         };
     };
