@@ -803,6 +803,7 @@
                 "font.name.serif.x-western" = "Roboto Mono";
                 "font.size.variable.x-western" = "18";
                 "browser.toolbars.bookmarks.visibility" = "never";
+                "browser.nova.enabled" = false;
 
                 # === Sidebar / Vertical Tabs ===
                 "browser.fullscreen.autohide" = false;
@@ -828,7 +829,7 @@
                 "findbar.highlightAll" = true;
 
                 # === Privacy / Security ===
-                "privacy.resistFingerprinting.letterboxing" = false;
+                "privacy.resistFingerprinting.letterboxing" = true;
                 "privacy.clearOnShutdown.history" = false;
                 "privacy.userContext.enabled" = false;
                 "privacy.trackingprotection.allow_list.baseline.enabled" = true;
