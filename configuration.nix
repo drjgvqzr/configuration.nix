@@ -456,7 +456,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "deepseek-v4.1-flash";
+                                        name = "deepseek-v4.1-flash-1017";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                     {
@@ -500,7 +500,7 @@ in {
                                 };
                                 models = [
                                     {
-                                        name = "deepseek-v4.1-flash";
+                                        name = "deepseek-v4.1-flash-1017";
                                         system_prompt_prefix = secret "ai_sysprompt";
                                     }
                                 ];
