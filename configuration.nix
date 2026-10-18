@@ -12,7 +12,10 @@ in {
         kernelParams = ["fbcon=rotate:1" "video=DSI-1:panel_orientation=right_side_up"];
         loader = {
             efi.canTouchEfiVariables = true;
-            systemd-boot.enable = true;
+            systemd-boot = {
+                enable = true;
+                graceful = true;
+            };
             timeout = 0;
         };
     };
@@ -483,7 +486,9 @@ in {
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
                                     #reasoning.effort = "none"; #"xhigh", "high", "medium", "low", "minimal" or "none"
-                                    reasoning.exclude = true;
+                                    reasoning = {
+                                        exclude = true;
+                                    };
                                     tools = [
                                         {
                                             type = "openrouter:web_search";

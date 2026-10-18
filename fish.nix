@@ -206,10 +206,12 @@ in {
 
             # === AI ===
             a = "aichat";
-            ai = "aichat --model internet:deepseek/deepseek-v4.1-flash";
-            at = "aichat --model thinking:deepseek/deepseek-v4.1-flash";
+            ai = "aichat --model internet";
             as = "aichat -s";
             wa = "wl-paste | aichat";
+            wai = "wl-paste | aichat --model internet";
+            waf = "wl-paste | aichat how to fix";
+            waif = "wl-paste | aichat --model internet how to fix";
             was = "wl-paste | aichat summarize";
             wae = "wl-paste | aichat explain";
             ae = "aichat explain";
