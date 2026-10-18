@@ -485,9 +485,18 @@ in {
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
-                                    reasoning = {
-                                        exclude = true;
-                                    };
+                                    reasoning.exclude = true;
+                                    tools = [
+                                        {
+                                            type = "openrouter:web_search";
+                                        }
+                                        {
+                                            type = "openrouter:datetime";
+                                        }
+                                        {
+                                            type = "openrouter:web_fetch";
+                                        }
+                                    ];
                                 };
                                 models = [
                                     {
