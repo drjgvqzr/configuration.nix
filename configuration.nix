@@ -451,7 +451,7 @@ in {
                                     provider = {
                                         preferred_max_latency = 1.2;
                                         preferred_min_throughput = 35;
-                                        #quantizations = ["fp8"];
+                                        quantizations = ["fp8"];
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
@@ -481,11 +481,10 @@ in {
                                     provider = {
                                         preferred_max_latency = 1.2;
                                         preferred_min_throughput = 35;
-                                        #quantizations = ["fp8"];
+                                        quantizations = ["fp8"];
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
                                     };
-                                    reasoning.exclude = true;
                                     tools = [
                                         {
                                             type = "openrouter:web_search";
