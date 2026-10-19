@@ -803,7 +803,7 @@ in {
                         inoremap <Right> <Nop>'';
                 };
                 newsboat = {
-                    enable = true;
+                    enable = false;
                     browser = "/etc/profiles/per-user/soma/bin/mpv";
                     extraConfig = ''
                         # === Color ===
