@@ -39,8 +39,6 @@ in {
             appimage-run
             astroterm
             autotiling-rs
-            backgroundremover
-            google-chrome
             bat
             bc
             catdocx
@@ -69,7 +67,6 @@ in {
             gcc
             gdu
             gh
-            ghc
             gnumake
             gomuks
             grc
@@ -102,7 +99,6 @@ in {
             ocrmypdf
             openai-whisper
             opencode
-            oterm
             ouch-rar
             pandoc
             parted
@@ -110,8 +106,6 @@ in {
             pciutils
             pdftk
             pipe-rename
-            piper-tts
-            pipe-viewer
             poppler-utils
             presenterm
             prismlauncher
@@ -125,16 +119,12 @@ in {
             ripgrep-all
             sd
             smartmontools
-            solitaire-tui
-            sox
             speedread
             speedtest-go
             stc-cli
             steamguard-cli
             stress
             sunwait
-            ticker
-            tickrs
             timer
             tlrc
             toipe
@@ -149,13 +139,12 @@ in {
             uutils-sed
             uutils-tar
             vulkan-tools
-            wget2
+            wget
             wikit
             wiki-tui
             woeusb
             xdg-utils
             zbar
-            zoxide
 
             #Wayland
             brightnessctl
@@ -240,7 +229,7 @@ in {
         };
     };
     nixpkgs.config = {
-        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "ouch" "google-chrome"];
+        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["googleearth-pro" "steam" "steam-unwrapped" "starsector" "ouch"];
         permittedInsecurePackages = ["olm-3.2.16" "googleearth-pro-7.3.7.1155" "electron-39.8.10"];
     };
     programs = {

@@ -136,33 +136,28 @@ in {
             cdn = "cd ~/dn";
             cdx = "cd ~/dx";
             cdc = "cd ${nixos}";
-            cdcm = "cd ${nixos}/misc";
-            cdcms = "cd ${nixos}/misc/secrets";
             cdm = "cd /mnt";
 
             # === File Ops ===
             catpdf = "pdftotext -";
             downscale = "mogrify -resize 50%";
             mkexec = "chmod +x";
-            mkd = "mkdir";
             selfdestruct = "doas cryptsetup luksErase /dev/nvme0n1p2";
 
             # === Editors / Viewers ===
             o = "handlr open";
             f = "fzf | xargs -I {} handlr open {} 2>/dev/null";
-            #z = "zathura";
+            z = "zathura";
             mc = "links -dump /run/current-system/sw/share/doc/nixos/options.html | nvim -R -";
             mh = "man home-configuration.nix";
 
             # === NixOS ===
             nrs = "rebuild";
             nrst = "tail -c +0 -f ~/dx/nixos/misc/.nixos-switch.log";
-            nrsu = "rebuildu";
             nconf = "vi ~/dx/nixos/configuration.nix";
             nconfl = "vi ~/dx/nixos/librewolf.nix";
             nconfs = "vi ~/dx/nixos/sway.nix";
             nconff = "vi ~/dx/nixos/fish.nix";
-            ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
             nsp = "nix-shell -p";
 
             # === System / Power ===
@@ -173,7 +168,6 @@ in {
             # === Network ===
             nt = "ping google.com";
             ipinfo = "curl -s ipinfo.io | jaq";
-            tra = "transmission-cli";
             wgu = "doas systemctl start wg-quick-wg0.service";
             wgd = "doas systemctl stop wg-quick-wg0.service";
             wgr = "doas systemctl restart wg-quick-wg0.service";
@@ -182,11 +176,6 @@ in {
             # === Finance ===
             eur = "qalc eur to huf";
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
-
-            # === Tasks / Calendar ===
-            vitodo = "vi ~/dx/Backups/todo/todo.txt";
-            rv = "vi ~/dx/Backups/remind/remind.rem";
-            rp = "vi ~/dx/Backups/remind/past.rem";
 
             # === Media / Video ===
             porn = "mpv --shuffle ~/px/basketweaving/gif";
@@ -237,61 +226,46 @@ in {
         };
         shellAliases = {
             # === Core File Commands ===
+
             ls = "eza -F --no-quotes --color-scale-mode=gradient --color-scale=all --group-directories-first --smart-group -o --no-permissions";
             du = "dust";
-            cd = "z";
             grep = "rg -S";
             cal = "cal -m";
-            #ls = "ls -hNF --color";
-            mv = "mv -vu";
+            mv = "mv -u";
             rm = "gtrash put";
             cat = "bat --pager less";
-            cp = "cp -rvp";
-            mkdir = "mkdir -pv";
-            head = "head -v";
-            wget = "wget2 -c --hsts-file=~/.cache/wget-hsts";
+            cp = "cp -rp";
+            mkdir = "mkdir -p";
+            wget = "wget -c --hsts-file=~/.cache/wget-hsts";
             ln = "ln -ivP";
             chown = "chown -Rv";
             chmod = "chmod -Rv";
             shred = "shred -uvf -n 1 --remove=wipe";
             jq = "jaq";
-            #zathura = "swallow zathura-sandbox";
             zathura = "zathura-sandbox";
             qalc = "qalc -c -s 'upxrates 1'";
-            trans = "echo ; /run/current-system/sw/bin/trans -b -j";
+            trans = "trans -b -j";
             newsboat = "newsboat -q -u ${nixos}/misc/newsboat";
             lsblk = "grc lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
-            gpg = "/run/current-system/sw/bin/gpg --pinentry-mode loopback";
+            gpg = "gpg --pinentry-mode loopback";
 
             # === Search / FZF ===
+
             fzf = "SHELL=bash FZF_DEFAULT_COMMAND=' fd --type f --type l --type d --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
             fzfa = "SHELL=bash FZF_DEFAULT_COMMAND=' fd --type f --type l --type d --hidden --strip-cwd-prefix' /run/current-system/sw/bin/fzf --preview 'fzf-preview {}' 2>/dev/null";
 
-            # === Tasks / Reminders ===
+            # === Trash ===
 
-            todo = "ttdl --todo-file ~/dx/Backups/todo/todo.txt --auto-hide-cols --always-hide-cols=created --no-headers";
-            rc = "rem -cumb1";
-            rc2 = "rem -cu2mb1";
-            rc3 = "rem -cu3mb1";
-
-            # === Recording ===
-            "rec" = "pactl set-source-volume @DEFAULT_SOURCE@ 50% ; /run/current-system/sw/bin/rec -c 1 ~/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
-            irec = "ffmpeg -ac 1 -f pulse -i record_sink.monitor ~/dx/Recordings/$(date \"+%Y-%m-%d %H.%M.%S\").ogg";
-
-            # === Misc ===
-            webn = ''curl -s https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' '';
-            life = "watch -t -n 1 -c 'echo \"\\033[91m$(echo \"scale=10; ($(date +%s)-$(date -d $(cat ${nixos}/misc/secrets/birthdate) +%s))/(80*365.2425*86400)*100\"|bc|sed \"s/0*$//\")%\"'";
-            wttr = "curl https://wttr.in/budapest?format=1;sunwait list 47.5N 19E";
-            speedtest = "speedtest-go -u decimal-bytes";
-            steamguard = "steamguard -v warn -m ${nixos}/misc/secrets/steamguard-cli";
             trash = "gtrash restore";
             trashinfo = "gtrash summary";
             trashempty = "gtrash prune --day 0";
+
+            # === Misc ===
+
+            speedtest = "speedtest-go -u decimal-bytes";
+            steamguard = "steamguard -v warn -m ${nixos}/misc/secrets/steamguard-cli";
         };
         shellInit = ''
-            #rem -n -b1 | sort -r | tail -n 3 | sed 's|^[0-9]\{4\}/||'
-            #remind ~/dx/Backups/remind/chores.rem | tail -n +2 | grep -v '^$'
-
             set fish_greeting
             fish_default_key_bindings
 
@@ -306,7 +280,6 @@ in {
             rm -d ~/Downloads 2> /dev/null
 
             any-nix-shell fish | source
-            zoxide init fish | source
         '';
     };
 }
