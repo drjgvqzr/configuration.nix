@@ -234,6 +234,11 @@ in {
     };
     programs = {
         bash.shellInit = "export HISTFILE=/tmp/bash_history";
+        captive-browser = {
+            enable = true;
+            dhcp-dns = "resolvectl dns wlan0 | cut -d' ' -f4";
+            interface = "wlan0";
+        };
         command-not-found.enable = true;
         dconf.enable = true;
         fish.enable = true;
