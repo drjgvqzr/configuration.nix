@@ -218,7 +218,7 @@ in {
     networking = {
         enableIPv6 = false;
         dhcpcd.enable = false;
-        nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+        nameservers = ["9.9.9.9#dns.quad9.net"];
         wg-quick.interfaces.wg0.configFile = "${nixos}/misc/secrets/wg.conf";
         wireless.iwd = {
             enable = true;
