@@ -303,6 +303,8 @@ in {
                 end
             end
 
+            rm -d ~/Downloads
+
             any-nix-shell fish | source
             zoxide init fish | source
         '';
