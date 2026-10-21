@@ -196,6 +196,7 @@ in {
             # === AI ===
             a = "aichat";
             ai = "aichat --model internet";
+            ais = "aichat --model internet -s";
             as = "aichat -s";
             wa = "wl-paste | aichat";
             wai = "wl-paste | aichat --model internet";
