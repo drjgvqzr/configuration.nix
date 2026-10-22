@@ -14,7 +14,7 @@ in {
                 "librewolf" = [{app_id = "librewolf";}];
             };
             bars = [];
-            bindswitches."lid:toggle".action = "exec swaylock -fFK -s fill -i ${nixos}/misc/wallpaper.jpg";
+            bindswitches."lid:toggle".action = "exec swaylock -fFK";
             colors = {
                 focused = {
                     background = "#aaaaaa";
@@ -90,7 +90,6 @@ in {
             modes = {};
             output = {
                 DSI-1 = {
-                    bg = "${nixos}/misc/wallpaper.jpg fill";
                     scale = "1.5";
                 };
             };
