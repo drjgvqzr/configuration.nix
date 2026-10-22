@@ -312,12 +312,6 @@ in {
                 encryption_passcommand = "cat ${nixos}/misc/secrets/borgmatic";
             };
         };
-        fcron = {
-            enable = true;
-            systab = ''
-                %hourly * curl -s "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=WEBN.DEX&apikey=7MDJ3EFDVAYP245U" | jaq -r '."Global Quote"."05. price"' | sed 's/\(.*\...\).*/\1€/' > /tmp/webn
-            '';
-        };
         getty = {
             autologinOnce = true;
             autologinUser = "soma";
