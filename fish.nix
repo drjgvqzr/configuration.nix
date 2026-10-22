@@ -112,8 +112,14 @@ in {
                 pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf
             '';
             sn = ''
-                iwctl station wlan0 scan
-                iwctl station wlan0 get-networks
+                doas iwctl station wlan0 scan
+                doas iwctl station wlan0 get-networks
+            '';
+            snw = ''
+                watch -n 3 -t '
+                    doas iwctl station wlan0 scan
+                    doas iwctl station wlan0 get-networks
+                '
             '';
 
             # === NixOS ===
@@ -165,6 +171,7 @@ in {
             wgd = "doas systemctl stop wg-quick-wg0.service";
             wgr = "doas systemctl restart wg-quick-wg0.service";
             nr = "doas systemctl restart iwd.service";
+            stc = "watch -n 1 -t stc";
 
             # === Finance ===
             eur = "qalc eur to huf";
