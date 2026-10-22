@@ -9,11 +9,7 @@ in {
             fish_right_prompt = ''
                 set -l age (math "($(date +%s) - $(date -d (cat ~/dx/nixos/misc/secrets/birthdate) +%s)) / (80*365.2425*86400) * 100")
                 set_color brred
-                printf '%.3f%%' $age | string replace -r '0+%$' '%'
-                set_color brgreen
-                printf ' %s' (cat /tmp/webn 2>/dev/null)
-                set_color normal
-                printf ' '
+                printf '%.2f%%' $age | string replace -r '0+%$' '%'
             '';
 
             # === Disk / USB ===
