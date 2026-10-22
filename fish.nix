@@ -16,9 +16,6 @@ in {
                 printf ' '
             '';
 
-            # === Links ===
-            pb = ''links "https://thepiratebay.party/search/$argv"'';
-
             # === Disk / USB ===
             isomount = ''doas mount $argv /mnt ; cd /mnt'';
             nformat = ''

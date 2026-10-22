@@ -129,7 +129,6 @@ in {
             tlrc
             toipe
             translate-shell
-            transmission_4-gtk
             ttdl
             unoconv
             uutils-coreutils-noprefix
@@ -687,7 +686,6 @@ in {
                         "\\" = "show-progress";
                         b = "script-binding sponsorblock_minimal/sponsorblock";
                         g = "script-message playlist-view-toggle";
-                        p = "script-binding webtorrent/toggle-info";
                     };
                     config = {
                         fullscreen = true;
@@ -705,7 +703,6 @@ in {
                     scriptOpts = {
                         sponsorblock_minimal.categories = "sponsor;selfpromo;interaction;intro;outro;preview;hook;music_offtopic;filler";
                         thumbfast.network = "yes";
-                        webtorrent.path = "~/tr/";
                     };
                     scripts = with pkgs.mpvScripts; [
                         mpris
@@ -713,7 +710,6 @@ in {
                         sponsorblock-minimal
                         thumbfast
                         uosc
-                        webtorrent-mpv-hook
                     ];
                 };
                 neovim = {
@@ -902,7 +898,6 @@ in {
                         "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "onlyoffice-desktopeditors.desktop";
                         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "onlyoffice-desktopeditors.desktop";
                         "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
-                        "application/x-bittorrent" = "transmission.desktop";
                         "application/xml" = "nvim.desktop";
                         "application/yaml" = "nvim.desktop";
                         "audio/aac" = "mpv.desktop";
