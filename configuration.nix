@@ -646,11 +646,6 @@ in {
                         "." = "frame-step";
                         "," = "frame-back-step";
 
-                        # === Playback Speed ===
-                        o = "multiply speed 1/1.1";
-                        "'" = "multiply speed 1.1";
-                        i = "set speed 1.0";
-
                         # === Pause & Fullscreen ===
                         SPACE = "cycle pause";
                         MBTN_LEFT_DBL = "cycle fullscreen";
