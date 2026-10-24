@@ -115,7 +115,7 @@ in {
                 doas iwctl station wlan0 get-networks
             '';
             snw = ''
-                watch -n 3 -t '
+                watch -n 5 -t -c '
                     doas iwctl station wlan0 scan
                     doas iwctl station wlan0 get-networks
                 '
