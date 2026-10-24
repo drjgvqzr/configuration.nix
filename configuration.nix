@@ -196,7 +196,7 @@ in {
             serif = ["Roboto Mono"];
         };
         fontDir.enable = true;
-        packages = with pkgs; [noto-fonts-color-emoji roboto-mono unifont];
+        packages = with pkgs; [noto-fonts-color-emoji roboto-mono googlesans-code google-fonts unifont];
     };
     hardware = {
         bluetooth.enable = true;
