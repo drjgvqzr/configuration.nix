@@ -54,7 +54,6 @@ in {
             fdupes
             ffmpeg
             figlet
-            fishPlugins.async-prompt
             fishPlugins.autopair
             fishPlugins.done
             fishPlugins.fishbang
