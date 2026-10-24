@@ -195,6 +195,7 @@ in {
             sansSerif = ["Roboto Mono"];
             serif = ["Roboto Mono"];
         };
+        fontDir.enable = true;
         packages = with pkgs; [noto-fonts-color-emoji roboto-mono unifont];
     };
     hardware = {
