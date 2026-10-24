@@ -37,13 +37,10 @@ in {
             android-tools
             any-nix-shell
             appimage-run
-            astroterm
             autotiling-rs
             bat
             bc
             catdocx
-            cointop
-            cook-cli
             dash
             dejsonlz4
             doxx
@@ -53,7 +50,6 @@ in {
             eza
             f3
             fastfetch
-            fbcat
             fd
             fdupes
             ffmpeg
@@ -63,44 +59,24 @@ in {
             fishPlugins.puffer
             fzf
             fzf-preview
-            gallery-dl
             gcc
             gdu
             gh
             gnumake
-            gomuks
             grc
-            groff
             gtrash
             handlr-regex
             heimdall
-            html2text
             hyperfine
-            iftop
             imagemagick
-            invoice
-            inxi
             iwqr
             jaq
-            keepass-diff
             libnotify
             libqalculate
-            libreoffice
-            links2
-            lm_sensors
-            lolcat
-            mailsy
-            mapscii
-            mdcat
             nautilus
-            nixos-anywhere
-            nix-search-tv
-            nushell
             ocrmypdf
-            openai-whisper
             opencode
             ouch-rar
-            pandoc
             parted
             pastel
             pciutils

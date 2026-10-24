@@ -110,21 +110,6 @@ in {
             pdfr = ''
                 pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf
             '';
-            sn = ''
-                doas iwctl station wlan0 scan
-                doas iwctl station wlan0 get-networks
-            '';
-            snw = ''
-                watch -n 5 -t -c '
-                    doas iwctl station wlan0 scan
-                    doas iwctl station wlan0 get-networks
-                '
-            '';
-
-            # === NixOS ===
-            rebuild = ''
-                ${nixos}/misc/rebuild.sh
-            '';
         };
         shellAbbrs = {
             # === Navigation ===
@@ -223,6 +208,7 @@ in {
             wq = "wl-paste | xargs -I {} qrrs {}";
             color = "pastel color";
             q = "qalc";
+            qrwifi = "doas iwqr show (doas iwqr list | fzf)";
         };
         shellAliases = {
             # === Core File Commands ===
@@ -264,6 +250,17 @@ in {
 
             speedtest = "speedtest-go -u decimal-bytes";
             steamguard = "steamguard -v warn -m ${nixos}/misc/secrets/steamguard-cli";
+            sn = ''
+                doas iwctl station wlan0 scan
+                doas iwctl station wlan0 get-networks
+            '';
+            snw = ''
+                watch -n 5 -t -c '
+                    doas iwctl station wlan0 scan
+                    doas iwctl station wlan0 get-networks
+                '
+            '';
+            rebuild = "${nixos}/misc/rebuild.sh";
         };
         shellInit = ''
             set fish_greeting
