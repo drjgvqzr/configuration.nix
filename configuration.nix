@@ -195,8 +195,7 @@ in {
             sansSerif = ["Roboto Mono"];
             serif = ["Roboto Mono"];
         };
-        fontDir.enable = true;
-        packages = with pkgs; [noto-fonts-color-emoji roboto-mono googlesans-code google-fonts unifont];
+        packages = with pkgs; [noto-fonts-color-emoji roboto-mono unifont];
     };
     hardware = {
         bluetooth.enable = true;
@@ -594,7 +593,7 @@ in {
                             search-start = "Control+slash";
                         };
                         main = {
-                            font = "Google Sans Code:size=14";
+                            font = "Roboto Mono:size=14";
                             pad = "5x0";
                             selection-target = "clipboard";
                         };
