@@ -94,8 +94,7 @@ in {
             ay = ''
                 yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub (wl-paste | sed 's|inv.nadeko.net|youtube.com|')
                 cat /tmp/sub.en.vtt |
-                sed -e '/-->/d' -e 's/<[^>]*>//g' -e 's/ / /g' |
-                grep -Ev '^(WEBVTT|Kind:|Language:)' |
+                sed -e '1,3d' -e '/-->/d' -e 's/<[^>]*>//g' -e 's/&nbsp;/ /g' |
                 awk 'NF' |
                 uniq |
                 tr '\n' ' ' |
