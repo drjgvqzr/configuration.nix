@@ -92,7 +92,7 @@ in {
                 "mod1+Shift+BackSpace" = " move scratchpad";
 
                 # === Media ===
-                "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sed 's|inv.nadeko.net|youtube.com|')";
+                "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sd inv.nadeko.net youtube.com)";
 
                 # === System ===
                 "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\"";
