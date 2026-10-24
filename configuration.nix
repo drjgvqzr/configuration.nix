@@ -59,6 +59,7 @@ in {
             fishPlugins.puffer
             fzf
             fzf-preview
+            gamescope #gamemoderun %command%
             gcc
             gdu
             gh
@@ -83,29 +84,21 @@ in {
             pdftk
             pipe-rename
             poppler-utils
-            presenterm
-            prismlauncher
-            procs
             pulsemixer
             python315
             qrrs
-            rclone
-            remind
             ripgrep
             ripgrep-all
             sd
             smartmontools
-            speedread
             speedtest-go
             stc-cli
             steamguard-cli
             stress
-            sunwait
             timer
             tlrc
             toipe
             translate-shell
-            ttdl
             unoconv
             uutils-coreutils-noprefix
             uutils-diffutils
@@ -113,10 +106,7 @@ in {
             uutils-login
             uutils-sed
             uutils-tar
-            vulkan-tools
             wget
-            wikit
-            wiki-tui
             woeusb
             xdg-utils
             zbar
@@ -137,31 +127,22 @@ in {
             wmenu
 
             #GUI
-            audacity
             bluejay
-            brave
             electron-mail
             firefox
             fluffychat
-            gamescope #gamemoderun %command%
-            gimp
             googleearth-pro
             iwgtk
-            kdePackages.kdenlive
             kdePackages.kolourpaint
             kdiskmark
             logseq
             lutris
             mullvad-browser
             onlyoffice-desktopeditors
-            pavucontrol
             qdirstat
-            rustdesk-flutter
             #starsector # TEITW-HP9ON-A7HMK-WA6YA
             tor-browser
             ungoogled-chromium
-            vesktop
-            zotero
         ];
     };
     fonts = {
