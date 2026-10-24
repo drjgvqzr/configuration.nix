@@ -92,7 +92,7 @@ in {
 
             # === Misc ===
             ay = ''
-                yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub (wl-paste | sed 's|inv.nadeko.net|youtube.com|')
+                yt-dlp --write-auto-sub -q --skip-download -o /tmp/sub (wl-paste | sed 's|inv.nadeko.net|youtube.com|')
                 cat /tmp/sub.en.vtt |
                 sed -e '1,3d' -e '/-->/d' -e 's/<[^>]*>//g' -e 's/&nbsp;/ /g' |
                 awk 'NF' |
