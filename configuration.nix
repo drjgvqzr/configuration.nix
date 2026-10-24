@@ -334,7 +334,6 @@ in {
             alsa.enable = true;
             pulse.enable = true;
         };
-        playerctld.enable = true;
         resolved = {
             enable = true;
             settings.Resolve = {
@@ -688,7 +687,6 @@ in {
                         thumbfast.network = "yes";
                     };
                     scripts = with pkgs.mpvScripts; [
-                        mpris
                         mpv-gallery-view
                         sponsorblock-minimal
                         thumbfast
@@ -775,25 +773,6 @@ in {
                         inoremap <Left> <Nop>
                         inoremap <Right> <Nop>'';
                 };
-                newsboat = {
-                    enable = false;
-                    browser = "/etc/profiles/per-user/soma/bin/mpv";
-                    extraConfig = ''
-                        # === Color ===
-                        color listfocus black white
-                        color listfocus_unread black white bold
-                        color title black black
-                        color info black black
-
-                        # === Filter ===
-                        ignore-mode "display"
-                        ignore-article "*" "title =~ \"#shorts\""
-                        ignore-article "*" "link =~ \"shorts\""
-
-                        # === Summary ===
-                        macro a set browser "yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub %u ; sed '1,4d; /^[0-9]\\{2\\}:/d; s/<[^>]*>//g; s/&gt;//g' /tmp/sub.en.vtt | awk 'NF' | uniq | tr '\n' ' ' | aichat Summarize the YouTube video. Do not mention filler. | less" ; open-in-browser ; set browser /etc/profiles/per-user/soma/bin/mpv
-                    '';
-                };
                 yt-dlp = {
                     enable = true;
                     settings = {
@@ -860,7 +839,6 @@ in {
                         layer = "overlay";
                     };
                 };
-                tldr-update.enable = true;
                 wl-clip-persist.enable = true;
                 wlsunset = {
                     enable = true;
