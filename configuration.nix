@@ -599,8 +599,8 @@ in {
                         };
                         scrollback.lines = 100000;
                         search-bindings = {
-                            find-prev = "Control+e";
-                            find-next = "Control+n";
+                            find-prev = "Control+Shift+e";
+                            find-next = "Control+Shift+n";
                         };
                     };
                 };
