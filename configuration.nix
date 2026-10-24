@@ -594,7 +594,7 @@ in {
                             search-start = "Control+slash";
                         };
                         main = {
-                            font = "Roboto Mono:size=14";
+                            font = "Google Sans Code:size=14";
                             pad = "5x0";
                             selection-target = "clipboard";
                         };
