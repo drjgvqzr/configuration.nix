@@ -14,7 +14,7 @@ in {
                 "librewolf" = [{app_id = "librewolf";}];
             };
             bars = [];
-            bindswitches."lid:toggle".action = "exec swaylock -fFK";
+            bindswitches."lid:toggle".action = "exec swaylock -fFKc 444444";
             colors = {
                 focused = {
                     background = "#aaaaaa";

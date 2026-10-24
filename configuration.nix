@@ -639,11 +639,7 @@ in {
                         PGDWN = "add chapter -1";
                         "." = "frame-step";
                         "," = "frame-back-step";
-
-                        # === Pause & Fullscreen ===
                         SPACE = "cycle pause";
-                        MBTN_LEFT_DBL = "cycle fullscreen";
-                        f = "cycle fullscreen";
 
                         # === Pan & Zoom & Rotate ===
                         a = "add video-pan-x  +0.1";
@@ -655,13 +651,11 @@ in {
                         c = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0";
                         R = "cycle_values video-rotate 90 180 270 0";
 
-                        # === Audio & Video Tracks ===
+                        # === Tracks ===
                         m = "cycle mute";
                         "+" = "cycle video";
                         _ = "cycle audio";
                         ")" = "cycle sub";
-
-                        # === Subtitles ===
                         "0" = "cycle sub-visibility";
                         "9" = "add sub-delay +0.1";
                         "8" = "add sub-delay -0.1";
