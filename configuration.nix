@@ -206,7 +206,7 @@ in {
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "1vy9bsc0wgz9ccgghpv4vn0z077j486il9jhrld78llf9720xsbz";
+                sha256 = "0z9ivs49j8n7r20kbyh86x59fl3izd90407djz678jfmwvp65pyp";
             }
         }/nixos"
         ./fish.nix
