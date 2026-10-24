@@ -92,14 +92,14 @@ in {
 
             # === Misc ===
             ay = ''
-                yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub $(wl-paste | sed 's|inv.nadeko.net|youtube.com|');
+                yt-dlp --write-auto-sub -q --no-warnings --skip-download -o /tmp/sub (wl-paste | sed 's|inv.nadeko.net|youtube.com|')
                 cat /tmp/sub.en.vtt |
-                sed -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\} -->/d' -e '/^[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\.[0-9]\{3\}/d' -e 's/<[^>]*>//g' |
+                sed -e '/-->/d' -e 's/<[^>]*>//g' -e 's/ / /g' |
+                grep -Ev '^(WEBVTT|Kind:|Language:)' |
                 awk 'NF' |
-                uniq -d |
-                sed 's/$/ /' |
-                tr -d '\n' |
-                aichat Summarize the YouTube video. Do not mention any promotions or sponsors.
+                uniq |
+                tr '\n' ' ' |
+                aichat "Summarize the YouTube video. Do not mention any promotions or sponsors."
             '';
             catbox = ''
                 curl -# -F files[]=@$argv https://uguu.se/upload?output=text |
