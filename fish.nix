@@ -161,14 +161,13 @@ in {
             huf = "curl crrcy.sh/last/EUR/HUF/30d";
 
             # === Media / Video ===
-            porn = "mpv --shuffle ~/px/basketweaving/gif";
             m = "mpv";
             p = "mpv *";
-            y = "pipe-viewer";
             yd = "yt-dlp";
             yda = "yt-dlp -x";
             ydp = "yt-dlp -o \"%(playlist_index)s - %(title)s.%(ext)s\"";
             ydap = "yt-dlp -x -o \"%(playlist_index)s - %(title)s.%(ext)s\"";
+            porn = "mpv --shuffle ~/px/basketweaving/gif";
 
             # === Translate ===
             t = "trans";
@@ -200,8 +199,6 @@ in {
             lS = "ls -l -s size --total-size";
             nf = "fastfetch";
             b = "btop";
-            nb = "newsboat";
-            nbv = "vi ~/dx/nixos/misc/newsboat";
             lb = "lsblk";
             qr = "qrrs";
             wq = "wl-paste | xargs -I {} qrrs {}";

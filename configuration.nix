@@ -42,8 +42,6 @@ in {
             bc
             catdocx
             dash
-            dejsonlz4
-            doxx
             dust
             exfatprogs
             exiftool
