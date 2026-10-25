@@ -29,7 +29,7 @@ in {
             GIT_PAGER = "less -R";
             GTK_CSD = "0";
             #MANPAGER = "nvim +Man!";
-            MANPAGER = "nvim -c \"set ft=man\" -";
+            MANPAGER = "nvim -c \"set ft=man noloadplugins\" -";
             PAGER = "nvim -R +AnsiEsc";
         };
         systemPackages = with pkgs; [
