@@ -130,7 +130,7 @@ in {
             o = "handlr open";
             f = "fzf | xargs -I {} handlr open {} 2>/dev/null";
             z = "zathura";
-            mc = "links -dump /run/current-system/sw/share/doc/nixos/options.html | nvim -R -";
+            mc = "man configuration.nix";
             mh = "man home-configuration.nix";
 
             # === NixOS ===
