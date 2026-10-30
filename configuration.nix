@@ -129,6 +129,7 @@ in {
             #GUI
             bluejay
             electron-mail
+            #deepseek-harness
             firefox
             fluffychat
             googleearth-pro
