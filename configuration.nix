@@ -28,8 +28,7 @@ in {
             DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             GIT_PAGER = "less -R";
             GTK_CSD = "0";
-            #MANPAGER = "nvim +Man!";
-            MANPAGER = "nvim -c \"set ft=man noloadplugins\" -";
+            MANPAGER = "nvim +Man!";
             PAGER = "nvim -R +AnsiEsc";
         };
         systemPackages = with pkgs; [
@@ -393,8 +392,8 @@ in {
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
                                     provider = {
-                                        preferred_max_latency = 1.2;
-                                        preferred_min_throughput = 35;
+                                        preferred_max_latency = 1.5;
+                                        preferred_min_throughput = 80;
                                         quantizations = ["fp8"];
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
@@ -423,8 +422,8 @@ in {
                                 api_key = secret "openrouter";
                                 patch.chat_completions.".*".body = {
                                     provider = {
-                                        preferred_max_latency = 1.2;
-                                        preferred_min_throughput = 35;
+                                        preferred_max_latency = 1.5;
+                                        preferred_min_throughput = 80;
                                         quantizations = ["fp8"];
                                         sort = "price";
                                         zdr = true; #https://openrouter.ai/docs/api/api-reference/chat/
