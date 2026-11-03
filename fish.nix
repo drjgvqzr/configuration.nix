@@ -136,6 +136,7 @@ in {
             # === NixOS ===
             nrs = "rebuild";
             nrst = "tail -c +0 -f ~/dx/nixos/misc/.nixos-switch.log";
+            nrstf = "cat ~/dx/nixos/misc/.nixos-switch.log | aichat how to fix";
             nconf = "vi ~/dx/nixos/configuration.nix";
             nconfl = "vi ~/dx/nixos/librewolf.nix";
             nconfs = "vi ~/dx/nixos/sway.nix";
@@ -177,13 +178,13 @@ in {
 
             # === AI ===
             a = "aichat";
-            ai = "aichat --model internet";
-            ais = "aichat --model internet -s";
+            ai = "aichat -m internet";
+            ais = "aichat -m internet -s";
             as = "aichat -s";
             wa = "wl-paste | aichat";
-            wai = "wl-paste | aichat --model internet";
+            wai = "wl-paste | aichat -m internet";
             waf = "wl-paste | aichat how to fix";
-            waif = "wl-paste | aichat --model internet how to fix";
+            waif = "wl-paste | aichat -m internet how to fix";
             was = "wl-paste | aichat summarize";
             wae = "wl-paste | aichat explain";
             ae = "aichat explain";

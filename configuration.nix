@@ -59,7 +59,7 @@ in {
             fishPlugins.puffer
             fzf
             fzf-preview
-            gamescope #gamemoderun %command%
+            gamescope
             gcc
             gdu
             gh
@@ -110,7 +110,6 @@ in {
             woeusb
             xdg-utils
             zbar
-
             #Wayland
             brightnessctl
             grim
@@ -125,11 +124,9 @@ in {
             wl-screenrec
             wl-clipboard-rs
             wmenu
-
             #GUI
             bluejay
             electron-mail
-            #deepseek-harness
             firefox
             fluffychat
             googleearth-pro
@@ -141,7 +138,6 @@ in {
             mullvad-browser
             onlyoffice-desktopeditors
             qdirstat
-            #starsector # TEITW-HP9ON-A7HMK-WA6YA
             tor-browser
             ungoogled-chromium
         ];
