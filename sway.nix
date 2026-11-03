@@ -9,7 +9,6 @@ in {
                 "KeePassXC" = [{app_id = "org.keepassxc.KeePassXC";}];
                 "Logseq" = [{app_id = "Logseq";}];
                 "ONLYOFFICE" = [{class = "ONLYOFFICE";}];
-                "electron-mail" = [{app_id = "electron-mail";}];
                 "fluffychat" = [{app_id = "fluffychat";}];
                 "librewolf" = [{app_id = "librewolf";}];
             };
@@ -104,7 +103,6 @@ in {
                 "mod1+o" = "exec swaymsg '[class=\"ONLYOFFICE\"] focus' || exec onlyoffice-desktopeditors ; exec swaymsg 'workspace ONLYOFFICE'";
                 "mod1+s" = "exec swaymsg '[app_id=\"fluffychat\"] focus' || exec fluffychat ; exec swaymsg 'workspace fluffychat'";
                 "mod1+w" = "exec swaymsg '[app_id=\"librewolf\"] focus' || exec librewolf ; exec swaymsg 'workspace librewolf'";
-                "mod1+t" = "exec swaymsg '[app_id=\"electron-mail\"] focus' || exec electron-mail ; exec swaymsg 'workspace electron-mail'";
 
                 # === Keepass / Credentials ===
                 "mod1+h" = ''exec foot -T password sh -c 'read -s -p "Enter password: " password ; entry=$( echo -e "$password\n" |  keepassxc-cli ls dx/Backups/Keepass/keepass.kdbx -q | fzf ) ; [[ -n "$entry" ]] && nohup librewolf --new-tab $( echo -e "$password\n" | keepassxc-cli show -q -a URL dx/Backups/Keepass/keepass.kdbx "$entry" ) &> /dev/null & echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a UserName | wl-copy ; watch -t "echo Username copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -a Password | wl-copy ; watch -t "echo Password copied" ; echo -e "$password\n" |  keepassxc-cli show dx/Backups/Keepass/keepass.kdbx "$entry" -q -t | wl-copy ; [[ -n "$(wl-paste)" ]] && watch -t "echo TOTP copied" ; wl-copy -c' '';
@@ -118,7 +116,6 @@ in {
             };
             startup = [
                 {command = "autotiling-rs";}
-                {command = "electron-mail";}
                 {command = "fluffychat";}
                 {command = "librewolf";}
                 {command = "logseq";}

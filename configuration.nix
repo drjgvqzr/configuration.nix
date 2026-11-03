@@ -126,7 +126,6 @@ in {
             wmenu
             #GUI
             bluejay
-            electron-mail
             firefox
             fluffychat
             googleearth-pro
