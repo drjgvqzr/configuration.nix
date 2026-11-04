@@ -367,7 +367,7 @@ in {
     systemd.sleep.settings.Sleep.HibernateDelaySec = "3h";
     time.timeZone = "Europe/Budapest";
     users.users.soma = {
-        extraGroups = ["wheel"];
+        extraGroups = ["input" "wheel"];
         shell = pkgs.fish;
         isNormalUser = true;
     };
