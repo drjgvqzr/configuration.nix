@@ -121,8 +121,9 @@ in {
             swaylock
             tesseract
             wev
-            wl-screenrec
+            wl-clicker
             wl-clipboard-rs
+            wl-screenrec
             wmenu
             #GUI
             bluejay
