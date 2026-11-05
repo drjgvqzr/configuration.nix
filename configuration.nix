@@ -121,6 +121,7 @@ in {
             swaylock
             tesseract
             wev
+            wf-recorder
             wl-clipboard-rs
             wl-screenrec
             wmenu

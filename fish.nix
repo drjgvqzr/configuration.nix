@@ -230,6 +230,7 @@ in {
             trans = "trans -b -j";
             newsboat = "newsboat -q -u ${nixos}/misc/newsboat";
             lsblk = "grc lsblk -n -o NAME,FSTYPE,SIZE,MOUNTPOINT";
+            wf-recorder = "wf-recorder --audio=alsa_output.pci-0000_00_1f.3.analog-stereo.monitor";
             gpg = "gpg --pinentry-mode loopback";
 
             # === Search / FZF ===
