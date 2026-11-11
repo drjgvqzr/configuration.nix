@@ -116,7 +116,7 @@ in {
             fetchmd = ''
                 set var (mktemp)
                 trafilatura -u "$argv[1]" -o "$var" --markdown  --with-metadata --links --images &&
-                mv "$var" ~/dx/Library/(cat "$var" | aichat pick a short descriptive filename)".md"
+                mv "$var" ~/dx/library/(cat "$var" | aichat pick a short descriptive filename)".md"
             '';
         };
         shellAbbrs = {
