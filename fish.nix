@@ -221,7 +221,7 @@ in {
             # === Core File Commands ===
 
             ls = "eza -F --no-quotes --color-scale-mode=gradient --color-scale=all --group-directories-first --smart-group -o --no-permissions";
-            new = "eza -1 -s modified $argv | tail -n 1";
+            new = "eza -1 --absolute=on -s modified $argv | tail -n 1";
             du = "dust";
             grep = "rg -S";
             cal = "cal -m";
