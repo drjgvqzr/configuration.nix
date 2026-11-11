@@ -220,11 +220,15 @@ in {
             enable = true;
             settings = {
                 battery = {
+                    energy_perf_bias = "power";
                     energy_performance_preference = "power";
+                    governor = "powersave";
                     turbo = "never";
                 };
                 charger = {
+                    energy_perf_bias = "balance_power";
                     energy_performance_preference = "balance_power";
+                    governor = "powersave";
                     turbo = "auto";
                 };
             };
