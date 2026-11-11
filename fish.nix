@@ -116,7 +116,7 @@ in {
             fetchmd = ''
                 set -q argv[1]; or set argv[1] (wl-paste)
                 set var (mktemp)
-                trafilatura -u "$argv[1]" -o "$var" --markdown  --with-metadata --links --images &&
+                trafilatura -u "$argv[1]" --markdown  --with-metadata --links --images > "$var" &&
                 mv "$var" ~/dx/library/(cat "$var" | awk -F': ' '/^---$/{n++; if(n==2) exit} /^author: / {a=$2} /^title: /{t=$2} END{print a" - "t}')".md"
             '';
         };
