@@ -119,6 +119,7 @@ in {
                 trafilatura -u "$argv[1]" --markdown  --with-metadata --links --images > "$var" &&
                 mv "$var" ~/dx/library/(awk -F': ' '/^---$/{n++; if(n==2) exit} /^author: / {a=$2} /^title: /{t=$2} END{print a" - "t}' "$var")".md"
             '';
+            new = "eza -1 --absolute=on -s modified $argv | tail -n 1";
         };
         shellAbbrs = {
             # === Navigation ===
@@ -221,7 +222,6 @@ in {
             # === Core File Commands ===
 
             ls = "eza -F --no-quotes --color-scale-mode=gradient --color-scale=all --group-directories-first --smart-group -o --no-permissions";
-            new = "eza -1 --absolute=on -s modified $argv | tail -n 1";
             du = "dust";
             grep = "rg -S";
             cal = "cal -m";
