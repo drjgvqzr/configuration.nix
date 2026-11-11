@@ -64,6 +64,7 @@ in {
             gdu
             gh
             gnumake
+            glow
             grc
             gtrash
             handlr-regex
@@ -85,6 +86,7 @@ in {
             pipe-rename
             poppler-utils
             pulsemixer
+            python314Packages.trafilatura
             python315
             qrrs
             ripgrep
