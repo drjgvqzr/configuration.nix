@@ -218,9 +218,7 @@ in {
     services = {
         auto-cpufreq = {
             enable = true;
-            settings = {
-                battery.turbo = "never";
-            };
+            settings.battery.turbo = "never";
         };
         borgmatic = {
             enable = true;
