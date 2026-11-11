@@ -113,6 +113,11 @@ in {
                 iwctl station wlan0 scan
                 iwctl station wlan0 get-networks
             '';
+            fetchmd = ''
+                set var (mktemp)
+                trafilatura -u "$argv[1]" -o "$var" --markdown  --with-metadata --links --images &&
+                mv "$var" ~/dx/Library/(cat "$var" | aichat pick a short descriptive filename)".md"
+            '';
         };
         shellAbbrs = {
             # === Navigation ===
