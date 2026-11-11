@@ -95,7 +95,7 @@ in {
 
                 # === System ===
                 #"mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\"";
-                "mod1+b" = "exec sh -c 'notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\" ; iwctl station wlan0 scan'";
+                "mod1+b" = "exec sh -c 'notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\" ; notify-send meme'";
                 "mod1+r" = "exec ${nixos}/misc/rebuild.sh";
 
                 # === Applications ===
