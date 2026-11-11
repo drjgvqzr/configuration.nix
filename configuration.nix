@@ -216,7 +216,12 @@ in {
         sudo.enable = false;
     };
     services = {
-        auto-cpufreq.enable = true;
+        auto-cpufreq = {
+            enable = true;
+            settings = {
+                battery.turbo = "never";
+            };
+        };
         borgmatic = {
             enable = true;
             configurations.local = {
