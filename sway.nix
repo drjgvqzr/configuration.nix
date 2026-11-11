@@ -94,7 +94,8 @@ in {
                 "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sd inv.nadeko.net youtube.com)";
 
                 # === System ===
-                "mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\"";
+                #"mod1+b" = "exec notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\"";
+                "mod1+b" = "exec sh -c 'notify-send \"$(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(date +%H:%M)\" ; iwctl station wlan0 scan'";
                 "mod1+r" = "exec ${nixos}/misc/rebuild.sh";
 
                 # === Applications ===

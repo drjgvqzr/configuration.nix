@@ -109,6 +109,10 @@ in {
             pdfr = ''
                 pdftk $argv[1] cat 1-end"$argv[2]" output "$argv[1]_$argv[2]".pdf
             '';
+            sn = ''
+                iwctl station wlan0 scan
+                iwctl station wlan0 get-networks
+            '';
         };
         shellAbbrs = {
             # === Navigation ===
@@ -248,16 +252,6 @@ in {
 
             speedtest = "speedtest-go -u decimal-bytes";
             steamguard = "steamguard -v warn -m ${nixos}/misc/secrets/steamguard-cli";
-            sn = ''
-                doas iwctl station wlan0 scan
-                doas iwctl station wlan0 get-networks
-            '';
-            snw = ''
-                watch -n 5 -t -c '
-                    doas iwctl station wlan0 scan
-                    doas iwctl station wlan0 get-networks
-                '
-            '';
             rebuild = "${nixos}/misc/rebuild.sh";
         };
         shellInit = ''
