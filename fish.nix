@@ -119,7 +119,7 @@ in {
                 string match -q 'http*' -- "$argv[1]"; and set flag -u
                 set var (mktemp)
                 trafilatura $flag "$argv[1]" --markdown --with-metadata --links --images > "$var" &&
-                mv "$var" ~/dx/library/(awk -F': ' '/^---$/{n++; if(n==2) exit} /^author: / {a=$2} /^title: /{t=$2}
+                mv "$var" ~/dx/library/(awk -F': ' '/^---$/{n++; if(n==2) exit} /^author: / {a=$2} /^title: /{t=$2} END{print a" - "t}' "$var")".md"
             '';
             new = "eza -1 --absolute=on --no-quotes -s modified $argv | tail -n 1";
         };
