@@ -86,6 +86,7 @@ in {
             pipe-rename
             poppler-utils
             pulsemixer
+            pwgen
             python314Packages.trafilatura
             python315
             qrrs

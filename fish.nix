@@ -122,6 +122,7 @@ in {
                 mv "$var" ~/dx/library/(awk -F': ' '/^---$/{n++; if(n==2) exit} /^author: / {a=$2} /^title: /{t=$2} END{print a" - "t}' "$var")".md"
             '';
             new = "eza -1 --absolute=on --no-quotes -s modified $argv | tail -n 1";
+            pwgen = "man pwgen | aichat -e generate a secure password according to following rules (wl-paste) | sh | wl-copy";
         };
         shellAbbrs = {
             # === Navigation ===
