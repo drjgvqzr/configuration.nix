@@ -122,6 +122,8 @@ in {
                 mv "$var" ~/dx/library/(awk -F': ' '/^---$/{n++; if(n==2) exit} /^author: / {a=$2} /^title: /{t=$2} END{print a" - "t}' "$var")".md"
             '';
             new = "eza -1 --absolute=on --no-quotes -s modified $argv | tail -n 1";
+            copy = "wl-copy";
+            paste = "wl-paste";
         };
         shellAbbrs = {
             # === Navigation ===
