@@ -71,6 +71,7 @@ in {
             heimdall
             hyperfine
             imagemagick
+            inxi
             iwqr
             jaq
             libnotify
