@@ -208,7 +208,6 @@ in {
             enable = true;
             extraRules = [
                 {
-                    keepEnv = true;
                     noPass = true;
                     users = ["soma"];
                 }
