@@ -25,7 +25,6 @@ in {
         pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
         sessionVariables = {
             BROWSER = "handlr open";
-            DOTREMINDERS = "$HOME/dx/Backups/remind/remind.rem";
             GIT_PAGER = "less -R";
             GTK_CSD = "0";
             MANPAGER = "nvim +Man!";
