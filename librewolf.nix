@@ -69,12 +69,6 @@
                                 redirectUrl = "https://inv.nadeko.net/$2";
                                 appliesTo = ["main_frame"];
                             }
-                            #{
-                            #    includePattern = "https://*reddit.com/*";
-                            #    excludePattern = "*old.reddit.com*|*preview.redd.it*|*reddit.com/media*|*reddit.com/gallery*";
-                            #    redirectUrl = "https://old.reddit.com/$2";
-                            #    appliesTo = ["main_frame"];
-                            #}
                             {
                                 includePattern = "https://x.com/*";
                                 redirectUrl = "https://xcancel.com/$1";
