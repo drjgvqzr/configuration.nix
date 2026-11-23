@@ -278,7 +278,7 @@ in {
                 end
             end
 
-            rm -d ~/Downloads 2> /dev/null || mv ~/Downloads/* ~/dn && rm -d ~/Downloads
+            rm -d ~/Downloads 2> /dev/null || mv ~/Downloads/* ~/dn 2> /dev/null && rm -d ~/Downloads
 
             any-nix-shell fish | source
         '';
