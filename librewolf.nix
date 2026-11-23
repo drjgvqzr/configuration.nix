@@ -186,6 +186,9 @@
                             ncore.pro * 3p-frame noop
                             ncore.pro * 3p-script noop
 
+                            magyarorszag.hu * 3p-frame noop
+                            magyarorszag.hu * 3p-script noop
+
                             office.net * 3p-script noop
 
                             openrouter.ai * 3p-frame noop
