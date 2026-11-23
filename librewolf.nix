@@ -189,11 +189,13 @@
                             magyarorszag.hu * 3p-frame noop
                             magyarorszag.hu * 3p-script noop
 
-                            kau.gov.hu * 3p-frame noop
-                            kau.gov.hu * 3p-script noop
+                            #kau.gov.hu * 3p-frame noop
+                            #kau.gov.hu * 3p-script noop
+                            gov.hu * 3p-frame noop
+                            gov.hu * 3p-script noop
 
-                            idp.gov.hu * 3p-frame noop
-                            idp.gov.hu * 3p-script noop
+                            #idp.gov.hu * 3p-frame noop
+                            #idp.gov.hu * 3p-script noop
 
                             office.net * 3p-script noop
 
