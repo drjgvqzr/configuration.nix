@@ -39,6 +39,7 @@ in {
             autotiling-rs
             bat
             bc
+            calibre
             catdocx
             dash
             dust
@@ -163,7 +164,7 @@ in {
         "${
             builtins.fetchTarball {
                 url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-                sha256 = "0y9xxavks8m1a0q50cn9zz5wjw3c3dcqklvv0b3qs9lfg02ijss7";
+                sha256 = "0x0dcasjli38yabl1dpq4ymg7ixv02hd825676irw5cir8z0r2jx";
             }
         }/nixos"
         ./fish.nix
