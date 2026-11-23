@@ -192,6 +192,9 @@
                             kau.gov.hu * 3p-frame noop
                             kau.gov.hu * 3p-script noop
 
+                            idp.gov.hu * 3p-frame noop
+                            idp.gov.hu * 3p-script noop
+
                             office.net * 3p-script noop
 
                             openrouter.ai * 3p-frame noop
