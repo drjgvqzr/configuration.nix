@@ -189,18 +189,14 @@
                             magyarorszag.hu * 3p-frame noop
                             magyarorszag.hu * 3p-script noop
 
-                            #kau.gov.hu * 3p-frame noop
-                            #kau.gov.hu * 3p-script noop
                             gov.hu * 3p-frame noop
                             gov.hu * 3p-script noop
-
-                            #idp.gov.hu * 3p-frame noop
-                            #idp.gov.hu * 3p-script noop
 
                             office.net * 3p-script noop
 
                             openrouter.ai * 3p-frame noop
                             openrouter.ai * 3p-script noop
+
                             frei.chat * 3p-frame noop
                             frei.chat * 3p-script noop
 
@@ -262,6 +258,7 @@
                             no-remote-fonts: duolingo.com false
                             no-remote-fonts: duckduckgo.com false
                             no-remote-fonts: magyarorszag.hu false
+                            no-remote-fonts: gov.hu false
                             no-remote-fonts: 127.0.0.1 false
                             no-remote-fonts: office.com false
                             no-remote-fonts: hasznaltauto.hu false
