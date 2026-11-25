@@ -94,8 +94,7 @@ in {
                 "mod1+p" = "exec mpv --force-window=immediate $(wl-paste | sd inv.nadeko.net youtube.com)";
 
                 # === System ===
-                #"mod1+b" = "exec sh -c 'iwctl station wlan0 scan ; notify-send \"$(date +%H:%M), $(cat /sys/class/power_supply/BAT0/capacity)%, $(cat /sys/class/power_supply/BAT0/status), $(curl  --max-time 0.8 wttr.in/Budapest?format=1 || echo Wifi Down)\"'";
-                "mod1+b" = "exec sh -c 'iwctl station wlan0 scan ; notify-send \"$(date +%H:%M), $( [ \"$(cat /sys/class/power_supply/BAT0/status)\" = Discharging ] && printf \"\\342\\206\\223\" || printf \"\\342\\206\\221\" )$(cat /sys/class/power_supply/BAT0/capacity)%, $(curl --max-time 0.8 wttr.in/Budapest?format=1 || echo Wifi Down)\"'";
+                "mod1+b" = "exec sh -c 'iwctl station wlan0 scan ; notify-send \"$(date +%H:%M), $( [ \"$(cat /sys/class/power_supply/BAT0/status)\" = Discharging ] && echo ↓ || echo ↑ )$(cat /sys/class/power_supply/BAT0/capacity)%, $(curl --max-time 0.8 wttr.in/Budapest?format=1 || echo Wifi Down)\"'";
                 "mod1+r" = "exec ${nixos}/misc/rebuild.sh";
 
                 # === Applications ===
