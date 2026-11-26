@@ -234,7 +234,7 @@ in {
             cat = "bat --pager less";
             cp = "cp -rp";
             mkdir = "mkdir -p";
-            wget = "wget -c --hsts-file=~/.cache/wget-hsts";
+            wget = "wget -c --hsts-file=~/.cache/wget-hsts -q --show-progress";
             ln = "ln -ivP";
             chown = "chown -Rv";
             chmod = "chmod -Rv";
